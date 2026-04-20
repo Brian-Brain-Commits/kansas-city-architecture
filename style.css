@@ -109,7 +109,7 @@ nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 3rem;
+  gap: 2rem;
   padding: 1rem 2rem;
 }
 
@@ -307,15 +307,15 @@ footer p {
 /* ── Homepage Skyline Hero ── */
 .skyline-hero {
   position: relative;
-  height: 420px;
+  height: 260px;
   overflow: hidden;
 }
 .skyline-hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 40%;
-  filter: sepia(15%) contrast(1.1) brightness(0.65);
+  object-position: center 55%;
+  filter: sepia(10%) contrast(1.1) brightness(0.7);
 }
 .skyline-overlay {
   position: absolute;
@@ -436,21 +436,39 @@ footer p {
 
 /* ── Plaza Page Spanish Decorations ── */
 .plaza-tile-strip {
-  height: 52px;
+  height: 80px;
   background:
-    repeating-conic-gradient(#1B4F8A 0% 25%, #F5EFD5 0% 50%) 0 0 / 26px 26px,
-    repeating-conic-gradient(#C1440E 0% 25%, #F5EFD5 0% 50%) 13px 13px / 26px 26px;
-  border-top: 2px solid rgba(201,168,76,0.35);
-  border-bottom: 2px solid rgba(201,168,76,0.35);
+    linear-gradient(#8B2500 1.5px, transparent 1.5px) 0 0 / 40px 40px,
+    linear-gradient(90deg, #8B2500 1.5px, transparent 1.5px) 0 0 / 40px 40px,
+    linear-gradient(45deg, transparent 37%, #E0CFA0 37%, #E0CFA0 63%, transparent 63%) 0 0 / 40px 40px,
+    linear-gradient(-45deg, transparent 37%, #E0CFA0 37%, #E0CFA0 63%, transparent 63%) 0 0 / 40px 40px,
+    #1B4F8A;
+  border-top: 5px solid #8B2500;
+  border-bottom: 5px solid #8B2500;
 }
 
 .plaza-ornament {
   text-align: center;
-  padding: 1.5rem 2rem;
-  color: #C1440E;
-  font-size: 1.1rem;
-  letter-spacing: 0.75rem;
-  background: var(--dark);
+  padding: 1rem 2rem;
+  color: #E0CFA0;
+  font-size: 0.9rem;
+  letter-spacing: 1.5rem;
+  background: #0D2040;
+  border-top: 2px solid rgba(139,37,0,0.6);
+  border-bottom: 2px solid rgba(139,37,0,0.6);
+}
+
+.plaza-tile-header {
+  height: 110px;
+  background:
+    linear-gradient(#8B2500 2px, transparent 2px) 0 0 / 55px 55px,
+    linear-gradient(90deg, #8B2500 2px, transparent 2px) 0 0 / 55px 55px,
+    linear-gradient(45deg, transparent 36%, #E0CFA0 36%, #E0CFA0 64%, transparent 64%) 0 0 / 55px 55px,
+    linear-gradient(-45deg, transparent 36%, #E0CFA0 36%, #E0CFA0 64%, transparent 64%) 0 0 / 55px 55px,
+    radial-gradient(circle at 50% 50%, #0A1E38 14%, transparent 14%) 0 0 / 55px 55px,
+    #1B4F8A;
+  border-top: 8px solid #C1440E;
+  border-bottom: 8px solid #C1440E;
 }
 
 .plaza-feature.terracotta-accent { border-left: 3px solid #C1440E; }
