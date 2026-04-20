@@ -210,9 +210,14 @@ p {
   transform: translateY(-3px);
 }
 
-.card-icon {
-  font-size: 2rem;
-  margin-bottom: 0.75rem;
+.card-photo {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  margin: -2rem -1.5rem 1.5rem;
+  width: calc(100% + 3rem);
+  filter: sepia(20%) contrast(1.05);
 }
 
 .card h3 {
