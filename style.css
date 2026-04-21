@@ -146,7 +146,7 @@ nav > ul > li > ul {
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  min-width: 185px;
+  min-width: 220px;
   background: #080604;
   border: 1px solid rgba(201,168,76,0.3);
   border-top: 2px solid var(--gold);
@@ -1034,16 +1034,22 @@ a.hub-card:hover .hub-card-img { filter: brightness(0.55) sepia(20%); }
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
-  padding: 0.45rem 1.2rem 0.1rem;
-  opacity: 0.7;
-  pointer-events: none;
-  cursor: default;
+  padding: 0.5rem 1.2rem 0.15rem 1.6rem;
+  opacity: 0.8;
   border-top: 1px solid rgba(201,168,76,0.15);
   margin-top: 0.15rem;
 }
 .nav-era-label:first-child {
   border-top: none;
   margin-top: 0;
+}
+.nav-era-label a {
+  color: var(--gold);
+  text-decoration: none;
+  display: block;
+}
+.nav-era-label a:hover {
+  color: var(--gold-light);
 }
 
 /* ── Credits Page ── */
