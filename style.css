@@ -358,14 +358,14 @@ footer p {
 /* ── Homepage Skyline Hero ── */
 .skyline-hero {
   position: relative;
-  height: 260px;
+  height: 340px;
   overflow: hidden;
 }
 .skyline-hero img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 55%;
+  object-position: center 35%;
   filter: sepia(10%) contrast(1.1) brightness(0.7);
 }
 .skyline-overlay {
