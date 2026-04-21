@@ -73,60 +73,47 @@
     </div>
   </div>
 
+  <div class="fountain-water-border" aria-hidden="true">
+    <svg viewBox="0 0 1440 56" preserveAspectRatio="xMidYMid slice" class="fountain-water-border-svg" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <!-- Primary S-wave: 64px period, oscillating y=16–40 -->
+        <pattern id="deco-wave-a" x="0" y="0" width="64" height="1" patternUnits="userSpaceOnUse">
+          <path d="M 0,28 Q 16,14 32,28 Q 48,42 64,28" fill="none" stroke="#C9A84C" stroke-width="1.2" opacity="0.6"/>
+        </pattern>
+        <!-- Secondary S-wave: same period, offset 32px, smaller amplitude -->
+        <pattern id="deco-wave-b" x="32" y="0" width="64" height="1" patternUnits="userSpaceOnUse">
+          <path d="M 0,32 Q 16,24 32,32 Q 48,40 64,32" fill="none" stroke="#C9A84C" stroke-width="0.65" opacity="0.28"/>
+        </pattern>
+        <!-- Fine ripple layer: 32px period, very subtle -->
+        <pattern id="deco-wave-c" x="16" y="0" width="32" height="1" patternUnits="userSpaceOnUse">
+          <path d="M 0,36 Q 8,30 16,36 Q 24,42 32,36" fill="none" stroke="#C9A84C" stroke-width="0.45" opacity="0.18"/>
+        </pattern>
+      </defs>
+
+      <rect width="1440" height="56" fill="#1A1610"/>
+
+      <!-- Top rule -->
+      <line x1="0" y1="5" x2="1440" y2="5" stroke="#C9A84C" stroke-width="0.8" opacity="0.42"/>
+
+      <!-- Three-layer wave field -->
+      <rect x="0" y="0" width="1440" height="56" fill="url(#deco-wave-a)"/>
+      <rect x="0" y="0" width="1440" height="56" fill="url(#deco-wave-b)"/>
+      <rect x="0" y="0" width="1440" height="56" fill="url(#deco-wave-c)"/>
+
+      <!-- Central diamond accent -->
+      <text x="720" y="31" dominant-baseline="middle" text-anchor="middle" fill="#E8C96A" font-size="10" font-family="serif" opacity="0.72">◆</text>
+
+      <!-- Bottom rule -->
+      <line x1="0" y1="51" x2="1440" y2="51" stroke="#C9A84C" stroke-width="0.8" opacity="0.42"/>
+    </svg>
+  </div>
+
   <main>
     <section class="section-fountains" id="fountains">
       <div class="container">
-        <div class="fountain-deco-header" aria-hidden="true">
-          <svg viewBox="0 0 420 52" class="fountain-deco-svg" xmlns="http://www.w3.org/2000/svg">
-
-            <!-- === LEFT STEP RULES === -->
-            <line x1="8"  y1="43" x2="82" y2="43" stroke="#C9A84C" stroke-width="1.0" opacity="0.55"/>
-            <line x1="18" y1="35" x2="82" y2="35" stroke="#C9A84C" stroke-width="0.7" opacity="0.38"/>
-            <line x1="30" y1="27" x2="82" y2="27" stroke="#C9A84C" stroke-width="0.5" opacity="0.22"/>
-            <line x1="82" y1="25" x2="82" y2="45" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
-            <text x="88" y="35" dominant-baseline="middle" text-anchor="middle" fill="#C9A84C" font-size="7" font-family="serif" opacity="0.72">◆</text>
-
-            <!-- === ART DECO SCALLOP WAVE FRIEZE === -->
-            <!-- Upper rule -->
-            <line x1="94" y1="21" x2="326" y2="21" stroke="#C9A84C" stroke-width="0.45" opacity="0.28"/>
-            <!-- Base rule -->
-            <line x1="94" y1="43" x2="326" y2="43" stroke="#C9A84C" stroke-width="0.9"  opacity="0.5"/>
-
-            <!-- 8 scallop arcs — width 29px each, x=94 to x=326, baseline y=43, peak y=23 -->
-            <path d="M  94,43 Q 108.5,23  123,43" fill="none" stroke="#C9A84C" stroke-width="1.25" opacity="0.72"/>
-            <path d="M 123,43 Q 137.5,23  152,43" fill="none" stroke="#C9A84C" stroke-width="1.25" opacity="0.72"/>
-            <path d="M 152,43 Q 166.5,23  181,43" fill="none" stroke="#C9A84C" stroke-width="1.25" opacity="0.72"/>
-            <path d="M 181,43 Q 195.5,23  210,43" fill="none" stroke="#C9A84C" stroke-width="1.25" opacity="0.72"/>
-            <path d="M 210,43 Q 224.5,23  239,43" fill="none" stroke="#C9A84C" stroke-width="1.25" opacity="0.72"/>
-            <path d="M 239,43 Q 253.5,23  268,43" fill="none" stroke="#C9A84C" stroke-width="1.25" opacity="0.72"/>
-            <path d="M 268,43 Q 282.5,23  297,43" fill="none" stroke="#C9A84C" stroke-width="1.25" opacity="0.72"/>
-            <path d="M 297,43 Q 311.5,23  326,43" fill="none" stroke="#C9A84C" stroke-width="1.25" opacity="0.72"/>
-
-            <!-- Gold accent dots at alternating arc peaks -->
-            <circle cx="108.5" cy="23" r="1.5" fill="#E8C96A" opacity="0.62"/>
-            <circle cx="166.5" cy="23" r="1.5" fill="#E8C96A" opacity="0.62"/>
-            <circle cx="224.5" cy="23" r="1.5" fill="#E8C96A" opacity="0.62"/>
-            <circle cx="282.5" cy="23" r="1.5" fill="#E8C96A" opacity="0.62"/>
-            <!-- Smaller dots at the in-between peaks for a layered rhythm -->
-            <circle cx="137.5" cy="23" r="1"   fill="#C9A84C" opacity="0.38"/>
-            <circle cx="195.5" cy="23" r="1"   fill="#C9A84C" opacity="0.38"/>
-            <circle cx="253.5" cy="23" r="1"   fill="#C9A84C" opacity="0.38"/>
-            <circle cx="311.5" cy="23" r="1"   fill="#C9A84C" opacity="0.38"/>
-            <!-- Central diamond above middle peak -->
-            <text x="210" y="15" dominant-baseline="middle" text-anchor="middle" fill="#C9A84C" font-size="6" font-family="serif" opacity="0.5">◆</text>
-
-            <!-- === RIGHT STEP RULES (mirrored) === -->
-            <text x="332" y="35" dominant-baseline="middle" text-anchor="middle" fill="#C9A84C" font-size="7" font-family="serif" opacity="0.72">◆</text>
-            <line x1="338" y1="25" x2="338" y2="45" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
-            <line x1="338" y1="43" x2="412" y2="43" stroke="#C9A84C" stroke-width="1.0" opacity="0.55"/>
-            <line x1="338" y1="35" x2="402" y2="35" stroke="#C9A84C" stroke-width="0.7" opacity="0.38"/>
-            <line x1="338" y1="27" x2="390" y2="27" stroke="#C9A84C" stroke-width="0.5" opacity="0.22"/>
-
-          </svg>
-        </div>
 
         <div class="fountain-stage" aria-hidden="true">
-          <svg class="fountain-svg" viewBox="0 0 500 290" xmlns="http://www.w3.org/2000/svg">
+          <svg class="fountain-svg" viewBox="0 0 500 302" xmlns="http://www.w3.org/2000/svg">
 
             <!-- === OUTER BASIN === -->
             <ellipse cx="250" cy="262" rx="185" ry="16" fill="rgba(201,168,76,0.06)"/>

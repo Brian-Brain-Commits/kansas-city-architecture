@@ -381,9 +381,9 @@ p {
   border-color: var(--gold-light);
 }
 
-/* ── Fountain Deco Header ── */
-.fountain-deco-header { display: flex; justify-content: center; margin-bottom: 0.5rem; }
-.fountain-deco-svg { width: 420px; max-width: 100%; height: auto; }
+/* ── Fountain Water Border ── */
+.fountain-water-border { width: 100%; line-height: 0; display: block; }
+.fountain-water-border-svg { width: 100%; height: 56px; display: block; }
 
 /* ── Fountain Animation ── */
 .fountain-stage {
