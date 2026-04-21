@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 </head>
 <body>
 
@@ -102,6 +103,16 @@
           Station, you'll want a car or rideshare.
         </p>
       </div>
+
+      <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+
+      <div class="visit-map-section">
+        <h2>Landmarks Map</h2>
+        <p class="visit-map-intro">Key sites across the city — click any marker for address and context.</p>
+        <div id="kc-map"></div>
+      </div>
+
+      <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
 
       <div class="detail-section">
         <h2>Downtown: The Art Deco Core</h2>
@@ -290,5 +301,39 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/OAjU=" crossorigin=""></script>
+  <script>
+    const map = L.map('kc-map', { scrollWheelZoom: false }).setView([39.075, -94.586], 13);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }).addTo(map);
+
+    const gold = { radius: 9, fillColor: '#C9A84C', color: '#E8C96A', weight: 2, opacity: 1, fillOpacity: 0.9 };
+    const muted = { radius: 7, fillColor: '#8C7E6A', color: '#C9A84C', weight: 1.5, opacity: 0.8, fillOpacity: 0.7 };
+
+    const landmarks = [
+      { lat: 39.1000, lng: -94.5786, name: 'KC Power &amp; Light Building', note: '1931 &bull; Art Deco &bull; 1330 Baltimore Ave', style: gold },
+      { lat: 39.1027, lng: -94.5802, name: 'Kansas City City Hall', note: '1937 &bull; Art Deco &bull; 414 E. 12th St', style: gold },
+      { lat: 39.1015, lng: -94.5815, name: 'Municipal Auditorium', note: '1935 &bull; PWA Moderne &bull; 301 W. 13th St', style: gold },
+      { lat: 39.0888, lng: -94.5843, name: 'Union Station', note: '1914 &bull; Beaux Arts &bull; 30 W. Pershing Rd', style: gold },
+      { lat: 39.0907, lng: -94.5835, name: 'Liberty Memorial &amp; WWI Museum', note: '1926 &bull; 2 Memorial Dr', style: gold },
+      { lat: 39.0511, lng: -94.5940, name: 'J.C. Nichols Memorial Fountain', note: 'Mill Creek Park &bull; 47th &amp; Main St', style: gold },
+      { lat: 39.0456, lng: -94.5953, name: 'Country Club Plaza', note: '1922 &bull; Spanish Colonial &bull; 47th &amp; Broadway', style: gold },
+      { lat: 39.0454, lng: -94.5781, name: 'Nelson-Atkins Museum of Art', note: 'Free &bull; 4525 Oak St', style: gold },
+      { lat: 39.0941, lng: -94.5628, name: '18th &amp; Vine Jazz District', note: 'American Jazz Museum &bull; Negro Leagues Baseball Museum', style: muted },
+      { lat: 39.0893, lng: -94.5784, name: 'Crossroads Arts District', note: 'First Friday gallery walk &bull; 18th &amp; Wyandotte area', style: muted },
+      { lat: 39.0475, lng: -94.5952, name: 'Giralda Tower', note: 'Seville-inspired &bull; 47th &amp; Jefferson St', style: muted },
+      { lat: 39.0423, lng: -94.5942, name: 'Meyer Circle Sea Horse Fountain', note: 'Ward Pkwy &amp; Meyer Blvd', style: muted },
+    ];
+
+    landmarks.forEach(lm => {
+      L.circleMarker([lm.lat, lm.lng], lm.style)
+        .bindPopup('<strong>' + lm.name + '</strong><br><span style="opacity:0.75;font-size:0.85em;">' + lm.note + '</span>')
+        .addTo(map);
+    });
+  </script>
 </body>
 </html>
