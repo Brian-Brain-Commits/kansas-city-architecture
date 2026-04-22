@@ -102,7 +102,7 @@ nav {
   border-bottom: 1px solid rgba(201,168,76,0.2);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 300;
 }
 
 nav > ul {
@@ -1967,8 +1967,11 @@ a:hover .nbhd-label { fill: #E8C96A; }
 
 .skyline-svg-container {
   width: 100%;
+  flex: 1;
+  min-height: 280px;
   overflow: hidden;
-  margin-top: auto;
+  display: flex;
+  align-items: flex-end;
 }
 
 .skyline-svg {
@@ -1989,6 +1992,8 @@ a:hover .nbhd-label { fill: #E8C96A; }
 }
 
 .skyline-svg g[data-building] .building-shape {
+  fill: rgba(201,168,76,0.09);
+  stroke: rgba(201,168,76,0.7);
   transition: fill 0.3s ease, stroke 0.3s ease, stroke-width 0.2s ease;
 }
 
