@@ -1967,16 +1967,16 @@ a:hover .nbhd-label { fill: #E8C96A; }
 
 .skyline-svg-container {
   width: 100%;
-  flex: 1;
-  min-height: 280px;
+  height: 42vh;
+  min-height: 240px;
+  max-height: 520px;
   overflow: hidden;
-  display: flex;
-  align-items: flex-end;
+  margin-top: auto;
 }
 
 .skyline-svg {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
 }
 
