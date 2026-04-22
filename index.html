@@ -101,25 +101,25 @@
   </nav>
 
   <section class="skyline-hero">
+    <div class="skyline-hero-backdrop" aria-hidden="true">
+      <div class="tod-layer tod-dawn"></div>
+      <div class="tod-layer tod-day"></div>
+      <div class="tod-layer tod-dusk"></div>
+      <div class="tod-layer tod-night"></div>
+    </div>
     <div class="skyline-hero-overlay">
-      <span class="eyebrow">Kansas City, Missouri</span>
       <div class="homepage-title">
         <svg class="title-ornament title-ornament-left" viewBox="0 0 120 80" aria-hidden="true">
-          <!-- Stepped pyramidal base with radiating sunburst -->
           <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <!-- Stepped pyramid, 4 levels, right-aligned -->
             <path d="M 120 78 L 44 78 L 44 66 L 62 66 L 62 54 L 78 54 L 78 42 L 94 42 L 94 30 L 120 30"/>
-            <!-- Radiating sunburst lines at the apex -->
             <line x1="94" y1="30" x2="74" y2="4"/>
             <line x1="94" y1="30" x2="84" y2="0"/>
             <line x1="94" y1="30" x2="96" y2="-2"/>
             <line x1="94" y1="30" x2="108" y2="2"/>
             <line x1="94" y1="30" x2="118" y2="14"/>
-            <!-- Small diamond accents at step corners -->
             <polygon points="44,66 47,63 50,66 47,69" fill="currentColor" stroke="none"/>
             <polygon points="62,54 65,51 68,54 65,57" fill="currentColor" stroke="none"/>
             <polygon points="78,42 81,39 84,42 81,45" fill="currentColor" stroke="none"/>
-            <!-- Baseline rule -->
             <line x1="0" y1="78" x2="120" y2="78" stroke-width="1"/>
           </g>
         </svg>
@@ -127,7 +127,6 @@
         <h1 class="homepage-title-text">Look Up,<br /><span>Kansas City</span></h1>
 
         <svg class="title-ornament title-ornament-right" viewBox="0 0 120 80" aria-hidden="true">
-          <!-- Mirror of the left ornament -->
           <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" transform="translate(120,0) scale(-1,1)">
             <path d="M 120 78 L 44 78 L 44 66 L 62 66 L 62 54 L 78 54 L 78 42 L 94 42 L 94 30 L 120 30"/>
             <line x1="94" y1="30" x2="74" y2="4"/>
@@ -143,16 +142,7 @@
         </svg>
       </div>
       <p class="homepage-tagline">How Kansas City got built, and what it built means.</p>
-      <p class="skyline-hero-hint">Hover the skyline to explore</p>
-      <p style="margin-top:1.5rem;"><a href="start-here.html" style="display:inline-block; padding:0.6rem 1.4rem; border:1px solid var(--gold); color:var(--gold); font-family:'Josefin Sans',sans-serif; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none;">New Here? Start Here ◆</a></p>
     </div>
-    <fieldset class="skyline-controls" role="radiogroup" aria-label="Skyline time of day">
-      <legend class="visually-hidden">Time of Day</legend>
-      <input type="radio" id="tod-dawn" name="tod"><label for="tod-dawn">Dawn</label>
-      <input type="radio" id="tod-day" name="tod" checked><label for="tod-day">Day</label>
-      <input type="radio" id="tod-dusk" name="tod"><label for="tod-dusk">Dusk</label>
-      <input type="radio" id="tod-night" name="tod"><label for="tod-night">Night</label>
-    </fieldset>
 
     <div class="skyline-svg-container">
       <svg class="skyline-svg" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax meet" role="img" aria-labelledby="skyline-title skyline-desc" xmlns="http://www.w3.org/2000/svg">
@@ -228,6 +218,12 @@
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
             <!-- Urn/flame crown (decorative, always visible at low opacity) -->
             <circle cx="90" cy="408" r="4" fill="rgba(232,201,106,0.35)" stroke="#C9A84C" stroke-width="0.75"/>
+            <!-- Night: animated flame flicker -->
+            <g class="building-night-lights" aria-hidden="true">
+              <circle cx="90" cy="408" r="8" fill="rgba(255,180,90,0.18)"/>
+              <circle cx="90" cy="406" r="4" fill="#FFB060" class="flame-flicker"/>
+              <circle cx="90" cy="405" r="2" fill="#FFE8B0" class="flame-flicker"/>
+            </g>
             <text class="building-label" x="90" y="376" text-anchor="middle">
               <tspan x="90" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">LIBERTY MEMORIAL</tspan>
               <tspan x="90" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1926</tspan>
@@ -247,6 +243,17 @@
             <line x1="195" y1="525" x2="195" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
             <line x1="285" y1="525" x2="285" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
             <line x1="300" y1="525" x2="300" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <!-- Night: warm window glow along the Beaux Arts facade -->
+            <g class="building-night-lights" aria-hidden="true">
+              <rect x="183" y="534" width="5" height="7" fill="#F5D98A"/>
+              <rect x="198" y="534" width="5" height="7" fill="#F5D98A"/>
+              <rect x="213" y="534" width="5" height="7" fill="#E8C96A"/>
+              <rect x="228" y="534" width="5" height="7" fill="#F5D98A"/>
+              <rect x="243" y="534" width="5" height="7" fill="#E8C96A"/>
+              <rect x="258" y="534" width="5" height="7" fill="#F5D98A"/>
+              <rect x="273" y="534" width="5" height="7" fill="#E8C96A"/>
+              <rect x="288" y="534" width="5" height="7" fill="#F5D98A"/>
+            </g>
             <text class="building-label" x="237" y="462" text-anchor="middle">
               <tspan x="237" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">UNION STATION</tspan>
               <tspan x="237" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1914</tspan>
@@ -269,6 +276,15 @@
             <line x1="390" y1="495" x2="390" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
             <line x1="435" y1="495" x2="435" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
             <line x1="460" y1="495" x2="460" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <!-- Night: cream edge glow along the shell curves -->
+            <g class="building-night-lights" aria-hidden="true">
+              <path d="M 340,450 C 340,400 358,377 382,370 C 404,377 410,400 410,450" fill="none" stroke="#F5EFE0" stroke-width="1.8" opacity="0.75"/>
+              <path d="M 415,440 C 415,385 435,362 452,356 C 469,362 478,385 478,440" fill="none" stroke="#F5EFE0" stroke-width="1.8" opacity="0.75"/>
+              <rect x="358" y="540" width="4" height="6" fill="#F5D98A"/>
+              <rect x="388" y="540" width="4" height="6" fill="#F5D98A"/>
+              <rect x="433" y="540" width="4" height="6" fill="#F5D98A"/>
+              <rect x="458" y="540" width="4" height="6" fill="#F5D98A"/>
+            </g>
             <text class="building-label" x="410" y="336" text-anchor="middle">
               <tspan x="410" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">KAUFFMAN CENTER</tspan>
               <tspan x="410" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">2011</tspan>
@@ -301,6 +317,17 @@
             <circle cx="544" cy="363" r="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
             <circle cx="574" cy="366" r="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
             <circle cx="602" cy="364" r="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
+            <!-- Night: the four Sky Station spheres illuminated -->
+            <g class="building-night-lights" aria-hidden="true">
+              <circle cx="516" cy="365" r="9" fill="rgba(245,217,138,0.25)"/>
+              <circle cx="516" cy="365" r="4.5" fill="#F5D98A"/>
+              <circle cx="544" cy="363" r="9" fill="rgba(245,217,138,0.25)"/>
+              <circle cx="544" cy="363" r="4.5" fill="#F5D98A"/>
+              <circle cx="574" cy="366" r="9" fill="rgba(245,217,138,0.25)"/>
+              <circle cx="574" cy="366" r="4.5" fill="#F5D98A"/>
+              <circle cx="602" cy="364" r="9" fill="rgba(245,217,138,0.25)"/>
+              <circle cx="602" cy="364" r="4.5" fill="#F5D98A"/>
+            </g>
             <text class="building-label" x="559" y="336" text-anchor="middle">
               <tspan x="559" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">BARTLE HALL</tspan>
               <tspan x="559" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1976 / 1994</tspan>
@@ -375,6 +402,20 @@
             <line x1="1178" y1="190" x2="1178" y2="555" stroke="rgba(201,168,76,0.25)" stroke-width="0.4"/>
             <line x1="1200" y1="190" x2="1200" y2="555" stroke="rgba(201,168,76,0.25)" stroke-width="0.4"/>
             <line x1="1222" y1="190" x2="1222" y2="555" stroke="rgba(201,168,76,0.25)" stroke-width="0.4"/>
+            <!-- Night: scattered window lights across the tower face -->
+            <g class="building-night-lights" aria-hidden="true">
+              <rect x="1170" y="220" width="3" height="4" fill="#F5D98A"/>
+              <rect x="1186" y="260" width="3" height="4" fill="#F5D98A"/>
+              <rect x="1210" y="240" width="3" height="4" fill="#E8C96A"/>
+              <rect x="1225" y="290" width="3" height="4" fill="#F5D98A"/>
+              <rect x="1188" y="340" width="3" height="4" fill="#E8C96A"/>
+              <rect x="1215" y="370" width="3" height="4" fill="#F5D98A"/>
+              <rect x="1172" y="400" width="3" height="4" fill="#F5D98A"/>
+              <rect x="1200" y="430" width="3" height="4" fill="#E8C96A"/>
+              <rect x="1226" y="460" width="3" height="4" fill="#F5D98A"/>
+              <rect x="1184" y="500" width="3" height="4" fill="#F5D98A"/>
+              <rect x="1212" y="520" width="3" height="4" fill="#E8C96A"/>
+            </g>
             <text class="building-label" x="1200" y="138" text-anchor="middle">
               <tspan x="1200" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">ONE KC PLACE</tspan>
               <tspan x="1200" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#E8C96A">1988 &bull; 624 FT</tspan>
@@ -403,6 +444,12 @@
               fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="1.5"/>
             <!-- Pyramid crown detail -->
             <polygon points="1404,282 1415,258 1426,282" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="1"/>
+            <!-- Night: illuminated pyramid crown glow -->
+            <g class="building-night-lights" aria-hidden="true">
+              <circle cx="1415" cy="258" r="7" fill="rgba(245,217,138,0.35)"/>
+              <circle cx="1415" cy="258" r="3" fill="#F5EFE0"/>
+              <polygon points="1404,282 1415,258 1426,282" fill="rgba(245,217,138,0.4)"/>
+            </g>
             <text class="building-label" x="1415" y="235" text-anchor="middle">
               <tspan x="1415" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">CITY HALL</tspan>
               <tspan x="1415" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1937 &bull; 443 FT</tspan>
@@ -447,6 +494,35 @@
         <rect x="0" y="561" width="1600" height="39" fill="#0A0805"/>
 
       </svg>
+    </div>
+
+    <div class="tod-timer" aria-hidden="true">
+      <div class="tod-timer-track">
+        <div class="tod-timer-indicator">
+          <svg class="tod-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4.2" fill="#E8C96A"/>
+            <g stroke="#E8C96A" stroke-width="1.4" stroke-linecap="round">
+              <line x1="12" y1="1.5" x2="12" y2="5"/>
+              <line x1="12" y1="19" x2="12" y2="22.5"/>
+              <line x1="1.5" y1="12" x2="5" y2="12"/>
+              <line x1="19" y1="12" x2="22.5" y2="12"/>
+              <line x1="4.5" y1="4.5" x2="6.9" y2="6.9"/>
+              <line x1="17.1" y1="17.1" x2="19.5" y2="19.5"/>
+              <line x1="19.5" y1="4.5" x2="17.1" y2="6.9"/>
+              <line x1="6.9" y1="17.1" x2="4.5" y2="19.5"/>
+            </g>
+          </svg>
+          <svg class="tod-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M17.5 14.5 A 7 7 0 1 1 9.5 6.5 A 5 5 0 0 0 17.5 14.5 Z" fill="#F5EFE0"/>
+          </svg>
+        </div>
+      </div>
+      <div class="tod-timer-labels">
+        <span>Dawn</span>
+        <span>Day</span>
+        <span>Dusk</span>
+        <span>Night</span>
+      </div>
     </div>
   </section>
 
