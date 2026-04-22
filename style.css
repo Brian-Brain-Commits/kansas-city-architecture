@@ -1506,24 +1506,30 @@ div.hub-card:hover .hub-card-img img { filter: brightness(0.7) sepia(10%); }
   transition: border-color 0.25s;
   text-decoration: none;
   display: block;
+  color: var(--cream);
+  min-height: 380px;
 }
 .featured-card:hover { border-color: var(--gold); }
 .featured-card-img {
   width: 100%;
-  height: clamp(260px, 38vw, 420px);
+  height: 100%;
+  min-height: 380px;
   object-fit: cover;
-  filter: brightness(0.42) sepia(25%);
+  filter: brightness(0.35) sepia(20%);
   display: block;
+  position: absolute;
+  inset: 0;
   transition: filter 0.3s;
 }
-.featured-card:hover .featured-card-img { filter: brightness(0.55) sepia(15%); }
+.featured-card:hover .featured-card-img { filter: brightness(0.48) sepia(10%); }
 .featured-card-body {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 2rem 2.5rem 2.25rem;
-  background: linear-gradient(transparent 0%, rgba(10,8,5,0.88) 40%);
+  background: linear-gradient(transparent 0%, rgba(10,8,5,0.92) 35%);
+  z-index: 1;
 }
 .featured-card-eyebrow {
   font-family: 'Josefin Sans', sans-serif;
@@ -1898,4 +1904,673 @@ a:hover .nbhd-label { fill: #E8C96A; }
   content: '◆';
   color: rgba(201,168,76,0.4);
   flex-shrink: 0;
+}
+
+/* ── Skyline Hero ────────────────────────────────────── */
+.skyline-hero {
+  background: linear-gradient(180deg, #0A0805 0%, #1A1610 100%);
+  padding: 4rem 0 0;
+  min-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.skyline-hero-overlay {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.skyline-hero-overlay .eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.45em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+
+.skyline-hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  color: var(--cream);
+  line-height: 0.95;
+  margin: 1rem 0;
+  font-weight: 400;
+}
+
+.skyline-hero h1 span {
+  color: var(--gold);
+}
+
+.skyline-hero-sub {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 1.6vw, 1.3rem);
+  line-height: 1.55;
+  color: var(--cream);
+  max-width: 640px;
+  margin: 1.25rem auto 0;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.skyline-hero-hint {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  margin-top: 1.75rem;
+}
+
+.skyline-svg-container {
+  width: 100%;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.skyline-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.skyline-svg g[data-building] {
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.3s ease;
+}
+
+.skyline-svg g[data-building]:hover,
+.skyline-svg g[data-building]:focus-within {
+  opacity: 1;
+}
+
+.skyline-svg g[data-building] .building-shape {
+  transition: fill 0.3s ease, stroke 0.3s ease, stroke-width 0.2s ease;
+}
+
+.skyline-svg g[data-building]:hover .building-shape,
+.skyline-svg g[data-building]:focus-within .building-shape {
+  fill: rgba(232,201,106,0.13);
+  stroke: #E8C96A;
+  stroke-width: 2;
+}
+
+.skyline-svg g[data-building] .building-label {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.skyline-svg g[data-building]:hover .building-label,
+.skyline-svg g[data-building]:focus-within .building-label {
+  opacity: 1;
+}
+
+/* Spotlight: dim other buildings when one is hovered — uses :has() (Chrome 105+, Firefox 121+, Safari 15.4+) */
+.skyline-svg:has(g[data-building]:hover) g[data-building]:not(:hover) {
+  opacity: 0.18;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skyline-svg g[data-building],
+  .skyline-svg g[data-building] .building-shape,
+  .skyline-svg g[data-building] .building-label {
+    transition: none;
+  }
+}
+
+/* ── Building Profile / Elevation Drawing ─────────── */
+.building-profile {
+  background: rgba(10,8,5,0.6);
+  border: 1px solid rgba(201,168,76,0.15);
+  padding: 2rem 2rem 1.5rem;
+  margin: 0 0 3rem;
+}
+
+.building-profile-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.75rem;
+  text-align: center;
+}
+
+.building-profile-svg {
+  width: 100%;
+  max-width: 580px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.building-profile-caption {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.78rem;
+  color: var(--warm-grey);
+  text-align: center;
+  margin-top: 1.25rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ── Scroll-Driven Animations (Track 3) ──────────────
+   Uses animation-timeline: view() — Chrome 115+, Firefox 121+, Safari 17.4+
+   @supports wrapper ensures graceful fallback on older browsers.
+   prefers-reduced-motion block at end disables all.
+   ─────────────────────────────────────────────────── */
+
+/* 3A: Rising crown — hero h1 animates in as user arrives on skyscraper pages */
+@supports (animation-timeline: scroll()) {
+  .detail-hero h1 {
+    animation: rise-and-brighten linear both;
+    animation-timeline: scroll();
+    animation-range: 0 80vh;
+  }
+
+  @keyframes rise-and-brighten {
+    from {
+      transform: translateY(30px);
+      opacity: 0.65;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+
+/* 3B: Fading names — Lost Kansas City headings fade in/out as they pass through viewport */
+@supports (animation-timeline: view()) {
+  .lost-building-name {
+    animation: fade-lost-name linear both;
+    animation-timeline: view();
+    animation-range: entry 0% exit 80%;
+  }
+
+  @keyframes fade-lost-name {
+    0%   { opacity: 0; transform: translateY(24px); }
+    25%  { opacity: 1; transform: translateY(0); }
+    75%  { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0.35; transform: translateY(-8px); }
+  }
+}
+
+/* 3C: Section reveal — prose sections fade in as they scroll into view */
+@supports (animation-timeline: view()) {
+  .detail-section {
+    animation: section-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 22%;
+  }
+
+  @keyframes section-reveal {
+    from {
+      opacity: 0.25;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* 3D: Parallax hero — CSS background-attachment for pages that use bg-image heroes */
+@media (hover: hover) {
+  .parallax-hero {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+/* Reduced motion: disable all scroll animations */
+@media (prefers-reduced-motion: reduce) {
+  .detail-hero h1,
+  .lost-building-name,
+  .detail-section {
+    animation: none !important;
+  }
+}
+
+/* ── Flood Line (Track 4B) ───────────────────────── */
+.flood-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-top: 1px dashed rgba(201,168,76,0.5);
+  border-bottom: 1px dashed rgba(201,168,76,0.5);
+  color: var(--warm-grey);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 3rem 0;
+}
+
+.flood-line-year {
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+}
+
+/* ── Art Deco Ornament (Track 4E) ───────────────── */
+.deco-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 2.5rem 0 1.5rem;
+}
+
+.deco-ornament::before,
+.deco-ornament::after {
+  content: '';
+  flex: 1;
+  max-width: 200px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.deco-ornament::after {
+  background: linear-gradient(to left, transparent, var(--gold), transparent);
+}
+
+.deco-ornament-center {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 4px;
+}
+
+/* ── Boulevard Network SVG wrapper (Track 4C) ─── */
+.boulevard-map {
+  margin: 3rem 0;
+  padding: 0;
+}
+
+.boulevard-map-svg {
+  width: 100%;
+  max-width: 640px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* ── Troost Line SVG wrapper (Track 4A) ──────── */
+.troost-map {
+  margin: 3rem 0;
+}
+
+.troost-map-svg {
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.troost-map-caption {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.78rem;
+  color: var(--warm-grey);
+  text-align: center;
+  margin-top: 1rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* ── Fountain Count Grid (Track 4D) ─────────── */
+.fountain-count-wrap {
+  margin: 3rem 0;
+  text-align: center;
+}
+
+.fountain-count-pullquote {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--cream);
+  font-style: italic;
+  max-width: 560px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.fountain-count-grid {
+  display: grid;
+  grid-template-columns: repeat(20, 1fr);
+  gap: 5px;
+  max-width: 560px;
+  margin: 0 auto 1rem;
+}
+
+.fountain-count-grid .diamond {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--gold);
+  opacity: 0.2;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.fountain-count-grid .diamond.has-page {
+  background: var(--gold-light);
+  opacity: 1;
+  cursor: default;
+  title: attr(data-name);
+}
+
+.fountain-count-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  margin-top: 0.5rem;
+}
+
+.fountain-count-legend {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+}
+
+.fountain-count-legend span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-diamond {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+/* ── Before / After Component (Track 5) ──────── */
+.before-after {
+  margin: 3rem 0;
+}
+
+.before-after-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.before-after-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+
+.before-after-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--cream);
+  margin: 0 0 0.25rem;
+}
+
+.before-after-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  background: rgba(201,168,76,0.2);
+}
+
+.before-after-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.before-after-panel img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+  filter: grayscale(0.2);
+  transition: filter 0.3s ease;
+}
+
+.before-after-panel:hover img {
+  filter: grayscale(0);
+}
+
+.before-after-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid currentColor;
+}
+
+.before-after-badge.then {
+  color: var(--cream);
+  background: rgba(10,8,5,0.7);
+  border-color: rgba(245,239,224,0.4);
+}
+
+.before-after-badge.now {
+  color: var(--gold);
+  background: rgba(10,8,5,0.7);
+  border-color: rgba(201,168,76,0.5);
+}
+
+.before-after-panel-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.6rem 0.8rem;
+  background: linear-gradient(to top, rgba(10,8,5,0.85) 0%, transparent 100%);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  color: rgba(245,239,224,0.85);
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.before-after-caption {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.78rem;
+  color: var(--warm-grey);
+  text-align: center;
+  margin-top: 0.75rem;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .before-after-panels {
+    grid-template-columns: 1fr;
+  }
+  .before-after-panel img {
+    aspect-ratio: 4/3;
+  }
+}
+
+/* ── Start Here Page (Track 7) ───────────────── */
+.start-track {
+  margin: 0 0 3rem;
+}
+
+.start-track-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.start-track-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  color: rgba(201,168,76,0.25);
+  line-height: 1;
+  min-width: 2rem;
+  padding-top: 0.2rem;
+}
+
+.start-track-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: var(--cream);
+  margin: 0 0 0.35rem;
+}
+
+.start-track-sub {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.82rem;
+  color: var(--warm-grey);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.start-track-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid rgba(201,168,76,0.12);
+}
+
+.start-track-item {
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+}
+
+.start-track-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1rem 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.2s ease;
+}
+
+.start-track-link:hover {
+  background: rgba(201,168,76,0.04);
+}
+
+.start-track-item-num {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  color: rgba(201,168,76,0.5);
+  letter-spacing: 0.15em;
+  min-width: 1.4rem;
+  padding-top: 0.25rem;
+}
+
+.start-track-item-title {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+  transition: color 0.2s ease;
+}
+
+.start-track-link:hover .start-track-item-title {
+  color: var(--gold-light);
+}
+
+.start-track-item-desc {
+  display: block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--warm-grey);
+  line-height: 1.5;
+  letter-spacing: 0.03em;
+}
+
+/* ── Reading / Bibliography Page (Track 8) ───── */
+.reading-section {
+  margin: 0 0 3rem;
+}
+
+.reading-section-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+}
+
+.reading-entry {
+  margin-bottom: 2rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(201,168,76,0.07);
+}
+
+.reading-entry:last-child {
+  border-bottom: none;
+}
+
+.reading-meta {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+  margin-bottom: 0.3rem;
+}
+
+.reading-author {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.78rem;
+  color: var(--warm-grey);
+  letter-spacing: 0.06em;
+}
+
+.reading-year {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  color: rgba(140,126,106,0.6);
+  letter-spacing: 0.1em;
+}
+
+.reading-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--cream);
+  margin: 0 0 0.5rem;
+  font-weight: 400;
+}
+
+.reading-desc {
+  font-size: 0.88rem;
+  color: rgba(245,239,224,0.7);
+  line-height: 1.7;
+  margin: 0 0 0.5rem;
+}
+
+.reading-tag {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  color: rgba(201,168,76,0.5);
+  text-transform: uppercase;
 }
