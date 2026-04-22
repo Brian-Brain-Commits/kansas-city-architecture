@@ -2130,10 +2130,12 @@ a:hover .nbhd-label { fill: #E8C96A; }
   100% { opacity: 0; }
 }
 
-/* Make sure overlay + svg stack above the backdrop layers */
+/* Make sure overlay + svg + all UI elements stack above the backdrop layers */
 .skyline-hero-overlay,
 .skyline-svg-container,
-.tod-timer {
+.phase-legend,
+.skyline-ghost-toggle,
+.skyline-ghost-caption {
   position: relative;
   z-index: 1;
 }
@@ -2196,25 +2198,32 @@ a:hover .nbhd-label { fill: #E8C96A; }
    Path goes from off-screen left (x=-60, y=560) up through the
    sky apex (x=800, y=-120) down to off-screen right (x=1660, y=560).
    Sun arcs during the first half of the cycle (Dawn + Day),
-   Moon arcs during the second half (Dusk + Night). */
+   Moon arcs during the second half (Dusk + Night).
+   offset-path applied to the group wrapper so all sub-elements move together. */
 .celestial-sun,
-.celestial-sun-core,
 .celestial-moon {
   offset-path: path("M -60,560 Q 800,-120 1660,560");
   offset-distance: 0%;
   offset-rotate: 0deg;
   transform-box: fill-box;
+  filter: drop-shadow(0 0 10px rgba(232,201,106,0.5));
 }
-.celestial-sun,
-.celestial-sun-core {
+.celestial-sun {
   animation: sun-arc 28s linear infinite;
 }
 .celestial-moon {
   animation: moon-arc 28s linear infinite;
+  filter: drop-shadow(0 0 8px rgba(245,239,224,0.35));
 }
-.celestial-sun-core {
-  /* Core pulses gently to suggest radiance */
-  filter: drop-shadow(0 0 6px rgba(232,201,106,0.6));
+/* Subtle slow rotation on the sun's ray group, so the Art Deco ornament feels alive */
+.celestial-sun-rays {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sun-rays-rotate 80s linear infinite;
+}
+@keyframes sun-rays-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 @keyframes sun-arc {
@@ -2387,10 +2396,10 @@ body:has(#ghost-toggle:checked) .skyline-ghosts .ghost-building:hover .ghost-lab
   align-items: center;
   gap: 0.8rem;
   flex-wrap: wrap;
-  margin: 0.75rem auto 0.25rem;
+  margin: 1rem auto 0;
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.28em;
+  font-size: 0.65rem;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
 }
 .phase-sep {
@@ -2460,7 +2469,7 @@ body:has(#ghost-toggle:checked) .skyline-ghosts .ghost-building:hover .ghost-lab
   .building-night-lights,
   .flame-flicker,
   .celestial-sun,
-  .celestial-sun-core,
+  .celestial-sun-rays,
   .celestial-moon,
   .sky-stars .star,
   .river-body,
@@ -2475,8 +2484,7 @@ body:has(#ghost-toggle:checked) .skyline-ghosts .ghost-building:hover .ghost-lab
     fill: rgba(201,168,76,0.09);
     stroke: rgba(201,168,76,0.9);
   }
-  .celestial-sun,
-  .celestial-sun-core { offset-distance: 50%; opacity: 1; }
+  .celestial-sun { offset-distance: 50%; opacity: 1; }
   .celestial-moon { opacity: 0; }
   .sky-stars .star { opacity: 0; }
   .building-crown-light,
@@ -4215,16 +4223,16 @@ body:has(#view-now:checked) .district-map-caption .caption-now { display: inline
 }
 
 .homepage-tagline {
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: clamp(0.95rem, 1.3vw, 1.15rem);
+  font-family: 'Poiret One', 'Playfair Display', serif;
+  font-size: clamp(1rem, 1.5vw, 1.35rem);
   color: var(--cream);
   text-align: center;
-  max-width: 640px;
+  max-width: 680px;
   margin: 0.5rem auto 0.75rem;
-  line-height: 1.45;
-  letter-spacing: 0.01em;
-  opacity: 0.9;
+  line-height: 1.5;
+  letter-spacing: 0.12em;
+  opacity: 0.95;
+  font-weight: 400;
 }
 
 /* ── Nav dropdown divider (v9 Reading dropdown) ─────────── */

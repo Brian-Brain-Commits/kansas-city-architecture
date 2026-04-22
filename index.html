@@ -9,8 +9,8 @@
   <title>Look Up, Kansas City — Architecture &amp; History</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=10" />
+  <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Poiret+One&family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=11" />
   <meta property="og:title" content="Look Up, Kansas City — Architecture &amp; History" />
   <meta property="og:description" content="A literary guide to Kansas City's architecture, history, and public spaces — built for curious visitors and lifelong residents alike." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/f/f3/Downtown_Kansas_City_from_Liberty_Memorial_Full.jpg" />
@@ -109,39 +109,59 @@
     </div>
     <div class="skyline-hero-overlay">
       <div class="homepage-title">
-        <svg class="title-ornament title-ornament-left" viewBox="0 0 120 80" aria-hidden="true">
-          <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
-            <path d="M 120 78 L 44 78 L 44 66 L 62 66 L 62 54 L 78 54 L 78 42 L 94 42 L 94 30 L 120 30"/>
-            <line x1="94" y1="30" x2="74" y2="4"/>
-            <line x1="94" y1="30" x2="84" y2="0"/>
-            <line x1="94" y1="30" x2="96" y2="-2"/>
-            <line x1="94" y1="30" x2="108" y2="2"/>
-            <line x1="94" y1="30" x2="118" y2="14"/>
-            <polygon points="44,66 47,63 50,66 47,69" fill="currentColor" stroke="none"/>
-            <polygon points="62,54 65,51 68,54 65,57" fill="currentColor" stroke="none"/>
-            <polygon points="78,42 81,39 84,42 81,45" fill="currentColor" stroke="none"/>
-            <line x1="0" y1="78" x2="120" y2="78" stroke-width="1"/>
+        <!-- Left ornament: half-sun bursting outward to the LEFT, with the flat edge toward the title -->
+        <svg class="title-ornament title-ornament-left" viewBox="0 0 140 100" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-linecap="round">
+            <!-- Half-disc (right half of a circle) — the flat edge is on the right, facing the title -->
+            <path d="M 140,50 A 22,22 0 0 0 140,49.9" stroke-width="0"/>
+            <path d="M 140,28 A 22,22 0 0 0 140,72" fill="rgba(201,168,76,0.18)" stroke="currentColor" stroke-width="1.4"/>
+            <!-- Long radiating rays fanning to the left -->
+            <line x1="118" y1="50" x2="2"  y2="50"  stroke-width="1.6"/>
+            <line x1="116" y1="38" x2="10" y2="10"  stroke-width="1.2"/>
+            <line x1="116" y1="62" x2="10" y2="90"  stroke-width="1.2"/>
+            <line x1="120" y1="30" x2="32" y2="0"   stroke-width="1"/>
+            <line x1="120" y1="70" x2="32" y2="100" stroke-width="1"/>
+            <line x1="114" y1="44" x2="6"  y2="28"  stroke-width="0.9"/>
+            <line x1="114" y1="56" x2="6"  y2="72"  stroke-width="0.9"/>
+            <!-- Small diamond accent at outer tip -->
+            <polygon points="2,48 5,50 2,52 -1,50" fill="currentColor" stroke="none"/>
+            <!-- Small notches on the half-disc flat edge (facing title) -->
+            <line x1="140" y1="36" x2="136" y2="36" stroke-width="1" opacity="0.7"/>
+            <line x1="140" y1="50" x2="134" y2="50" stroke-width="1.2"/>
+            <line x1="140" y1="64" x2="136" y2="64" stroke-width="1" opacity="0.7"/>
           </g>
         </svg>
 
         <h1 class="homepage-title-text">Look Up,<br /><span>Kansas City</span></h1>
 
-        <svg class="title-ornament title-ornament-right" viewBox="0 0 120 80" aria-hidden="true">
-          <g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" transform="translate(120,0) scale(-1,1)">
-            <path d="M 120 78 L 44 78 L 44 66 L 62 66 L 62 54 L 78 54 L 78 42 L 94 42 L 94 30 L 120 30"/>
-            <line x1="94" y1="30" x2="74" y2="4"/>
-            <line x1="94" y1="30" x2="84" y2="0"/>
-            <line x1="94" y1="30" x2="96" y2="-2"/>
-            <line x1="94" y1="30" x2="108" y2="2"/>
-            <line x1="94" y1="30" x2="118" y2="14"/>
-            <polygon points="44,66 47,63 50,66 47,69" fill="currentColor" stroke="none"/>
-            <polygon points="62,54 65,51 68,54 65,57" fill="currentColor" stroke="none"/>
-            <polygon points="78,42 81,39 84,42 81,45" fill="currentColor" stroke="none"/>
-            <line x1="0" y1="78" x2="120" y2="78" stroke-width="1"/>
+        <!-- Right ornament: mirror — half-sun bursting outward to the RIGHT -->
+        <svg class="title-ornament title-ornament-right" viewBox="0 0 140 100" aria-hidden="true">
+          <g fill="none" stroke="currentColor" stroke-linecap="round" transform="translate(140,0) scale(-1,1)">
+            <path d="M 140,28 A 22,22 0 0 0 140,72" fill="rgba(201,168,76,0.18)" stroke="currentColor" stroke-width="1.4"/>
+            <line x1="118" y1="50" x2="2"  y2="50"  stroke-width="1.6"/>
+            <line x1="116" y1="38" x2="10" y2="10"  stroke-width="1.2"/>
+            <line x1="116" y1="62" x2="10" y2="90"  stroke-width="1.2"/>
+            <line x1="120" y1="30" x2="32" y2="0"   stroke-width="1"/>
+            <line x1="120" y1="70" x2="32" y2="100" stroke-width="1"/>
+            <line x1="114" y1="44" x2="6"  y2="28"  stroke-width="0.9"/>
+            <line x1="114" y1="56" x2="6"  y2="72"  stroke-width="0.9"/>
+            <polygon points="2,48 5,50 2,52 -1,50" fill="currentColor" stroke="none"/>
+            <line x1="140" y1="36" x2="136" y2="36" stroke-width="1" opacity="0.7"/>
+            <line x1="140" y1="50" x2="134" y2="50" stroke-width="1.2"/>
+            <line x1="140" y1="64" x2="136" y2="64" stroke-width="1" opacity="0.7"/>
           </g>
         </svg>
       </div>
       <p class="homepage-tagline">How Kansas City got built, and what it built means.</p>
+      <div class="phase-legend" aria-hidden="true">
+        <span class="phase-label phase-dawn">Dawn</span>
+        <span class="phase-sep">·</span>
+        <span class="phase-label phase-day">Day</span>
+        <span class="phase-sep">·</span>
+        <span class="phase-label phase-dusk">Dusk</span>
+        <span class="phase-sep">·</span>
+        <span class="phase-label phase-night">Night</span>
+      </div>
     </div>
 
     <div class="skyline-svg-container">
@@ -213,10 +233,37 @@
           <circle class="star" style="--tw-delay: 1.5s"  cx="1480" cy="32" r="1.0" fill="#F5EFE0"/>
         </g>
 
-        <!-- v10 Track 3A: Celestial arc — sun and moon follow the same path across the sky -->
+        <!-- v10 Track 3A (revised): Celestial arc — Art Deco sun with radiating rays, and a stylized moon.
+             Each celestial body is wrapped in a <g> that gets offset-path via CSS so all sub-elements move together. -->
         <g class="celestial-arc" aria-hidden="true">
-          <circle class="celestial-sun" r="22" fill="url(#sun-gradient)"/>
-          <circle class="celestial-sun-core" r="11" fill="#FFE8A0"/>
+          <!-- The Sun: a central disc with 12 Art Deco radiating rays. -->
+          <g class="celestial-sun">
+            <!-- Outer glow ring -->
+            <circle r="19" fill="rgba(255,232,160,0.18)"/>
+            <!-- 12 radiating rays — long points + short points alternating for an Art Deco cadence -->
+            <g class="celestial-sun-rays">
+              <!-- 4 long rays (cardinal) -->
+              <polygon points="0,-28 -2.5,-12 2.5,-12" fill="#E8C96A"/>
+              <polygon points="0,28  -2.5, 12 2.5, 12" fill="#E8C96A"/>
+              <polygon points="-28,0 -12,-2.5 -12, 2.5" fill="#E8C96A"/>
+              <polygon points=" 28,0  12,-2.5  12, 2.5" fill="#E8C96A"/>
+              <!-- 4 medium diagonal rays -->
+              <polygon points="-20,-20 -11,-7 -7,-11" fill="#D9B860" opacity="0.9"/>
+              <polygon points=" 20,-20  11,-7  7,-11" fill="#D9B860" opacity="0.9"/>
+              <polygon points="-20, 20 -11, 7 -7, 11" fill="#D9B860" opacity="0.9"/>
+              <polygon points=" 20, 20  11, 7  7, 11" fill="#D9B860" opacity="0.9"/>
+              <!-- 4 short in-between rays -->
+              <polygon points="-11,-22 -4,-10 -7,-11" fill="#C9A84C" opacity="0.75"/>
+              <polygon points=" 11,-22  4,-10  7,-11" fill="#C9A84C" opacity="0.75"/>
+              <polygon points="-11, 22 -4, 10 -7, 11" fill="#C9A84C" opacity="0.75"/>
+              <polygon points=" 11, 22  4, 10  7, 11" fill="#C9A84C" opacity="0.75"/>
+            </g>
+            <!-- Central disc — single clear sun body -->
+            <circle r="10" fill="#FFE8A0"/>
+            <circle r="6" fill="#FFF2C8"/>
+          </g>
+
+          <!-- The Moon: a crescent-hinted pale disc with subtle craters. -->
           <g class="celestial-moon">
             <circle r="13" fill="#F5EFE0"/>
             <circle r="13" fill="#1A1610" cx="6" cy="-3" style="opacity: 0.22"/>
@@ -225,37 +272,8 @@
           </g>
         </g>
 
-        <!-- v10 Track 2: Rivers of the confluence — the Kaw (left) and Missouri (right) -->
-        <g class="skyline-rivers" aria-hidden="true">
-          <!-- The Kansas River (the Kaw) — enters from the left, curves up behind Liberty Memorial -->
-          <g data-river="kansas">
-            <a href="history/founding.html" aria-label="The Kansas River — click for The Founding">
-              <title>The Kansas River (the Kaw) — click for The Founding</title>
-              <path class="river-body river-body-kaw"
-                d="M 0,470 Q 60,452 95,440 Q 130,432 150,425 L 168,424 Q 145,440 120,450 Q 80,468 40,485 L 0,490 Z"
-                fill="url(#kaw-river)"/>
-              <!-- Moonlight silver streaks (night only) -->
-              <path class="river-moonstreak river-moonstreak-kaw"
-                d="M 20,475 Q 60,465 100,455 M 10,482 Q 50,472 90,464"
-                stroke="rgba(245,239,224,0.6)" stroke-width="0.8" fill="none"/>
-              <text class="river-label river-label-kaw" x="12" y="498" font-family="'Playfair Display', serif" font-style="italic" font-size="13" fill="rgba(140,170,190,0.85)">The Kaw &rsaquo;</text>
-            </a>
-          </g>
-          <!-- The Missouri River — enters from the right, curves up behind T-Mobile/City Hall -->
-          <g data-river="missouri">
-            <a href="history/the-river.html" aria-label="The Missouri River — click for The River essay">
-              <title>The Missouri River — click for The River essay</title>
-              <path class="river-body river-body-missouri"
-                d="M 1600,450 Q 1540,430 1495,420 Q 1460,414 1440,412 L 1425,414 Q 1455,430 1490,442 Q 1535,460 1580,478 L 1600,485 Z"
-                fill="url(#missouri-river)"/>
-              <!-- Moonlight silver streaks (night only) -->
-              <path class="river-moonstreak river-moonstreak-missouri"
-                d="M 1580,455 Q 1540,445 1500,438 M 1590,462 Q 1550,452 1510,445"
-                stroke="rgba(245,239,224,0.6)" stroke-width="0.8" fill="none"/>
-              <text class="river-label river-label-missouri" x="1584" y="494" text-anchor="end" font-family="'Playfair Display', serif" font-style="italic" font-size="13" fill="rgba(140,170,190,0.85)">&lsaquo; The Missouri</text>
-            </a>
-          </g>
-        </g>
+        <!-- Placeholder — rivers drawn AFTER skyline now, see below. -->
+        <g class="skyline-rivers" aria-hidden="true"></g>
 
         <!-- ─────────────────────────────────────────── -->
         <!-- FILL BUILDINGS — background depth           -->
@@ -706,34 +724,93 @@
           </g>
         </g>
 
-        <!-- v10 Track 4A: Soft ground fade — atmospheric haze at street level -->
-        <rect x="0" y="540" width="1600" height="60" fill="url(#ground-fade)"/>
+        <!-- v10 Track 4A (revised): very subtle atmospheric haze at street level — doesn't obscure the foreground rivers -->
+        <rect x="0" y="555" width="1600" height="10" fill="url(#ground-fade)" opacity="0.55"/>
 
-        <!-- Ground horizon line (subdued; the fade above softens the edge) -->
-        <line x1="0" y1="560" x2="1600" y2="560" stroke="rgba(201,168,76,0.22)" stroke-width="0.8"/>
-        <rect x="0" y="561" width="1600" height="39" fill="#0A0805"/>
+        <!-- Ground horizon line — subdued hairline marking where the city meets the foreground -->
+        <line x1="0" y1="560" x2="1600" y2="560" stroke="rgba(201,168,76,0.22)" stroke-width="0.6"/>
+
+        <!-- v10 revised: Rivers in the foreground (below the ground line), curving in from the outer corners.
+             They occupy the lower-left and lower-right, suggesting a confluence behind the city mass.
+             The middle is a dark earth band (the "riverbank ridge" the city sits on). -->
+        <g class="skyline-foreground-rivers" aria-hidden="true">
+          <!-- Foreground earth band — the land the city sits on, between the two rivers -->
+          <path d="M 340,560 Q 420,570 530,575 Q 700,582 900,582 Q 1100,582 1235,577 Q 1335,573 1395,565 L 1395,600 L 340,600 Z"
+                fill="#050403" opacity="0.95"/>
+
+          <!-- The Kansas River (the Kaw) — enters from bottom-left, curves up into the distance, fades as it approaches the city -->
+          <g data-river="kansas">
+            <a href="history/founding.html" aria-label="The Kansas River — click for The Founding">
+              <title>The Kansas River (the Kaw) — click for The Founding</title>
+              <!-- River body: a broad shape filling the bottom-left corner, tapering upward and to the right -->
+              <path class="river-body river-body-kaw"
+                d="M 0,600 L 0,565 Q 80,562 170,564 Q 250,566 320,572 Q 370,577 400,586 L 400,600 Z"
+                fill="url(#kaw-river)"/>
+              <!-- Subtle current ripple lines -->
+              <path class="river-current"
+                d="M 15,580 Q 90,576 170,577 Q 240,578 310,583
+                   M 10,590 Q 80,586 150,588 Q 220,589 290,593"
+                stroke="rgba(160,180,200,0.4)" stroke-width="0.8" fill="none"/>
+              <!-- Moonlight silver streaks (night only) -->
+              <path class="river-moonstreak river-moonstreak-kaw"
+                d="M 25,572 Q 110,568 195,570
+                   M 15,583 Q 90,579 165,580"
+                stroke="rgba(245,239,224,0.7)" stroke-width="1" fill="none"/>
+              <!-- Riverbank reeds, bottom-left foreground -->
+              <g class="river-reeds">
+                <line x1="18" y1="600" x2="15" y2="582" stroke="#030201" stroke-width="1.1" opacity="0.95"/>
+                <line x1="28" y1="600" x2="31" y2="584" stroke="#030201" stroke-width="1.1" opacity="0.95"/>
+                <line x1="40" y1="600" x2="37" y2="586" stroke="#030201" stroke-width="1.1" opacity="0.95"/>
+                <line x1="52" y1="600" x2="55" y2="588" stroke="#030201" stroke-width="1.1" opacity="0.95"/>
+                <line x1="68" y1="600" x2="66" y2="590" stroke="#030201" stroke-width="1" opacity="0.9"/>
+              </g>
+              <text class="river-label river-label-kaw" x="60" y="557" font-family="'Playfair Display', serif" font-style="italic" font-size="13" fill="rgba(200,220,240,0.95)">The Kaw &rsaquo;</text>
+            </a>
+          </g>
+
+          <!-- The Missouri River — enters from bottom-right, curves into the distance, fades as it approaches the city -->
+          <g data-river="missouri">
+            <a href="history/the-river.html" aria-label="The Missouri River — click for The River essay">
+              <title>The Missouri River — click for The River essay</title>
+              <!-- River body: broader than the Kaw, filling the bottom-right corner -->
+              <path class="river-body river-body-missouri"
+                d="M 1600,600 L 1600,563 Q 1510,558 1420,561 Q 1340,563 1275,569 Q 1220,574 1185,584 L 1185,600 Z"
+                fill="url(#missouri-river)"/>
+              <!-- Subtle current ripple lines -->
+              <path class="river-current"
+                d="M 1585,579 Q 1500,575 1415,577 Q 1335,579 1270,583
+                   M 1590,590 Q 1510,586 1425,588 Q 1345,590 1280,593"
+                stroke="rgba(160,180,200,0.4)" stroke-width="0.8" fill="none"/>
+              <!-- Moonlight silver streaks (night only) -->
+              <path class="river-moonstreak river-moonstreak-missouri"
+                d="M 1575,571 Q 1490,567 1405,569
+                   M 1585,583 Q 1510,578 1430,580"
+                stroke="rgba(245,239,224,0.7)" stroke-width="1" fill="none"/>
+              <!-- Small pier silhouette, bottom-right foreground -->
+              <g class="river-dock">
+                <rect x="1545" y="585" width="28" height="3" fill="#030201" opacity="0.95"/>
+                <line x1="1549" y1="588" x2="1549" y2="600" stroke="#030201" stroke-width="1" opacity="0.95"/>
+                <line x1="1558" y1="588" x2="1558" y2="600" stroke="#030201" stroke-width="1" opacity="0.95"/>
+                <line x1="1567" y1="588" x2="1567" y2="600" stroke="#030201" stroke-width="1" opacity="0.95"/>
+              </g>
+              <!-- Tiny reed cluster near the pier -->
+              <g class="river-reeds">
+                <line x1="1520" y1="600" x2="1518" y2="588" stroke="#030201" stroke-width="1" opacity="0.9"/>
+                <line x1="1528" y1="600" x2="1530" y2="590" stroke="#030201" stroke-width="1" opacity="0.9"/>
+                <line x1="1536" y1="600" x2="1534" y2="591" stroke="#030201" stroke-width="1" opacity="0.9"/>
+              </g>
+              <text class="river-label river-label-missouri" x="1540" y="557" text-anchor="end" font-family="'Playfair Display', serif" font-style="italic" font-size="13" fill="rgba(200,220,240,0.95)">&lsaquo; The Missouri</text>
+            </a>
+          </g>
+        </g>
 
         <!-- v10 Track 4C: Deco ground-line ornament — hairline + small diamonds bridging hero to page -->
         <g class="skyline-ground-ornament" aria-hidden="true">
-          <line x1="30" y1="595" x2="1570" y2="595" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
-          <polygon points="800,593 803,596 800,599 797,596" fill="rgba(232,201,106,0.7)"/>
-          <polygon points="500,594 502,596 500,598 498,596" fill="rgba(201,168,76,0.5)"/>
-          <polygon points="1100,594 1102,596 1100,598 1098,596" fill="rgba(201,168,76,0.5)"/>
-          <polygon points="260,594 262,596 260,598 258,596" fill="rgba(201,168,76,0.4)"/>
-          <polygon points="1340,594 1342,596 1340,598 1338,596" fill="rgba(201,168,76,0.4)"/>
+          <line x1="30" y1="597" x2="1570" y2="597" stroke="rgba(201,168,76,0.3)" stroke-width="0.4"/>
+          <polygon points="800,595 803,598 800,601 797,598" fill="rgba(232,201,106,0.55)"/>
         </g>
 
       </svg>
-    </div>
-
-    <div class="phase-legend" aria-hidden="true">
-      <span class="phase-label phase-dawn">Dawn</span>
-      <span class="phase-sep">·</span>
-      <span class="phase-label phase-day">Day</span>
-      <span class="phase-sep">·</span>
-      <span class="phase-label phase-dusk">Dusk</span>
-      <span class="phase-sep">·</span>
-      <span class="phase-label phase-night">Night</span>
     </div>
 
     <fieldset class="skyline-ghost-toggle">
