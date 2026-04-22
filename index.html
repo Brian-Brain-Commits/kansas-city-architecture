@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Limelight&family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=5" />
+  <link rel="stylesheet" href="style.css?v=10" />
   <meta property="og:title" content="Look Up, Kansas City — Architecture &amp; History" />
   <meta property="og:description" content="A literary guide to Kansas City's architecture, history, and public spaces — built for curious visitors and lifelong residents alike." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/f/f3/Downtown_Kansas_City_from_Liberty_Memorial_Full.jpg" />
@@ -149,28 +149,113 @@
         <title id="skyline-title">The Kansas City Skyline</title>
         <desc id="skyline-desc">An interactive illustration of downtown Kansas City arranged roughly west to east: Liberty Memorial with its flame crown, Union Station, the Kauffman Center shells, the Bartle Hall pylons, Municipal Auditorium, Power and Light Building with its illuminated crown, 909 Walnut Fidelity Bank, Town Pavilion, One Kansas City Place the tallest, Jackson County Courthouse, City Hall with its pyramid, and T-Mobile Center. Each major building links to its detail page.</desc>
 
+        <!-- ─────────────────────────────────────────────────
+             v10 SVG LAYER ORDER (back to front):
+             1. Defs + atmospheric glow
+             2. Star field (night-only, animated twinkle)
+             3. Celestial arc (sun + moon, offset-path animation)
+             4. Rivers (Kaw left, Missouri right — background)
+             5. Fill buildings (back row)
+             6. Interactive buildings
+             7. Ghost buildings (toggle-activated overlay)
+             8. Building night-lights (already inside each building group)
+             9. Foreground silhouette layer (trees, lamps, streetcar)
+             10. Ground fade gradient
+             11. Deco ground-line ornament
+             ───────────────────────────────────────────────── -->
+
         <defs>
           <radialGradient id="city-glow" cx="52%" cy="100%" r="45%">
             <stop offset="0%" stop-color="rgba(201,168,76,0.12)"/>
             <stop offset="100%" stop-color="rgba(201,168,76,0)"/>
           </radialGradient>
+          <radialGradient id="sun-gradient" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#FFE8A0" stop-opacity="1"/>
+            <stop offset="55%" stop-color="#E8C96A" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#C9A84C" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="ground-fade" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="rgba(10,8,5,0)"/>
+            <stop offset="100%" stop-color="rgba(10,8,5,0.95)"/>
+          </linearGradient>
+          <linearGradient id="kaw-river" x1="0%" y1="50%" x2="100%" y2="50%">
+            <stop offset="0%" stop-color="rgba(96,126,150,0.55)"/>
+            <stop offset="100%" stop-color="rgba(96,126,150,0)"/>
+          </linearGradient>
+          <linearGradient id="missouri-river" x1="100%" y1="50%" x2="0%" y2="50%">
+            <stop offset="0%" stop-color="rgba(96,126,150,0.6)"/>
+            <stop offset="100%" stop-color="rgba(96,126,150,0)"/>
+          </linearGradient>
         </defs>
 
         <!-- Atmospheric glow behind the downtown cluster -->
         <ellipse cx="900" cy="570" rx="620" ry="220" fill="url(#city-glow)"/>
 
-        <!-- Night sky stars -->
-        <circle cx="95" cy="55" r="1" fill="rgba(201,168,76,0.35)"/>
-        <circle cx="245" cy="38" r="1.2" fill="rgba(201,168,76,0.25)"/>
-        <circle cx="480" cy="28" r="1" fill="rgba(201,168,76,0.3)"/>
-        <circle cx="630" cy="52" r="1.5" fill="rgba(201,168,76,0.2)"/>
-        <circle cx="755" cy="20" r="1" fill="rgba(201,168,76,0.3)"/>
-        <circle cx="985" cy="35" r="1.2" fill="rgba(201,168,76,0.25)"/>
-        <circle cx="1150" cy="25" r="1" fill="rgba(201,168,76,0.35)"/>
-        <circle cx="1355" cy="45" r="1.3" fill="rgba(201,168,76,0.2)"/>
-        <circle cx="1480" cy="32" r="1" fill="rgba(201,168,76,0.3)"/>
-        <circle cx="310" cy="80" r="0.8" fill="rgba(201,168,76,0.2)"/>
-        <circle cx="1222" cy="70" r="0.8" fill="rgba(201,168,76,0.25)"/>
+        <!-- v10 Track 3B: Animated star field — visible during Night phase only -->
+        <g class="sky-stars" aria-hidden="true">
+          <circle class="star" style="--tw-delay: 0s"    cx="95"   cy="55" r="1.1" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 0.4s"  cx="178"  cy="32" r="0.9" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 1.2s"  cx="245"  cy="38" r="1.2" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 2.1s"  cx="310"  cy="80" r="0.8" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 0.7s"  cx="395"  cy="48" r="1.0" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 1.6s"  cx="480"  cy="28" r="1.1" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 2.8s"  cx="560"  cy="62" r="0.9" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 0.9s"  cx="630"  cy="52" r="1.4" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 2.3s"  cx="755"  cy="20" r="1.0" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 1.4s"  cx="845"  cy="48" r="0.9" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 0.3s"  cx="985"  cy="35" r="1.2" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 1.9s"  cx="1070" cy="72" r="0.8" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 2.5s"  cx="1150" cy="25" r="1.1" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 0.6s"  cx="1222" cy="70" r="0.9" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 1.1s"  cx="1290" cy="50" r="1.0" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 2.0s"  cx="1355" cy="45" r="1.3" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 0.8s"  cx="1420" cy="25" r="0.9" fill="#F5EFE0"/>
+          <circle class="star" style="--tw-delay: 1.5s"  cx="1480" cy="32" r="1.0" fill="#F5EFE0"/>
+        </g>
+
+        <!-- v10 Track 3A: Celestial arc — sun and moon follow the same path across the sky -->
+        <g class="celestial-arc" aria-hidden="true">
+          <circle class="celestial-sun" r="22" fill="url(#sun-gradient)"/>
+          <circle class="celestial-sun-core" r="11" fill="#FFE8A0"/>
+          <g class="celestial-moon">
+            <circle r="13" fill="#F5EFE0"/>
+            <circle r="13" fill="#1A1610" cx="6" cy="-3" style="opacity: 0.22"/>
+            <circle r="1.8" fill="#C9A84C" cx="-3" cy="-2" style="opacity: 0.35"/>
+            <circle r="1.2" fill="#C9A84C" cx="3" cy="3" style="opacity: 0.4"/>
+          </g>
+        </g>
+
+        <!-- v10 Track 2: Rivers of the confluence — the Kaw (left) and Missouri (right) -->
+        <g class="skyline-rivers" aria-hidden="true">
+          <!-- The Kansas River (the Kaw) — enters from the left, curves up behind Liberty Memorial -->
+          <g data-river="kansas">
+            <a href="history/founding.html" aria-label="The Kansas River — click for The Founding">
+              <title>The Kansas River (the Kaw) — click for The Founding</title>
+              <path class="river-body river-body-kaw"
+                d="M 0,470 Q 60,452 95,440 Q 130,432 150,425 L 168,424 Q 145,440 120,450 Q 80,468 40,485 L 0,490 Z"
+                fill="url(#kaw-river)"/>
+              <!-- Moonlight silver streaks (night only) -->
+              <path class="river-moonstreak river-moonstreak-kaw"
+                d="M 20,475 Q 60,465 100,455 M 10,482 Q 50,472 90,464"
+                stroke="rgba(245,239,224,0.6)" stroke-width="0.8" fill="none"/>
+              <text class="river-label river-label-kaw" x="12" y="498" font-family="'Playfair Display', serif" font-style="italic" font-size="13" fill="rgba(140,170,190,0.85)">The Kaw &rsaquo;</text>
+            </a>
+          </g>
+          <!-- The Missouri River — enters from the right, curves up behind T-Mobile/City Hall -->
+          <g data-river="missouri">
+            <a href="history/the-river.html" aria-label="The Missouri River — click for The River essay">
+              <title>The Missouri River — click for The River essay</title>
+              <path class="river-body river-body-missouri"
+                d="M 1600,450 Q 1540,430 1495,420 Q 1460,414 1440,412 L 1425,414 Q 1455,430 1490,442 Q 1535,460 1580,478 L 1600,485 Z"
+                fill="url(#missouri-river)"/>
+              <!-- Moonlight silver streaks (night only) -->
+              <path class="river-moonstreak river-moonstreak-missouri"
+                d="M 1580,455 Q 1540,445 1500,438 M 1590,462 Q 1550,452 1510,445"
+                stroke="rgba(245,239,224,0.6)" stroke-width="0.8" fill="none"/>
+              <text class="river-label river-label-missouri" x="1584" y="494" text-anchor="end" font-family="'Playfair Display', serif" font-style="italic" font-size="13" fill="rgba(140,170,190,0.85)">&lsaquo; The Missouri</text>
+            </a>
+          </g>
+        </g>
 
         <!-- ─────────────────────────────────────────── -->
         <!-- FILL BUILDINGS — background depth           -->
@@ -261,15 +346,16 @@
           </a>
         </g>
 
-        <!-- 3. Kauffman Center — 2011, Safdie's twin curved shells — west downtown edge -->
+        <!-- 3. Kauffman Center — 2011, Safdie's twin curved shells — west downtown edge (v10 Track 1F: asymmetric pair) -->
         <g data-building="kauffman-center">
           <a href="buildings/kauffman-center.html" aria-label="Kauffman Center for the Performing Arts, 2011">
-            <!-- Two side-by-side curved shells, Helzberg Hall + Muriel Kauffman Theatre -->
+            <!-- Helzberg Hall (north, smaller) -->
             <path class="building-shape"
-              d="M 340,560 L 340,450 C 340,400 358,377 382,370 C 404,377 410,400 410,450 L 410,560 Z"
+              d="M 340,560 L 340,460 C 340,412 356,390 380,385 C 402,390 408,412 408,460 L 408,560 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Muriel Kauffman Theatre (south, taller and wider) -->
             <path class="building-shape"
-              d="M 415,560 L 415,440 C 415,385 435,362 452,356 C 469,362 478,385 478,440 L 478,560 Z"
+              d="M 413,560 L 413,430 C 413,370 434,346 452,340 C 471,346 482,370 482,430 L 482,560 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
             <!-- Glass front suggestion -->
             <line x1="360" y1="495" x2="360" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
@@ -335,12 +421,12 @@
           </a>
         </g>
 
-        <!-- 5. Municipal Auditorium — 1935, Art Deco civic, wide with vertical ribs -->
+        <!-- 5. Municipal Auditorium — 1935, Art Deco civic, wide with vertical ribs + rounded NW corner (v10 Track 1J) -->
         <g data-building="municipal-auditorium">
           <a href="buildings/municipal-auditorium.html" aria-label="Municipal Auditorium, 1935">
-            <!-- Wide deco cube with central higher block -->
+            <!-- Wide deco cube with central higher block + rounded NW corner -->
             <path class="building-shape"
-              d="M 640,560 L 750,560 L 750,478 L 745,475 L 745,468 L 735,468 L 735,460 L 655,460 L 655,468 L 645,468 L 645,475 L 640,478 Z"
+              d="M 640,560 L 750,560 L 750,478 L 745,475 L 745,468 L 735,468 L 735,460 L 665,460 Q 640,460 640,485 L 640,560 Z"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
             <!-- Vertical ribs characteristic of Municipal Aud -->
             <line x1="665" y1="480" x2="665" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
@@ -355,21 +441,26 @@
           </a>
         </g>
 
-        <!-- 6. KC Power & Light Building — 1931, 476 ft, iconic setback crown -->
+        <!-- 6. KC Power & Light Building — 1931, 476 ft, iconic setback crown + lantern -->
         <g data-building="power-and-light">
           <a href="buildings/kc-power-and-light.html" aria-label="Kansas City Power and Light Building, 1931, 476 feet">
             <!-- Stepped Art Deco setbacks culminating in signature crown -->
             <polygon class="building-shape"
               points="858,560 938,560 938,500 933,500 933,447 928,447 928,390 924,390 924,340 920,340 920,295 916,295 916,280 914,280 914,270 911,270 898,264 885,264 872,270 869,270 869,280 867,280 867,295 863,295 863,340 859,340 859,390 855,390 855,447 850,447 850,500 858,500"
               fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- v10 Track 1B: iconic lantern crown above the setbacks -->
+            <rect class="building-shape" x="888" y="238" width="17" height="26" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="1.3"/>
+            <line x1="888" y1="246" x2="905" y2="246" stroke="rgba(201,168,76,0.55)" stroke-width="0.5"/>
+            <line x1="888" y1="254" x2="905" y2="254" stroke="rgba(201,168,76,0.55)" stroke-width="0.5"/>
+            <!-- Short spire above the lantern -->
+            <line x1="896.5" y1="238" x2="896.5" y2="225" stroke="#C9A84C" stroke-width="1"/>
             <!-- Static crown line accent -->
             <line x1="875" y1="269" x2="908" y2="269" stroke="rgba(232,201,106,0.6)" stroke-width="1.5"/>
-            <!-- Time-of-day illuminated crown — shown at dusk/night, animated pulse -->
+            <!-- Time-of-day illuminated lantern — shown at dusk/night, animated pulse -->
             <g class="building-crown-light" aria-hidden="true">
-              <circle cx="892" cy="258" r="14" fill="rgba(232,201,106,0.15)"/>
-              <circle cx="892" cy="258" r="7" fill="rgba(232,201,106,0.4)"/>
-              <circle cx="892" cy="258" r="3.5" fill="#F5EFE0"/>
-              <line x1="884" y1="263" x2="900" y2="263" stroke="#E8C96A" stroke-width="2"/>
+              <circle cx="896.5" cy="250" r="14" fill="rgba(232,201,106,0.18)"/>
+              <circle cx="896.5" cy="250" r="7" fill="rgba(232,201,106,0.5)"/>
+              <circle cx="896.5" cy="250" r="3.5" fill="#F5EFE0"/>
             </g>
             <text class="building-label" x="894" y="238" text-anchor="middle">
               <tspan x="894" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">POWER &amp; LIGHT</tspan>
@@ -394,10 +485,13 @@
         <!-- 8. One Kansas City Place — 1988, 624 ft, the tallest building in Missouri -->
         <g data-building="one-kc-place">
           <a href="buildings/one-kc-place.html" aria-label="One Kansas City Place, 1988, 624 feet — tallest in Missouri">
-            <!-- Clean rectangular glass tower with slight crown notch -->
+            <!-- Clean rectangular glass tower with pitched hipped crown (v10 Track 1C) -->
             <polygon class="building-shape"
-              points="1160,560 1240,560 1240,500 1236,498 1236,175 1232,170 1228,165 1220,160 1180,160 1172,165 1168,170 1164,175 1164,498 1160,500"
+              points="1160,560 1240,560 1240,500 1236,498 1236,175 1200,148 1164,175 1164,498 1160,500"
               fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Pitched crown ridge line -->
+            <line x1="1164" y1="175" x2="1200" y2="148" stroke="#C9A84C" stroke-width="1.5"/>
+            <line x1="1200" y1="148" x2="1236" y2="175" stroke="#C9A84C" stroke-width="1.5"/>
             <!-- Vertical window lines -->
             <line x1="1178" y1="190" x2="1178" y2="555" stroke="rgba(201,168,76,0.25)" stroke-width="0.4"/>
             <line x1="1200" y1="190" x2="1200" y2="555" stroke="rgba(201,168,76,0.25)" stroke-width="0.4"/>
@@ -489,41 +583,167 @@
           </a>
         </g>
 
-        <!-- Ground horizon line -->
-        <line x1="0" y1="560" x2="1600" y2="560" stroke="rgba(201,168,76,0.32)" stroke-width="1"/>
+        <!-- v10 Track 5: Ghost buildings — overlaid when user toggles "Show what was lost" -->
+        <g class="skyline-ghosts" aria-hidden="true">
+          <!-- Original Union Depot (1878–1914) — behind/beside current Union Station -->
+          <g class="ghost-building">
+            <polygon
+              points="340,560 420,560 420,510 414,507 352,507 346,510"
+              fill="none" stroke="rgba(140,126,106,0.75)" stroke-width="1.3" stroke-dasharray="4,4"/>
+            <text class="ghost-label" x="380" y="498" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="9" letter-spacing="1.2" fill="rgba(140,126,106,0.85)">UNION DEPOT &dagger; 1878&ndash;1914</text>
+          </g>
+          <!-- Convention Hall (1899; burned 1900; rebuilt in 90 days; replaced by Municipal Aud in 1935) -->
+          <g class="ghost-building">
+            <polygon
+              points="620,560 638,560 638,520 634,517 634,512 629,512 629,508 625,504 622,500 620,496"
+              fill="none" stroke="rgba(140,126,106,0.75)" stroke-width="1.3" stroke-dasharray="4,4"/>
+            <text class="ghost-label" x="629" y="485" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="9" letter-spacing="1.2" fill="rgba(140,126,106,0.85)">CONVENTION HALL &dagger; 1899&ndash;1900</text>
+          </g>
+          <!-- Pre-1931 Kansas City Power &amp; Light Co. Building — lower, simpler predecessor -->
+          <g class="ghost-building">
+            <polygon
+              points="812,560 848,560 848,495 843,492 819,492 814,495"
+              fill="none" stroke="rgba(140,126,106,0.75)" stroke-width="1.3" stroke-dasharray="4,4"/>
+            <text class="ghost-label" x="830" y="482" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="9" letter-spacing="1.2" fill="rgba(140,126,106,0.85)">OLD P&amp;L &dagger; 1914</text>
+          </g>
+          <!-- Junior League Coliseum (demolished) -->
+          <g class="ghost-building">
+            <polygon
+              points="1090,560 1098,560 1098,535 1103,532 1103,520 1098,518 1090,518"
+              fill="none" stroke="rgba(140,126,106,0.75)" stroke-width="1.3" stroke-dasharray="4,4"/>
+            <text class="ghost-label" x="1096" y="507" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="9" letter-spacing="1.2" fill="rgba(140,126,106,0.85)">JR LEAGUE COLISEUM &dagger;</text>
+          </g>
+        </g>
+
+        <!-- v10 Track 4B: Foreground silhouette layer — trees, lamps, a still streetcar -->
+        <g class="skyline-foreground" aria-hidden="true">
+          <!-- Trees scattered along the ground line -->
+          <g class="fg-tree" transform="translate(70, 560)">
+            <line x1="0" y1="0" x2="0" y2="-18" stroke="#050403" stroke-width="1.2"/>
+            <ellipse cx="0" cy="-24" rx="10" ry="13" fill="#0A0805" opacity="0.9"/>
+          </g>
+          <g class="fg-tree" transform="translate(265, 560)">
+            <line x1="0" y1="0" x2="0" y2="-15" stroke="#050403" stroke-width="1.1"/>
+            <ellipse cx="0" cy="-21" rx="9" ry="12" fill="#0A0805" opacity="0.88"/>
+          </g>
+          <g class="fg-tree" transform="translate(500, 560)">
+            <line x1="0" y1="0" x2="0" y2="-20" stroke="#050403" stroke-width="1.2"/>
+            <ellipse cx="0" cy="-27" rx="11" ry="14" fill="#0A0805" opacity="0.9"/>
+          </g>
+          <g class="fg-tree" transform="translate(950, 560)">
+            <line x1="0" y1="0" x2="0" y2="-14" stroke="#050403" stroke-width="1.1"/>
+            <ellipse cx="0" cy="-20" rx="9" ry="11" fill="#0A0805" opacity="0.88"/>
+          </g>
+          <g class="fg-tree" transform="translate(1100, 560)">
+            <line x1="0" y1="0" x2="0" y2="-18" stroke="#050403" stroke-width="1.2"/>
+            <ellipse cx="0" cy="-24" rx="10" ry="13" fill="#0A0805" opacity="0.9"/>
+          </g>
+          <g class="fg-tree" transform="translate(1530, 560)">
+            <line x1="0" y1="0" x2="0" y2="-16" stroke="#050403" stroke-width="1.1"/>
+            <ellipse cx="0" cy="-22" rx="9" ry="12" fill="#0A0805" opacity="0.88"/>
+          </g>
+
+          <!-- Historic boulevard streetlamps -->
+          <g class="fg-lamp" transform="translate(175, 560)">
+            <line x1="0" y1="0" x2="0" y2="-30" stroke="#050403" stroke-width="1"/>
+            <line x1="-5" y1="-30" x2="5" y2="-30" stroke="#050403" stroke-width="1"/>
+            <circle cx="0" cy="-32" r="1.8" fill="#050403"/>
+            <!-- Night-only glow -->
+            <g class="building-night-lights">
+              <circle cx="0" cy="-32" r="5" fill="rgba(245,217,138,0.35)"/>
+              <circle cx="0" cy="-32" r="2" fill="#F5D98A"/>
+            </g>
+          </g>
+          <g class="fg-lamp" transform="translate(390, 560)">
+            <line x1="0" y1="0" x2="0" y2="-28" stroke="#050403" stroke-width="1"/>
+            <line x1="-5" y1="-28" x2="5" y2="-28" stroke="#050403" stroke-width="1"/>
+            <circle cx="0" cy="-30" r="1.8" fill="#050403"/>
+            <g class="building-night-lights">
+              <circle cx="0" cy="-30" r="5" fill="rgba(245,217,138,0.35)"/>
+              <circle cx="0" cy="-30" r="2" fill="#F5D98A"/>
+            </g>
+          </g>
+          <g class="fg-lamp" transform="translate(800, 560)">
+            <line x1="0" y1="0" x2="0" y2="-28" stroke="#050403" stroke-width="1"/>
+            <line x1="-5" y1="-28" x2="5" y2="-28" stroke="#050403" stroke-width="1"/>
+            <circle cx="0" cy="-30" r="1.8" fill="#050403"/>
+            <g class="building-night-lights">
+              <circle cx="0" cy="-30" r="5" fill="rgba(245,217,138,0.35)"/>
+              <circle cx="0" cy="-30" r="2" fill="#F5D98A"/>
+            </g>
+          </g>
+          <g class="fg-lamp" transform="translate(1255, 560)">
+            <line x1="0" y1="0" x2="0" y2="-30" stroke="#050403" stroke-width="1"/>
+            <line x1="-5" y1="-30" x2="5" y2="-30" stroke="#050403" stroke-width="1"/>
+            <circle cx="0" cy="-32" r="1.8" fill="#050403"/>
+            <g class="building-night-lights">
+              <circle cx="0" cy="-32" r="5" fill="rgba(245,217,138,0.35)"/>
+              <circle cx="0" cy="-32" r="2" fill="#F5D98A"/>
+            </g>
+          </g>
+          <g class="fg-lamp" transform="translate(1475, 560)">
+            <line x1="0" y1="0" x2="0" y2="-28" stroke="#050403" stroke-width="1"/>
+            <line x1="-5" y1="-28" x2="5" y2="-28" stroke="#050403" stroke-width="1"/>
+            <circle cx="0" cy="-30" r="1.8" fill="#050403"/>
+            <g class="building-night-lights">
+              <circle cx="0" cy="-30" r="5" fill="rgba(245,217,138,0.35)"/>
+              <circle cx="0" cy="-30" r="2" fill="#F5D98A"/>
+            </g>
+          </g>
+
+          <!-- A small, still streetcar silhouette — the nod to the Kessler-era transit system -->
+          <g class="fg-streetcar" transform="translate(690, 560)">
+            <rect x="0" y="-12" width="54" height="12" fill="#0A0805" opacity="0.9"/>
+            <rect x="3" y="-9" width="6" height="5" fill="rgba(201,168,76,0.15)"/>
+            <rect x="13" y="-9" width="6" height="5" fill="rgba(201,168,76,0.15)"/>
+            <rect x="23" y="-9" width="6" height="5" fill="rgba(201,168,76,0.15)"/>
+            <rect x="33" y="-9" width="6" height="5" fill="rgba(201,168,76,0.15)"/>
+            <rect x="43" y="-9" width="8" height="5" fill="rgba(201,168,76,0.12)"/>
+            <circle cx="9" cy="-0.5" r="2" fill="#050403"/>
+            <circle cx="45" cy="-0.5" r="2" fill="#050403"/>
+            <line x1="0" y1="-14" x2="54" y2="-14" stroke="#050403" stroke-width="0.6"/>
+            <line x1="24" y1="-14" x2="24" y2="-22" stroke="#050403" stroke-width="0.5"/>
+          </g>
+        </g>
+
+        <!-- v10 Track 4A: Soft ground fade — atmospheric haze at street level -->
+        <rect x="0" y="540" width="1600" height="60" fill="url(#ground-fade)"/>
+
+        <!-- Ground horizon line (subdued; the fade above softens the edge) -->
+        <line x1="0" y1="560" x2="1600" y2="560" stroke="rgba(201,168,76,0.22)" stroke-width="0.8"/>
         <rect x="0" y="561" width="1600" height="39" fill="#0A0805"/>
+
+        <!-- v10 Track 4C: Deco ground-line ornament — hairline + small diamonds bridging hero to page -->
+        <g class="skyline-ground-ornament" aria-hidden="true">
+          <line x1="30" y1="595" x2="1570" y2="595" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+          <polygon points="800,593 803,596 800,599 797,596" fill="rgba(232,201,106,0.7)"/>
+          <polygon points="500,594 502,596 500,598 498,596" fill="rgba(201,168,76,0.5)"/>
+          <polygon points="1100,594 1102,596 1100,598 1098,596" fill="rgba(201,168,76,0.5)"/>
+          <polygon points="260,594 262,596 260,598 258,596" fill="rgba(201,168,76,0.4)"/>
+          <polygon points="1340,594 1342,596 1340,598 1338,596" fill="rgba(201,168,76,0.4)"/>
+        </g>
 
       </svg>
     </div>
 
-    <div class="tod-timer" aria-hidden="true">
-      <div class="tod-timer-track">
-        <div class="tod-timer-indicator">
-          <svg class="tod-sun" viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="4.2" fill="#E8C96A"/>
-            <g stroke="#E8C96A" stroke-width="1.4" stroke-linecap="round">
-              <line x1="12" y1="1.5" x2="12" y2="5"/>
-              <line x1="12" y1="19" x2="12" y2="22.5"/>
-              <line x1="1.5" y1="12" x2="5" y2="12"/>
-              <line x1="19" y1="12" x2="22.5" y2="12"/>
-              <line x1="4.5" y1="4.5" x2="6.9" y2="6.9"/>
-              <line x1="17.1" y1="17.1" x2="19.5" y2="19.5"/>
-              <line x1="19.5" y1="4.5" x2="17.1" y2="6.9"/>
-              <line x1="6.9" y1="17.1" x2="4.5" y2="19.5"/>
-            </g>
-          </svg>
-          <svg class="tod-moon" viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M17.5 14.5 A 7 7 0 1 1 9.5 6.5 A 5 5 0 0 0 17.5 14.5 Z" fill="#F5EFE0"/>
-          </svg>
-        </div>
-      </div>
-      <div class="tod-timer-labels">
-        <span>Dawn</span>
-        <span>Day</span>
-        <span>Dusk</span>
-        <span>Night</span>
-      </div>
+    <div class="phase-legend" aria-hidden="true">
+      <span class="phase-label phase-dawn">Dawn</span>
+      <span class="phase-sep">·</span>
+      <span class="phase-label phase-day">Day</span>
+      <span class="phase-sep">·</span>
+      <span class="phase-label phase-dusk">Dusk</span>
+      <span class="phase-sep">·</span>
+      <span class="phase-label phase-night">Night</span>
     </div>
+
+    <fieldset class="skyline-ghost-toggle">
+      <legend class="visually-hidden">Show demolished buildings</legend>
+      <input type="checkbox" id="ghost-toggle" />
+      <label for="ghost-toggle">Show what was lost</label>
+    </fieldset>
+    <p class="skyline-ghost-caption">
+      Not every building on the skyline is still there. A few aren&rsquo;t there at all. &nbsp;<a href="history/lost-kansas-city.html">Lost Kansas City &rarr;</a>
+    </p>
   </section>
 
 
