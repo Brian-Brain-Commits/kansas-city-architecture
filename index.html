@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="stylesheet" href="style.css?v=5" />
   <meta property="og:title" content="Look Up, Kansas City — Architecture &amp; History" />
   <meta property="og:description" content="A literary guide to Kansas City's architecture, history, and public spaces — built for curious visitors and lifelong residents alike." />
   <meta property="og:image" content="https://upload.wikimedia.org/wikipedia/commons/f/f3/Downtown_Kansas_City_from_Liberty_Memorial_Full.jpg" />
@@ -121,19 +121,19 @@
     </fieldset>
 
     <div class="skyline-svg-container">
-      <svg class="skyline-svg" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax slice" role="img" aria-labelledby="skyline-title skyline-desc" xmlns="http://www.w3.org/2000/svg">
+      <svg class="skyline-svg" viewBox="0 0 1600 600" preserveAspectRatio="xMidYMax meet" role="img" aria-labelledby="skyline-title skyline-desc" xmlns="http://www.w3.org/2000/svg">
         <title id="skyline-title">The Kansas City Skyline</title>
-        <desc id="skyline-desc">An interactive illustration of downtown Kansas City showing nine major buildings, each linked to its detail page.</desc>
+        <desc id="skyline-desc">An interactive illustration of downtown Kansas City arranged roughly west to east: Liberty Memorial with its flame crown, Union Station, the Kauffman Center shells, the Bartle Hall pylons, Municipal Auditorium, Power and Light Building with its illuminated crown, 909 Walnut Fidelity Bank, Town Pavilion, One Kansas City Place the tallest, Jackson County Courthouse, City Hall with its pyramid, and T-Mobile Center. Each major building links to its detail page.</desc>
 
         <defs>
           <radialGradient id="city-glow" cx="52%" cy="100%" r="45%">
-            <stop offset="0%" stop-color="rgba(201,168,76,0.1)"/>
+            <stop offset="0%" stop-color="rgba(201,168,76,0.12)"/>
             <stop offset="100%" stop-color="rgba(201,168,76,0)"/>
           </radialGradient>
         </defs>
 
         <!-- Atmospheric glow behind the downtown cluster -->
-        <ellipse cx="850" cy="560" rx="580" ry="200" fill="url(#city-glow)"/>
+        <ellipse cx="900" cy="570" rx="620" ry="220" fill="url(#city-glow)"/>
 
         <!-- Night sky stars -->
         <circle cx="95" cy="55" r="1" fill="rgba(201,168,76,0.35)"/>
@@ -149,147 +149,261 @@
         <circle cx="1222" cy="70" r="0.8" fill="rgba(201,168,76,0.25)"/>
 
         <!-- ─────────────────────────────────────────── -->
-        <!-- FILL BUILDINGS (background, non-interactive) -->
+        <!-- FILL BUILDINGS — background depth           -->
         <!-- ─────────────────────────────────────────── -->
 
-        <!-- Crown Center — wide, low mass, far west -->
-        <polygon points="20,560 200,560 200,470 180,470 180,462 140,457 100,457 60,462 60,470 20,470"
-          fill="rgba(201,168,76,0.03)" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
+        <!-- Far western atmospheric fade -->
+        <polygon points="0,560 30,560 30,540 0,540"
+          fill="rgba(201,168,76,0.03)" stroke="#C9A84C" stroke-width="1" opacity="0.2"/>
 
-        <!-- Small fill buildings — west of City Hall -->
-        <polygon points="295,560 340,560 340,504 295,504"
-          fill="rgba(201,168,76,0.03)" stroke="#C9A84C" stroke-width="1" opacity="0.35"/>
-        <polygon points="345,560 392,560 392,494 345,494"
-          fill="rgba(201,168,76,0.03)" stroke="#C9A84C" stroke-width="1" opacity="0.35"/>
+        <!-- Crown Center complex — low wide mass, south-west -->
+        <polygon points="140,560 305,560 305,495 295,495 295,488 268,484 238,483 215,484 188,488 180,495 145,495 145,500 140,500"
+          fill="rgba(201,168,76,0.035)" stroke="#C9A84C" stroke-width="1" opacity="0.35"/>
 
-        <!-- Federal Reserve Bank — classical massing, behind Courthouse -->
-        <polygon points="650,560 732,560 732,450 722,445 690,440 658,445 650,450"
-          fill="rgba(201,168,76,0.03)" stroke="#C9A84C" stroke-width="1" opacity="0.38"/>
+        <!-- Federal Reserve Bank — low classical mass, between Bartle and downtown -->
+        <polygon points="748,560 838,560 838,475 831,471 798,467 788,467 755,471 748,475"
+          fill="rgba(201,168,76,0.035)" stroke="#C9A84C" stroke-width="1" opacity="0.35"/>
 
-        <!-- Mid fill — between Courthouse cluster and Power & Light -->
-        <polygon points="740,560 792,560 792,492 740,492"
+        <!-- Commerce Tower — postwar slab, central downtown -->
+        <polygon points="1042,560 1088,560 1088,500 1082,495 1082,263 1076,260 1054,260 1048,263 1048,495 1042,500"
+          fill="rgba(201,168,76,0.035)" stroke="#C9A84C" stroke-width="1" opacity="0.35"/>
+
+        <!-- Bank of America Tower — narrower, slightly west of One KC Place -->
+        <polygon points="1100,560 1145,560 1145,500 1140,496 1140,225 1136,220 1108,220 1104,225 1104,496 1100,500"
           fill="rgba(201,168,76,0.03)" stroke="#C9A84C" stroke-width="1" opacity="0.32"/>
 
-        <!-- Small fill — east of Fidelity -->
-        <polygon points="1012,560 1060,560 1060,490 1012,490"
-          fill="rgba(201,168,76,0.03)" stroke="#C9A84C" stroke-width="1" opacity="0.32"/>
-
-        <!-- Right-side fill buildings — eastern skyline tapering off -->
-        <polygon points="1280,560 1350,560 1350,380 1315,376 1280,380"
-          fill="rgba(201,168,76,0.03)" stroke="#C9A84C" stroke-width="1" opacity="0.4"/>
-        <polygon points="1358,560 1425,560 1425,416 1391,412 1358,416"
+        <!-- Hotel Phillips / small east fill -->
+        <polygon points="1380,560 1422,560 1422,430 1417,427 1385,427 1380,430"
           fill="rgba(201,168,76,0.03)" stroke="#C9A84C" stroke-width="1" opacity="0.35"/>
-        <polygon points="1433,560 1498,560 1498,447 1433,447"
-          fill="rgba(201,168,76,0.03)" stroke="#C9A84C" stroke-width="1" opacity="0.3"/>
-        <polygon points="1508,560 1572,560 1572,473 1508,473"
-          fill="rgba(201,168,76,0.03)" stroke="#C9A84C" stroke-width="1" opacity="0.25"/>
+
+        <!-- Far eastern atmospheric fade -->
+        <polygon points="1575,560 1600,560 1600,505 1592,502 1580,502 1575,505"
+          fill="rgba(201,168,76,0.025)" stroke="#C9A84C" stroke-width="1" opacity="0.22"/>
 
         <!-- ─────────────────────────────────────────── -->
-        <!-- INTERACTIVE BUILDINGS                       -->
+        <!-- INTERACTIVE BUILDINGS — roughly west→east   -->
+        <!-- Scale: 0.65 units per foot, ground at y=560  -->
         <!-- ─────────────────────────────────────────── -->
 
-        <!-- Liberty Memorial Tower — 1926, 217 ft, flame crown -->
+        <!-- 1. Liberty Memorial Tower — 1926, 217 ft, Egyptian Revival, flame crown -->
         <g data-building="liberty-memorial">
-          <a href="buildings/liberty-memorial.html" aria-label="Liberty Memorial Tower, 1926">
-            <polygon class="building-shape"
-              points="215,560 285,560 285,538 270,538 270,520 262,520 262,418 258,412 254,406 250,398 246,406 242,412 238,418 238,520 230,520 230,538 215,538"
-              fill="rgba(201,168,76,0.05)" stroke="#C9A84C" stroke-width="1.5"/>
-            <text class="building-label" x="250" y="376" text-anchor="middle">
-              <tspan x="250" dy="0" font-family="'Josefin Sans', sans-serif" font-size="12" letter-spacing="2" fill="#F5EFE0">LIBERTY MEMORIAL</tspan>
-              <tspan x="250" dy="18" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1" fill="#C9A84C">1926</tspan>
+          <a href="buildings/liberty-memorial.html" aria-label="Liberty Memorial Tower, 1926, 217 feet">
+            <!-- Tapered tower with pedestal base and cornice cap -->
+            <path class="building-shape"
+              d="M 45,560 L 130,560 L 130,533 L 121,530 L 118,527 L 118,524 L 113,520 L 113,440 L 109,435 L 109,430 L 106,427 L 106,422 L 101,422 L 101,417 L 97,415 L 93,414 L 88,414 L 83,415 L 79,417 L 79,422 L 74,422 L 74,427 L 71,430 L 71,435 L 67,440 L 67,520 L 62,524 L 62,527 L 59,530 L 50,533 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Urn/flame crown (decorative, always visible at low opacity) -->
+            <circle cx="90" cy="408" r="4" fill="rgba(232,201,106,0.35)" stroke="#C9A84C" stroke-width="0.75"/>
+            <text class="building-label" x="90" y="376" text-anchor="middle">
+              <tspan x="90" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">LIBERTY MEMORIAL</tspan>
+              <tspan x="90" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1926</tspan>
             </text>
           </a>
         </g>
 
-        <!-- Kansas City City Hall — 1937, 443 ft, Art Deco pyramid crown -->
-        <g data-building="city-hall">
-          <a href="buildings/city-hall.html" aria-label="Kansas City City Hall, 1937">
-            <polygon class="building-shape"
-              points="400,560 535,560 535,490 525,490 525,435 515,435 515,375 507,375 507,310 500,310 500,260 494,260 467,241 440,260 434,260 434,310 427,310 427,375 419,375 419,435 409,435 409,490 400,490"
-              fill="rgba(201,168,76,0.05)" stroke="#C9A84C" stroke-width="1.5"/>
-            <text class="building-label" x="467" y="219" text-anchor="middle">
-              <tspan x="467" dy="0" font-family="'Josefin Sans', sans-serif" font-size="12" letter-spacing="2" fill="#F5EFE0">CITY HALL</tspan>
-              <tspan x="467" dy="18" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1" fill="#C9A84C">1937</tspan>
+        <!-- 2. Union Station — 1914, wide Beaux Arts — south of downtown, low wide profile -->
+        <g data-building="union-station">
+          <a href="buildings/union-station.html" aria-label="Union Station, 1914">
+            <!-- Wide horizontal Beaux Arts with three-arch central pediment -->
+            <path class="building-shape"
+              d="M 155,560 L 315,560 L 315,517 L 308,513 L 305,510 L 300,510 L 295,506 L 290,502 L 285,500 L 277,500 L 273,503 L 270,506 L 263,506 L 260,502 L 255,499 L 250,497 L 235,497 L 230,499 L 225,502 L 222,506 L 215,506 L 212,503 L 208,500 L 200,500 L 195,502 L 190,506 L 185,510 L 180,510 L 177,513 L 170,517 L 170,520 L 160,523 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Colonnade hint — vertical lines along the main facade -->
+            <line x1="180" y1="525" x2="180" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="195" y1="525" x2="195" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="285" y1="525" x2="285" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="300" y1="525" x2="300" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <text class="building-label" x="237" y="462" text-anchor="middle">
+              <tspan x="237" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">UNION STATION</tspan>
+              <tspan x="237" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1914</tspan>
             </text>
           </a>
         </g>
 
-        <!-- Jackson County Courthouse — 1934, wide stepped civic profile -->
+        <!-- 3. Kauffman Center — 2011, Safdie's twin curved shells — west downtown edge -->
+        <g data-building="kauffman-center">
+          <a href="buildings/kauffman-center.html" aria-label="Kauffman Center for the Performing Arts, 2011">
+            <!-- Two side-by-side curved shells, Helzberg Hall + Muriel Kauffman Theatre -->
+            <path class="building-shape"
+              d="M 340,560 L 340,450 C 340,400 358,377 382,370 C 404,377 410,400 410,450 L 410,560 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
+            <path class="building-shape"
+              d="M 415,560 L 415,440 C 415,385 435,362 452,356 C 469,362 478,385 478,440 L 478,560 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Glass front suggestion -->
+            <line x1="360" y1="495" x2="360" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="390" y1="495" x2="390" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="435" y1="495" x2="435" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="460" y1="495" x2="460" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <text class="building-label" x="410" y="336" text-anchor="middle">
+              <tspan x="410" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">KAUFFMAN CENTER</tspan>
+              <tspan x="410" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">2011</tspan>
+            </text>
+          </a>
+        </g>
+
+        <!-- 4. Bartle Hall — the four Sky Station pylons (1994), instantly recognizable -->
+        <g data-building="bartle-hall">
+          <a href="buildings/bartle-hall.html" aria-label="Bartle Hall Convention Center, 1976, with Sky Station pylons 1994">
+            <!-- Convention center base/platform -->
+            <path class="building-shape"
+              d="M 498,560 L 620,560 L 620,505 L 612,502 L 506,502 L 498,505 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Four thin pylons rising from the platform -->
+            <path class="building-shape"
+              d="M 510,502 L 522,502 L 522,372 L 510,372 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.25"/>
+            <path class="building-shape"
+              d="M 538,502 L 550,502 L 550,370 L 538,370 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.25"/>
+            <path class="building-shape"
+              d="M 568,502 L 580,502 L 580,373 L 568,373 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.25"/>
+            <path class="building-shape"
+              d="M 596,502 L 608,502 L 608,371 L 596,371 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.25"/>
+            <!-- Sky Station sphere caps -->
+            <circle cx="516" cy="365" r="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
+            <circle cx="544" cy="363" r="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
+            <circle cx="574" cy="366" r="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
+            <circle cx="602" cy="364" r="6" fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="1"/>
+            <text class="building-label" x="559" y="336" text-anchor="middle">
+              <tspan x="559" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">BARTLE HALL</tspan>
+              <tspan x="559" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1976 / 1994</tspan>
+            </text>
+          </a>
+        </g>
+
+        <!-- 5. Municipal Auditorium — 1935, Art Deco civic, wide with vertical ribs -->
+        <g data-building="municipal-auditorium">
+          <a href="buildings/municipal-auditorium.html" aria-label="Municipal Auditorium, 1935">
+            <!-- Wide deco cube with central higher block -->
+            <path class="building-shape"
+              d="M 640,560 L 750,560 L 750,478 L 745,475 L 745,468 L 735,468 L 735,460 L 655,460 L 655,468 L 645,468 L 645,475 L 640,478 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Vertical ribs characteristic of Municipal Aud -->
+            <line x1="665" y1="480" x2="665" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="680" y1="480" x2="680" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="695" y1="480" x2="695" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="710" y1="480" x2="710" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="725" y1="480" x2="725" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <text class="building-label" x="695" y="436" text-anchor="middle">
+              <tspan x="695" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">MUNICIPAL AUD</tspan>
+              <tspan x="695" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1935</tspan>
+            </text>
+          </a>
+        </g>
+
+        <!-- 6. KC Power & Light Building — 1931, 476 ft, iconic setback crown -->
+        <g data-building="power-and-light">
+          <a href="buildings/kc-power-and-light.html" aria-label="Kansas City Power and Light Building, 1931, 476 feet">
+            <!-- Stepped Art Deco setbacks culminating in signature crown -->
+            <polygon class="building-shape"
+              points="858,560 938,560 938,500 933,500 933,447 928,447 928,390 924,390 924,340 920,340 920,295 916,295 916,280 914,280 914,270 911,270 898,264 885,264 872,270 869,270 869,280 867,280 867,295 863,295 863,340 859,340 859,390 855,390 855,447 850,447 850,500 858,500"
+              fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Static crown line accent -->
+            <line x1="875" y1="269" x2="908" y2="269" stroke="rgba(232,201,106,0.6)" stroke-width="1.5"/>
+            <!-- Time-of-day illuminated crown — shown at dusk/night, animated pulse -->
+            <g class="building-crown-light" aria-hidden="true">
+              <circle cx="892" cy="258" r="14" fill="rgba(232,201,106,0.15)"/>
+              <circle cx="892" cy="258" r="7" fill="rgba(232,201,106,0.4)"/>
+              <circle cx="892" cy="258" r="3.5" fill="#F5EFE0"/>
+              <line x1="884" y1="263" x2="900" y2="263" stroke="#E8C96A" stroke-width="2"/>
+            </g>
+            <text class="building-label" x="894" y="238" text-anchor="middle">
+              <tspan x="894" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">POWER &amp; LIGHT</tspan>
+              <tspan x="894" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1931 &bull; 476 FT</tspan>
+            </text>
+          </a>
+        </g>
+
+        <!-- 7. Fidelity National Bank / 909 Walnut — 1931, 454 ft, Art Deco setbacks -->
+        <g data-building="fidelity-bank">
+          <a href="buildings/fidelity-bank.html" aria-label="Fidelity National Bank Building, 909 Walnut, 1931, 454 feet">
+            <polygon class="building-shape"
+              points="960,560 1030,560 1030,500 1024,500 1024,445 1020,445 1020,390 1015,390 1015,330 1012,330 1012,292 1009,292 1009,283 1007,283 1007,278 996,273 985,273 974,278 974,283 972,283 972,292 969,292 969,330 966,330 966,390 961,390 961,445 956,445 956,500 960,500"
+              fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="1.5"/>
+            <text class="building-label" x="993" y="253" text-anchor="middle">
+              <tspan x="993" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">909 WALNUT</tspan>
+              <tspan x="993" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1931 &bull; 454 FT</tspan>
+            </text>
+          </a>
+        </g>
+
+        <!-- 8. One Kansas City Place — 1988, 624 ft, the tallest building in Missouri -->
+        <g data-building="one-kc-place">
+          <a href="buildings/one-kc-place.html" aria-label="One Kansas City Place, 1988, 624 feet — tallest in Missouri">
+            <!-- Clean rectangular glass tower with slight crown notch -->
+            <polygon class="building-shape"
+              points="1160,560 1240,560 1240,500 1236,498 1236,175 1232,170 1228,165 1220,160 1180,160 1172,165 1168,170 1164,175 1164,498 1160,500"
+              fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Vertical window lines -->
+            <line x1="1178" y1="190" x2="1178" y2="555" stroke="rgba(201,168,76,0.25)" stroke-width="0.4"/>
+            <line x1="1200" y1="190" x2="1200" y2="555" stroke="rgba(201,168,76,0.25)" stroke-width="0.4"/>
+            <line x1="1222" y1="190" x2="1222" y2="555" stroke="rgba(201,168,76,0.25)" stroke-width="0.4"/>
+            <text class="building-label" x="1200" y="138" text-anchor="middle">
+              <tspan x="1200" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">ONE KC PLACE</tspan>
+              <tspan x="1200" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#E8C96A">1988 &bull; 624 FT</tspan>
+            </text>
+          </a>
+        </g>
+
+        <!-- 9. Jackson County Courthouse — 1934, stepped Art Deco civic tower -->
         <g data-building="jackson-courthouse">
           <a href="buildings/jackson-county-courthouse.html" aria-label="Jackson County Courthouse, 1934">
             <polygon class="building-shape"
-              points="545,560 700,560 700,490 690,490 690,435 678,435 678,368 664,368 664,345 646,345 646,338 633,338 622,333 611,338 598,338 598,345 580,345 580,368 566,368 566,435 554,435 554,490 545,490"
-              fill="rgba(201,168,76,0.05)" stroke="#C9A84C" stroke-width="1.5"/>
-            <text class="building-label" x="622" y="311" text-anchor="middle">
-              <tspan x="622" dy="0" font-family="'Josefin Sans', sans-serif" font-size="12" letter-spacing="2" fill="#F5EFE0">COURTHOUSE</tspan>
-              <tspan x="622" dy="18" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1" fill="#C9A84C">1934</tspan>
+              points="1260,560 1350,560 1350,495 1343,495 1343,447 1336,447 1336,405 1329,405 1329,382 1322,382 1322,373 1313,373 1313,368 1297,368 1297,373 1288,373 1288,382 1281,382 1281,405 1274,405 1274,447 1267,447 1267,495 1260,495"
+              fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="1.5"/>
+            <text class="building-label" x="1305" y="341" text-anchor="middle">
+              <tspan x="1305" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">COURTHOUSE</tspan>
+              <tspan x="1305" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1934</tspan>
             </text>
           </a>
         </g>
 
-        <!-- KC Power &amp; Light Building — 1931, 476 ft, iconic illuminated crown -->
-        <g data-building="power-and-light">
-          <a href="buildings/kc-power-and-light.html" aria-label="Kansas City Power and Light Building, 1931">
+        <!-- 10. City Hall — 1937, 443 ft, Art Deco wedding-cake with pyramid crown -->
+        <g data-building="city-hall">
+          <a href="buildings/city-hall.html" aria-label="Kansas City City Hall, 1937, 443 feet">
             <polygon class="building-shape"
-              points="800,560 905,560 905,490 899,490 899,435 893,435 893,378 888,378 888,322 884,322 884,270 880,270 880,262 877,262 877,256 875,256 852,251 829,256 827,256 827,262 824,262 824,270 820,270 820,322 816,322 816,378 811,378 811,435 805,435 805,490 800,490"
-              fill="rgba(201,168,76,0.05)" stroke="#C9A84C" stroke-width="1.5"/>
-            <!-- Illuminated crown accent -->
-            <line x1="832" y1="256" x2="872" y2="256" stroke="rgba(232,201,106,0.55)" stroke-width="1.5"/>
-            <!-- Time-of-day illuminated crown — shown at dusk/night -->
-            <g class="building-crown-light" aria-hidden="true">
-              <circle cx="852" cy="246" r="14" fill="rgba(232,201,106,0.12)"/>
-              <circle cx="852" cy="246" r="7" fill="rgba(232,201,106,0.35)"/>
-              <circle cx="852" cy="246" r="3.5" fill="#F5EFE0"/>
-              <line x1="845" y1="251" x2="859" y2="251" stroke="#E8C96A" stroke-width="2"/>
-            </g>
-            <text class="building-label" x="852" y="229" text-anchor="middle">
-              <tspan x="852" dy="0" font-family="'Josefin Sans', sans-serif" font-size="12" letter-spacing="2" fill="#F5EFE0">POWER &amp; LIGHT</tspan>
-              <tspan x="852" dy="18" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1" fill="#C9A84C">1931</tspan>
+              points="1370,560 1460,560 1460,495 1453,495 1453,440 1446,440 1446,385 1438,385 1438,340 1432,340 1432,300 1426,300 1426,280 1422,280 1415,272 1408,280 1404,280 1404,300 1398,300 1398,340 1392,340 1392,385 1384,385 1384,440 1377,440 1377,495 1370,495"
+              fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Pyramid crown detail -->
+            <polygon points="1404,282 1415,258 1426,282" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="1"/>
+            <text class="building-label" x="1415" y="235" text-anchor="middle">
+              <tspan x="1415" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">CITY HALL</tspan>
+              <tspan x="1415" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1937 &bull; 443 FT</tspan>
             </text>
           </a>
         </g>
 
-        <!-- Fidelity National Bank / 909 Walnut — 1931, 454 ft, Art Deco -->
-        <g data-building="fidelity-bank">
-          <a href="buildings/fidelity-bank.html" aria-label="Fidelity National Bank Building, 909 Walnut, 1931">
-            <polygon class="building-shape"
-              points="920,560 1010,560 1010,490 1002,490 1002,428 995,428 995,362 989,362 989,290 984,290 984,278 982,278 982,272 978,272 965,265 952,272 948,272 948,278 946,278 946,290 941,290 941,362 935,362 935,428 928,428 928,490 920,490"
-              fill="rgba(201,168,76,0.05)" stroke="#C9A84C" stroke-width="1.5"/>
-            <text class="building-label" x="965" y="243" text-anchor="middle">
-              <tspan x="965" dy="0" font-family="'Josefin Sans', sans-serif" font-size="12" letter-spacing="2" fill="#F5EFE0">909 WALNUT</tspan>
-              <tspan x="965" dy="18" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1" fill="#C9A84C">1931</tspan>
+        <!-- 11. T-Mobile Center — 2007, downtown arena with curved roof -->
+        <g data-building="t-mobile-center">
+          <a href="buildings/t-mobile-center.html" aria-label="T-Mobile Center, 2007">
+            <!-- Arena: lower rectangular base with curved roof canopy -->
+            <path class="building-shape"
+              d="M 1475,560 L 1575,560 L 1575,485 C 1575,470 1565,462 1550,460 L 1500,460 C 1485,462 1475,470 1475,485 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
+            <!-- Glass panel hints on the facade -->
+            <line x1="1495" y1="478" x2="1495" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="1515" y1="475" x2="1515" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="1535" y1="475" x2="1535" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <line x1="1555" y1="478" x2="1555" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
+            <text class="building-label" x="1525" y="432" text-anchor="middle">
+              <tspan x="1525" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">T-MOBILE CENTER</tspan>
+              <tspan x="1525" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">2007</tspan>
             </text>
           </a>
         </g>
 
-        <!-- One Kansas City Place — 1988, 624 ft, tallest building -->
-        <g data-building="one-kc-place">
-          <a href="buildings/one-kc-place.html" aria-label="One Kansas City Place, 1988">
-            <polygon class="building-shape"
-              points="1025,560 1140,560 1140,500 1132,500 1132,185 1122,172 1114,160 1100,152 1064,152 1050,160 1042,172 1032,185 1028,500 1025,500"
-              fill="rgba(201,168,76,0.05)" stroke="#C9A84C" stroke-width="1.5"/>
-            <text class="building-label" x="1082" y="128" text-anchor="middle">
-              <tspan x="1082" dy="0" font-family="'Josefin Sans', sans-serif" font-size="12" letter-spacing="2" fill="#F5EFE0">ONE KC PLACE</tspan>
-              <tspan x="1082" dy="18" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1" fill="#C9A84C">1988</tspan>
-            </text>
-          </a>
-        </g>
-
-        <!-- Town Pavilion — 1986, 590 ft, postmodern stepped crown -->
-        <g data-building="town-pavilion">
-          <a href="buildings/modern-era.html" aria-label="Town Pavilion, 1986">
-            <polygon class="building-shape"
-              points="1155,560 1268,560 1268,500 1260,500 1260,225 1252,215 1242,200 1234,190 1227,183 1215,177 1207,177 1196,183 1189,190 1181,200 1171,215 1163,225 1163,500 1155,500"
-              fill="rgba(201,168,76,0.05)" stroke="#C9A84C" stroke-width="1.5"/>
-            <text class="building-label" x="1211" y="153" text-anchor="middle">
-              <tspan x="1211" dy="0" font-family="'Josefin Sans', sans-serif" font-size="12" letter-spacing="2" fill="#F5EFE0">TOWN PAVILION</tspan>
-              <tspan x="1211" dy="18" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1" fill="#C9A84C">1986</tspan>
-            </text>
-          </a>
-        </g>
+        <!-- ─────────────────────────────────────────── -->
+        <!-- Town Pavilion (1986, 590 ft) — fill,        -->
+        <!-- non-interactive; no detail page yet          -->
+        <!-- ─────────────────────────────────────────── -->
+        <polygon points="1055,560 1115,560 1115,500 1108,498 1108,198 1102,192 1096,183 1089,177 1081,175 1073,177 1066,183 1060,192 1055,198 1055,498"
+          fill="rgba(201,168,76,0.04)" stroke="#C9A84C" stroke-width="1" opacity="0.55"/>
 
         <!-- Ground horizon line -->
-        <line x1="0" y1="560" x2="1600" y2="560" stroke="rgba(201,168,76,0.28)" stroke-width="1"/>
+        <line x1="0" y1="560" x2="1600" y2="560" stroke="rgba(201,168,76,0.32)" stroke-width="1"/>
         <rect x="0" y="561" width="1600" height="39" fill="#0A0805"/>
 
       </svg>
