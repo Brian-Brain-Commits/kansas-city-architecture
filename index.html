@@ -86,6 +86,7 @@
           <li><a href="neighborhoods/brookside.html">Brookside</a></li>
         </ul>
       </li>
+      <li><a href="blog/index.html">Blog</a></li>
       <li class="has-dropdown"><a href="visit.html">Visit</a>
         <ul>
           <li><a href="start-here.html">Start Here</a></li>
@@ -388,12 +389,18 @@
           </a>
         </g>
 
-        <!-- ─────────────────────────────────────────── -->
-        <!-- Town Pavilion (1986, 590 ft) — fill,        -->
-        <!-- non-interactive; no detail page yet          -->
-        <!-- ─────────────────────────────────────────── -->
-        <polygon points="1055,560 1115,560 1115,500 1108,498 1108,198 1102,192 1096,183 1089,177 1081,175 1073,177 1066,183 1060,192 1055,198 1055,498"
-          fill="rgba(201,168,76,0.04)" stroke="#C9A84C" stroke-width="1" opacity="0.55"/>
+        <!-- 12. Town Pavilion — 1986, 590 ft, postmodern, HOK -->
+        <g data-building="town-pavilion">
+          <a href="buildings/town-pavilion.html" aria-label="Town Pavilion, 1986, 590 feet">
+            <polygon class="building-shape"
+              points="1055,560 1115,560 1115,500 1108,498 1108,198 1102,192 1096,183 1089,177 1081,175 1073,177 1066,183 1060,192 1055,198 1055,498"
+              fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="1.5"/>
+            <text class="building-label" x="1085" y="172" text-anchor="middle">
+              <tspan x="1085" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">TOWN PAVILION</tspan>
+              <tspan x="1085" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1986 &bull; 590 FT</tspan>
+            </text>
+          </a>
+        </g>
 
         <!-- Ground horizon line -->
         <line x1="0" y1="560" x2="1600" y2="560" stroke="rgba(201,168,76,0.32)" stroke-width="1"/>
@@ -542,6 +549,46 @@
           </a>
 
         </div>
+      </div>
+    </section>
+
+    <section style="background: #0A0805; padding: 3rem 1rem; border-top: 1px solid rgba(201,168,76,0.15);">
+      <div class="container" style="max-width: 960px;">
+        <p style="text-align:center; color: var(--warm-grey); font-family:'Josefin Sans',sans-serif; font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; margin-bottom: 0.5rem;">From the Notebook</p>
+        <h2 style="text-align:center; margin-bottom: 0.5rem;">From the Blog</h2>
+        <p style="text-align:center; color:var(--warm-grey); font-size:0.875rem; font-style:italic; font-family:'Playfair Display',serif; margin-bottom: 2.5rem;">Notes, observations, and essays on Kansas City &mdash; the ongoing notebook alongside the reference site.</p>
+
+        <div class="card-grid">
+          <a class="hub-card" href="blog/2026-04-22-the-mcconahay-building.html">
+            <img class="card-photo" src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Kansas_City_skyline_as_night_descends.jpg" alt="Kansas City skyline at night" />
+            <div class="hub-card-body">
+              <span class="hub-card-meta">News &bull; April 22, 2026</span>
+              <h3>Watching the McConahay Building Come Back</h3>
+              <p>The second-floor office where Walt Disney ran a cartoon studio into bankruptcy in 1923 is coming back as a preserved cultural site.</p>
+              <span class="hub-card-cta">Read →</span>
+            </div>
+          </a>
+          <a class="hub-card" href="blog/2026-04-22-power-and-light-at-dusk.html">
+            <img class="card-photo" src="https://upload.wikimedia.org/wikipedia/commons/1/1f/KCPL_Building_at_Night.jpg" alt="Power &amp; Light Building at night" />
+            <div class="hub-card-body">
+              <span class="hub-card-meta">Walks &bull; April 22, 2026</span>
+              <h3>The Power &amp; Light Building at Dusk</h3>
+              <p>Standing at 14th and Baltimore at golden hour, watching the crown illumination come on. What KC's architectural ambition feels like.</p>
+              <span class="hub-card-cta">Read →</span>
+            </div>
+          </a>
+          <a class="hub-card" href="blog/2026-04-22-welcome.html">
+            <img class="card-photo" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Downtown_Kansas_City_from_Liberty_Memorial_Full.jpg" alt="Downtown Kansas City from Liberty Memorial" />
+            <div class="hub-card-body">
+              <span class="hub-card-meta">Editorial &bull; April 22, 2026</span>
+              <h3>Welcome to the Notebook</h3>
+              <p>What the blog is, what it isn't, and why it exists separate from the reference site. The encyclopedia and the notebook do different work.</p>
+              <span class="hub-card-cta">Read →</span>
+            </div>
+          </a>
+        </div>
+
+        <p style="text-align:center; margin-top: 2rem;"><a href="blog/index.html" style="color:var(--gold); font-family:'Josefin Sans',sans-serif; font-size:0.8rem; letter-spacing:0.18em; text-transform:uppercase;">All Blog Posts →</a></p>
       </div>
     </section>
 

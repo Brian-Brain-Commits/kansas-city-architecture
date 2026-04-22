@@ -87,6 +87,7 @@
           <li><a href="neighborhoods/brookside.html">Brookside</a></li>
         </ul>
       </li>
+      <li><a href="blog/index.html">Blog</a></li>
       <li class="has-dropdown"><a href="visit.html">Visit</a>
         <ul>
           <li><a href="start-here.html">Start Here</a></li>
@@ -169,6 +170,153 @@
         <h2 style="font-family:'Playfair Display',serif; font-size:clamp(1.6rem, 3.5vw, 2.4rem); color:var(--cream); margin:0 0 0.75rem; font-weight:400;">Every building, drawn at the same scale</h2>
         <p style="max-width:600px; margin:0 auto 1.5rem; color:var(--warm-grey); font-style:italic; font-family:'Playfair Display',serif;">A side-by-side comparison of every major Kansas City building — from Union Depot in 1878 to CPKC Stadium in 2024. See how tall is tall.</p>
         <a href="buildings/compare.html" style="display:inline-block; padding:0.7rem 1.6rem; border:1px solid var(--gold); color:var(--gold); font-family:'Josefin Sans',sans-serif; font-size:0.78rem; letter-spacing:0.18em; text-transform:uppercase; text-decoration:none;">Compare Heights ◆</a>
+      </div>
+    </section>
+
+    <section style="background: var(--dark); padding: 3rem 1rem 2rem;">
+      <div class="container">
+        <div class="deco-diamond" aria-hidden="true">◆</div>
+        <h2 style="text-align:center; margin-bottom:0.5rem;">Where They Stand</h2>
+        <p style="text-align:center; color:var(--warm-grey); font-size:0.875rem; margin-bottom: 2rem; max-width: 620px; margin-left:auto; margin-right:auto;">A schematic map of downtown and the edge. Click any marker to open that building's page.</p>
+
+        <div class="buildings-district-wrapper">
+          <svg viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg" class="buildings-district" role="img" aria-label="Schematic map of downtown Kansas City showing major buildings">
+
+            <rect width="800" height="500" fill="#1A1610"/>
+
+            <!-- Highway loop outlines (schematic) -->
+            <rect x="80" y="90" width="640" height="300" fill="none" stroke="rgba(201,168,76,0.12)" stroke-width="1" stroke-dasharray="3 4"/>
+            <text x="400" y="80" font-family="'Josefin Sans',sans-serif" font-size="8.5" fill="rgba(140,126,106,0.55)" letter-spacing="1.5" text-anchor="middle">I-70 / I-670 LOOP — DOWNTOWN</text>
+
+            <!-- East-west streets -->
+            <line x1="80" y1="130" x2="720" y2="130" stroke="rgba(140,126,106,0.28)" stroke-width="0.75"/>
+            <line x1="80" y1="185" x2="720" y2="185" stroke="rgba(140,126,106,0.35)" stroke-width="1"/>
+            <line x1="80" y1="240" x2="720" y2="240" stroke="rgba(140,126,106,0.35)" stroke-width="1"/>
+            <line x1="80" y1="295" x2="720" y2="295" stroke="rgba(140,126,106,0.28)" stroke-width="0.75"/>
+            <line x1="80" y1="350" x2="720" y2="350" stroke="rgba(140,126,106,0.22)" stroke-width="0.6"/>
+
+            <g font-family="'Josefin Sans',sans-serif" font-size="8" fill="rgba(140,126,106,0.55)" letter-spacing="1">
+              <text x="72" y="132" text-anchor="end">9TH</text>
+              <text x="72" y="187" text-anchor="end">12TH</text>
+              <text x="72" y="242" text-anchor="end">13TH</text>
+              <text x="72" y="297" text-anchor="end">14TH</text>
+              <text x="72" y="352" text-anchor="end">16TH</text>
+            </g>
+
+            <!-- North-south streets -->
+            <line x1="150" y1="90" x2="150" y2="400" stroke="rgba(140,126,106,0.25)" stroke-width="0.6"/>
+            <line x1="230" y1="90" x2="230" y2="400" stroke="rgba(140,126,106,0.3)" stroke-width="0.75"/>
+            <line x1="310" y1="90" x2="310" y2="400" stroke="rgba(140,126,106,0.35)" stroke-width="1"/>
+            <line x1="390" y1="90" x2="390" y2="400" stroke="rgba(140,126,106,0.35)" stroke-width="1"/>
+            <line x1="470" y1="90" x2="470" y2="400" stroke="rgba(140,126,106,0.3)" stroke-width="0.75"/>
+            <line x1="550" y1="90" x2="550" y2="400" stroke="rgba(140,126,106,0.3)" stroke-width="0.75"/>
+            <line x1="630" y1="90" x2="630" y2="400" stroke="rgba(140,126,106,0.25)" stroke-width="0.6"/>
+
+            <g font-family="'Josefin Sans',sans-serif" font-size="8" fill="rgba(140,126,106,0.55)" letter-spacing="1" text-anchor="middle">
+              <text x="150" y="416">BROADWAY</text>
+              <text x="230" y="416">CENTRAL</text>
+              <text x="310" y="416">MAIN</text>
+              <text x="390" y="416">BALTIMORE</text>
+              <text x="470" y="416">WALNUT</text>
+              <text x="550" y="416">GRAND</text>
+              <text x="630" y="416">OAK</text>
+            </g>
+
+            <!-- Building markers: each is a gold circle + label, wrapped in <a> -->
+
+            <!-- Fidelity Bank / 909 Walnut (9th & Walnut) -->
+            <a href="buildings/fidelity-bank.html">
+              <circle cx="470" cy="130" r="7" fill="rgba(201,168,76,0.25)" stroke="#C9A84C" stroke-width="1.5" class="district-mark"/>
+              <text x="470" y="118" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#F5EFE0" text-anchor="middle" letter-spacing="0.5">909 WALNUT</text>
+            </a>
+
+            <!-- One KC Place (12th & Main) -->
+            <a href="buildings/one-kc-place.html">
+              <circle cx="310" cy="185" r="8" fill="rgba(232,201,106,0.3)" stroke="#E8C96A" stroke-width="1.75" class="district-mark"/>
+              <text x="310" y="173" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#F5EFE0" text-anchor="middle" letter-spacing="0.5">ONE KC PLACE</text>
+            </a>
+
+            <!-- Town Pavilion (11th/12th Main) — fill marker, no detail page yet -->
+            <circle cx="310" cy="160" r="6" fill="rgba(201,168,76,0.15)" stroke="rgba(201,168,76,0.5)" stroke-width="1"/>
+            <text x="310" y="152" font-family="'Josefin Sans',sans-serif" font-size="7" fill="rgba(201,168,76,0.7)" text-anchor="middle" letter-spacing="0.5">Town Pavilion</text>
+
+            <!-- Midland Theatre (13th & Main) -->
+            <a href="buildings/midland-theatre.html">
+              <circle cx="310" cy="240" r="6" fill="rgba(201,168,76,0.25)" stroke="#C9A84C" stroke-width="1.25" class="district-mark"/>
+              <text x="310" y="256" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#F5EFE0" text-anchor="middle" letter-spacing="0.5">MIDLAND</text>
+            </a>
+
+            <!-- KC Power & Light (14th & Baltimore) -->
+            <a href="buildings/kc-power-and-light.html">
+              <circle cx="390" cy="295" r="8" fill="rgba(232,201,106,0.3)" stroke="#E8C96A" stroke-width="1.75" class="district-mark"/>
+              <text x="390" y="283" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#F5EFE0" text-anchor="middle" letter-spacing="0.5">POWER &amp; LIGHT</text>
+            </a>
+
+            <!-- Municipal Auditorium (13th & Central) -->
+            <a href="buildings/municipal-auditorium.html">
+              <circle cx="230" cy="240" r="7" fill="rgba(201,168,76,0.25)" stroke="#C9A84C" stroke-width="1.5" class="district-mark"/>
+              <text x="230" y="228" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#F5EFE0" text-anchor="middle" letter-spacing="0.5">MUNICIPAL AUD</text>
+            </a>
+
+            <!-- Bartle Hall (13th & Central, just north of Mun Aud) -->
+            <a href="buildings/bartle-hall.html">
+              <circle cx="175" cy="240" r="7" fill="rgba(201,168,76,0.25)" stroke="#C9A84C" stroke-width="1.5" class="district-mark"/>
+              <text x="175" y="228" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#F5EFE0" text-anchor="middle" letter-spacing="0.5">BARTLE HALL</text>
+            </a>
+
+            <!-- City Hall (12th & Oak) -->
+            <a href="buildings/city-hall.html">
+              <circle cx="630" cy="185" r="8" fill="rgba(232,201,106,0.3)" stroke="#E8C96A" stroke-width="1.75" class="district-mark"/>
+              <text x="630" y="173" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#F5EFE0" text-anchor="middle" letter-spacing="0.5">CITY HALL</text>
+            </a>
+
+            <!-- Jackson County Courthouse (12th & Oak — just east of City Hall) -->
+            <a href="buildings/jackson-county-courthouse.html">
+              <circle cx="665" cy="200" r="7" fill="rgba(201,168,76,0.25)" stroke="#C9A84C" stroke-width="1.5" class="district-mark"/>
+              <text x="680" y="214" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#F5EFE0" text-anchor="start" letter-spacing="0.5">COURTHOUSE</text>
+            </a>
+
+            <!-- T-Mobile Center (13th & Grand) -->
+            <a href="buildings/t-mobile-center.html">
+              <circle cx="550" cy="240" r="7" fill="rgba(201,168,76,0.25)" stroke="#C9A84C" stroke-width="1.5" class="district-mark"/>
+              <text x="550" y="256" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#F5EFE0" text-anchor="middle" letter-spacing="0.5">T-MOBILE</text>
+            </a>
+
+            <!-- Union Station (Pershing Road, south of downtown) -->
+            <a href="buildings/union-station.html">
+              <circle cx="300" cy="400" r="7" fill="rgba(201,168,76,0.25)" stroke="#C9A84C" stroke-width="1.5" class="district-mark"/>
+              <text x="300" y="440" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#F5EFE0" text-anchor="middle" letter-spacing="0.5">UNION STATION</text>
+            </a>
+
+            <!-- Kauffman Center (16th & Broadway) -->
+            <a href="buildings/kauffman-center.html">
+              <circle cx="150" cy="352" r="7" fill="rgba(201,168,76,0.25)" stroke="#C9A84C" stroke-width="1.5" class="district-mark"/>
+              <text x="150" y="340" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#F5EFE0" text-anchor="middle" letter-spacing="0.5">KAUFFMAN CENTER</text>
+            </a>
+
+            <!-- Liberty Memorial (south of Union Station, on the hill) -->
+            <a href="buildings/liberty-memorial.html">
+              <circle cx="400" cy="460" r="8" fill="rgba(232,201,106,0.3)" stroke="#E8C96A" stroke-width="1.75" class="district-mark"/>
+              <text x="400" y="478" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#F5EFE0" text-anchor="middle" letter-spacing="0.5">LIBERTY MEMORIAL</text>
+              <!-- Flame accent -->
+              <circle cx="400" cy="454" r="2" fill="rgba(232,201,106,0.75)"/>
+            </a>
+
+            <!-- Crossroads / Penn Valley hint band -->
+            <text x="550" y="460" font-family="'Josefin Sans',sans-serif" font-size="8" fill="rgba(140,126,106,0.55)" letter-spacing="1.2" font-style="italic" text-anchor="middle">Crossroads &amp; Penn Valley (south)</text>
+
+            <!-- Compass -->
+            <g transform="translate(745, 65)">
+              <line x1="0" y1="10" x2="0" y2="-10" stroke="#C9A84C" stroke-width="0.75" opacity="0.6"/>
+              <polygon points="0,-14 -4,-4 4,-4" fill="#C9A84C" opacity="0.7"/>
+              <text x="0" y="24" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="8.5" fill="#8C7E6A" letter-spacing="1">N</text>
+            </g>
+
+            <!-- Title -->
+            <text x="20" y="30" font-family="'Josefin Sans',sans-serif" font-size="10" fill="#C9A84C" letter-spacing="2">DOWNTOWN KANSAS CITY</text>
+            <text x="20" y="46" font-family="'Josefin Sans',sans-serif" font-size="8" fill="#8C7E6A" letter-spacing="1">MAJOR BUILDINGS &bull; SCHEMATIC</text>
+          </svg>
+        </div>
       </div>
     </section>
 

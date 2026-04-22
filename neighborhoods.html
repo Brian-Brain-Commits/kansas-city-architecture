@@ -87,6 +87,7 @@
           <li><a href="neighborhoods/brookside.html">Brookside</a></li>
         </ul>
       </li>
+      <li><a href="blog/index.html">Blog</a></li>
       <li class="has-dropdown"><a href="visit.html">Visit</a>
         <ul>
           <li><a href="start-here.html">Start Here</a></li>
@@ -138,7 +139,7 @@
         <h2 style="text-align:center; margin-bottom:0.5rem;">Where Things Are</h2>
         <p style="text-align:center; color:var(--warm-grey); font-size:0.875rem; margin-bottom: 2rem;">A schematic view of how Kansas City's neighborhoods relate to each other — click any to explore</p>
 
-        <svg viewBox="0 0 500 375" xmlns="http://www.w3.org/2000/svg" class="neighborhood-map" role="img" aria-label="Schematic map of Kansas City neighborhoods">
+        <svg viewBox="0 0 500 430" xmlns="http://www.w3.org/2000/svg" class="neighborhood-map" role="img" aria-label="Schematic map of Kansas City neighborhoods">
 
           <!-- Missouri River -->
           <path d="M -10,46 Q 60,36 140,48 Q 220,60 310,46 Q 390,34 510,46"
@@ -187,8 +188,14 @@
 
           <!-- Westport -->
           <a href="neighborhoods/westport.html">
-            <polygon class="nbhd-region" points="130,299 278,299 274,358 130,358"/>
-            <text class="nbhd-label" x="200" y="333">WESTPORT</text>
+            <polygon class="nbhd-region" points="130,299 278,299 276,348 130,348"/>
+            <text class="nbhd-label" x="200" y="326">WESTPORT</text>
+          </a>
+
+          <!-- Brookside (south of Westport — Nichols's 1920s streetcar suburb) -->
+          <a href="neighborhoods/brookside.html">
+            <polygon class="nbhd-region" points="140,353 270,353 266,408 140,408"/>
+            <text class="nbhd-label" x="202" y="384">BROOKSIDE</text>
           </a>
 
           <!-- North indicator -->
@@ -198,8 +205,12 @@
             <text x="0" y="27" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="#8C7E6A" letter-spacing="1">N</text>
           </g>
 
+          <!-- Troost Avenue — the persistent racial dividing line -->
+          <line x1="290" y1="63" x2="290" y2="408" stroke="rgba(201,168,76,0.18)" stroke-width="0.75" stroke-dasharray="4 3"/>
+          <text x="295" y="58" font-family="'Josefin Sans',sans-serif" font-size="6.5" fill="rgba(140,126,106,0.6)" letter-spacing="1">TROOST AVE →</text>
+
           <!-- Legend note -->
-          <text x="250" y="372" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="8" fill="rgba(140,126,106,0.6)" letter-spacing="1">SCHEMATIC — NOT TO SCALE</text>
+          <text x="250" y="425" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="8" fill="rgba(140,126,106,0.6)" letter-spacing="1">SCHEMATIC — NOT TO SCALE</text>
 
         </svg>
       </div>
@@ -208,7 +219,7 @@
     <section class="section-landmarks" style="background:#0A0805;">
       <div class="container">
         <div class="deco-diamond" aria-hidden="true">◆</div>
-        <h2>Six Neighborhoods</h2>
+        <h2>Seven Neighborhoods</h2>
         <div class="card-grid">
 
           <article class="card">
