@@ -2576,7 +2576,7 @@ body:has(#weather-stormy:checked) .wa-illumination {
    (x=260 for R→L parked behind Kauffman; x=400 for L→R parked far right). translateX
    jumps happen only while the train is off-clip, so no visible teleport. */
 .bridge-train-a {
-  animation: bridge-train-a 320s linear infinite;
+  animation: bridge-train-a 120s linear infinite;
 }
 @keyframes bridge-train-a {
   0%      { transform: translateX(-160px); }  /* slot 1 begins */
@@ -2592,7 +2592,7 @@ body:has(#weather-stormy:checked) .wa-illumination {
 }
 
 .bridge-train-b {
-  animation: bridge-train-b 320s linear infinite;
+  animation: bridge-train-b 120s linear infinite;
 }
 @keyframes bridge-train-b {
   0%      { transform: translateX(260px); }   /* hidden behind Kauffman (slots 1-2 = L) */
