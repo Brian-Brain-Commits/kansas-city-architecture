@@ -642,45 +642,45 @@
         <g data-building="western-auto" transform="translate(47, 0)">
           <a href="#" aria-label="Western Auto Sign — a Crossroads landmark">
             <title>Western Auto Sign &mdash; a Crossroads landmark</title>
-            <!-- Building body — narrow rectangle with small cornice -->
+            <!-- Building body — taller now, sign rides at the top -->
             <polygon class="building-shape"
-              points="1028,560 1052,560 1052,478 1050,476 1050,472 1030,472 1030,476 1028,478"
+              points="1028,560 1052,560 1052,418 1050,416 1050,412 1030,412 1030,416 1028,418"
               fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.2"/>
 
-            <!-- Outer halo ring — front-on view -->
-            <ellipse class="wa-halo" cx="1040" cy="445" rx="13" ry="21"
+            <!-- Outer halo ring — front-on view, raised to sit above the taller building -->
+            <ellipse class="wa-halo" cx="1040" cy="385" rx="14" ry="24"
               fill="none" stroke="#C9A84C" stroke-width="1"/>
 
-            <!-- Rectangular neon sign face — wider than the halo so the text flows past the arc -->
-            <rect class="wa-sign-frame" x="1026" y="432" width="28" height="26"
+            <!-- Rectangular neon sign face — slightly bigger, extends past the halo sides -->
+            <rect class="wa-sign-frame" x="1024" y="370" width="32" height="30"
               fill="rgba(12,10,24,0.92)" stroke="#C9A84C" stroke-width="0.8"/>
 
-            <!-- "WESTERN" red neon (extends past the halo sides) -->
-            <text class="wa-label" x="1040" y="443" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="5.5" font-weight="900" fill="#E03030" letter-spacing="0.15">WESTERN</text>
+            <!-- "WESTERN" red neon -->
+            <text class="wa-label" x="1040" y="382" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="6" font-weight="900" fill="#E03030" letter-spacing="0.15">WESTERN</text>
             <!-- Divider line -->
-            <line x1="1026" y1="446" x2="1054" y2="446" stroke="rgba(201,168,76,0.55)" stroke-width="0.35"/>
+            <line x1="1024" y1="386" x2="1056" y2="386" stroke="rgba(201,168,76,0.55)" stroke-width="0.35"/>
             <!-- "AUTO" red neon, larger -->
-            <text class="wa-label" x="1040" y="456" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="7.5" font-weight="900" fill="#E03030" letter-spacing="0.5">AUTO</text>
+            <text class="wa-label" x="1040" y="397" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="8.5" font-weight="900" fill="#E03030" letter-spacing="0.5">AUTO</text>
 
-            <!-- Downward arrow from bottom of halo -->
-            <line class="wa-arrow-line" x1="1040" y1="467" x2="1040" y2="482"
+            <!-- Downward arrow from bottom of halo to top of building -->
+            <line class="wa-arrow-line" x1="1040" y1="409" x2="1040" y2="416"
               stroke="#C9A84C" stroke-width="1.1"/>
-            <polygon class="wa-arrow-head" points="1040,484 1035,476 1045,476"
+            <polygon class="wa-arrow-head" points="1040,418 1035,411 1045,411"
               fill="rgba(201,168,76,0.15)" stroke="#C9A84C" stroke-width="0.9"/>
 
             <!-- Dusk / Night / Dawn: everything glows neon red -->
             <g class="wa-illumination" aria-hidden="true">
               <!-- Halo glows -->
-              <ellipse cx="1040" cy="445" rx="13" ry="21" fill="none" stroke="#FF4040" stroke-width="1.5"/>
+              <ellipse cx="1040" cy="385" rx="14" ry="24" fill="none" stroke="#FF4040" stroke-width="1.5"/>
               <!-- Sign face dark backdrop holds while neon letters glow -->
-              <rect x="1026" y="432" width="28" height="26" fill="rgba(16,12,24,0.95)"/>
+              <rect x="1024" y="370" width="32" height="30" fill="rgba(16,12,24,0.95)"/>
               <!-- Bright red neon letters -->
-              <text x="1040" y="443" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="5.5" font-weight="900" fill="#FF4040" letter-spacing="0.15">WESTERN</text>
-              <line x1="1026" y1="446" x2="1054" y2="446" stroke="#FFAA60" stroke-width="0.4"/>
-              <text x="1040" y="456" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="7.5" font-weight="900" fill="#FF4040" letter-spacing="0.5">AUTO</text>
+              <text x="1040" y="382" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="6" font-weight="900" fill="#FF4040" letter-spacing="0.15">WESTERN</text>
+              <line x1="1024" y1="386" x2="1056" y2="386" stroke="#FFAA60" stroke-width="0.4"/>
+              <text x="1040" y="397" text-anchor="middle" font-family="'Josefin Sans', sans-serif" font-size="8.5" font-weight="900" fill="#FF4040" letter-spacing="0.5">AUTO</text>
               <!-- Arrow glows -->
-              <line x1="1040" y1="467" x2="1040" y2="482" stroke="#FF4040" stroke-width="1.5"/>
-              <polygon points="1040,484 1035,476 1045,476" fill="#FF4040"/>
+              <line x1="1040" y1="409" x2="1040" y2="416" stroke="#FF4040" stroke-width="1.5"/>
+              <polygon points="1040,418 1035,411 1045,411" fill="#FF4040"/>
             </g>
           </a>
         </g>
@@ -819,37 +819,6 @@
         </g>
 
         <!-- 2. Union Station — 1914, wide Beaux Arts — south of downtown, low wide profile -->
-        <g data-building="union-station" transform="translate(575, 0)">
-          <a href="buildings/union-station.html" aria-label="Union Station, 1914">
-            <!-- Wide horizontal Beaux Arts with central raised bay for the Grand Hall (v11 Track 2E) -->
-            <path class="building-shape"
-              d="M 155,560 L 315,560 L 315,517 L 308,512 L 300,505 L 295,502 L 290,500 L 265,500 L 265,484 L 260,482 L 252,480 L 218,480 L 210,482 L 205,484 L 205,500 L 180,500 L 175,502 L 170,505 L 162,512 L 155,517 Z"
-              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
-            <!-- Grand Hall clock face on the central bay -->
-            <circle cx="235" cy="491" r="3" fill="var(--gold, #C9A84C)" opacity="0.6"/>
-            <!-- Colonnade hint — vertical lines along the wings (not under the central bay) -->
-            <line x1="180" y1="525" x2="180" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
-            <line x1="195" y1="525" x2="195" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
-            <line x1="285" y1="525" x2="285" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
-            <line x1="300" y1="525" x2="300" y2="555" stroke="rgba(201,168,76,0.3)" stroke-width="0.5"/>
-            <!-- Night: warm window glow along the Beaux Arts facade -->
-            <g class="building-night-lights" aria-hidden="true">
-              <rect x="183" y="534" width="5" height="7" fill="#F5D98A"/>
-              <rect x="198" y="534" width="5" height="7" fill="#F5D98A"/>
-              <rect x="213" y="534" width="5" height="7" fill="#E8C96A"/>
-              <rect x="228" y="534" width="5" height="7" fill="#F5D98A"/>
-              <rect x="243" y="534" width="5" height="7" fill="#E8C96A"/>
-              <rect x="258" y="534" width="5" height="7" fill="#F5D98A"/>
-              <rect x="273" y="534" width="5" height="7" fill="#E8C96A"/>
-              <rect x="288" y="534" width="5" height="7" fill="#F5D98A"/>
-            </g>
-            <text class="building-label" x="237" y="462" text-anchor="middle">
-              <tspan x="237" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">UNION STATION</tspan>
-              <tspan x="237" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1914</tspan>
-            </text>
-          </a>
-        </g>
-
         <!-- 3. Kauffman Center — 2011, Safdie's twin curved shells — west downtown edge (v10 Track 1F: asymmetric pair) -->
         <g data-building="kauffman-center" transform="translate(-35, 123) scale(0.78)">
           <a href="buildings/kauffman-center.html" aria-label="Kauffman Center for the Performing Arts, 2011">
@@ -1223,6 +1192,146 @@
             </text>
           </a>
         </g>
+
+        <!-- 2. Union Station — 1914, Beaux Arts, symmetric profile. Front-most interactive building
+             with a circular fountain in front at the center. -->
+        <g data-building="union-station" transform="translate(575, 0)">
+          <a href="buildings/union-station.html" aria-label="Union Station, 1914">
+            <title>Union Station &mdash; 1914, Beaux Arts</title>
+
+            <!-- Main body (symmetric around x=235) -->
+            <path class="building-shape"
+              d="M 155,560 L 315,560 L 315,517 L 310,514 L 305,510 L 300,507 L 293,504 L 285,502 L 278,500 L 272,497 L 272,494 L 266,490 L 258,486 L 250,482 L 245,480 L 245,478 L 225,478 L 225,480 L 220,482 L 212,486 L 204,490 L 198,494 L 198,497 L 192,500 L 185,502 L 177,504 L 170,507 L 165,510 L 160,514 L 155,517 Z"
+              fill="rgba(201,168,76,0.08)" stroke="#C9A84C" stroke-width="1.5"/>
+
+            <!-- Barrel-vault pediment arc centered at x=235 -->
+            <path d="M 198,494 Q 235,474 272,494" fill="none" stroke="#C9A84C" stroke-width="0.9"/>
+
+            <!-- Three arched entryways (centers at 213, 235, 257 — symmetric) -->
+            <g class="us-arches" aria-hidden="true">
+              <path d="M 203,548 L 203,530 Q 203,520 213,520 Q 223,520 223,530 L 223,548 Z"
+                    fill="#050403" opacity="0.85"/>
+              <path d="M 226,548 L 226,528 Q 226,518 235,518 Q 244,518 244,528 L 244,548 Z"
+                    fill="#050403" opacity="0.85"/>
+              <path d="M 247,548 L 247,530 Q 247,520 257,520 Q 267,520 267,530 L 267,548 Z"
+                    fill="#050403" opacity="0.85"/>
+              <path d="M 203,530 Q 203,520 213,520 Q 223,520 223,530" fill="none" stroke="rgba(201,168,76,0.55)" stroke-width="0.5"/>
+              <path d="M 226,528 Q 226,518 235,518 Q 244,518 244,528" fill="none" stroke="rgba(201,168,76,0.55)" stroke-width="0.5"/>
+              <path d="M 247,530 Q 247,520 257,520 Q 267,520 267,530" fill="none" stroke="rgba(201,168,76,0.55)" stroke-width="0.5"/>
+            </g>
+
+            <!-- Grand Hall clock face -->
+            <circle cx="235" cy="506" r="4.5" fill="rgba(201,168,76,0.18)" stroke="#C9A84C" stroke-width="0.9"/>
+            <circle cx="235" cy="506" r="3" fill="#1A0E08"/>
+            <line x1="235" y1="506" x2="235" y2="503.5" stroke="#C9A84C" stroke-width="0.45"/>
+            <line x1="235" y1="506" x2="237" y2="507" stroke="#C9A84C" stroke-width="0.4"/>
+
+            <!-- Colonnade verticals — symmetric (mirror around x=235) -->
+            <line x1="163" y1="526" x2="163" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="173" y1="526" x2="173" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="183" y1="526" x2="183" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="287" y1="526" x2="287" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="297" y1="526" x2="297" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="307" y1="526" x2="307" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+
+            <!-- Base moldings -->
+            <line x1="155" y1="556" x2="315" y2="556" stroke="rgba(201,168,76,0.4)" stroke-width="0.4"/>
+            <line x1="155" y1="559" x2="315" y2="559" stroke="rgba(201,168,76,0.3)" stroke-width="0.3"/>
+
+            <!-- Night: illuminated arches, glowing clock, symmetric lit windows -->
+            <g class="building-night-lights" aria-hidden="true">
+              <!-- Arch interiors lit -->
+              <rect x="207" y="534" width="12" height="12" fill="#F5D98A"/>
+              <rect x="229" y="534" width="12" height="12" fill="#E8C96A"/>
+              <rect x="251" y="534" width="12" height="12" fill="#F5D98A"/>
+              <!-- Clock face illuminated -->
+              <circle cx="235" cy="506" r="4.5" fill="#FFE8A0"/>
+              <circle cx="235" cy="506" r="3" fill="#1A0E08"/>
+              <line x1="235" y1="506" x2="235" y2="503.5" stroke="#1A0E08" stroke-width="0.45"/>
+              <line x1="235" y1="506" x2="237" y2="507" stroke="#1A0E08" stroke-width="0.4"/>
+              <!-- Wing windows — symmetric -->
+              <rect x="161" y="537" width="4" height="6" fill="#F5D98A"/>
+              <rect x="171" y="537" width="4" height="6" fill="#E8C96A"/>
+              <rect x="181" y="537" width="4" height="6" fill="#F5D98A"/>
+              <rect x="285" y="537" width="4" height="6" fill="#E8C96A"/>
+              <rect x="295" y="537" width="4" height="6" fill="#F5D98A"/>
+              <rect x="305" y="537" width="4" height="6" fill="#E8C96A"/>
+            </g>
+
+            <!-- Circular fountain in front of Union Station -->
+            <g class="us-fountain" aria-hidden="true">
+              <ellipse cx="235" cy="564" rx="18" ry="3.5" fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="0.8"/>
+              <ellipse cx="235" cy="563" rx="15" ry="2.4" fill="rgba(96,126,150,0.5)"/>
+              <rect x="232.5" y="557" width="5" height="5" fill="rgba(201,168,76,0.2)" stroke="#C9A84C" stroke-width="0.5"/>
+              <path class="us-fountain-spray" d="M 235,557 Q 232.5,550 235,541 Q 237.5,550 235,557 Z" fill="rgba(210,225,240,0.55)"/>
+              <path class="us-fountain-arc us-fountain-arc-l" d="M 229,559 Q 224,554 227,548" fill="none" stroke="rgba(210,225,240,0.5)" stroke-width="0.9"/>
+              <path class="us-fountain-arc us-fountain-arc-r" d="M 241,559 Q 246,554 243,548" fill="none" stroke="rgba(210,225,240,0.5)" stroke-width="0.9"/>
+            </g>
+
+            <text class="building-label" x="235" y="462" text-anchor="middle">
+              <tspan x="235" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">UNION STATION</tspan>
+              <tspan x="235" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1914</tspan>
+            </text>
+          </a>
+        </g>
+
+            <!-- Grand Hall clock face — prominent on the central bay -->
+            <circle cx="235" cy="506" r="4.5" fill="rgba(201,168,76,0.18)" stroke="#C9A84C" stroke-width="0.9"/>
+            <circle cx="235" cy="506" r="3" fill="#1A0E08"/>
+            <line x1="235" y1="506" x2="235" y2="503.5" stroke="#C9A84C" stroke-width="0.45"/>
+            <line x1="235" y1="506" x2="237" y2="507" stroke="#C9A84C" stroke-width="0.4"/>
+
+            <!-- Colonnade verticals along the wings -->
+            <line x1="164" y1="526" x2="164" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="174" y1="526" x2="174" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="184" y1="526" x2="184" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="286" y1="526" x2="286" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="296" y1="526" x2="296" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+            <line x1="306" y1="526" x2="306" y2="555" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+
+            <!-- Base moldings -->
+            <line x1="155" y1="556" x2="315" y2="556" stroke="rgba(201,168,76,0.4)" stroke-width="0.4"/>
+            <line x1="155" y1="559" x2="315" y2="559" stroke="rgba(201,168,76,0.3)" stroke-width="0.3"/>
+
+            <!-- Night: illuminated arches, glowing clock, lit windows -->
+            <g class="building-night-lights" aria-hidden="true">
+              <!-- Arch interiors lit -->
+              <rect x="206" y="534" width="14" height="12" fill="#F5D98A"/>
+              <rect x="229" y="534" width="13" height="12" fill="#E8C96A"/>
+              <rect x="251" y="534" width="14" height="12" fill="#F5D98A"/>
+              <!-- Clock face illuminated -->
+              <circle cx="235" cy="506" r="4.5" fill="#FFE8A0"/>
+              <circle cx="235" cy="506" r="3" fill="#1A0E08"/>
+              <line x1="235" y1="506" x2="235" y2="503.5" stroke="#1A0E08" stroke-width="0.45"/>
+              <line x1="235" y1="506" x2="237" y2="507" stroke="#1A0E08" stroke-width="0.4"/>
+              <!-- Wing windows -->
+              <rect x="161" y="537" width="4" height="6" fill="#F5D98A"/>
+              <rect x="171" y="537" width="4" height="6" fill="#E8C96A"/>
+              <rect x="181" y="537" width="4" height="6" fill="#F5D98A"/>
+              <rect x="283" y="537" width="4" height="6" fill="#E8C96A"/>
+              <rect x="293" y="537" width="4" height="6" fill="#F5D98A"/>
+              <rect x="303" y="537" width="4" height="6" fill="#E8C96A"/>
+            </g>
+
+            <!-- Circular fountain in front of Union Station — small but clearly visible at center -->
+            <g class="us-fountain" aria-hidden="true">
+              <ellipse cx="235" cy="564" rx="18" ry="3.5" fill="rgba(201,168,76,0.09)" stroke="#C9A84C" stroke-width="0.8"/>
+              <ellipse cx="235" cy="563" rx="15" ry="2.4" fill="rgba(96,126,150,0.5)"/>
+              <rect x="232.5" y="557" width="5" height="5" fill="rgba(201,168,76,0.2)" stroke="#C9A84C" stroke-width="0.5"/>
+              <!-- Water jet (central) -->
+              <path class="us-fountain-spray" d="M 235,557 Q 232.5,550 235,541 Q 237.5,550 235,557 Z" fill="rgba(210,225,240,0.55)"/>
+              <!-- Side arcing sprays -->
+              <path class="us-fountain-arc us-fountain-arc-l" d="M 229,559 Q 224,554 227,548" fill="none" stroke="rgba(210,225,240,0.5)" stroke-width="0.9"/>
+              <path class="us-fountain-arc us-fountain-arc-r" d="M 241,559 Q 246,554 243,548" fill="none" stroke="rgba(210,225,240,0.5)" stroke-width="0.9"/>
+            </g>
+
+            <text class="building-label" x="235" y="462" text-anchor="middle">
+              <tspan x="235" dy="0" font-family="'Josefin Sans', sans-serif" font-size="11" letter-spacing="1.8" fill="#F5EFE0">UNION STATION</tspan>
+              <tspan x="235" dy="17" font-family="'Josefin Sans', sans-serif" font-size="10" letter-spacing="1" fill="#C9A84C">1914</tspan>
+            </text>
+          </a>
+        </g>
+
         <!-- v11 Track 1A (revised): Three streetcars on varied pacing from both directions.
              Shared shape lives in <defs>/<symbol>-style <g>; each <use> element rides its own animated track.
              Placed BEFORE skyline-foreground so trees/lamps paint on top. -->
@@ -1260,28 +1369,28 @@
         <!-- v10 Track 4B: Foreground silhouette layer — trees, lamps (streetcar now lives above in its own track) -->
         <g class="skyline-foreground" aria-hidden="true">
           <!-- Trees scattered along the hill ground line -->
-          <g class="fg-tree" transform="translate(285, 559)">
+          <g class="fg-tree" transform="translate(250, 559)">
             <line x1="0" y1="0" x2="0" y2="-18" stroke="#050403" stroke-width="1.2"/>
             <ellipse cx="-5" cy="-22" rx="7" ry="9" fill="#0A0805" opacity="0.85"/>
             <ellipse cx="5" cy="-25" rx="7" ry="8" fill="#0A0805" opacity="0.9"/>
             <ellipse cx="0" cy="-30" rx="9" ry="9" fill="#0A0805" opacity="0.92"/>
           </g>
-          <g class="fg-tree" transform="translate(505, 555)">
+          <g class="fg-tree" transform="translate(470, 555)">
             <line x1="0" y1="0" x2="0" y2="-24" stroke="#050403" stroke-width="1"/>
             <ellipse cx="0" cy="-26" rx="5" ry="15" fill="#0A0805" opacity="0.88"/>
           </g>
-          <g class="fg-tree" transform="translate(790, 551)">
+          <g class="fg-tree" transform="translate(565, 554)">
             <line x1="0" y1="0" x2="0" y2="-14" stroke="#050403" stroke-width="1.4"/>
             <ellipse cx="-7" cy="-21" rx="9" ry="9" fill="#0A0805" opacity="0.9"/>
             <ellipse cx="7" cy="-21" rx="9" ry="9" fill="#0A0805" opacity="0.9"/>
             <ellipse cx="0" cy="-28" rx="12" ry="8" fill="#0A0805" opacity="0.92"/>
           </g>
-          <g class="fg-tree" transform="translate(1145, 553)">
+          <g class="fg-tree" transform="translate(895, 550)">
             <line x1="0" y1="0" x2="0" y2="-28" stroke="#050403" stroke-width="1"/>
             <polygon points="0,-30 -9,-6 9,-6" fill="#0A0805" opacity="0.9"/>
             <polygon points="0,-22 -6,-4 6,-4" fill="#0A0805" opacity="0.88"/>
           </g>
-          <g class="fg-tree" transform="translate(1370, 558)">
+          <g class="fg-tree" transform="translate(1335, 557)">
             <line x1="0" y1="0" x2="0" y2="-20" stroke="#050403" stroke-width="1.2"/>
             <ellipse cx="0" cy="-26" rx="10" ry="12" fill="#0A0805" opacity="0.9"/>
             <ellipse cx="6" cy="-18" rx="4" ry="5" fill="#0A0805" opacity="0.82"/>
