@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Midtown — Look Up, Kansas City" />
   <meta name="twitter:description" content="Midtown Kansas City — between downtown and the Plaza, a walkable district of early 20th-century architecture, galleries, and neighborhood fountains." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/c/ce/Nelson-Atkins_Museum_of_Art_-_panorama_of_facade.jpg" />
-  <link rel="stylesheet" href="../style.css?v=16a" />
+  <link rel="stylesheet" href="../style.css?v=17f" />
 </head>
 <body>
 
@@ -163,6 +163,17 @@
           <ellipse cx="0" cy="0" rx="48" ry="8" opacity="0.45"/>
           <ellipse cx="-12" cy="-4" rx="18" ry="6" opacity="0.4"/>
           <ellipse cx="14" cy="-3" rx="22" ry="6" opacity="0.45"/>
+        </g>
+      </g>
+
+      <!-- v17a: One V-formation bird flock, west→east over a 180s cycle.
+           Visible only Day/Dusk/Dawn (hidden at Night via bird-phase-visibility). -->
+      <g class="sky-birds midtown-birds" aria-hidden="true">
+        <g class="sky-bird-flock midtown-flock-v flock-v">
+          <g class="sky-bird sky-bird-lead"><path d="M -4,0 Q -2,-2.5 0,0 Q 2,-2.5 4,0" stroke="#0A0603" stroke-width="2" fill="none" stroke-linecap="round"/></g>
+          <g class="sky-bird sky-bird-left"><path d="M -3.5,0 Q -1.75,-2 0,0 Q 1.75,-2 3.5,0" stroke="#0A0603" stroke-width="1.6" fill="none" stroke-linecap="round"/></g>
+          <g class="sky-bird sky-bird-right"><path d="M -3.5,0 Q -1.75,-2 0,0 Q 1.75,-2 3.5,0" stroke="#0A0603" stroke-width="1.6" fill="none" stroke-linecap="round"/></g>
+          <g class="sky-bird sky-bird-rear"><path d="M -3,0 Q -1.5,-1.6 0,0 Q 1.5,-1.6 3,0" stroke="#0A0603" stroke-width="1.5" fill="none" stroke-linecap="round"/></g>
         </g>
       </g>
 
@@ -860,8 +871,12 @@
            1,042 ft guyed lattice steel broadcast tower. Peak at y=62, base at y=446.
            Triangular cross-section lattice, guy wires at three heights, FAA red warning
            beacon at peak, programmable LED segments along the mast lit dusk→dawn. -->
-      <g class="midtown-kctv5" aria-hidden="true">
+      <g class="midtown-kctv5" aria-hidden="true" transform="translate(93, 47) scale(0.9, 0.85)">
         <!-- Main mast — tapered lattice, center at x=930 -->
+        <!-- v17f: Scaled 10% thinner x, 15% shorter y. Base lifted from
+             y=560 to y=540 so the tower plants on the near-hill crest
+             rather than the foreground ground line — reads "farther back". -->
+
         <line class="midtown-kctv5-mast" x1="930" y1="62" x2="930" y2="446"/>
         <!-- Lattice cross-bracing — narrowing from bottom (24u wide) to top (6u wide) -->
         <line class="midtown-kctv5-strut" x1="918" y1="446" x2="942" y2="446"/>
@@ -922,17 +937,202 @@
         <line class="midtown-kctv5-diag" x1="942" y1="550" x2="918" y2="580"/>
         <!-- FAA red warning beacon at peak (always blinking) -->
         <circle class="midtown-kctv5-faa" cx="930" cy="58" r="2.6"/>
-        <!-- LED segments along the mast (programmable colors, dusk→dawn) -->
-        <g class="building-night-lights midtown-kctv5-leds" aria-hidden="true">
-          <rect class="led-red"  x="927" y="420" width="6" height="24"/>
-          <rect class="led-blue" x="927" y="380" width="6" height="24"/>
-          <rect class="led-red"  x="927" y="340" width="6" height="24"/>
-          <rect class="led-white" x="927" y="300" width="6" height="24"/>
-          <rect class="led-blue" x="927" y="260" width="6" height="24"/>
-          <rect class="led-red"  x="927" y="220" width="6" height="24"/>
-          <rect class="led-white" x="927" y="180" width="6" height="24"/>
-          <rect class="led-blue" x="927" y="140" width="6" height="24"/>
-          <rect class="led-red"  x="927" y="100" width="4" height="30"/>
+
+        <!-- v17c: All LEDs symmetric pairs across the mast centerline (x=930),
+             with smaller radii. Upper thin portion uses centerline-only reds
+             and whites. Bases use corner pairs. -->
+        <g class="building-night-lights midtown-kctv5-bulbs" aria-hidden="true">
+          <!-- FAA red aircraft warning beacons on centerline (top mast is thin) -->
+          <circle class="kctv5-bulb-red" cx="930" cy="100" r="0.8"/>
+          <circle class="kctv5-bulb-red" cx="930" cy="180" r="0.8"/>
+          <circle class="kctv5-bulb-red" cx="930" cy="264" r="0.8"/>
+          <circle class="kctv5-bulb-red" cx="930" cy="342" r="0.8"/>
+          <circle class="kctv5-bulb-red" cx="930" cy="420" r="0.8"/>
+
+          <!-- White aviation strobes — centerline -->
+          <circle class="kctv5-bulb-white" cx="930" cy="75"  r="0.55"/>
+          <circle class="kctv5-bulb-white" cx="930" cy="140" r="0.55"/>
+          <circle class="kctv5-bulb-white" cx="930" cy="212" r="0.55"/>
+          <circle class="kctv5-bulb-white" cx="930" cy="290" r="0.55"/>
+          <circle class="kctv5-bulb-white" cx="930" cy="368" r="0.55"/>
+          <circle class="kctv5-bulb-white" cx="930" cy="446" r="0.6"/>
+
+          <!-- Amber accent pairs — symmetric across centerline (both sides of mast) -->
+          <circle class="kctv5-bulb-amber" cx="925" cy="160" r="0.45"/>
+          <circle class="kctv5-bulb-amber" cx="935" cy="160" r="0.45"/>
+          <circle class="kctv5-bulb-amber" cx="924" cy="240" r="0.45"/>
+          <circle class="kctv5-bulb-amber" cx="936" cy="240" r="0.45"/>
+          <circle class="kctv5-bulb-amber" cx="923" cy="320" r="0.45"/>
+          <circle class="kctv5-bulb-amber" cx="937" cy="320" r="0.45"/>
+          <circle class="kctv5-bulb-amber" cx="922" cy="400" r="0.45"/>
+          <circle class="kctv5-bulb-amber" cx="938" cy="400" r="0.45"/>
+
+          <!-- Cyan twinkle pairs — symmetric across centerline -->
+          <circle class="kctv5-bulb-cyan" cx="922" cy="300" r="0.4"/>
+          <circle class="kctv5-bulb-cyan" cx="938" cy="300" r="0.4"/>
+          <circle class="kctv5-bulb-cyan" cx="920" cy="460" r="0.4"/>
+          <circle class="kctv5-bulb-cyan" cx="940" cy="460" r="0.4"/>
+
+          <!-- Green twinkle pairs — symmetric across centerline -->
+          <circle class="kctv5-bulb-green" cx="922" cy="220" r="0.4"/>
+          <circle class="kctv5-bulb-green" cx="938" cy="220" r="0.4"/>
+          <circle class="kctv5-bulb-green" cx="920" cy="380" r="0.4"/>
+          <circle class="kctv5-bulb-green" cx="940" cy="380" r="0.4"/>
+
+          <!-- v17e: Magenta + pink + orange + blue accent pairs for festive
+               multi-color night palette. All symmetric across centerline. -->
+          <circle class="kctv5-bulb-magenta" cx="921" cy="200" r="0.4"/>
+          <circle class="kctv5-bulb-magenta" cx="939" cy="200" r="0.4"/>
+          <circle class="kctv5-bulb-magenta" cx="920" cy="360" r="0.4"/>
+          <circle class="kctv5-bulb-magenta" cx="940" cy="360" r="0.4"/>
+          <circle class="kctv5-bulb-pink"    cx="921" cy="280" r="0.4"/>
+          <circle class="kctv5-bulb-pink"    cx="939" cy="280" r="0.4"/>
+          <circle class="kctv5-bulb-pink"    cx="920" cy="440" r="0.4"/>
+          <circle class="kctv5-bulb-pink"    cx="940" cy="440" r="0.4"/>
+          <circle class="kctv5-bulb-orange"  cx="923" cy="260" r="0.4"/>
+          <circle class="kctv5-bulb-orange"  cx="937" cy="260" r="0.4"/>
+          <circle class="kctv5-bulb-orange"  cx="921" cy="420" r="0.4"/>
+          <circle class="kctv5-bulb-orange"  cx="939" cy="420" r="0.4"/>
+          <circle class="kctv5-bulb-blue"    cx="924" cy="180" r="0.4"/>
+          <circle class="kctv5-bulb-blue"    cx="936" cy="180" r="0.4"/>
+          <circle class="kctv5-bulb-blue"    cx="922" cy="340" r="0.4"/>
+          <circle class="kctv5-bulb-blue"    cx="938" cy="340" r="0.4"/>
+
+          <!-- Base structure corner pairs — now with varied color accents -->
+          <circle class="kctv5-bulb-red"     cx="918" cy="498" r="0.65"/>
+          <circle class="kctv5-bulb-red"     cx="942" cy="498" r="0.65"/>
+          <circle class="kctv5-bulb-magenta" cx="918" cy="525" r="0.5"/>
+          <circle class="kctv5-bulb-magenta" cx="942" cy="525" r="0.5"/>
+          <circle class="kctv5-bulb-orange"  cx="918" cy="543" r="0.45"/>
+          <circle class="kctv5-bulb-orange"  cx="942" cy="543" r="0.45"/>
+          <circle class="kctv5-bulb-red"     cx="918" cy="560" r="0.65"/>
+          <circle class="kctv5-bulb-red"     cx="942" cy="560" r="0.65"/>
+          <circle class="kctv5-bulb-pink"    cx="916" cy="572" r="0.5"/>
+          <circle class="kctv5-bulb-pink"    cx="944" cy="572" r="0.5"/>
+          <circle class="kctv5-bulb-red"     cx="916" cy="580" r="0.6"/>
+          <circle class="kctv5-bulb-red"     cx="944" cy="580" r="0.6"/>
+        </g>
+      </g>
+
+      <!-- ═══════ LAYER 3a: KC Wheel (Skyland KC Wheel) ═══════
+           v17d: Smaller (r=8) + pushed further back near the left highway
+           as it climbs toward downtown. Compact base — wheel sits just above
+           a short A-frame that terminates at the mid-distance hillside, so it
+           reads planted rather than floating. Positioned at (360, 502) —
+           right of the road, between Plaza cluster and downtown silhouettes. -->
+      <g class="midtown-kcwheel" aria-hidden="true">
+        <title>The KC Wheel at middle distance — colored LEDs and slow rotation</title>
+
+        <!-- Static support structure — short compact A-frame below the wheel.
+             Wheel bottom at cy+r = 502+8 = 510. Legs span y=510→y=520 (10u tall)
+             to the mid-distance hillside ground. -->
+        <g class="midtown-kcwheel-support" transform="translate(420, 480)">
+          <!-- A-frame legs from wheel bottom edges down to wider base -->
+          <line class="kcwheel-leg" x1="-5" y1="8"  x2="-8"  y2="18"/>
+          <line class="kcwheel-leg" x1="5"  y1="8"  x2="8"   y2="18"/>
+          <!-- Horizontal cross-brace on legs -->
+          <line class="kcwheel-leg" x1="-6" y1="12" x2="6"   y2="12"/>
+          <!-- Base platform (wider than wheel) sitting on the ground line -->
+          <rect class="kcwheel-base" x="-10" y="18" width="20" height="1.5"/>
+          <!-- Hub on axle -->
+          <circle class="kcwheel-hub" cx="0" cy="0" r="1.3"/>
+          <circle class="kcwheel-hub-bulb" cx="0" cy="0" r="0.45"/>
+        </g>
+
+        <!-- Rotating wheel group — rim + spokes + spoke LEDs + cabins + rim LEDs.
+             Radius 8 (16u diameter) — further-back proportion. -->
+        <g class="midtown-kcwheel-rotate" transform="translate(420, 480)">
+          <g class="midtown-kcwheel-rotate-inner">
+            <!-- Outer rim -->
+            <circle class="kcwheel-rim" cx="0" cy="0" r="8"/>
+            <!-- Inner rim (decorative) -->
+            <circle class="kcwheel-rim-inner" cx="0" cy="0" r="6.5"/>
+            <!-- 12 spokes — evenly spaced at 30° each. Endpoints at 8u from origin. -->
+            <line class="kcwheel-spoke" x1="0" y1="0" x2="8"    y2="0"/>
+            <line class="kcwheel-spoke" x1="0" y1="0" x2="6.93" y2="-4"/>
+            <line class="kcwheel-spoke" x1="0" y1="0" x2="4"    y2="-6.93"/>
+            <line class="kcwheel-spoke" x1="0" y1="0" x2="0"    y2="-8"/>
+            <line class="kcwheel-spoke" x1="0" y1="0" x2="-4"   y2="-6.93"/>
+            <line class="kcwheel-spoke" x1="0" y1="0" x2="-6.93" y2="-4"/>
+            <line class="kcwheel-spoke" x1="0" y1="0" x2="-8"   y2="0"/>
+            <line class="kcwheel-spoke" x1="0" y1="0" x2="-6.93" y2="4"/>
+            <line class="kcwheel-spoke" x1="0" y1="0" x2="-4"   y2="6.93"/>
+            <line class="kcwheel-spoke" x1="0" y1="0" x2="0"    y2="8"/>
+            <line class="kcwheel-spoke" x1="0" y1="0" x2="4"    y2="6.93"/>
+            <line class="kcwheel-spoke" x1="0" y1="0" x2="6.93" y2="4"/>
+
+            <!-- Spoke LEDs — 2 per spoke at 40% and 75% along each spoke (24 total). -->
+            <g class="building-night-lights kcwheel-spoke-leds">
+              <!-- 0° spoke -->
+              <circle class="kcwheel-led-spoke-red"    cx="3.2"  cy="0"     r="0.25"/>
+              <circle class="kcwheel-led-spoke-yellow" cx="6.0"  cy="0"     r="0.25"/>
+              <!-- 30° -->
+              <circle class="kcwheel-led-spoke-blue"   cx="2.77" cy="-1.6"  r="0.25"/>
+              <circle class="kcwheel-led-spoke-white"  cx="5.2"  cy="-3.0"  r="0.25"/>
+              <!-- 60° -->
+              <circle class="kcwheel-led-spoke-green"  cx="1.6"  cy="-2.77" r="0.25"/>
+              <circle class="kcwheel-led-spoke-red"    cx="3.0"  cy="-5.2"  r="0.25"/>
+              <!-- 90° -->
+              <circle class="kcwheel-led-spoke-purple" cx="0"    cy="-3.2"  r="0.25"/>
+              <circle class="kcwheel-led-spoke-cyan"   cx="0"    cy="-6.0"  r="0.25"/>
+              <!-- 120° -->
+              <circle class="kcwheel-led-spoke-green"  cx="-1.6" cy="-2.77" r="0.25"/>
+              <circle class="kcwheel-led-spoke-red"    cx="-3.0" cy="-5.2"  r="0.25"/>
+              <!-- 150° -->
+              <circle class="kcwheel-led-spoke-blue"   cx="-2.77" cy="-1.6" r="0.25"/>
+              <circle class="kcwheel-led-spoke-white"  cx="-5.2" cy="-3.0"  r="0.25"/>
+              <!-- 180° -->
+              <circle class="kcwheel-led-spoke-red"    cx="-3.2" cy="0"     r="0.25"/>
+              <circle class="kcwheel-led-spoke-yellow" cx="-6.0" cy="0"     r="0.25"/>
+              <!-- 210° -->
+              <circle class="kcwheel-led-spoke-blue"   cx="-2.77" cy="1.6"  r="0.25"/>
+              <circle class="kcwheel-led-spoke-white"  cx="-5.2" cy="3.0"   r="0.25"/>
+              <!-- 240° -->
+              <circle class="kcwheel-led-spoke-green"  cx="-1.6" cy="2.77"  r="0.25"/>
+              <circle class="kcwheel-led-spoke-red"    cx="-3.0" cy="5.2"   r="0.25"/>
+              <!-- 270° -->
+              <circle class="kcwheel-led-spoke-purple" cx="0"    cy="3.2"   r="0.25"/>
+              <circle class="kcwheel-led-spoke-cyan"   cx="0"    cy="6.0"   r="0.25"/>
+              <!-- 300° -->
+              <circle class="kcwheel-led-spoke-green"  cx="1.6"  cy="2.77"  r="0.25"/>
+              <circle class="kcwheel-led-spoke-red"    cx="3.0"  cy="5.2"   r="0.25"/>
+              <!-- 330° -->
+              <circle class="kcwheel-led-spoke-blue"   cx="2.77" cy="1.6"   r="0.25"/>
+              <circle class="kcwheel-led-spoke-white"  cx="5.2"  cy="3.0"   r="0.25"/>
+            </g>
+
+            <!-- 12 cabins — small rounded rectangles at each spoke tip. -->
+            <g class="building-night-lights">
+              <rect class="kcwheel-cabin kcwheel-cabin-red"    x="7.3"   y="-0.85"  width="1.7" height="1.7" rx="0.35"/>
+              <rect class="kcwheel-cabin kcwheel-cabin-purple" x="6.23"  y="-4.85"  width="1.7" height="1.7" rx="0.35"/>
+              <rect class="kcwheel-cabin kcwheel-cabin-blue"   x="3.3"   y="-7.78"  width="1.7" height="1.7" rx="0.35"/>
+              <rect class="kcwheel-cabin kcwheel-cabin-cyan"   x="-0.85" y="-8.85"  width="1.7" height="1.7" rx="0.35"/>
+              <rect class="kcwheel-cabin kcwheel-cabin-green"  x="-4.85" y="-7.78"  width="1.7" height="1.7" rx="0.35"/>
+              <rect class="kcwheel-cabin kcwheel-cabin-yellow" x="-7.78" y="-4.85"  width="1.7" height="1.7" rx="0.35"/>
+              <rect class="kcwheel-cabin kcwheel-cabin-red"    x="-8.85" y="-0.85"  width="1.7" height="1.7" rx="0.35"/>
+              <rect class="kcwheel-cabin kcwheel-cabin-purple" x="-7.78" y="3.3"    width="1.7" height="1.7" rx="0.35"/>
+              <rect class="kcwheel-cabin kcwheel-cabin-blue"   x="-4.85" y="6.23"   width="1.7" height="1.7" rx="0.35"/>
+              <rect class="kcwheel-cabin kcwheel-cabin-cyan"   x="-0.85" y="7.3"    width="1.7" height="1.7" rx="0.35"/>
+              <rect class="kcwheel-cabin kcwheel-cabin-green"  x="3.3"   y="6.23"   width="1.7" height="1.7" rx="0.35"/>
+              <rect class="kcwheel-cabin kcwheel-cabin-yellow" x="6.23"  y="3.3"    width="1.7" height="1.7" rx="0.35"/>
+            </g>
+
+            <!-- Rim LEDs — 12 small bulbs at spoke endpoints -->
+            <g class="building-night-lights kcwheel-rim-leds">
+              <circle class="kcwheel-led-red"    cx="8"    cy="0"     r="0.3"/>
+              <circle class="kcwheel-led-purple" cx="6.93" cy="-4"    r="0.3"/>
+              <circle class="kcwheel-led-blue"   cx="4"    cy="-6.93" r="0.3"/>
+              <circle class="kcwheel-led-cyan"   cx="0"    cy="-8"    r="0.3"/>
+              <circle class="kcwheel-led-green"  cx="-4"   cy="-6.93" r="0.3"/>
+              <circle class="kcwheel-led-yellow" cx="-6.93" cy="-4"   r="0.3"/>
+              <circle class="kcwheel-led-red"    cx="-8"   cy="0"     r="0.3"/>
+              <circle class="kcwheel-led-purple" cx="-6.93" cy="4"    r="0.3"/>
+              <circle class="kcwheel-led-blue"   cx="-4"   cy="6.93"  r="0.3"/>
+              <circle class="kcwheel-led-cyan"   cx="0"    cy="8"     r="0.3"/>
+              <circle class="kcwheel-led-green"  cx="4"    cy="6.93"  r="0.3"/>
+              <circle class="kcwheel-led-yellow" cx="6.93" cy="4"     r="0.3"/>
+            </g>
+          </g>
         </g>
       </g>
 
@@ -1143,44 +1343,70 @@
       </g>
 
       <!-- ═══════ LAYER 4b: Katz Drug Building ═══════
-           1934 Streamline Moderne corner store, cream stucco body with rounded right
-           corner, rooftop KATZ neon sign lit dusk→dawn with flicker at transition. -->
+           1934 Streamline Moderne corner store at 39th & Main. Cream stucco
+           body with rounded Streamline right corner, distinct horizontal bands
+           wrapping the top parapet, a clock tower at the left corner of the
+           roof, and a cursive "Katz" script sign. Not functioning today.
+           v17d: Clock tower + multi-band parapet + cursive script signage. -->
       <g class="midtown-katz" data-building="katz-drug" transform="translate(0, -20)">
         <a href="../buildings/katz-drug.html" aria-label="Katz Drug Building, 39th &amp; Main">
           <!-- Main two-story mass with rounded Streamline right corner -->
           <path class="midtown-katz-body"
-                d="M 280 580 L 280 530 L 420 530 Q 455 530 455 565 L 455 580 Z"/>
-          <!-- Horizontal Streamline banding -->
-          <line x1="280" y1="540" x2="453" y2="540" class="midtown-katz-band"/>
-          <line x1="280" y1="550" x2="454" y2="550" class="midtown-katz-band"/>
-          <line x1="280" y1="560" x2="455" y2="560" class="midtown-katz-band"/>
-          <!-- Ground-floor storefront windows -->
-          <line x1="295" y1="560" x2="295" y2="580" class="midtown-katz-window"/>
-          <line x1="320" y1="560" x2="320" y2="580" class="midtown-katz-window"/>
-          <line x1="345" y1="560" x2="345" y2="580" class="midtown-katz-window"/>
-          <line x1="370" y1="560" x2="370" y2="580" class="midtown-katz-window"/>
-          <line x1="395" y1="560" x2="395" y2="580" class="midtown-katz-window"/>
-          <line x1="420" y1="560" x2="420" y2="580" class="midtown-katz-window"/>
-          <!-- Parapet cap -->
-          <line x1="278" y1="528" x2="422" y2="528" class="midtown-katz-cap"/>
-          <!-- Rooftop KATZ sign frame -->
-          <rect x="320" y="498" width="80" height="30" class="midtown-katz-sign-frame"/>
-          <!-- "KATZ" letters -->
-          <text class="midtown-katz-letters" x="360" y="521" text-anchor="middle"
-                font-family="'Josefin Sans', sans-serif" font-size="18" font-weight="700"
-                letter-spacing="2">KATZ</text>
+                d="M 300 580 L 300 544 L 390 544 Q 410 544 410 564 L 410 580 Z"/>
+          <!-- Storefront ground-floor windows -->
+          <line x1="312" y1="562" x2="312" y2="580" class="midtown-katz-window"/>
+          <line x1="336" y1="562" x2="336" y2="580" class="midtown-katz-window"/>
+          <line x1="360" y1="562" x2="360" y2="580" class="midtown-katz-window"/>
+          <line x1="384" y1="562" x2="384" y2="580" class="midtown-katz-window"/>
+          <!-- Streamline triple-band parapet ring (distinct horizontal bands
+               wrapping the top, characteristic of Katz's real facade) -->
+          <line x1="298" y1="544" x2="408" y2="544" class="midtown-katz-cap"/>
+          <line x1="300" y1="548" x2="410" y2="548" class="midtown-katz-band"/>
+          <line x1="300" y1="552" x2="410" y2="552" class="midtown-katz-band"/>
+          <line x1="300" y1="556" x2="410" y2="556" class="midtown-katz-band"/>
+          <!-- Clock tower rising from the left corner of the roof (real Katz
+               has its clock tower at the building's prominent corner) -->
+          <g class="midtown-katz-clocktower">
+            <rect x="307" y="522" width="16" height="22" class="midtown-katz-body"/>
+            <!-- Clock face (circle with small hands) -->
+            <circle cx="315" cy="530" r="4" class="midtown-katz-clockface"/>
+            <line x1="315" y1="530" x2="315" y2="527" class="midtown-katz-clockhand"/>
+            <line x1="315" y1="530" x2="317.5" y2="530" class="midtown-katz-clockhand"/>
+            <!-- 12/3/6/9 hour tick marks -->
+            <line x1="315" y1="526.5" x2="315" y2="527.2" class="midtown-katz-clocktick"/>
+            <line x1="315" y1="533.5" x2="315" y2="532.8" class="midtown-katz-clocktick"/>
+            <line x1="318.5" y1="530" x2="317.8" y2="530" class="midtown-katz-clocktick"/>
+            <line x1="311.5" y1="530" x2="312.2" y2="530" class="midtown-katz-clocktick"/>
+            <!-- Tower cap + small finial -->
+            <rect x="305" y="520" width="20" height="2" class="midtown-katz-cap"/>
+            <rect x="311" y="515" width="8" height="5" class="midtown-katz-body"/>
+            <line x1="315" y1="515" x2="315" y2="510" class="midtown-katz-cap"/>
+            <circle cx="315" cy="509" r="1" class="midtown-katz-finial"/>
+          </g>
+          <!-- "Katz" cursive script sign on the body (horizontal blade above storefront) -->
+          <rect x="333" y="530" width="60" height="12" class="midtown-katz-sign-frame"/>
+          <text class="midtown-katz-script" x="363" y="540" text-anchor="middle"
+                font-family="'Playfair Display', 'Brush Script MT', cursive"
+                font-size="12" font-style="italic" font-weight="700"
+                letter-spacing="0.3">Katz</text>
           <!-- Night-only neon glow + halo -->
           <g class="midtown-katz-neon" aria-hidden="true">
-            <rect x="320" y="498" width="80" height="30" class="midtown-katz-neon-box"/>
-            <text class="midtown-katz-neon-letters" x="360" y="521" text-anchor="middle"
-                  font-family="'Josefin Sans', sans-serif" font-size="18" font-weight="700"
-                  letter-spacing="2">KATZ</text>
-            <!-- Halo aura -->
-            <ellipse cx="360" cy="513" rx="54" ry="22" class="midtown-katz-halo"/>
+            <!-- Script sign glow -->
+            <rect x="333" y="530" width="60" height="12" class="midtown-katz-neon-box"/>
+            <text x="363" y="540" text-anchor="middle"
+                  font-family="'Playfair Display', 'Brush Script MT', cursive"
+                  font-size="12" font-style="italic" font-weight="700"
+                  letter-spacing="0.3" class="midtown-katz-script-neon">Katz</text>
+            <!-- Halo around script sign -->
+            <ellipse cx="363" cy="536" rx="40" ry="10" class="midtown-katz-halo"/>
+            <!-- Clock tower neon halo -->
+            <ellipse cx="315" cy="530" rx="8" ry="8" class="midtown-katz-clockhalo"/>
           </g>
           <!-- Night window glows on storefront -->
           <g class="building-night-lights">
-            <rect x="282" y="532" width="140" height="28" class="midtown-katz-window-glow"/>
+            <rect x="302" y="560" width="92" height="16" class="midtown-katz-window-glow"/>
+            <!-- Warm glow behind clock face -->
+            <circle cx="315" cy="530" r="3.5" class="midtown-katz-clockglow"/>
           </g>
         </a>
       </g>
@@ -1191,48 +1417,119 @@
            dusk→dawn with flicker at the transition. -->
       <g class="midtown-uptown" data-building="uptown-theatre" transform="translate(0, -20)">
         <a href="../buildings/uptown-theatre.html" aria-label="Uptown Theatre, 37th &amp; Broadway">
-          <!-- Main three-story brick mass -->
-          <rect x="500" y="495" width="130" height="85" class="midtown-uptown-body"/>
+          <!-- Main three-story brick mass (shrunk ~25%) -->
+          <rect x="510" y="510" width="100" height="70" class="midtown-uptown-body"/>
           <!-- Spanish Colonial stepped parapet -->
           <path class="midtown-uptown-parapet"
-                d="M 500 495 L 512 485 L 548 485 L 560 495 M 570 495 L 582 485 L 618 485 L 630 495"/>
-          <!-- Arched second-story windows -->
-          <path d="M 515 532 L 515 520 a 7 7 0 0 1 14 0 L 529 532 Z" class="midtown-uptown-window"/>
-          <path d="M 545 532 L 545 520 a 7 7 0 0 1 14 0 L 559 532 Z" class="midtown-uptown-window"/>
-          <path d="M 575 532 L 575 520 a 7 7 0 0 1 14 0 L 589 532 Z" class="midtown-uptown-window"/>
-          <path d="M 605 532 L 605 520 a 7 7 0 0 1 14 0 L 619 532 Z" class="midtown-uptown-window"/>
+                d="M 510 510 L 521 502 L 549 502 L 558 510 M 562 510 L 571 502 L 599 502 L 610 510"/>
+          <!-- Arched second-story windows (3 instead of 4) -->
+          <path d="M 520 540 L 520 530 a 6 6 0 0 1 12 0 L 532 540 Z" class="midtown-uptown-window"/>
+          <path d="M 554 540 L 554 530 a 6 6 0 0 1 12 0 L 566 540 Z" class="midtown-uptown-window"/>
+          <path d="M 588 540 L 588 530 a 6 6 0 0 1 12 0 L 600 540 Z" class="midtown-uptown-window"/>
           <!-- Horizontal entry canopy marquee -->
-          <rect x="525" y="555" width="80" height="8" class="midtown-uptown-canopy"/>
+          <rect x="528" y="558" width="64" height="6" class="midtown-uptown-canopy"/>
           <!-- Entry doors -->
-          <line x1="545" y1="563" x2="545" y2="580" class="midtown-uptown-door"/>
-          <line x1="565" y1="563" x2="565" y2="580" class="midtown-uptown-door"/>
-          <line x1="585" y1="563" x2="585" y2="580" class="midtown-uptown-door"/>
-          <!-- Vertical UPTOWN marquee rising above parapet -->
-          <rect x="552" y="440" width="26" height="50" class="midtown-uptown-marquee-frame"/>
-          <!-- Marquee crown -->
-          <polygon points="552,440 565,432 578,440" class="midtown-uptown-marquee-frame"/>
-          <!-- "UPTOWN" letters stacked vertically -->
-          <g class="midtown-uptown-marquee-letters" text-anchor="middle"
-             font-family="'Josefin Sans', sans-serif" font-size="6" font-weight="700" letter-spacing="0.6">
-            <text x="565" y="450">U</text>
-            <text x="565" y="458">P</text>
-            <text x="565" y="466">T</text>
-            <text x="565" y="474">O</text>
-            <text x="565" y="482">W</text>
-            <text x="565" y="490">N</text>
-          </g>
-          <!-- Night-only marquee neon glow -->
+          <line x1="544" y1="564" x2="544" y2="580" class="midtown-uptown-door"/>
+          <line x1="560" y1="564" x2="560" y2="580" class="midtown-uptown-door"/>
+          <line x1="576" y1="564" x2="576" y2="580" class="midtown-uptown-door"/>
+          <!-- v17d: Horizontal "UPTOWN" blade sign on the side/front of the building
+               — the real configuration. A wide projecting blade with horizontal
+               lettering, sits at upper-mid building height. -->
+          <rect x="515" y="520" width="90" height="11" class="midtown-uptown-marquee-frame"/>
+          <!-- Sign border detail (horizontal bands) -->
+          <line x1="515" y1="523" x2="605" y2="523" class="midtown-uptown-parapet"/>
+          <line x1="515" y1="528" x2="605" y2="528" class="midtown-uptown-parapet"/>
+          <!-- "UPTOWN" letters horizontal across the blade sign -->
+          <text class="midtown-uptown-marquee-letters" x="560" y="529" text-anchor="middle"
+                font-family="'Josefin Sans', sans-serif" font-size="7" font-weight="700" letter-spacing="2">UPTOWN</text>
+          <!-- Night-only marquee neon glow (horizontal halo) -->
           <g class="midtown-uptown-neon" aria-hidden="true">
-            <rect x="552" y="440" width="26" height="50" class="midtown-uptown-neon-box"/>
-            <ellipse cx="565" cy="465" rx="24" ry="34" class="midtown-uptown-halo"/>
+            <rect x="515" y="520" width="90" height="11" class="midtown-uptown-neon-box"/>
+            <text x="560" y="529" text-anchor="middle"
+                  font-family="'Josefin Sans', sans-serif" font-size="7" font-weight="700" letter-spacing="2"
+                  class="midtown-uptown-marquee-letters">UPTOWN</text>
+            <ellipse cx="560" cy="525.5" rx="52" ry="10" class="midtown-uptown-halo"/>
           </g>
           <g class="building-night-lights">
-            <rect x="514" y="518" width="16" height="14" class="midtown-uptown-window-glow"/>
-            <rect x="544" y="518" width="16" height="14" class="midtown-uptown-window-glow"/>
-            <rect x="574" y="518" width="16" height="14" class="midtown-uptown-window-glow"/>
-            <rect x="604" y="518" width="16" height="14" class="midtown-uptown-window-glow"/>
+            <rect x="518" y="544" width="14" height="10" class="midtown-uptown-window-glow"/>
+            <rect x="552" y="544" width="14" height="10" class="midtown-uptown-window-glow"/>
+            <rect x="586" y="544" width="14" height="10" class="midtown-uptown-window-glow"/>
           </g>
         </a>
+      </g>
+
+      <!-- ═══════ LAYER 4c2: Midtown commercial density fill ═══════
+           v17c: Small density buildings in the gaps between OPP/Katz/Uptown.
+           Represents Midtown's typical 2-3 story brick apartments and corner
+           storefronts. Adds depth so no single landmark dominates. -->
+      <g class="midtown-commercial-row" aria-hidden="true" transform="translate(0, -20)">
+        <!-- Fill 1: 3-story brick apartment between OPP and Katz (x=258-294) -->
+        <g>
+          <rect x="258" y="538" width="36" height="42" class="midtown-commercial-body"/>
+          <!-- Cornice -->
+          <line x1="256" y1="537" x2="296" y2="537" class="midtown-commercial-cornice"/>
+          <!-- Window grid — 3 cols × 2 rows upper + storefront row -->
+          <rect x="264" y="548" width="6" height="8" class="midtown-commercial-window"/>
+          <rect x="276" y="548" width="6" height="8" class="midtown-commercial-window"/>
+          <rect x="288" y="548" width="4" height="8" class="midtown-commercial-window"/>
+          <rect x="264" y="560" width="6" height="8" class="midtown-commercial-window"/>
+          <rect x="276" y="560" width="6" height="8" class="midtown-commercial-window"/>
+          <rect x="288" y="560" width="4" height="8" class="midtown-commercial-window"/>
+          <!-- Storefront line -->
+          <line x1="260" y1="572" x2="292" y2="572" class="midtown-commercial-band"/>
+          <!-- Night window glows -->
+          <g class="building-night-lights">
+            <rect x="264" y="548" width="6" height="8" class="midtown-commercial-glow"/>
+            <rect x="288" y="548" width="4" height="8" class="midtown-commercial-glow"/>
+            <rect x="276" y="560" width="6" height="8" class="midtown-commercial-glow"/>
+            <rect x="260" y="574" width="32" height="6" class="midtown-commercial-glow"/>
+          </g>
+        </g>
+
+        <!-- Fill 2: 2-story corner shop with awning between Katz and Uptown (x=420-464) -->
+        <g>
+          <rect x="420" y="548" width="44" height="32" class="midtown-commercial-body"/>
+          <!-- Stepped parapet detail -->
+          <line x1="418" y1="547" x2="466" y2="547" class="midtown-commercial-cornice"/>
+          <rect x="436" y="540" width="12" height="7" class="midtown-commercial-cornice-cap"/>
+          <!-- Awning above storefront -->
+          <path class="midtown-commercial-awning"
+                d="M 424 566 L 460 566 L 462 563 L 422 563 Z"/>
+          <!-- Upper windows -->
+          <rect x="425" y="552" width="8" height="10" class="midtown-commercial-window"/>
+          <rect x="438" y="552" width="8" height="10" class="midtown-commercial-window"/>
+          <rect x="451" y="552" width="8" height="10" class="midtown-commercial-window"/>
+          <!-- Storefront glass -->
+          <rect x="425" y="568" width="34" height="11" class="midtown-commercial-storefront"/>
+          <!-- Door -->
+          <line x1="442" y1="568" x2="442" y2="579" class="midtown-commercial-door"/>
+          <g class="building-night-lights">
+            <rect x="425" y="552" width="8" height="10" class="midtown-commercial-glow"/>
+            <rect x="451" y="552" width="8" height="10" class="midtown-commercial-glow"/>
+            <rect x="425" y="569" width="34" height="9" class="midtown-commercial-glow"/>
+          </g>
+        </g>
+
+        <!-- Fill 3: narrower 3-story flat between the shop and Uptown (x=472-502) -->
+        <g>
+          <rect x="472" y="536" width="30" height="44" class="midtown-commercial-body"/>
+          <!-- Cornice -->
+          <line x1="470" y1="535" x2="504" y2="535" class="midtown-commercial-cornice"/>
+          <!-- Chimney / mechanical stack -->
+          <rect x="490" y="528" width="5" height="7" class="midtown-commercial-cornice-cap"/>
+          <!-- 3 rows of paired windows -->
+          <rect x="477" y="542" width="5" height="7" class="midtown-commercial-window"/>
+          <rect x="489" y="542" width="5" height="7" class="midtown-commercial-window"/>
+          <rect x="477" y="554" width="5" height="7" class="midtown-commercial-window"/>
+          <rect x="489" y="554" width="5" height="7" class="midtown-commercial-window"/>
+          <rect x="477" y="566" width="5" height="7" class="midtown-commercial-window"/>
+          <rect x="489" y="566" width="5" height="7" class="midtown-commercial-window"/>
+          <g class="building-night-lights">
+            <rect x="477" y="542" width="5" height="7" class="midtown-commercial-glow"/>
+            <rect x="489" y="554" width="5" height="7" class="midtown-commercial-glow"/>
+            <rect x="489" y="566" width="5" height="7" class="midtown-commercial-glow"/>
+          </g>
+        </g>
       </g>
 
       <!-- ═══════ LAYER 4e-pre: UMKC campus infill buildings ═══════
@@ -1306,11 +1603,27 @@
            lawn with the two shuttlecocks. -->
       <g class="midtown-nelson" data-building="nelson-atkins" transform="translate(-180, -20)">
         <a href="../buildings/nelson-atkins.html" aria-label="Nelson-Atkins Museum of Art">
-          <!-- Lawn in front of museum -->
-          <rect x="1180" y="560" width="340" height="20" class="midtown-nelson-lawn"/>
+          <!-- Lawn in front of museum (extended to cover pavilions) -->
+          <rect x="1170" y="560" width="360" height="20" class="midtown-nelson-lawn"/>
+          <!-- v17e: Flanking END PAVILIONS — larger end-blocks at each wing
+               terminus, taller than the wing middle. Real Nelson has these
+               prominent "end pieces" distinct from the long wing sections. -->
+          <rect x="1178" y="518" width="26" height="62" class="midtown-nelson-endpavilion"/>
+          <rect x="1516" y="518" width="26" height="62" class="midtown-nelson-endpavilion"/>
+          <!-- End pavilion parapet caps -->
+          <rect x="1175" y="516" width="32" height="3" class="midtown-nelson-entablature"/>
+          <rect x="1513" y="516" width="32" height="3" class="midtown-nelson-entablature"/>
+          <!-- End pavilion center tall window -->
+          <rect x="1187" y="528" width="8" height="22" class="midtown-nelson-window"/>
+          <rect x="1525" y="528" width="8" height="22" class="midtown-nelson-window"/>
+          <!-- End pavilion smaller flanking windows -->
+          <rect x="1181" y="558" width="5" height="10" class="midtown-nelson-window"/>
+          <rect x="1196" y="558" width="5" height="10" class="midtown-nelson-window"/>
+          <rect x="1519" y="558" width="5" height="10" class="midtown-nelson-window"/>
+          <rect x="1534" y="558" width="5" height="10" class="midtown-nelson-window"/>
           <!-- Flanking wings (stepping down from central portico) -->
-          <rect x="1200" y="528" width="80" height="52" class="midtown-nelson-wing"/>
-          <rect x="1440" y="528" width="80" height="52" class="midtown-nelson-wing"/>
+          <rect x="1204" y="528" width="76" height="52" class="midtown-nelson-wing"/>
+          <rect x="1440" y="528" width="76" height="52" class="midtown-nelson-wing"/>
           <!-- Main central mass (portico block) -->
           <rect x="1280" y="504" width="160" height="76" class="midtown-nelson-main"/>
           <!-- Entablature capital band above columns -->
@@ -1318,23 +1631,23 @@
           <!-- Central pediment (shallow triangular — Nelson's is a low-pitch
                classical pediment rather than a steep gable) -->
           <polygon points="1282,504 1360,486 1438,504" class="midtown-nelson-pediment"/>
-          <!-- Ionic colonnade — SIX columns EVENLY SPACED across the full
-               portico width. Column spacing matches real Nelson (each column
-               ~27u apart center-to-center, starting ~16u from each edge of
-               the portico). -->
-          <rect x="1296" y="515" width="4" height="42" class="midtown-nelson-column"/>
-          <rect x="1323" y="515" width="4" height="42" class="midtown-nelson-column"/>
-          <rect x="1350" y="515" width="4" height="42" class="midtown-nelson-column"/>
-          <rect x="1377" y="515" width="4" height="42" class="midtown-nelson-column"/>
-          <rect x="1404" y="515" width="4" height="42" class="midtown-nelson-column"/>
-          <rect x="1431" y="515" width="4" height="42" class="midtown-nelson-column"/>
-          <!-- Ionic capitals — small scroll hint at top of each column -->
-          <ellipse cx="1298" cy="514" rx="3" ry="1.2" class="midtown-nelson-capital-hint"/>
-          <ellipse cx="1325" cy="514" rx="3" ry="1.2" class="midtown-nelson-capital-hint"/>
-          <ellipse cx="1352" cy="514" rx="3" ry="1.2" class="midtown-nelson-capital-hint"/>
-          <ellipse cx="1379" cy="514" rx="3" ry="1.2" class="midtown-nelson-capital-hint"/>
-          <ellipse cx="1406" cy="514" rx="3" ry="1.2" class="midtown-nelson-capital-hint"/>
-          <ellipse cx="1433" cy="514" rx="3" ry="1.2" class="midtown-nelson-capital-hint"/>
+          <!-- Ionic colonnade — SIX columns EVENLY CENTERED across the
+               156u portico (x=1282-1438). 6u columns, 7 equal gaps of ~17u
+               each, 17u margin on both sides. v17f: recomputed positions
+               so columns no longer skew right. -->
+          <rect x="1299" y="515" width="6" height="42" class="midtown-nelson-column"/>
+          <rect x="1322" y="515" width="6" height="42" class="midtown-nelson-column"/>
+          <rect x="1346" y="515" width="6" height="42" class="midtown-nelson-column"/>
+          <rect x="1369" y="515" width="6" height="42" class="midtown-nelson-column"/>
+          <rect x="1392" y="515" width="6" height="42" class="midtown-nelson-column"/>
+          <rect x="1415" y="515" width="6" height="42" class="midtown-nelson-column"/>
+          <!-- Ionic capitals — scroll hints centered on each column -->
+          <ellipse cx="1302" cy="514" rx="4" ry="1.4" class="midtown-nelson-capital-hint"/>
+          <ellipse cx="1325" cy="514" rx="4" ry="1.4" class="midtown-nelson-capital-hint"/>
+          <ellipse cx="1349" cy="514" rx="4" ry="1.4" class="midtown-nelson-capital-hint"/>
+          <ellipse cx="1372" cy="514" rx="4" ry="1.4" class="midtown-nelson-capital-hint"/>
+          <ellipse cx="1395" cy="514" rx="4" ry="1.4" class="midtown-nelson-capital-hint"/>
+          <ellipse cx="1418" cy="514" rx="4" ry="1.4" class="midtown-nelson-capital-hint"/>
           <!-- Colonnade plinth band (base of columns) -->
           <rect x="1282" y="557" width="156" height="4" class="midtown-nelson-entablature"/>
           <!-- Broad staircase descending from portico to lawn (6 steps) -->
@@ -1368,6 +1681,13 @@
             <rect x="1452" y="542" width="12" height="14" class="midtown-nelson-window-glow"/>
             <rect x="1472" y="542" width="12" height="14" class="midtown-nelson-window-glow"/>
             <rect x="1492" y="542" width="12" height="14" class="midtown-nelson-window-glow"/>
+            <!-- End pavilion window glows -->
+            <rect x="1187" y="528" width="8" height="22" class="midtown-nelson-window-glow"/>
+            <rect x="1525" y="528" width="8" height="22" class="midtown-nelson-window-glow"/>
+            <rect x="1181" y="558" width="5" height="10" class="midtown-nelson-window-glow"/>
+            <rect x="1196" y="558" width="5" height="10" class="midtown-nelson-window-glow"/>
+            <rect x="1519" y="558" width="5" height="10" class="midtown-nelson-window-glow"/>
+            <rect x="1534" y="558" width="5" height="10" class="midtown-nelson-window-glow"/>
           </g>
         </a>
       </g>
@@ -1765,6 +2085,69 @@
         <ellipse class="midtown-creek-moonstreak" cx="1400" cy="586" rx="100" ry="1"/>
       </g>
 
+      <!-- ═══════ LAYER 7b: J.C. Nichols Memorial Fountain (v17a) ═══════
+           Miniature on the Plaza-side Brush Creek embankment at Mill Creek
+           Park position. v17c: Shrunk ~25% AND the central detail is now a
+           single bronze person-shaped statue on the pedestal instead of
+           four horseman dots around the pool rim. Reuses shared .scene-*
+           vocabulary. -->
+      <g class="midtown-nichols-mini" aria-hidden="true">
+        <title>J.C. Nichols Memorial Fountain — at Mill Creek Park on Brush Creek</title>
+        <!-- Pool rim + water (smaller) -->
+        <ellipse class="scene-pool-rim-outer" cx="680" cy="594" rx="30" ry="3.6"/>
+        <ellipse class="scene-pool-rim-inner" cx="680" cy="593.4" rx="26" ry="2.8"/>
+        <ellipse class="scene-pool-water"     cx="680" cy="593"   rx="24" ry="2.4"/>
+        <ellipse class="scene-pool-ripple"    cx="680" cy="593"   rx="18" ry="1.8"/>
+
+        <!-- Stepped pedestal -->
+        <rect class="scene-pedestal-step"  x="673" y="582" width="14" height="11"/>
+        <line class="scene-pedestal-band"  x1="673" y1="585" x2="687" y2="585"/>
+        <rect class="scene-pedestal-shaft" x="676" y="574" width="8"  height="8"/>
+        <rect class="scene-pedestal-cap"   x="674" y="571" width="12" height="3"/>
+
+        <!-- Central bronze person-shaped statue on top of the pedestal —
+             classical figure with raised arms, as though holding a torch or
+             laurel. Simplified silhouette reading at this scale. -->
+        <g class="midtown-nichols-statue">
+          <!-- Base plinth -->
+          <rect x="677" y="570" width="6" height="1.5" class="scene-bronze-plinth"/>
+          <!-- Legs (tapered body) -->
+          <path class="scene-bronze-body"
+                d="M 678,570 L 678,564 L 682,564 L 682,570 Z"/>
+          <!-- Torso + drapery -->
+          <path class="scene-bronze-body"
+                d="M 677,564 L 677,558 Q 680,556 683,558 L 683,564 Z"/>
+          <!-- Head -->
+          <circle class="scene-bronze-body" cx="680" cy="555.6" r="1.1"/>
+          <!-- Arms raised in torch pose (both arms reaching up-and-out) -->
+          <line class="scene-bronze-stroke" x1="677.5" y1="558.5" x2="675" y2="553"/>
+          <line class="scene-bronze-stroke" x1="682.5" y1="558.5" x2="685" y2="553"/>
+          <!-- Torch / laurel element (small flare at one hand) -->
+          <circle cx="685.2" cy="552.5" r="0.7" class="midtown-nichols-statue-torch"/>
+        </g>
+
+        <!-- Central water jet rising beside/behind the statue -->
+        <path class="scene-jet scene-jet-center"
+              d="M 680,571 Q 678.8,563 680,555 Q 681.2,563 680,571 Z"/>
+
+        <!-- Side arcs peeling off from behind the statue to the pool rim -->
+        <path class="scene-jet-arc scene-jet-arc-left"
+              d="M 680,558 Q 668,572 660,590"/>
+        <path class="scene-jet-arc scene-jet-arc-right"
+              d="M 680,558 Q 692,572 700,590"/>
+
+        <!-- Landscape lights around rim, gated to night via parent class -->
+        <g class="scene-landscape-lights building-night-lights">
+          <circle cx="654" cy="593" r="0.55"/>
+          <circle cx="666" cy="596" r="0.55"/>
+          <circle cx="680" cy="597.2" r="0.55"/>
+          <circle cx="694" cy="596" r="0.55"/>
+          <circle cx="706" cy="593" r="0.55"/>
+          <circle cx="666" cy="590" r="0.45"/>
+          <circle cx="694" cy="590" r="0.45"/>
+        </g>
+      </g>
+
       <!-- ═══════ LAYER 8: Streetcar track + streetcar ═══════
            Runs along the new elevated ground line at y=562 (above the
            creek, below the building bases at y=560). The streetcar crosses
@@ -1799,6 +2182,89 @@
       <!-- Elevated ground hairline — defines the new foreground shelf line
            that buildings sit on (20u above the creek). -->
       <line x1="0" y1="560" x2="1600" y2="560" class="midtown-ground-line"/>
+
+      <!-- v17a Track B: Six walker groups along the Brush Creek promenade,
+           Plaza bridge, and Kauffman Garden. Three trail-followers, three static.
+           Palette distribution: 4 gold-family (A, B, C, F), 1 slate (D), 1 burgundy (E). -->
+      <g class="midtown-walkers" aria-hidden="true">
+        <!-- W1a — couple lead, eastbound on south Plaza embankment -->
+        <g class="hill-walker walker-coat-A midtown-walker-path-embankment-a">
+          <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+          <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+          <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+          <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+          <line    x1="-1.2" y1="-4.1" x2="-1.6" y2="-2.2" class="walker-arm"/>
+          <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+          <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+        </g>
+        <!-- W1b — couple companion -->
+        <g class="hill-walker walker-coat-B midtown-walker-path-embankment-b">
+          <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+          <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+          <path    d="M -1.1,-4.9 L 1.1,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+          <line    x1="1.1"  y1="-4.1" x2="1.5"  y2="-2.2" class="walker-arm"/>
+          <line    x1="-0.3" y1="-1.2" x2="-0.5" y2="0.5"  class="walker-leg"/>
+          <line    x1="0.3"  y1="-1.2" x2="0.5"  y2="0.5"  class="walker-leg"/>
+        </g>
+        <!-- W2 — jogger westbound on Kauffman Garden outer path -->
+        <g class="hill-walker walker-coat-D midtown-walker-path-kauffman">
+          <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+          <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+          <path    d="M -1,-4.9 L 1,-4.9 L 0.9,-1.2 L -0.9,-1.2 Z" class="walker-coat"/>
+          <line    x1="1"  y1="-4.1" x2="1.7"  y2="-3" class="walker-arm"/>
+          <line    x1="-1" y1="-4.1" x2="-1.7" y2="-3" class="walker-arm"/>
+          <line    x1="-0.4" y1="-1.2" x2="-1"  y2="0.5"  class="walker-leg"/>
+          <line    x1="0.4"  y1="-1.2" x2="1"   y2="0.5"  class="walker-leg"/>
+        </g>
+        <!-- W3 — walker crossing Plaza bridge (visible ~40% of cycle on bridge) -->
+        <g class="hill-walker walker-coat-A midtown-walker-path-bridge">
+          <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+          <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+          <path    d="M -1.1,-4.9 L 1.1,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+          <line    x1="1.1"  y1="-4.1" x2="1.5"  y2="-2.2" class="walker-arm"/>
+          <line    x1="-1.1" y1="-4.1" x2="-1.5" y2="-2.2" class="walker-arm"/>
+          <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+          <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+        </g>
+        <!-- W4 — seated on Kauffman Garden bench (east side) -->
+        <g class="hill-walker walker-coat-F scene-walker-static scene-walker-seated" transform="translate(1508, 538) scale(1.3)">
+          <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+          <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+          <path    d="M -1.4,-4.9 L 1.4,-4.9 L 1.5,-1.8 L -1.5,-1.8 Z" class="walker-coat"/>
+          <line    x1="1.4"  y1="-3.8" x2="2.0"  y2="-1.9" class="walker-arm"/>
+          <line    x1="-1.4" y1="-3.8" x2="-2.0" y2="-1.9" class="walker-arm"/>
+        </g>
+        <!-- W5a — parent at Plaza bridge west abutment, looking over at child -->
+        <g class="hill-walker walker-coat-E scene-walker-static" transform="translate(712, 560) scale(1.55)">
+          <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+          <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+          <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+          <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+          <line    x1="-1.2" y1="-4.1" x2="-0.6" y2="-2.6" class="walker-arm"/>
+          <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+          <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+        </g>
+        <!-- W5b — child (smaller, beside parent) -->
+        <g class="hill-walker walker-coat-B scene-walker-static" transform="translate(720, 562) scale(1.1)">
+          <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+          <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+          <path    d="M -1.1,-4.9 L 1.1,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+          <line    x1="1.1"  y1="-4.1" x2="1.5"  y2="-3.2" class="walker-arm"/>
+          <line    x1="-1.1" y1="-4.1" x2="-1.5" y2="-3.2" class="walker-arm"/>
+          <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+          <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+        </g>
+        <!-- W6 — lateral walker on mid-hill crest road (north of creek) -->
+        <g class="hill-walker walker-coat-C scene-walker-static" transform="translate(1040, 540) scale(1.35)">
+          <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+          <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+          <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+          <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+          <line    x1="-1.2" y1="-4.1" x2="-1.6" y2="-2.2" class="walker-arm"/>
+          <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+          <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+        </g>
+      </g>
     </svg>
     <div class="midtown-hero-overlay">
       <span class="eyebrow">Kansas City Neighborhoods</span>
@@ -2054,5 +2520,6 @@
     </div>
   </footer>
 
+  <script defer src="../js/responsive-hero.js"></script>
 </body>
 </html>

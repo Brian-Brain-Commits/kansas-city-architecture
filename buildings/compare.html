@@ -14,7 +14,7 @@
   <meta property="og:title" content="Compare Heights — Look Up, Kansas City" />
   <meta property="og:description" content="Every major Kansas City building drawn at the same scale on a common ground line." />
   <meta property="og:type" content="website" />
-  <link rel="stylesheet" href="../style.css?v=16a" />
+  <link rel="stylesheet" href="../style.css?v=17f" />
 </head>
 <body>
 
@@ -132,18 +132,18 @@
       <p class="compare-hint">← Scroll horizontally to compare →</p>
 
       <div class="compare-buildings-wrapper">
-        <svg class="compare-buildings-svg" viewBox="0 0 2400 1000" role="img" aria-labelledby="compare-title compare-desc" xmlns="http://www.w3.org/2000/svg">
+        <svg class="compare-buildings-svg" viewBox="0 0 2720 1000" role="img" aria-labelledby="compare-title compare-desc" xmlns="http://www.w3.org/2000/svg">
           <title id="compare-title">Kansas City Buildings at Scale</title>
-          <desc id="compare-desc">A comparison diagram showing sixteen major Kansas City buildings drawn at the same vertical scale on a common ground line. One Kansas City Place is the tallest at 624 feet. The KC Power and Light Building at 476 feet and Fidelity Bank Building at 454 feet were both completed in 1931. Liberty Memorial Tower stands 217 feet tall. Demolished buildings are drawn in dashed lines.</desc>
+          <desc id="compare-desc">A comparison diagram showing nineteen major Kansas City buildings drawn at the same vertical scale on a common ground line. One Kansas City Place is the tallest at 624 feet. The KC Power and Light Building at 476 feet and Fidelity Bank Building at 454 feet were both completed in 1931. Liberty Memorial Tower stands 217 feet tall. Demolished buildings are drawn in dashed lines.</desc>
 
           <!-- Height gridlines every 100 ft (scale: 1.25 units per foot, ground at y=900) -->
           <g class="compare-gridlines" stroke="rgba(201,168,76,0.12)" stroke-width="0.75" stroke-dasharray="3,4">
-            <line x1="0" y1="775" x2="2400" y2="775"/>
-            <line x1="0" y1="650" x2="2400" y2="650"/>
-            <line x1="0" y1="525" x2="2400" y2="525"/>
-            <line x1="0" y1="400" x2="2400" y2="400"/>
-            <line x1="0" y1="275" x2="2400" y2="275"/>
-            <line x1="0" y1="150" x2="2400" y2="150"/>
+            <line x1="0" y1="775" x2="2720" y2="775"/>
+            <line x1="0" y1="650" x2="2720" y2="650"/>
+            <line x1="0" y1="525" x2="2720" y2="525"/>
+            <line x1="0" y1="400" x2="2720" y2="400"/>
+            <line x1="0" y1="275" x2="2720" y2="275"/>
+            <line x1="0" y1="150" x2="2720" y2="150"/>
           </g>
 
           <!-- Gridline height labels (left side) -->
@@ -157,7 +157,7 @@
           </g>
 
           <!-- Ground line -->
-          <line x1="0" y1="900" x2="2400" y2="900" stroke="#C9A84C" stroke-width="1.5" opacity="0.75"/>
+          <line x1="0" y1="900" x2="2720" y2="900" stroke="#C9A84C" stroke-width="1.5" opacity="0.75"/>
 
           <!-- Human figure for scale (6 ft ≈ 7.5 units — rendered slightly larger for visibility, labeled) -->
           <g class="compare-scale-figure" stroke="#C9A84C" stroke-width="1" fill="none">
@@ -248,8 +248,27 @@
             </a>
           </g>
 
+          <!-- 5b. Uptown Theatre (1928, ~55 ft + marquee to ~75 ft) — v17a addition -->
+          <g data-building="uptown-theatre" class="compare-building">
+            <a href="uptown-theatre.html" aria-label="Uptown Theatre, 1928">
+              <title>Uptown Theatre — 1928, ~55 ft (marquee to ~75 ft)</title>
+              <!-- Spanish Colonial theatre body with stepped parapet -->
+              <path d="M 690,900 L 690,831 L 696,826 L 696,820 L 706,820 L 706,815 L 754,815 L 754,820 L 764,820 L 764,826 L 770,831 L 770,900 Z"
+                    fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.5"/>
+              <!-- arched upper-story window hints -->
+              <path d="M 706,840 Q 710,833 716,833 Q 722,833 726,840" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.6"/>
+              <path d="M 734,840 Q 738,833 744,833 Q 750,833 754,840" fill="none" stroke="rgba(201,168,76,0.45)" stroke-width="0.6"/>
+              <!-- horizontal entry canopy -->
+              <rect x="706" y="875" width="48" height="5" fill="none" stroke="rgba(201,168,76,0.5)" stroke-width="0.6"/>
+              <!-- Vertical UPTOWN marquee rising above the roofline (to ~75 ft total) -->
+              <rect x="726" y="806" width="8" height="22" fill="rgba(232,201,106,0.18)" stroke="#E8C96A" stroke-width="0.8"/>
+              <text x="730" y="935" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="10" fill="var(--gold)" letter-spacing="1">1928</text>
+              <text x="730" y="950" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="var(--warm-grey)" letter-spacing="0.5">Uptown Theatre</text>
+            </a>
+          </g>
+
           <!-- 6. Fidelity Bank Building (1931, 454 ft) -->
-          <g data-building="fidelity-bank" class="compare-building">
+          <g data-building="fidelity-bank" class="compare-building" transform="translate(100, 0)">
             <a href="fidelity-bank.html" aria-label="Fidelity Bank Building, 1931, 454 feet">
               <title>Fidelity Bank Building — 1931, 454 ft</title>
               <!-- Art Deco with setbacks -->
@@ -266,7 +285,7 @@
           </g>
 
           <!-- 7. KC Power & Light Building (1931, 476 ft) -->
-          <g data-building="kc-power-and-light" class="compare-building">
+          <g data-building="kc-power-and-light" class="compare-building" transform="translate(100, 0)">
             <a href="kc-power-and-light.html" aria-label="Kansas City Power and Light Building, 1931, 476 feet">
               <title>KC Power &amp; Light — 1931, 476 ft</title>
               <!-- Art Deco with famous setback crown -->
@@ -285,7 +304,7 @@
           </g>
 
           <!-- 8. Nelson-Atkins Museum (1933, ~80 ft) -->
-          <g data-building="nelson-atkins" class="compare-building">
+          <g data-building="nelson-atkins" class="compare-building" transform="translate(100, 0)">
             <a href="nelson-atkins.html" aria-label="Nelson-Atkins Museum, 1933">
               <title>Nelson-Atkins Museum — 1933, ~80 ft</title>
               <!-- Wide neoclassical facade -->
@@ -306,7 +325,7 @@
           </g>
 
           <!-- 9. Jackson County Courthouse (1934, ~290 ft) -->
-          <g data-building="jackson-county-courthouse" class="compare-building">
+          <g data-building="jackson-county-courthouse" class="compare-building" transform="translate(100, 0)">
             <a href="jackson-county-courthouse.html" aria-label="Jackson County Courthouse, 1934, 290 feet">
               <title>Jackson County Courthouse — 1934, ~290 ft</title>
               <!-- Stepped Art Deco -->
@@ -322,8 +341,28 @@
             </a>
           </g>
 
+          <!-- 9b. Katz Drug (1934, ~35 ft) — v17a addition -->
+          <g data-building="katz-drug" class="compare-building">
+            <a href="katz-drug.html" aria-label="Katz Drug Store, 1934">
+              <title>Katz Drug — 1934, ~35 ft (Streamline Moderne)</title>
+              <!-- Low cream stucco body with rounded right corner -->
+              <path d="M 1290,900 L 1290,856 L 1358,856 Q 1366,856 1366,864 L 1366,900 Z"
+                    fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.5"/>
+              <!-- horizontal band (signature Streamline detail) -->
+              <line x1="1290" y1="868" x2="1360" y2="868" stroke="rgba(201,168,76,0.4)" stroke-width="0.6"/>
+              <!-- shopfront windows -->
+              <rect x="1296" y="875" width="12" height="18" fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+              <rect x="1314" y="875" width="12" height="18" fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+              <rect x="1332" y="875" width="12" height="18" fill="none" stroke="rgba(201,168,76,0.35)" stroke-width="0.5"/>
+              <!-- Rooftop KATZ neon signboard -->
+              <rect x="1310" y="845" width="36" height="8" rx="1" fill="rgba(232,201,106,0.22)" stroke="#E8C96A" stroke-width="0.7"/>
+              <text x="1328" y="935" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="10" fill="var(--gold)" letter-spacing="1">1934</text>
+              <text x="1328" y="950" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="var(--warm-grey)" letter-spacing="0.5">Katz Drug</text>
+            </a>
+          </g>
+
           <!-- 10. Municipal Auditorium (1935, ~130 ft) -->
-          <g data-building="municipal-auditorium" class="compare-building">
+          <g data-building="municipal-auditorium" class="compare-building" transform="translate(190, 0)">
             <a href="municipal-auditorium.html" aria-label="Municipal Auditorium, 1935">
               <title>Municipal Auditorium — 1935, ~130 ft</title>
               <!-- Wide Art Deco cube with vertical ribs -->
@@ -341,7 +380,7 @@
           </g>
 
           <!-- 11. City Hall (1937, 443 ft) -->
-          <g data-building="city-hall" class="compare-building">
+          <g data-building="city-hall" class="compare-building" transform="translate(190, 0)">
             <a href="city-hall.html" aria-label="Kansas City City Hall, 1937, 443 feet">
               <title>Kansas City City Hall — 1937, 443 ft</title>
               <!-- Stepped with pyramid crown -->
@@ -359,8 +398,45 @@
             </a>
           </g>
 
+          <!-- 11b. One Park Place (~1972, ~220 ft) — v17a addition; crosses Liberty Memorial 217 ft threshold -->
+          <g data-building="one-park-place" class="compare-building">
+            <a href="one-park-place.html" aria-label="One Park Place, approximately 1972, 220 feet">
+              <title>One Park Place — ~1972, ~220 ft (Late Modernist residential slab)</title>
+              <!-- Slender modernist slab, glass curtain wall, flat roof -->
+              <path d="M 1665,900 L 1665,625 L 1720,625 L 1720,900 Z"
+                    fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="1.5"/>
+              <!-- Continuous horizontal floor-banding (20 floors, evenly spaced) -->
+              <line x1="1665" y1="639" x2="1720" y2="639" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="653" x2="1720" y2="653" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="667" x2="1720" y2="667" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="681" x2="1720" y2="681" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="695" x2="1720" y2="695" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="709" x2="1720" y2="709" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="723" x2="1720" y2="723" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="737" x2="1720" y2="737" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="751" x2="1720" y2="751" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="765" x2="1720" y2="765" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="779" x2="1720" y2="779" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="793" x2="1720" y2="793" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="807" x2="1720" y2="807" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="821" x2="1720" y2="821" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="835" x2="1720" y2="835" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="849" x2="1720" y2="849" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="863" x2="1720" y2="863" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <line x1="1665" y1="877" x2="1720" y2="877" stroke="rgba(201,168,76,0.32)" stroke-width="0.4"/>
+              <!-- Vertical mullion -->
+              <line x1="1692.5" y1="640" x2="1692.5" y2="890" stroke="rgba(201,168,76,0.22)" stroke-width="0.4"/>
+              <!-- Liberty Memorial 217 ft threshold — small dashed reference tick just above the building edge -->
+              <line x1="1655" y1="629" x2="1730" y2="629" stroke="rgba(232,201,106,0.35)" stroke-width="0.6" stroke-dasharray="3,3"/>
+              <text x="1734" y="632" font-family="'Josefin Sans',sans-serif" font-size="7" fill="rgba(232,201,106,0.7)" letter-spacing="0.3">217 ft · Liberty</text>
+              <text x="1692.5" y="935" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="10" fill="var(--gold)" letter-spacing="1">~1972</text>
+              <text x="1692.5" y="950" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="9" fill="var(--warm-grey)" letter-spacing="0.5">One Park Place</text>
+              <text x="1692.5" y="962" text-anchor="middle" font-family="'Josefin Sans',sans-serif" font-size="8" fill="rgba(140,126,106,0.7)">220 ft</text>
+            </a>
+          </g>
+
           <!-- 12. Town Pavilion (1986, 590 ft) -->
-          <g data-building="town-pavilion" class="compare-building">
+          <g data-building="town-pavilion" class="compare-building" transform="translate(290, 0)">
             <a href="town-pavilion.html" aria-label="Town Pavilion, 1986, 590 feet">
               <title>Town Pavilion — 1986, 590 ft</title>
               <!-- Postmodern with angular crown -->
@@ -377,7 +453,7 @@
           </g>
 
           <!-- 13. One KC Place (1988, 624 ft) — TALLEST -->
-          <g data-building="one-kc-place" class="compare-building">
+          <g data-building="one-kc-place" class="compare-building" transform="translate(290, 0)">
             <a href="one-kc-place.html" aria-label="One Kansas City Place, 1988, 624 feet">
               <title>One Kansas City Place — 1988, 624 ft (tallest in Missouri)</title>
               <!-- Glass tower, simple flat top -->
@@ -396,7 +472,7 @@
           </g>
 
           <!-- 14. T-Mobile Center (2007, ~150 ft) -->
-          <g data-building="t-mobile-center" class="compare-building">
+          <g data-building="t-mobile-center" class="compare-building" transform="translate(290, 0)">
             <a href="t-mobile-center.html" aria-label="T-Mobile Center, 2007">
               <title>T-Mobile Center — 2007, ~150 ft</title>
               <!-- Curved-top arena -->
@@ -412,7 +488,7 @@
           </g>
 
           <!-- 15. Kauffman Center (2011, ~290 ft) -->
-          <g data-building="kauffman-center" class="compare-building">
+          <g data-building="kauffman-center" class="compare-building" transform="translate(290, 0)">
             <a href="kauffman-center.html" aria-label="Kauffman Center for the Performing Arts, 2011">
               <title>Kauffman Center — 2011, ~290 ft (Safdie curved shells)</title>
               <!-- Two Safdie shells — signature curved form -->
@@ -431,7 +507,7 @@
           </g>
 
           <!-- 16. CPKC Stadium (2024, ~130 ft) -->
-          <g data-building="cpkc-stadium" class="compare-building">
+          <g data-building="cpkc-stadium" class="compare-building" transform="translate(290, 0)">
             <a href="cpkc-stadium.html" aria-label="CPKC Stadium, 2024">
               <title>CPKC Stadium — 2024, ~130 ft</title>
               <!-- Stadium with curving roof canopy -->
@@ -469,11 +545,14 @@
         <p>
           Then the gap. After 1937, no major downtown tower rose above thirty stories until
           Town Pavilion in 1986 — forty-nine years of essentially no new downtown skyline.
-          Kansas City spent that half-century building suburbs, highways, and stadiums
-          on the periphery while the towers Pendergast built held the center of the city
-          without serious addition. When One Kansas City Place arrived in 1988 at 624 feet,
-          it broke the record that had stood since 1937 — but by then the Art Deco crowns
-          it towered over had already become the city's defining image, and still are.
+          One Park Place at 220 feet on Hospital Hill, completed in the early 1970s, is the
+          rare exception — a twenty-story late-modernist residential slab sitting midway
+          between the Art Deco boom and the Postmodern skyline wave. Kansas City spent that
+          half-century mostly building suburbs, highways, and stadiums on the periphery
+          while the towers Pendergast built held the center of the city without serious
+          addition. When One Kansas City Place arrived in 1988 at 624 feet, it broke the
+          downtown record that had stood since 1937 — but by then the Art Deco crowns it
+          towered over had already become the city's defining image, and still are.
         </p>
       </div>
 

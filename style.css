@@ -6922,18 +6922,243 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   65%  { opacity: 1; }
   70%  { opacity: 0.35; }
 }
-.midtown-kctv5-leds rect {
-  filter: drop-shadow(0 0 2.5px currentColor);
-  opacity: 0;
-  animation: midtown-kctv5-led-on 40s linear infinite;
+/* v17b: Pinpoint LED bulbs scattered across the KCTV5 tower structure.
+   Replaces the previous 9 rectangular LED blocks. Four color classes
+   with distinct blink/pulse patterns and subtle drop-shadow glows. */
+.midtown-kctv5-bulbs circle {
+  filter: drop-shadow(0 0 1.1px currentColor);
 }
-.midtown-kctv5-leds .led-red   { fill: #D62828; color: #D62828; }
-.midtown-kctv5-leds .led-white { fill: #F5EFE0; color: #F5EFE0; animation-delay: -8s; }
-.midtown-kctv5-leds .led-blue  { fill: #3A6EA5; color: #3A6EA5; animation-delay: -16s; }
-@keyframes midtown-kctv5-led-on {
-  0%, 45% { opacity: 0; }
-  55%, 92% { opacity: 0.95; }
-  100% { opacity: 0; }
+/* Red FAA aircraft-warning — slow steady pulse, characteristic of tall towers */
+.midtown-kctv5-bulbs .kctv5-bulb-red {
+  fill: #FF3A2A; color: #FF3A2A;
+  animation: kctv5-bulb-red-pulse 1.9s ease-in-out infinite;
+}
+.midtown-kctv5-bulbs .kctv5-bulb-red:nth-of-type(2n)   { animation-delay: -0.6s; }
+.midtown-kctv5-bulbs .kctv5-bulb-red:nth-of-type(3n+1) { animation-delay: -1.2s; }
+@keyframes kctv5-bulb-red-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.4; }
+}
+/* White aviation strobe — fast sharp flash */
+.midtown-kctv5-bulbs .kctv5-bulb-white {
+  fill: #FFFBEE; color: #FFE3A0;
+  animation: kctv5-bulb-strobe 1.3s steps(1, end) infinite;
+}
+.midtown-kctv5-bulbs .kctv5-bulb-white:nth-of-type(2n)   { animation-delay: -0.3s; }
+.midtown-kctv5-bulbs .kctv5-bulb-white:nth-of-type(3n+1) { animation-delay: -0.75s; }
+@keyframes kctv5-bulb-strobe {
+  0%, 8%, 14%, 100% { opacity: 1; }
+  10%, 92%          { opacity: 0.15; }
+}
+/* Amber decorative — slow ambient breath */
+.midtown-kctv5-bulbs .kctv5-bulb-amber {
+  fill: #FFC070; color: #FFC070;
+  animation: kctv5-bulb-breath 3.5s ease-in-out infinite;
+}
+.midtown-kctv5-bulbs .kctv5-bulb-amber:nth-of-type(3n)   { animation-delay: -0.9s; }
+.midtown-kctv5-bulbs .kctv5-bulb-amber:nth-of-type(4n+1) { animation-delay: -1.8s; }
+.midtown-kctv5-bulbs .kctv5-bulb-amber:nth-of-type(5n+2) { animation-delay: -2.6s; }
+@keyframes kctv5-bulb-breath {
+  0%, 100% { opacity: 0.95; }
+  50%      { opacity: 0.5; }
+}
+/* Cyan decorative twinkle — fast, staggered */
+.midtown-kctv5-bulbs .kctv5-bulb-cyan {
+  fill: #7AE2F0; color: #7AE2F0;
+  animation: kctv5-bulb-twinkle 2.4s ease-in-out infinite;
+}
+.midtown-kctv5-bulbs .kctv5-bulb-cyan:nth-of-type(2n)   { animation-delay: -1s; }
+.midtown-kctv5-bulbs .kctv5-bulb-cyan:nth-of-type(3n+1) { animation-delay: -1.6s; }
+/* Green decorative twinkle — offset from cyan */
+.midtown-kctv5-bulbs .kctv5-bulb-green {
+  fill: #7AE2A0; color: #7AE2A0;
+  animation: kctv5-bulb-twinkle 2.1s ease-in-out infinite;
+  animation-delay: -0.5s;
+}
+.midtown-kctv5-bulbs .kctv5-bulb-green:nth-of-type(2n)   { animation-delay: -1.3s; }
+.midtown-kctv5-bulbs .kctv5-bulb-green:nth-of-type(3n+1) { animation-delay: -1.9s; }
+
+/* v17e: Magenta / pink / orange / blue accent colors for more festive night */
+.midtown-kctv5-bulbs .kctv5-bulb-magenta {
+  fill: #E060D8; color: #E060D8;
+  animation: kctv5-bulb-twinkle 2.6s ease-in-out infinite;
+  animation-delay: -0.3s;
+}
+.midtown-kctv5-bulbs .kctv5-bulb-magenta:nth-of-type(2n)   { animation-delay: -1.4s; }
+.midtown-kctv5-bulbs .kctv5-bulb-magenta:nth-of-type(3n+1) { animation-delay: -2.1s; }
+
+.midtown-kctv5-bulbs .kctv5-bulb-pink {
+  fill: #FF8AC0; color: #FF8AC0;
+  animation: kctv5-bulb-breath 3.2s ease-in-out infinite;
+  animation-delay: -0.6s;
+}
+.midtown-kctv5-bulbs .kctv5-bulb-pink:nth-of-type(2n)   { animation-delay: -1.7s; }
+.midtown-kctv5-bulbs .kctv5-bulb-pink:nth-of-type(3n+1) { animation-delay: -2.5s; }
+
+.midtown-kctv5-bulbs .kctv5-bulb-orange {
+  fill: #FFA040; color: #FFA040;
+  animation: kctv5-bulb-breath 3.0s ease-in-out infinite;
+  animation-delay: -1.1s;
+}
+.midtown-kctv5-bulbs .kctv5-bulb-orange:nth-of-type(2n)   { animation-delay: -0.4s; }
+.midtown-kctv5-bulbs .kctv5-bulb-orange:nth-of-type(3n+1) { animation-delay: -2.2s; }
+
+.midtown-kctv5-bulbs .kctv5-bulb-blue {
+  fill: #6BACE0; color: #6BACE0;
+  animation: kctv5-bulb-twinkle 2.3s ease-in-out infinite;
+  animation-delay: -0.9s;
+}
+.midtown-kctv5-bulbs .kctv5-bulb-blue:nth-of-type(2n)   { animation-delay: -1.6s; }
+.midtown-kctv5-bulbs .kctv5-bulb-blue:nth-of-type(3n+1) { animation-delay: -2.0s; }
+@keyframes kctv5-bulb-twinkle {
+  0%, 100% { opacity: 0.85; }
+  50%      { opacity: 0.3; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   v17b — KC Wheel (Skyland KC Wheel)
+   Slow continuous rotation, 12 colored cabins, 24 multi-color rim LEDs.
+   Sits at middle distance between Midtown foreground and downtown cluster.
+   ───────────────────────────────────────────────────────────── */
+
+/* Support structure (static) */
+.midtown-kcwheel-support .kcwheel-leg {
+  stroke: rgba(232, 201, 106, 0.75);
+  stroke-width: 0.9;
+  stroke-linecap: round;
+  fill: none;
+}
+.midtown-kcwheel-support .kcwheel-base {
+  fill: rgba(201, 168, 76, 0.18);
+  stroke: rgba(232, 201, 106, 0.6);
+  stroke-width: 0.5;
+}
+.midtown-kcwheel-support .kcwheel-hub {
+  fill: rgba(201, 168, 76, 0.25);
+  stroke: rgba(232, 201, 106, 0.85);
+  stroke-width: 0.6;
+}
+.midtown-kcwheel-support .kcwheel-hub-bulb {
+  fill: #FFE0A8;
+  filter: drop-shadow(0 0 1.2px rgba(255, 220, 150, 0.9));
+}
+
+/* Rotating group — slow spin around its own center */
+.midtown-kcwheel-rotate-inner {
+  transform-origin: 0 0;
+  animation: kcwheel-spin 75s linear infinite;
+  will-change: transform;
+}
+@keyframes kcwheel-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Wheel rim + spokes — gold line-art */
+.midtown-kcwheel .kcwheel-rim {
+  fill: none;
+  stroke: rgba(232, 201, 106, 0.85);
+  stroke-width: 0.9;
+}
+.midtown-kcwheel .kcwheel-rim-inner {
+  fill: none;
+  stroke: rgba(232, 201, 106, 0.38);
+  stroke-width: 0.4;
+}
+.midtown-kcwheel .kcwheel-spoke {
+  stroke: rgba(232, 201, 106, 0.5);
+  stroke-width: 0.45;
+  stroke-linecap: round;
+}
+
+/* Cabins — small rounded rectangles with colored glow inside.
+   Day state = muted outline; night state (via .building-night-lights) = glowing. */
+.midtown-kcwheel .kcwheel-cabin {
+  stroke: rgba(232, 201, 106, 0.7);
+  stroke-width: 0.35;
+}
+.midtown-kcwheel .kcwheel-cabin-red    { fill: rgba(220, 70, 55, 0.8);  filter: drop-shadow(0 0 1.2px rgba(220, 70, 55, 0.85)); }
+.midtown-kcwheel .kcwheel-cabin-purple { fill: rgba(160, 90, 200, 0.82); filter: drop-shadow(0 0 1.2px rgba(160, 90, 200, 0.85)); }
+.midtown-kcwheel .kcwheel-cabin-blue   { fill: rgba(70, 140, 220, 0.82); filter: drop-shadow(0 0 1.2px rgba(70, 140, 220, 0.85)); }
+.midtown-kcwheel .kcwheel-cabin-cyan   { fill: rgba(90, 220, 230, 0.82); filter: drop-shadow(0 0 1.2px rgba(90, 220, 230, 0.85)); }
+.midtown-kcwheel .kcwheel-cabin-green  { fill: rgba(110, 210, 130, 0.82); filter: drop-shadow(0 0 1.2px rgba(110, 210, 130, 0.85)); }
+.midtown-kcwheel .kcwheel-cabin-yellow { fill: rgba(245, 210, 110, 0.88); filter: drop-shadow(0 0 1.2px rgba(245, 210, 110, 0.9)); }
+
+/* v17c: Midtown commercial density fill — small brick/stucco buildings
+   filling the gaps between OPP/Katz/Uptown. Gold line-art palette. */
+.midtown-commercial-body {
+  fill: rgba(180, 140, 90, 0.14);
+  stroke: rgba(232, 201, 106, 0.75);
+  stroke-width: 0.7;
+}
+.midtown-commercial-cornice {
+  stroke: rgba(232, 201, 106, 0.6);
+  stroke-width: 0.5;
+}
+.midtown-commercial-cornice-cap {
+  fill: rgba(201, 168, 76, 0.16);
+  stroke: rgba(232, 201, 106, 0.55);
+  stroke-width: 0.45;
+}
+.midtown-commercial-band {
+  stroke: rgba(232, 201, 106, 0.45);
+  stroke-width: 0.5;
+}
+.midtown-commercial-window {
+  fill: rgba(30, 28, 34, 0.55);
+  stroke: rgba(232, 201, 106, 0.5);
+  stroke-width: 0.35;
+}
+.midtown-commercial-storefront {
+  fill: rgba(30, 28, 34, 0.45);
+  stroke: rgba(232, 201, 106, 0.5);
+  stroke-width: 0.4;
+}
+.midtown-commercial-door {
+  stroke: rgba(232, 201, 106, 0.55);
+  stroke-width: 0.5;
+}
+.midtown-commercial-awning {
+  fill: rgba(180, 70, 55, 0.55);
+  stroke: rgba(140, 50, 40, 0.7);
+  stroke-width: 0.35;
+}
+.midtown-commercial-glow {
+  fill: rgba(255, 214, 140, 0.75);
+  filter: drop-shadow(0 0 0.8px rgba(255, 210, 140, 0.5));
+}
+
+/* Small decorative accent on the Nichols mini statue's torch/laurel */
+.midtown-nichols-statue-torch {
+  fill: rgba(255, 214, 140, 0.9);
+  stroke: #B08040;
+  stroke-width: 0.25;
+  filter: drop-shadow(0 0 0.5px rgba(255, 220, 150, 0.7));
+}
+
+/* Rim + spoke LEDs — staggered pulse patterns per color family */
+.midtown-kcwheel .kcwheel-rim-leds circle,
+.midtown-kcwheel .kcwheel-spoke-leds circle {
+  filter: drop-shadow(0 0 0.9px currentColor);
+  animation: kcwheel-led-pulse 1.8s ease-in-out infinite;
+}
+.midtown-kcwheel .kcwheel-led-red,
+.midtown-kcwheel .kcwheel-led-spoke-red    { fill: #FF5B4B; color: #FF5B4B; animation-delay: 0s; }
+.midtown-kcwheel .kcwheel-led-white,
+.midtown-kcwheel .kcwheel-led-spoke-white  { fill: #FFFBEE; color: #FFE3A0; animation-delay: -0.3s; animation-duration: 1.1s; }
+.midtown-kcwheel .kcwheel-led-blue,
+.midtown-kcwheel .kcwheel-led-spoke-blue   { fill: #6BACE0; color: #6BACE0; animation-delay: -0.6s; }
+.midtown-kcwheel .kcwheel-led-green,
+.midtown-kcwheel .kcwheel-led-spoke-green  { fill: #84E49A; color: #84E49A; animation-delay: -0.9s; }
+.midtown-kcwheel .kcwheel-led-cyan,
+.midtown-kcwheel .kcwheel-led-spoke-cyan   { fill: #7AE2F0; color: #7AE2F0; animation-delay: -1.2s; }
+.midtown-kcwheel .kcwheel-led-purple,
+.midtown-kcwheel .kcwheel-led-spoke-purple { fill: #B584D6; color: #B584D6; animation-delay: -0.45s; }
+.midtown-kcwheel .kcwheel-led-yellow,
+.midtown-kcwheel .kcwheel-led-spoke-yellow { fill: #FFD765; color: #FFD765; animation-delay: -0.75s; }
+@keyframes kcwheel-led-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.45; }
 }
 
 /* Plaza distant towers — converted to gold line-art matching homepage style. */
@@ -7030,6 +7255,41 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   filter: blur(6px);
 }
 .midtown-katz-window-glow { fill: rgba(255, 210, 140, 0.6); }
+
+/* v17d: Katz clock tower + cursive script signage */
+.midtown-katz-clockface {
+  fill: rgba(50, 38, 24, 0.92);
+  stroke: rgba(232, 201, 106, 0.85);
+  stroke-width: 0.4;
+}
+.midtown-katz-clockhand {
+  stroke: rgba(232, 201, 106, 0.9);
+  stroke-width: 0.5;
+  stroke-linecap: round;
+}
+.midtown-katz-clocktick {
+  stroke: rgba(232, 201, 106, 0.7);
+  stroke-width: 0.35;
+}
+.midtown-katz-finial {
+  fill: rgba(232, 201, 106, 0.85);
+  stroke: rgba(232, 201, 106, 0.95);
+  stroke-width: 0.25;
+}
+.midtown-katz-script {
+  fill: rgba(232, 201, 106, 0.92);
+}
+.midtown-katz-script-neon {
+  fill: #FF8A6A;
+  filter: drop-shadow(0 0 2.5px rgba(255, 120, 80, 0.85));
+}
+.midtown-katz-clockhalo {
+  fill: rgba(255, 210, 140, 0.22);
+  filter: blur(3px);
+}
+.midtown-katz-clockglow {
+  fill: rgba(255, 230, 160, 0.55);
+}
 @keyframes midtown-katz-neon-on {
   0%, 45%  { opacity: 0; }
   47%  { opacity: 0.3; }
@@ -7103,10 +7363,14 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   stroke-width: 0.35;
 }
 .midtown-nelson-wing,
-.midtown-nelson-main {
+.midtown-nelson-main,
+.midtown-nelson-endpavilion {
   fill: rgba(201, 168, 76, 0.1);
   stroke: rgba(201, 168, 76, 0.85);
   stroke-width: 0.9;
+}
+.midtown-nelson-endpavilion {
+  fill: rgba(201, 168, 76, 0.13);
 }
 .midtown-nelson-pediment {
   fill: rgba(201, 168, 76, 0.14);
@@ -7686,7 +7950,9 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   .midtown-cloud-a,
   .midtown-cloud-b,
   .midtown-kctv5-faa,
-  .midtown-kctv5-leds rect,
+  .midtown-kctv5-bulbs circle,
+  .midtown-kcwheel-rotate-inner,
+  .midtown-kcwheel .kcwheel-rim-leds circle,
   .midtown-shuttlecock-sway,
   .midtown-katz-neon,
   .midtown-uptown-neon,
@@ -7695,8 +7961,375 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   }
   .midtown-katz-neon,
   .midtown-uptown-neon { opacity: 0.85 !important; }
-  .midtown-sky-stars,
-  .midtown-kctv5-leds { opacity: 0 !important; }
+  .midtown-sky-stars { opacity: 0 !important; }
+  .midtown-kctv5-bulbs circle { opacity: 0.7 !important; transform: none !important; }
+  .midtown-kcwheel .kcwheel-rim-leds circle { opacity: 0.85 !important; transform: none !important; }
   .midtown-shuttlecock-sway { transform: rotate(0deg) !important; }
   .midtown-kctv5-faa { opacity: 0.5 !important; }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   v17a — Scene Gallery (homepage signature-scene navigation)
+   ───────────────────────────────────────────────────────────── */
+.scene-gallery {
+  background: linear-gradient(180deg, #0A0805 0%, #0E0A07 100%);
+  padding: 3.5rem 1.25rem 4rem;
+  border-top: 1px solid rgba(201, 168, 76, 0.15);
+  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+}
+.scene-gallery-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2.25rem;
+}
+.scene-gallery-eyebrow {
+  display: block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+.scene-gallery-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.65rem, 3.2vw, 2.25rem);
+  color: var(--cream);
+  font-weight: 400;
+  margin: 0 0 0.7rem;
+  line-height: 1.15;
+}
+.scene-gallery-header h2 span {
+  color: var(--gold);
+}
+.scene-gallery-sub {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--warm-grey);
+  font-size: clamp(0.9rem, 1.15vw, 1rem);
+  line-height: 1.55;
+  margin: 0;
+}
+.scene-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+@media (max-width: 960px) {
+  .scene-gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+}
+@media (max-width: 560px) {
+  .scene-gallery-grid { grid-template-columns: 1fr; gap: 1rem; }
+  .scene-gallery { padding: 2.5rem 1rem 3rem; }
+}
+.scene-gallery-tile {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+  outline: none;
+  background: #0A0805;
+}
+.scene-gallery-tile:hover,
+.scene-gallery-tile:focus-visible {
+  transform: scale(1.02);
+  box-shadow: 0 4px 24px rgba(232, 201, 106, 0.28), 0 0 0 1px rgba(232, 201, 106, 0.6);
+  border-color: rgba(232, 201, 106, 0.6);
+}
+.scene-gallery-tile-inner {
+  position: relative;
+  aspect-ratio: 5 / 3;
+  overflow: hidden;
+}
+.scene-gallery-tod-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.scene-gallery-tile-svg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.scene-gallery-tile-caption {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 2;
+  padding: 1.25rem 1rem 0.8rem;
+  background: linear-gradient(180deg, rgba(10, 8, 5, 0) 0%, rgba(10, 8, 5, 0.78) 55%, rgba(10, 8, 5, 0.94) 100%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+.scene-gallery-tile-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  color: var(--cream);
+  font-weight: 400;
+  line-height: 1.1;
+}
+.scene-gallery-tile-enter {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.scene-gallery-tile:hover .scene-gallery-tile-enter,
+.scene-gallery-tile:focus-visible .scene-gallery-tile-enter {
+  opacity: 1;
+  transform: translateX(0);
+}
+@media (hover: none) {
+  .scene-gallery-tile-enter { opacity: 0.75; transform: translateX(0); }
+}
+
+/* Gold line-art palette inside tile SVGs */
+.scene-gallery-tile-svg [data-sgline=""] {
+  fill: rgba(201, 168, 76, 0.1);
+  stroke: rgba(232, 201, 106, 0.82);
+  stroke-width: 1;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+.scene-gallery-tile-svg [data-sgline="accent"] {
+  fill: rgba(232, 201, 106, 0.3);
+  stroke: #E8C96A;
+  stroke-width: 1;
+}
+.scene-gallery-tile-svg [data-sgline="thin"] {
+  fill: none;
+  stroke: rgba(232, 201, 106, 0.58);
+  stroke-width: 0.65;
+}
+.scene-gallery-tile-svg [data-sgline="hair"] {
+  fill: none;
+  stroke: rgba(232, 201, 106, 0.38);
+  stroke-width: 0.5;
+}
+.scene-gallery-tile-svg .sg-ground {
+  stroke: rgba(201, 168, 76, 0.48);
+  stroke-width: 0.8;
+  fill: none;
+}
+
+/* Fixed-TOD tile variants (Plaza = dusk, Fountain Day = day) */
+.scene-gallery-tile.scene-gallery-tile-dusk .scene-gallery-tod-backdrop .tod-layer,
+.scene-gallery-tile.scene-gallery-tile-day  .scene-gallery-tod-backdrop .tod-layer {
+  animation: none !important;
+}
+
+/* Cloud drift (used on Downtown, Fountain Day, Midtown tiles) */
+.scene-gallery-tile-svg .sg-cloud {
+  fill: rgba(232, 201, 106, 0.16);
+  stroke: rgba(232, 201, 106, 0.38);
+  stroke-width: 0.5;
+  animation: sg-cloud-drift 110s linear infinite;
+}
+.scene-gallery-tile:nth-of-type(3) .sg-cloud { animation-duration: 95s; animation-delay: -35s; }
+.scene-gallery-tile:nth-of-type(6) .sg-cloud { animation-duration: 125s; animation-delay: -60s; }
+@keyframes sg-cloud-drift {
+  0%   { transform: translateX(-80px); }
+  100% { transform: translateX(480px); }
+}
+
+/* Water-spray pulse (Fountain Day, Nichols, Meyer) */
+.scene-gallery-tile-svg .sg-water-spray {
+  fill: none;
+  stroke: rgba(179, 206, 229, 0.78);
+  stroke-width: 1;
+  stroke-linecap: round;
+  transform-origin: center bottom;
+  transform-box: fill-box;
+  animation: sg-water-pulse 2.8s ease-in-out infinite;
+}
+@keyframes sg-water-pulse {
+  0%, 100% { transform: scaleY(0.88); opacity: 0.72; }
+  50%      { transform: scaleY(1.08); opacity: 1; }
+}
+
+/* Plaza bulbs twinkle */
+.scene-gallery-tile-svg .sg-bulb {
+  fill: rgba(255, 220, 140, 0.95);
+  animation: sg-bulb-twinkle 3.2s ease-in-out infinite;
+  filter: drop-shadow(0 0 1.5px rgba(255, 220, 140, 0.7));
+}
+.scene-gallery-tile-svg .sg-bulb:nth-of-type(3n)   { animation-delay: -0.8s; }
+.scene-gallery-tile-svg .sg-bulb:nth-of-type(4n+1) { animation-delay: -1.6s; }
+.scene-gallery-tile-svg .sg-bulb:nth-of-type(5n+2) { animation-delay: -2.4s; }
+@keyframes sg-bulb-twinkle {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+
+/* Neon flicker (Midtown KATZ + UPTOWN) */
+.scene-gallery-tile-svg .sg-neon {
+  fill: rgba(232, 201, 106, 0.38);
+  stroke: #E8C96A;
+  stroke-width: 0.8;
+  animation: sg-neon-flicker 5s steps(1, end) infinite;
+}
+.scene-gallery-tile-svg .sg-neon:nth-of-type(2n) { animation-delay: -2.3s; }
+@keyframes sg-neon-flicker {
+  0%, 40%, 48%, 54%, 62%, 100% { opacity: 1; }
+  45%, 52%, 60%                { opacity: 0.4; }
+}
+
+/* Nichols trail walker */
+.scene-gallery-tile-svg .sg-walker {
+  animation: sg-walker-stroll 16s linear infinite;
+}
+@keyframes sg-walker-stroll {
+  0%   { transform: translateX(0);    opacity: 0; }
+  10%  {                               opacity: 1; }
+  90%  {                               opacity: 1; }
+  100% { transform: translateX(130px); opacity: 0; }
+}
+
+/* Reduced motion — park everything gracefully */
+@media (prefers-reduced-motion: reduce) {
+  .scene-gallery-tile { transition: none; }
+  .scene-gallery-tile:hover,
+  .scene-gallery-tile:focus-visible { transform: none; }
+  .scene-gallery-tile-enter { transition: none; opacity: 0.6; transform: translateX(0); }
+  .scene-gallery-tile-svg .sg-cloud,
+  .scene-gallery-tile-svg .sg-water-spray,
+  .scene-gallery-tile-svg .sg-bulb,
+  .scene-gallery-tile-svg .sg-neon,
+  .scene-gallery-tile-svg .sg-walker { animation: none !important; }
+  .scene-gallery-tile-svg .sg-water-spray { transform: scaleY(1); opacity: 0.85; }
+  .scene-gallery-tile-svg .sg-bulb { opacity: 1; }
+  .scene-gallery-tile-svg .sg-neon { opacity: 0.85; }
+  .scene-gallery-tile-svg .sg-walker { opacity: 0.85; transform: translateX(60px); }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   v17a Track B — Midtown peopled-scene polish
+   6 walker groups + 1 V-formation bird flock
+   ───────────────────────────────────────────────────────────── */
+
+/* Bird flock — reuses .sky-birds phase gate (Day/Dusk/Dawn visible, Night hidden)
+   and .flock-v layout, but with a Midtown-specific 180s west→east cycle. */
+.midtown-birds {
+  animation: bird-phase-visibility 40s linear infinite;
+  will-change: opacity;
+}
+.midtown-flock-v {
+  animation: midtown-bird-west-east 180s linear infinite;
+  animation-delay: -60s;
+  scale: 1.15;
+  transform-box: fill-box;
+  transform-origin: center;
+  will-change: transform;
+}
+@keyframes midtown-bird-west-east {
+  0%   { transform: translate(-150px, 95px); }
+  25%  { transform: translate(300px,  85px); }
+  50%  { transform: translate(780px,  105px); }
+  75%  { transform: translate(1240px, 90px); }
+  100% { transform: translate(1720px, 110px); }
+}
+
+/* Trail-follower walkers — Midtown-specific paths */
+
+/* W1 — Couple strolling east on south Plaza embankment (y ≈ 590, 55s loop) */
+.hill-walker.midtown-walker-path-embankment-a {
+  opacity: 0;
+  animation: midtown-walker-embankment-a 55s ease-in-out infinite;
+}
+.hill-walker.midtown-walker-path-embankment-b {
+  opacity: 0;
+  animation: midtown-walker-embankment-b 55s ease-in-out infinite;
+  animation-delay: -1.5s;
+}
+@keyframes midtown-walker-embankment-a {
+  0%   { opacity: 0;   transform: translate(580px, 590px) scale(1.5); }
+  5%   { opacity: 0.5; transform: translate(605px, 590px) scale(1.55); }
+  15%  { opacity: 1;   transform: translate(660px, 591px) scale(1.6); }
+  45%  { opacity: 1;   transform: translate(760px, 591px) scale(1.6); }
+  75%  { opacity: 1;   transform: translate(860px, 592px) scale(1.6); }
+  88%  { opacity: 0.5; transform: translate(895px, 592px) scale(1.55); }
+  94%  { opacity: 0;   transform: translate(905px, 592px) scale(1.5); }
+  100% { opacity: 0;   transform: translate(580px, 590px) scale(1.5); }
+}
+@keyframes midtown-walker-embankment-b {
+  0%   { opacity: 0;   transform: translate(596px, 588px) scale(1.45); }
+  5%   { opacity: 0.5; transform: translate(621px, 588px) scale(1.5); }
+  15%  { opacity: 1;   transform: translate(676px, 589px) scale(1.55); }
+  45%  { opacity: 1;   transform: translate(776px, 589px) scale(1.55); }
+  75%  { opacity: 1;   transform: translate(876px, 590px) scale(1.55); }
+  88%  { opacity: 0.5; transform: translate(911px, 590px) scale(1.5); }
+  94%  { opacity: 0;   transform: translate(921px, 590px) scale(1.45); }
+  100% { opacity: 0;   transform: translate(596px, 588px) scale(1.45); }
+}
+
+/* W2 — Jogger westbound on Kauffman Garden outer path (42s loop) */
+.hill-walker.midtown-walker-path-kauffman {
+  opacity: 0;
+  animation: midtown-walker-kauffman 42s linear infinite;
+  animation-delay: -10s;
+}
+@keyframes midtown-walker-kauffman {
+  0%   { opacity: 0;   transform: translate(1570px, 552px) scale(1.2); }
+  6%   { opacity: 0.6; transform: translate(1548px, 553px) scale(1.22); }
+  14%  { opacity: 1;   transform: translate(1510px, 554px) scale(1.25); }
+  50%  { opacity: 1;   transform: translate(1420px, 558px) scale(1.25); }
+  85%  { opacity: 1;   transform: translate(1340px, 560px) scale(1.25); }
+  92%  { opacity: 0.5; transform: translate(1325px, 561px) scale(1.22); }
+  96%  { opacity: 0;   transform: translate(1320px, 561px) scale(1.2); }
+  100% { opacity: 0;   transform: translate(1570px, 552px) scale(1.2); }
+}
+
+/* W3 — Walker crossing Plaza bridge (32s cycle, visible ~40% = 12-13s) */
+.hill-walker.midtown-walker-path-bridge {
+  opacity: 0;
+  animation: midtown-walker-bridge 32s ease-in-out infinite;
+  animation-delay: -4s;
+}
+@keyframes midtown-walker-bridge {
+  0%, 18% { opacity: 0;   transform: translate(680px, 568px) scale(1.2); }
+  25%  { opacity: 0.6; transform: translate(715px, 566px) scale(1.3); }
+  35%  { opacity: 1;   transform: translate(735px, 566px) scale(1.3); }
+  60%  { opacity: 1;   transform: translate(785px, 566px) scale(1.3); }
+  72%  { opacity: 0.5; transform: translate(800px, 567px) scale(1.25); }
+  80%, 100% { opacity: 0; transform: translate(810px, 568px) scale(1.2); }
+}
+
+/* Reduced motion — park trail-followers mid-path, hide birds */
+@media (prefers-reduced-motion: reduce) {
+  .midtown-birds,
+  .midtown-flock-v { animation: none !important; }
+  .midtown-birds { opacity: 0; }
+  .hill-walker.midtown-walker-path-embankment-a {
+    animation: none; opacity: 0.85;
+    transform: translate(760px, 591px) scale(1.6);
+  }
+  .hill-walker.midtown-walker-path-embankment-b {
+    animation: none; opacity: 0.85;
+    transform: translate(776px, 589px) scale(1.55);
+  }
+  .hill-walker.midtown-walker-path-kauffman {
+    animation: none; opacity: 0.85;
+    transform: translate(1420px, 558px) scale(1.25);
+  }
+  .hill-walker.midtown-walker-path-bridge {
+    animation: none; opacity: 0.85;
+    transform: translate(760px, 566px) scale(1.3);
+  }
 }
