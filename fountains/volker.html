@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="William Volker Memorial Fountain — Look Up, Kansas City" />
   <meta name="twitter:description" content="The Volker Fountain — a neighborhood landmark fountain in the Midtown area, part of Kansas City's extensive public fountain network." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/9/9b/Volker_Fountain_Waterfall_Kansas_City_MO.jpg" />
-  <link rel="stylesheet" href="../style.css?v=14k" />
+  <link rel="stylesheet" href="../style.css?v=15d" />
 </head>
 <body>
 
@@ -111,44 +111,261 @@
     William Volker Memorial Fountain
   </div>
 
-  <div class="detail-hero">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Volker_Fountain_Waterfall_Kansas_City_MO.jpg"
-         alt="William Volker Memorial Fountain, Volker Boulevard, Kansas City" />
-    <div class="detail-hero-overlay">
-      <span class="eyebrow">Volker Boulevard, Kansas City &bull; Installed 1958</span>
-      <h1>William Volker<br /><span>Memorial Fountain</span></h1>
+  <!-- v15.4 Volker Memorial Fountain hero — peopled-scene hero adapting the
+       fountain pattern to the UMKC campus boulevard setting. The real Volker
+       fountain is a modernist cascading waterfall; this stylized version keeps
+       the shared vocabulary (single central urn-topped pedestal) while cueing
+       the campus context with a Collegiate Gothic tower and a low academic
+       building silhouette behind. -->
+  <section class="volker-hero-scene" aria-labelledby="volker-hero-h1">
+    <div class="volker-hero-backdrop" aria-hidden="true">
+      <div class="tod-layer tod-dawn"></div>
+      <div class="tod-layer tod-day"></div>
+      <div class="tod-layer tod-dusk"></div>
+      <div class="tod-layer tod-night"></div>
     </div>
-  </div>
+    <svg class="volker-hero-svg" viewBox="0 0 1600 600"
+         preserveAspectRatio="xMidYMid slice"
+         xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-labelledby="volker-hero-title volker-hero-desc">
+      <title id="volker-hero-title">William Volker Memorial Fountain — a UMKC boulevard scene</title>
+      <desc id="volker-hero-desc">The William Volker Memorial Fountain on Volker Boulevard near the UMKC campus. A stylized pedestal with a classical urn centers the basin; water rises from the urn and falls in arcs back into the pool. Collegiate Gothic brick silhouettes from the UMKC campus rise in the background, flanked by boulevard trees. Walkers pass on the plaza; benches line the approach. The sky cycles from dawn to night on a 40-second loop.</desc>
+
+      <!-- ── Layer 2: UMKC campus backdrop ── -->
+      <g class="volker-bg meyer-bg" aria-hidden="true">
+
+        <!-- Left: low academic building (Collegiate limestone) -->
+        <g class="volker-bg-academic">
+          <rect x="160" y="258" width="320" height="102" class="volker-bg-limestone"/>
+          <polygon points="152,258 488,258 476,236 164,236" class="volker-bg-slate"/>
+          <line x1="152" y1="258" x2="488" y2="258" class="nichols-bg-ridge"/>
+          <rect x="160" y="270" width="320" height="2" class="nichols-bg-cornice"/>
+          <!-- Pointed Gothic arch windows -->
+          <path d="M 196,330 h 16 v -32 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+          <path d="M 228,330 h 16 v -32 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+          <path d="M 260,330 h 16 v -32 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+          <path d="M 292,330 h 16 v -32 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+          <path d="M 324,330 h 16 v -32 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+          <path d="M 356,330 h 16 v -32 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+          <path d="M 388,330 h 16 v -32 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+          <path d="M 420,330 h 16 v -32 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+          <g class="building-night-lights">
+            <rect x="196" y="298" width="16" height="32" class="nichols-bg-window-glow"/>
+            <rect x="228" y="298" width="16" height="32" class="nichols-bg-window-glow"/>
+            <rect x="260" y="298" width="16" height="32" class="nichols-bg-window-glow"/>
+            <rect x="292" y="298" width="16" height="32" class="nichols-bg-window-glow"/>
+            <rect x="324" y="298" width="16" height="32" class="nichols-bg-window-glow"/>
+            <rect x="356" y="298" width="16" height="32" class="nichols-bg-window-glow"/>
+            <rect x="388" y="298" width="16" height="32" class="nichols-bg-window-glow"/>
+            <rect x="420" y="298" width="16" height="32" class="nichols-bg-window-glow"/>
+          </g>
+        </g>
+
+        <!-- Right: tall Collegiate Gothic brick tower (Haag Hall-inspired) -->
+        <g class="volker-bg-gothic-tower">
+          <!-- Main shaft -->
+          <rect x="1180" y="200" width="100" height="160" class="volker-bg-brick"/>
+          <!-- Crenellated parapet -->
+          <rect x="1176" y="192" width="108" height="10" class="volker-bg-brick"/>
+          <rect x="1180" y="182" width="10" height="10" class="volker-bg-brick"/>
+          <rect x="1196" y="182" width="10" height="10" class="volker-bg-brick"/>
+          <rect x="1212" y="182" width="10" height="10" class="volker-bg-brick"/>
+          <rect x="1228" y="182" width="10" height="10" class="volker-bg-brick"/>
+          <rect x="1244" y="182" width="10" height="10" class="volker-bg-brick"/>
+          <rect x="1260" y="182" width="10" height="10" class="volker-bg-brick"/>
+          <rect x="1270" y="182" width="10" height="10" class="volker-bg-brick"/>
+          <!-- Narrow Gothic arch window at top -->
+          <path d="M 1220,252 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+          <path d="M 1220,230 h 16 v -24 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+          <!-- Lower arch windows -->
+          <path d="M 1200,330 h 14 v -26 a 7 7 0 0 0 -14 0 Z" class="nichols-bg-window"/>
+          <path d="M 1228,330 h 14 v -26 a 7 7 0 0 0 -14 0 Z" class="nichols-bg-window"/>
+          <path d="M 1256,330 h 14 v -26 a 7 7 0 0 0 -14 0 Z" class="nichols-bg-window"/>
+          <!-- Stone band -->
+          <rect x="1180" y="270" width="100" height="3" class="volker-bg-stone-band"/>
+          <g class="building-night-lights">
+            <rect x="1220" y="206" width="16" height="46" class="nichols-bg-window-glow"/>
+            <rect x="1200" y="304" width="14" height="26" class="nichols-bg-window-glow"/>
+            <rect x="1228" y="304" width="14" height="26" class="nichols-bg-window-glow"/>
+            <rect x="1256" y="304" width="14" height="26" class="nichols-bg-window-glow"/>
+          </g>
+        </g>
+
+        <!-- Small adjoining Gothic wing to the right -->
+        <g class="volker-bg-gothic-wing">
+          <rect x="1288" y="260" width="170" height="100" class="volker-bg-brick"/>
+          <polygon points="1282,260 1464,260 1450,240 1296,240" class="volker-bg-slate"/>
+          <path d="M 1320,330 h 14 v -24 a 7 7 0 0 0 -14 0 Z" class="nichols-bg-window"/>
+          <path d="M 1350,330 h 14 v -24 a 7 7 0 0 0 -14 0 Z" class="nichols-bg-window"/>
+          <path d="M 1380,330 h 14 v -24 a 7 7 0 0 0 -14 0 Z" class="nichols-bg-window"/>
+          <path d="M 1410,330 h 14 v -24 a 7 7 0 0 0 -14 0 Z" class="nichols-bg-window"/>
+          <g class="building-night-lights">
+            <rect x="1320" y="306" width="14" height="24" class="nichols-bg-window-glow"/>
+            <rect x="1350" y="306" width="14" height="24" class="nichols-bg-window-glow"/>
+            <rect x="1380" y="306" width="14" height="24" class="nichols-bg-window-glow"/>
+            <rect x="1410" y="306" width="14" height="24" class="nichols-bg-window-glow"/>
+          </g>
+        </g>
+
+        <!-- Boulevard trees behind the fountain -->
+        <g class="meyer-bg-trees">
+          <g class="meyer-bg-tree meyer-bg-tree-distant"><ellipse cx="560" cy="304" rx="40" ry="52" class="meyer-bg-tree-canopy"/><rect x="557" y="348" width="6" height="18" class="meyer-bg-tree-trunk"/></g>
+          <g class="meyer-bg-tree meyer-bg-tree-distant meyer-bg-tree-cypress">
+            <path class="meyer-bg-tree-canopy" d="M 660,348 L 646,272 Q 660,250 674,272 L 660,348 Z"/>
+            <rect x="657" y="344" width="6" height="14" class="meyer-bg-tree-trunk"/>
+          </g>
+          <g class="meyer-bg-tree meyer-bg-tree-distant"><ellipse cx="760" cy="308" rx="36" ry="48" class="meyer-bg-tree-canopy"/><rect x="757" y="348" width="6" height="14" class="meyer-bg-tree-trunk"/></g>
+          <g class="meyer-bg-tree meyer-bg-tree-distant"><ellipse cx="860" cy="308" rx="36" ry="48" class="meyer-bg-tree-canopy"/><rect x="857" y="348" width="6" height="14" class="meyer-bg-tree-trunk"/></g>
+          <g class="meyer-bg-tree meyer-bg-tree-distant meyer-bg-tree-cypress">
+            <path class="meyer-bg-tree-canopy" d="M 960,348 L 946,272 Q 960,250 974,272 L 960,348 Z"/>
+            <rect x="957" y="344" width="6" height="14" class="meyer-bg-tree-trunk"/>
+          </g>
+          <g class="meyer-bg-tree meyer-bg-tree-distant"><ellipse cx="1080" cy="304" rx="40" ry="52" class="meyer-bg-tree-canopy"/><rect x="1077" y="348" width="6" height="18" class="meyer-bg-tree-trunk"/></g>
+          <g class="meyer-bg-tree meyer-bg-tree-distant"><ellipse cx="1520" cy="310" rx="40" ry="50" class="meyer-bg-tree-canopy"/><rect x="1517" y="348" width="6" height="18" class="meyer-bg-tree-trunk"/></g>
+        </g>
+
+      </g>
+
+      <!-- ── Layer 3: Volker fountain ──
+           Stylized cascading look — central pedestal with classical urn on top,
+           water rising from urn and side arcs cascading down into the pool.
+           Reuses .nichols-pool/-pedestal/-jet/-landscape-lights vocabulary. -->
+      <g class="volker-fountain">
+        <title>William Volker Memorial Fountain — a stylized rendering of the cascading fountain on Volker Boulevard.</title>
+
+        <ellipse cx="800" cy="558" rx="210" ry="24" class="nichols-pool-rim-outer"/>
+        <ellipse cx="800" cy="554" rx="194" ry="18" class="nichols-pool-rim-inner"/>
+        <ellipse class="nichols-pool-water" cx="800" cy="553" rx="180" ry="14"/>
+        <ellipse class="nichols-pool-ripple" cx="720" cy="555" rx="12" ry="1.3"/>
+        <ellipse class="nichols-pool-ripple" cx="880" cy="555" rx="12" ry="1.3"/>
+
+        <!-- Shift pedestal + urn + jets down 12u so pedestal base aligns with pool cy=558 -->
+        <g class="volker-fountain-group" transform="translate(0, 12)">
+
+        <!-- Stepped pedestal — wider and lower than Bacchus, cascading-shaped. -->
+        <polygon points="772,542 828,542 832,536 768,536" class="nichols-pedestal-step"/>
+        <polygon points="776,536 824,536 826,530 774,530" class="nichols-pedestal-step"/>
+        <rect x="786" y="504" width="28" height="28" class="nichols-pedestal-shaft"/>
+        <line x1="786" y1="516" x2="814" y2="516" class="nichols-pedestal-band"/>
+        <polygon points="782,504 818,504 816,496 784,496" class="nichols-pedestal-cap"/>
+        <!-- Classical URN on top (wide body, narrow neck, flared rim) -->
+        <path class="nichols-pedestal-cap" d="M 790,496 L 810,496 L 812,490 L 788,490 Z"/>
+        <path class="nichols-pedestal-cap" d="M 786,490 L 814,490 L 814,484 Q 814,478 806,476 L 794,476 Q 786,478 786,484 Z"/>
+        <!-- Urn rim -->
+        <rect x="784" y="472" width="32" height="4" class="nichols-pedestal-cap"/>
+        <line x1="784" y1="474" x2="816" y2="474" class="nichols-pedestal-band"/>
+
+        <!-- Central jet + side arcs emerging from urn -->
+        <path class="nichols-jet nichols-jet-center"
+              d="M 800,468 Q 794,444 796,422 Q 798,402 800,384 Q 802,402 804,422 Q 806,444 800,468 Z"/>
+        <ellipse class="nichols-jet-drop" cx="800" cy="380" rx="2.2" ry="3.3"/>
+        <path class="nichols-jet-arc nichols-jet-arc-left"
+              d="M 797,392 Q 772,414 752,450 Q 732,488 716,548"/>
+        <path class="nichols-jet-arc nichols-jet-arc-right"
+              d="M 803,392 Q 828,414 848,450 Q 868,488 884,548"/>
+        <circle class="nichols-jet-drop nichols-jet-drop-a" cx="772" cy="456" r="1.2"/>
+        <circle class="nichols-jet-drop nichols-jet-drop-b" cx="828" cy="456" r="1.2"/>
+        <circle class="nichols-jet-drop nichols-jet-drop-c" cx="790" cy="420" r="1"/>
+        <circle class="nichols-jet-drop nichols-jet-drop-d" cx="810" cy="420" r="1"/>
+
+        </g>
+        <!-- end volker-fountain-group (shifted) -->
+
+        <!-- Landscape lights around rim — ellipse cx=800 cy=558 ry=24 rx=210 -->
+        <g class="building-night-lights nichols-landscape-lights" aria-hidden="true">
+          <circle cx="610" cy="568" r="1.8"/>
+          <circle cx="670" cy="576" r="1.8"/>
+          <circle cx="730" cy="580" r="1.8"/>
+          <circle cx="800" cy="582" r="1.8"/>
+          <circle cx="870" cy="580" r="1.8"/>
+          <circle cx="930" cy="576" r="1.8"/>
+          <circle cx="990" cy="568" r="1.8"/>
+        </g>
+      </g>
+
+      <!-- ── Layer 4: Boulevard foreground ── -->
+      <g class="volker-foreground nichols-foreground" aria-hidden="true">
+        <g class="nichols-paving">
+          <line x1="0" y1="560" x2="1600" y2="563"/>
+          <line x1="0" y1="572" x2="1600" y2="575"/>
+          <line x1="0" y1="586" x2="1600" y2="588"/>
+          <line x1="0" y1="596" x2="1600" y2="598"/>
+        </g>
+
+        <path class="nichols-path nichols-path-a"
+              d="M 140,598 Q 280,588 420,580 Q 520,574 580,570"
+              fill="none"/>
+        <path class="nichols-path nichols-path-b"
+              d="M 1460,598 Q 1320,588 1180,580 Q 1080,574 1020,570"
+              fill="none"/>
+
+        <g class="nichols-bench" transform="translate(320, 562)">
+          <line x1="-16" y1="0" x2="16" y2="0" class="nichols-bench-plank"/>
+          <line x1="-13" y1="0" x2="-13" y2="7" class="nichols-bench-leg"/>
+          <line x1="13"  y1="0" x2="13"  y2="7" class="nichols-bench-leg"/>
+        </g>
+        <g class="nichols-bench" transform="translate(1280, 562)">
+          <line x1="-16" y1="0" x2="16" y2="0" class="nichols-bench-plank"/>
+          <line x1="-13" y1="0" x2="-13" y2="7" class="nichols-bench-leg"/>
+          <line x1="13"  y1="0" x2="13"  y2="7" class="nichols-bench-leg"/>
+        </g>
+
+        <g class="volker-walkers">
+          <!-- Static: observer near fountain (slate — campus student look) -->
+          <g class="hill-walker walker-coat-D nichols-static" transform="translate(650, 566) scale(1.8)">
+            <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+            <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+            <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+            <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+            <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+            <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+          </g>
+
+          <!-- Static: bench sitter -->
+          <g class="hill-walker walker-coat-F nichols-static nichols-seated" transform="translate(1280, 556) scale(1.45)">
+            <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+            <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+            <path    d="M -1.4,-4.9 L 1.4,-4.9 L 1.5,-1.8 L -1.5,-1.8 Z" class="walker-coat"/>
+            <line    x1="1.4"  y1="-3.8" x2="2.0"  y2="-1.9" class="walker-arm"/>
+            <line    x1="-1.4" y1="-3.8" x2="-2.0" y2="-1.9" class="walker-arm"/>
+          </g>
+
+          <!-- Trail-followers -->
+          <g class="hill-walker walker-coat-A nichols-walker-path-a">
+            <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+            <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+            <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+            <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+            <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+            <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+          </g>
+          <g class="hill-walker walker-coat-B nichols-walker-path-b">
+            <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+            <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+            <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+            <line    x1="-1.2" y1="-4.1" x2="-1.6" y2="-2.2" class="walker-arm"/>
+            <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+            <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+          </g>
+        </g>
+      </g>
+
+    </svg>
+    <div class="volker-hero-overlay">
+      <span class="eyebrow">Volker Boulevard, Kansas City &bull; Installed 1958</span>
+      <h1 id="volker-hero-h1">William Volker<br /><span>Memorial Fountain</span></h1>
+    </div>
+  </section>
+
+  <p class="volker-hero-caption">
+    Volker's fountain on the boulevard that bears his name, the Collegiate
+    Gothic of the UMKC campus rising behind. Students and walkers pass
+    through — a memorial to the grocer whose anonymous giving built much of
+    this part of the city.
+  </p>
 
   <main>
     <div class="detail-body">
-
-            <figure class="fountain-mini-wrap" aria-hidden="true">
-        <svg class="fountain-mini-svg" viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg">
-          <!-- Pool base -->
-          <ellipse cx="200" cy="320" rx="140" ry="22" fill="rgba(80,62,40,0.15)" stroke="#C9A84C" stroke-width="1.1"/>
-          <ellipse class="fm-pool" cx="200" cy="316" rx="126" ry="14" fill="rgba(140,175,200,0.35)"/>
-          <!-- Plinth -->
-          <rect x="188" y="268" width="24" height="44" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.9"/>
-          <!-- Abstract figure group -->
-          <circle cx="200" cy="256" r="7" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.8"/>
-          <circle cx="180" cy="260" r="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
-          <circle cx="220" cy="260" r="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
-          <!-- Central primary spray -->
-          <path class="fm-spray fm-spray-primary" d="M 200,244 Q 190,180 196,120 Q 200,92 204,120 Q 210,180 200,244 Z" fill="rgba(200,220,240,0.45)"/>
-          <!-- Side sprays (arcs) -->
-          <path class="fm-spray fm-spray-left"  d="M 180,256 Q 150,220 148,190 Q 150,176 158,190 Q 166,214 180,256 Z" fill="rgba(200,220,240,0.35)"/>
-          <path class="fm-spray fm-spray-right" d="M 220,256 Q 250,220 252,190 Q 250,176 242,190 Q 234,214 220,256 Z" fill="rgba(200,220,240,0.35)"/>
-          <!-- Drifting droplets -->
-          <ellipse class="fm-droplet fm-drop-1" cx="200" cy="130" rx="2" ry="3.5" fill="rgba(215,230,245,0.8)"/>
-          <ellipse class="fm-droplet fm-drop-2" cx="160" cy="180" rx="1.6" ry="3" fill="rgba(215,230,245,0.75)"/>
-          <ellipse class="fm-droplet fm-drop-3" cx="240" cy="180" rx="1.6" ry="3" fill="rgba(215,230,245,0.75)"/>
-          <!-- Horizon hairline -->
-          <line x1="40" y1="336" x2="360" y2="336" stroke="rgba(201,168,76,0.25)" stroke-width="0.5"/>
-          <polygon points="200,333 202,336 200,339 198,336" fill="rgba(232,201,106,0.4)"/>
-        </svg>
-        <figcaption class="fountain-mini-caption">A fountain, running.</figcaption>
-      </figure>
 
       <div class="detail-facts">
         <div class="detail-fact">
@@ -250,6 +467,28 @@
           everything around it tells the story of the man it honors.
         </p>
       </div>
+
+      <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+
+      <figure class="fountain-mini-wrap" aria-hidden="true">
+        <svg class="fountain-mini-svg" viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="200" cy="320" rx="140" ry="22" fill="rgba(80,62,40,0.15)" stroke="#C9A84C" stroke-width="1.1"/>
+          <ellipse class="fm-pool" cx="200" cy="316" rx="126" ry="14" fill="rgba(140,175,200,0.35)"/>
+          <rect x="188" y="268" width="24" height="44" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.9"/>
+          <circle cx="200" cy="256" r="7" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.8"/>
+          <circle cx="180" cy="260" r="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
+          <circle cx="220" cy="260" r="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
+          <path class="fm-spray fm-spray-primary" d="M 200,244 Q 190,180 196,120 Q 200,92 204,120 Q 210,180 200,244 Z" fill="rgba(200,220,240,0.45)"/>
+          <path class="fm-spray fm-spray-left"  d="M 180,256 Q 150,220 148,190 Q 150,176 158,190 Q 166,214 180,256 Z" fill="rgba(200,220,240,0.35)"/>
+          <path class="fm-spray fm-spray-right" d="M 220,256 Q 250,220 252,190 Q 250,176 242,190 Q 234,214 220,256 Z" fill="rgba(200,220,240,0.35)"/>
+          <ellipse class="fm-droplet fm-drop-1" cx="200" cy="130" rx="2" ry="3.5" fill="rgba(215,230,245,0.8)"/>
+          <ellipse class="fm-droplet fm-drop-2" cx="160" cy="180" rx="1.6" ry="3" fill="rgba(215,230,245,0.75)"/>
+          <ellipse class="fm-droplet fm-drop-3" cx="240" cy="180" rx="1.6" ry="3" fill="rgba(215,230,245,0.75)"/>
+          <line x1="40" y1="336" x2="360" y2="336" stroke="rgba(201,168,76,0.25)" stroke-width="0.5"/>
+          <polygon points="200,333 202,336 200,339 198,336" fill="rgba(232,201,106,0.4)"/>
+        </svg>
+        <figcaption class="fountain-mini-caption">A fountain, running.</figcaption>
+      </figure>
 
     </div>
   </main>

@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Meyer Circle Sea Horse Fountain — Look Up, Kansas City" />
   <meta name="twitter:description" content="The Meyer Circle Sea Horse Fountain — four bronze sea horses on Ward Parkway, one of Kansas City's most beloved landmark fountains." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/a/a3/Meyer_Circle_Fountain_Kansas_City_MO.jpg" />
-  <link rel="stylesheet" href="../style.css?v=14k" />
+  <link rel="stylesheet" href="../style.css?v=15d" />
 </head>
 <body>
 
@@ -111,44 +111,445 @@
     Meyer Circle Sea Horse Fountain
   </div>
 
-  <div class="detail-hero">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Meyer_Circle_Fountain_Kansas_City_MO.jpg"
-         alt="Meyer Circle Sea Horse Fountain, Ward Parkway, Kansas City" />
-    <div class="detail-hero-overlay">
-      <span class="eyebrow">Ward Parkway, Kansas City &bull; Installed Early 1920s</span>
-      <h1>Meyer Circle<br /><span>Sea Horse Fountain</span></h1>
+  <!-- v15.2 Meyer Circle Sea Horse Fountain hero — peopled-scene hero extending
+       the v15 Nichols pattern to a second fountain page. Four bronze sea horses
+       (hippocampi with coiled fish tails, no riders) replace the Nichols
+       horsemen; Ward Parkway mansions + boulevard-tree silhouettes replace the
+       Plaza Giralda backdrop. Reuses the Nichols fountain/pool/pedestal/jet/
+       path/bench/planter/walker grammar directly (shared scene vocabulary). -->
+  <section class="meyer-hero-scene" aria-labelledby="meyer-hero-h1">
+    <div class="meyer-hero-backdrop" aria-hidden="true">
+      <div class="tod-layer tod-dawn"></div>
+      <div class="tod-layer tod-day"></div>
+      <div class="tod-layer tod-dusk"></div>
+      <div class="tod-layer tod-night"></div>
     </div>
-  </div>
+    <svg class="meyer-hero-svg" viewBox="0 0 1600 600"
+         preserveAspectRatio="xMidYMid slice"
+         xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-labelledby="meyer-hero-title meyer-hero-desc">
+      <title id="meyer-hero-title">Meyer Circle Sea Horse Fountain — a Ward Parkway scene</title>
+      <desc id="meyer-hero-desc">The Meyer Circle Sea Horse Fountain at the intersection of Ward Parkway and Meyer Boulevard. Four bronze sea horses — hippocampi with coiled fish tails — radiate from a central pedestal, water rising from their mouths and from a column at the fountain's heart. Boulevard trees and two distant Ward Parkway mansions form the backdrop. Dashed walking paths converge on the traffic circle from both sides; walkers, benches, and planters populate the boulevard median. The sky cycles from dawn to night on a 40-second loop.</desc>
+
+      <!-- ── Layer 2: Ward Parkway backdrop ──
+           Row of boulevard tree silhouettes + two flanking mansion silhouettes
+           (one Spanish Colonial cream, one Tudor revival brick) suggesting the
+           residential character of Ward Parkway. Same TOD filter cycle as the
+           Nichols Plaza backdrop but tuned slightly darker (shaded boulevard). -->
+      <g class="meyer-bg" aria-hidden="true">
+
+        <!-- Left mansion: Spanish Colonial cream (reuses Nichols facade palette) -->
+        <g class="meyer-bg-mansion">
+          <rect x="140" y="256" width="240" height="104" class="nichols-bg-stucco"/>
+          <polygon points="134,256 386,256 372,232 148,232" class="nichols-bg-tile"/>
+          <line x1="134" y1="256" x2="386" y2="256" class="nichols-bg-ridge"/>
+          <rect x="140" y="268" width="240" height="2" class="nichols-bg-cornice"/>
+          <path d="M 178,330 h 18 v -28 a 9 9 0 0 0 -18 0 Z" class="nichols-bg-window"/>
+          <path d="M 214,330 h 18 v -28 a 9 9 0 0 0 -18 0 Z" class="nichols-bg-window"/>
+          <path d="M 250,330 h 18 v -28 a 9 9 0 0 0 -18 0 Z" class="nichols-bg-window"/>
+          <path d="M 286,330 h 18 v -28 a 9 9 0 0 0 -18 0 Z" class="nichols-bg-window"/>
+          <path d="M 322,330 h 18 v -28 a 9 9 0 0 0 -18 0 Z" class="nichols-bg-window"/>
+          <!-- Small chimney -->
+          <rect x="320" y="218" width="14" height="14" class="nichols-bg-stucco"/>
+          <rect x="318" y="216" width="18" height="3" class="nichols-bg-tile"/>
+          <g class="building-night-lights">
+            <rect x="178" y="304" width="18" height="26" class="nichols-bg-window-glow"/>
+            <rect x="214" y="304" width="18" height="26" class="nichols-bg-window-glow"/>
+            <rect x="250" y="304" width="18" height="26" class="nichols-bg-window-glow"/>
+            <rect x="286" y="304" width="18" height="26" class="nichols-bg-window-glow"/>
+            <rect x="322" y="304" width="18" height="26" class="nichols-bg-window-glow"/>
+          </g>
+        </g>
+
+        <!-- Right mansion: Tudor revival brick + steep tile roof + half-timbering -->
+        <g class="meyer-bg-mansion meyer-bg-mansion-tudor">
+          <!-- Main body (warm brick) -->
+          <rect x="1220" y="260" width="236" height="100" class="meyer-bg-brick"/>
+          <!-- Steep tile roof (double-pitch) -->
+          <polygon points="1216,260 1460,260 1420,214 1256,214" class="meyer-bg-tile-dark"/>
+          <!-- Front gable -->
+          <polygon points="1316,260 1376,260 1346,210" class="meyer-bg-stucco-tudor"/>
+          <!-- Half-timber bands on gable -->
+          <line x1="1316" y1="240" x2="1376" y2="240" class="meyer-bg-timber"/>
+          <line x1="1336" y1="210" x2="1336" y2="260" class="meyer-bg-timber"/>
+          <line x1="1356" y1="210" x2="1356" y2="260" class="meyer-bg-timber"/>
+          <!-- Chimney -->
+          <rect x="1270" y="196" width="12" height="30" class="meyer-bg-brick"/>
+          <rect x="1268" y="194" width="16" height="3" class="meyer-bg-tile-dark"/>
+          <!-- Windows (rectangular mullioned) -->
+          <rect x="1242" y="292" width="22" height="30" class="meyer-bg-window-tudor"/>
+          <rect x="1274" y="292" width="22" height="30" class="meyer-bg-window-tudor"/>
+          <rect x="1386" y="292" width="22" height="30" class="meyer-bg-window-tudor"/>
+          <rect x="1418" y="292" width="22" height="30" class="meyer-bg-window-tudor"/>
+          <!-- Mullions -->
+          <line x1="1253" y1="292" x2="1253" y2="322" class="meyer-bg-timber"/>
+          <line x1="1285" y1="292" x2="1285" y2="322" class="meyer-bg-timber"/>
+          <line x1="1397" y1="292" x2="1397" y2="322" class="meyer-bg-timber"/>
+          <line x1="1429" y1="292" x2="1429" y2="322" class="meyer-bg-timber"/>
+          <g class="building-night-lights">
+            <rect x="1242" y="292" width="22" height="30" class="meyer-bg-window-glow-warm"/>
+            <rect x="1274" y="292" width="22" height="30" class="meyer-bg-window-glow-warm"/>
+            <rect x="1386" y="292" width="22" height="30" class="meyer-bg-window-glow-warm"/>
+            <rect x="1418" y="292" width="22" height="30" class="meyer-bg-window-glow-warm"/>
+          </g>
+        </g>
+
+        <!-- Boulevard tree silhouettes — varied forms suggesting the mixed
+             plantings of Ward Parkway: oval deciduous canopies, pointed
+             cypresses, spreading maples with visible branch structure. -->
+        <g class="meyer-bg-trees">
+          <!-- Left flanks: a rounded maple (with branches) + a pointed cypress -->
+          <g class="meyer-bg-tree meyer-bg-tree-spreading">
+            <path class="meyer-bg-tree-canopy" d="M 80,340 Q 28,320 32,280 Q 44,242 80,244 Q 118,242 128,280 Q 132,320 80,340 Z"/>
+            <rect x="76" y="336" width="8" height="28" class="meyer-bg-tree-trunk"/>
+            <line x1="80" y1="298" x2="55" y2="280" class="meyer-bg-tree-branch"/>
+            <line x1="80" y1="298" x2="108" y2="282" class="meyer-bg-tree-branch"/>
+          </g>
+          <g class="meyer-bg-tree meyer-bg-tree-cypress">
+            <path class="meyer-bg-tree-canopy" d="M 430,356 L 412,260 Q 430,230 448,260 L 430,356 Z"/>
+            <rect x="427" y="350" width="6" height="18" class="meyer-bg-tree-trunk"/>
+          </g>
+          <!-- Center-row: small distant ovals behind fountain -->
+          <g class="meyer-bg-tree meyer-bg-tree-distant"><ellipse cx="560" cy="304" rx="36" ry="48" class="meyer-bg-tree-canopy"/><rect x="557" y="346" width="6" height="16" class="meyer-bg-tree-trunk"/></g>
+          <g class="meyer-bg-tree meyer-bg-tree-distant meyer-bg-tree-cypress">
+            <path class="meyer-bg-tree-canopy" d="M 680,348 L 666,270 Q 680,246 694,270 L 680,348 Z"/>
+            <rect x="677" y="344" width="6" height="14" class="meyer-bg-tree-trunk"/>
+          </g>
+          <g class="meyer-bg-tree meyer-bg-tree-distant"><ellipse cx="800" cy="300" rx="40" ry="52" class="meyer-bg-tree-canopy"/><rect x="797" y="344" width="6" height="18" class="meyer-bg-tree-trunk"/></g>
+          <g class="meyer-bg-tree meyer-bg-tree-distant meyer-bg-tree-cypress">
+            <path class="meyer-bg-tree-canopy" d="M 920,348 L 908,272 Q 920,250 932,272 L 920,348 Z"/>
+            <rect x="917" y="344" width="6" height="14" class="meyer-bg-tree-trunk"/>
+          </g>
+          <g class="meyer-bg-tree meyer-bg-tree-distant"><ellipse cx="1040" cy="304" rx="36" ry="48" class="meyer-bg-tree-canopy"/><rect x="1037" y="346" width="6" height="16" class="meyer-bg-tree-trunk"/></g>
+          <!-- Right flanks: a wide spreading maple + a pointed cypress -->
+          <g class="meyer-bg-tree meyer-bg-tree-spreading">
+            <path class="meyer-bg-tree-canopy" d="M 1180,342 Q 1128,322 1132,282 Q 1144,248 1180,248 Q 1218,246 1228,282 Q 1232,322 1180,342 Z"/>
+            <rect x="1176" y="338" width="8" height="28" class="meyer-bg-tree-trunk"/>
+            <line x1="1180" y1="298" x2="1155" y2="282" class="meyer-bg-tree-branch"/>
+            <line x1="1180" y1="298" x2="1208" y2="282" class="meyer-bg-tree-branch"/>
+          </g>
+          <g class="meyer-bg-tree meyer-bg-tree-cypress">
+            <path class="meyer-bg-tree-canopy" d="M 1520,352 L 1502,252 Q 1520,220 1538,252 L 1520,352 Z"/>
+            <rect x="1517" y="346" width="6" height="20" class="meyer-bg-tree-trunk"/>
+          </g>
+        </g>
+
+      </g>
+
+      <!-- ── Layer 3: The sea horse fountain ──
+           Wide gold line-art pool rim; central stepped pedestal taller than the
+           Nichols one (this fountain has a more vertical silhouette); four
+           bronze sea horses at compass points (two left-facing, two right-facing,
+           tails coiled inward); central water jet + side arcs; pool water that
+           color-cycles with TOD; landscape lights gated to night. Reuses the
+           .nichols-pool/-pedestal/-jet/-landscape-lights classes directly as
+           shared "fountain vocabulary" (v16 refactor target). -->
+      <g class="meyer-fountain">
+        <title>Meyer Circle Sea Horse Fountain — four bronze hippocampi at the compass points of the basin, a 17th-century Venetian bronze on Ward Parkway.</title>
+
+        <!-- Outer pool rim + inner step -->
+        <ellipse cx="800" cy="548" rx="248" ry="28" class="nichols-pool-rim-outer"/>
+        <ellipse cx="800" cy="544" rx="232" ry="20" class="nichols-pool-rim-inner"/>
+        <!-- Pool water (TOD color cycle) -->
+        <ellipse class="nichols-pool-water" cx="800" cy="543" rx="218" ry="16"/>
+        <ellipse class="nichols-pool-ripple" cx="710" cy="545" rx="14" ry="1.4"/>
+        <ellipse class="nichols-pool-ripple" cx="890" cy="545" rx="14" ry="1.4"/>
+
+        <!-- Shift pedestal + figures + jets down 24u so the pedestal base sits
+             at the 3D center of the pool (y=548, same as ellipse cy) instead of
+             the back rim. Pool and landscape lights stay outside this wrapper. -->
+        <g class="meyer-fountain-group" transform="translate(0, 24)">
+
+        <!-- Central pedestal — taller and more slender than Nichols.
+             This fountain's silhouette is a vertical obelisk-like column with
+             a finial at the top rather than a four-horseman crown. -->
+        <polygon points="772,524 828,524 832,518 768,518" class="nichols-pedestal-step"/>
+        <polygon points="776,518 824,518 826,512 774,512" class="nichols-pedestal-step"/>
+        <rect x="788" y="452" width="24" height="60" class="nichols-pedestal-shaft"/>
+        <line x1="788" y1="468" x2="812" y2="468" class="nichols-pedestal-band"/>
+        <line x1="788" y1="484" x2="812" y2="484" class="nichols-pedestal-band"/>
+        <line x1="788" y1="500" x2="812" y2="500" class="nichols-pedestal-band"/>
+        <polygon points="784,452 816,452 814,444 786,444" class="nichols-pedestal-cap"/>
+        <!-- Tapered obelisk top -->
+        <polygon points="792,444 808,444 804,424 796,424" class="nichols-pedestal-cap"/>
+        <!-- Finial sphere -->
+        <circle cx="800" cy="420" r="3.5" class="meyer-pedestal-finial"/>
+        <line x1="800" y1="416" x2="800" y2="408" class="nichols-pedestal-band"/>
+
+        <!-- Back sea horse (North) — small, peeking right of pedestal. -->
+        <g class="nichols-bronze meyer-sea-horse-back" transform="translate(824, 468) scale(1.05)">
+          <rect x="0" y="32" width="30" height="3" class="nichols-bronze-plinth"/>
+          <!-- Head (rounded, facing up-right) -->
+          <ellipse cx="20" cy="4" rx="5" ry="3.5" class="nichols-bronze-body"/>
+          <!-- Neck-body S-curve down to coiled tail -->
+          <path d="M 22,7 Q 25,12 22,18 Q 18,22 14,22 Q 6,22 2,18 Q -2,12 4,10 Q 10,10 14,14 Q 18,18 16,22 Q 12,26 8,28 Q 4,30 8,32 Q 14,32 18,28 Q 22,22 22,7 Z"
+                class="nichols-bronze-body"/>
+          <!-- Dorsal crest spikes along back of neck -->
+          <polygon points="24,4 26,1 24,6" class="nichols-bronze-body"/>
+          <polygon points="24,10 26,7 23,12" class="nichols-bronze-body"/>
+          <!-- Tail fluke -->
+          <path d="M 8,32 L 4,30 L 2,34 L 6,36 Z"
+                class="nichols-bronze-body" fill="rgba(178,108,52,0.78)"/>
+          <!-- Eye -->
+          <circle cx="22" cy="3" r="0.6" fill="#3A2410"/>
+        </g>
+
+        <!-- Left sea horse (West) — facing left, in upright-heraldic pose.
+             Head points left-and-up, neck arches down to body, tail coils
+             under and to the right, ending in a fluke fin on the left. -->
+        <g class="nichols-bronze meyer-sea-horse" transform="translate(614, 470) scale(1.1)">
+          <rect x="-4" y="44" width="48" height="4" class="nichols-bronze-plinth"/>
+
+          <!-- Head: oval tilted left with snout pointing down-left -->
+          <ellipse cx="6" cy="4" rx="6" ry="4.5" class="nichols-bronze-body"/>
+          <!-- Snout point -->
+          <path d="M 0,6 L -3,8 L 1,10 Z" class="nichols-bronze-body"/>
+          <!-- Ear/horn on top of head -->
+          <polygon points="9,-1 10,-5 12,0" class="nichols-bronze-body"/>
+
+          <!-- Neck-to-body-to-tail: single flowing C-shape body -->
+          <path class="nichols-bronze-body" d="
+            M 8,8
+            Q 14,12 16,18
+            Q 19,24 22,30
+            Q 25,36 22,40
+            Q 16,42 10,40
+            Q 4,38 0,36
+            Q -4,32 -2,28
+            Q 2,26 6,28
+            Q 10,26 12,22
+            Q 14,16 10,12
+            Q 6,10 8,8 Z"/>
+
+          <!-- Dorsal crest spikes along back -->
+          <polygon points="9,9  10,5  12,9"  class="nichols-bronze-body"/>
+          <polygon points="13,14 14,10 16,15" class="nichols-bronze-body"/>
+          <polygon points="18,20 19,16 21,21" class="nichols-bronze-body"/>
+
+          <!-- Tail fluke — fan-shape at tail end -->
+          <path class="nichols-bronze-body" fill="rgba(178,108,52,0.8)" d="
+            M -2,34 L -8,32 L -10,38 L -6,42 L -2,40 Z"/>
+
+          <!-- Eye -->
+          <circle cx="4" cy="4" r="0.8" fill="#3A2410"/>
+          <!-- Mouth indication -->
+          <line x1="-1" y1="8" x2="-3" y2="9" class="nichols-bronze-stroke" stroke-width="0.55"/>
+
+          <!-- Water jet from mouth -->
+          <path class="nichols-jet nichols-jet-horse" d="M -3,8 Q -9,12 -13,18 Q -11,8 -7,5 Q -4,4 -3,8 Z"/>
+        </g>
+
+        <!-- Right sea horse (East) — mirrored. -->
+        <g class="nichols-bronze meyer-sea-horse" transform="translate(986, 470) scale(-1.1,1.1)">
+          <rect x="-4" y="44" width="48" height="4" class="nichols-bronze-plinth"/>
+          <ellipse cx="6" cy="4" rx="6" ry="4.5" class="nichols-bronze-body"/>
+          <path d="M 0,6 L -3,8 L 1,10 Z" class="nichols-bronze-body"/>
+          <polygon points="9,-1 10,-5 12,0" class="nichols-bronze-body"/>
+          <path class="nichols-bronze-body" d="
+            M 8,8
+            Q 14,12 16,18
+            Q 19,24 22,30
+            Q 25,36 22,40
+            Q 16,42 10,40
+            Q 4,38 0,36
+            Q -4,32 -2,28
+            Q 2,26 6,28
+            Q 10,26 12,22
+            Q 14,16 10,12
+            Q 6,10 8,8 Z"/>
+          <polygon points="9,9  10,5  12,9"  class="nichols-bronze-body"/>
+          <polygon points="13,14 14,10 16,15" class="nichols-bronze-body"/>
+          <polygon points="18,20 19,16 21,21" class="nichols-bronze-body"/>
+          <path class="nichols-bronze-body" fill="rgba(178,108,52,0.8)" d="
+            M -2,34 L -8,32 L -10,38 L -6,42 L -2,40 Z"/>
+          <circle cx="4" cy="4" r="0.8" fill="#3A2410"/>
+          <line x1="-1" y1="8" x2="-3" y2="9" class="nichols-bronze-stroke" stroke-width="0.55"/>
+          <path class="nichols-jet nichols-jet-horse" d="M -3,8 Q -9,12 -13,18 Q -11,8 -7,5 Q -4,4 -3,8 Z"/>
+        </g>
+
+        <!-- Front sea horse (South) — smaller, 3/4 view, closer to viewer.
+             Head slightly angled outward; tail coils visibly below body. -->
+        <g class="nichols-bronze meyer-sea-horse-front" transform="translate(780, 486) scale(0.95)">
+          <rect x="0" y="32" width="40" height="4" class="nichols-bronze-plinth"/>
+          <!-- Head (3/4 view, oval) -->
+          <ellipse cx="22" cy="4" rx="5" ry="4" class="nichols-bronze-body"/>
+          <!-- Ear/horn -->
+          <polygon points="25,-1 27,-4 27,1" class="nichols-bronze-body"/>
+          <!-- Body + coiled tail -->
+          <path class="nichols-bronze-body" d="
+            M 20,8
+            Q 14,12 14,20
+            Q 16,28 22,30
+            Q 30,30 34,26
+            Q 36,20 32,16
+            Q 26,12 20,8 Z"/>
+          <!-- Tail coil below body, looping right -->
+          <path class="nichols-bronze-body" fill="rgba(178,108,52,0.78)" d="
+            M 34,26 Q 40,28 38,34 Q 32,36 26,32 Q 28,30 34,26 Z"/>
+          <!-- Tail fluke at end -->
+          <path class="nichols-bronze-body" fill="rgba(178,108,52,0.78)" d="
+            M 26,32 L 22,34 L 24,38 L 28,36 Z"/>
+          <!-- Dorsal spikes -->
+          <polygon points="21,8  22,4  24,8"  class="nichols-bronze-body"/>
+          <polygon points="16,14 17,10 19,14" class="nichols-bronze-body"/>
+          <!-- Eye -->
+          <circle cx="24" cy="3" r="0.7" fill="#3A2410"/>
+          <!-- Mouth jet -->
+          <path class="nichols-jet nichols-jet-horse" d="M 28,2 Q 34,4 38,10 Q 36,1 32,-2 Q 29,-3 28,2 Z"/>
+        </g>
+
+        <!-- Central water column — emerges clearly ABOVE the finial at (800,
+             420), rising to peak at y=336. Side arcs peel off at the top of
+             the jet and fall into the pool water (y=544, not just the rim). -->
+        <path class="nichols-jet nichols-jet-center"
+              d="M 800,414 Q 794,392 796,372 Q 798,354 800,336 Q 802,354 804,372 Q 806,392 800,414 Z"/>
+        <ellipse class="nichols-jet-drop" cx="800" cy="332" rx="2.2" ry="3.3"/>
+        <path class="nichols-jet-arc nichols-jet-arc-left"
+              d="M 797,340 Q 776,364 756,400 Q 738,436 724,544"/>
+        <path class="nichols-jet-arc nichols-jet-arc-right"
+              d="M 803,340 Q 824,364 844,400 Q 862,436 876,544"/>
+        <circle class="nichols-jet-drop nichols-jet-drop-a" cx="772" cy="410" r="1.2"/>
+        <circle class="nichols-jet-drop nichols-jet-drop-b" cx="828" cy="410" r="1.2"/>
+        <circle class="nichols-jet-drop nichols-jet-drop-c" cx="790" cy="370" r="1"/>
+        <circle class="nichols-jet-drop nichols-jet-drop-d" cx="810" cy="370" r="1"/>
+        </g>
+        <!-- end meyer-fountain-group (shifted) -->
+
+        <!-- Landscape lights around basin rim -->
+        <g class="building-night-lights nichols-landscape-lights" aria-hidden="true">
+          <circle cx="570" cy="558" r="1.8"/>
+          <circle cx="630" cy="568" r="1.8"/>
+          <circle cx="690" cy="573" r="1.8"/>
+          <circle cx="750" cy="575" r="1.8"/>
+          <circle cx="800" cy="576" r="1.8"/>
+          <circle cx="850" cy="575" r="1.8"/>
+          <circle cx="910" cy="573" r="1.8"/>
+          <circle cx="970" cy="568" r="1.8"/>
+          <circle cx="1030" cy="558" r="1.8"/>
+        </g>
+      </g>
+
+      <!-- ── Layer 4: Foreground ──
+           Ward Parkway median hairlines + two dashed approach paths
+           converging on the traffic circle + two benches + two low terra-cotta
+           planters + five walkers (2 trail-followers + 3 static). Smaller
+           walker count than Nichols since Meyer is a quieter boulevard scene.
+           Reuses the Nichols .nichols-paving/-path/-bench/-planter + walker
+           grammar directly. -->
+      <g class="meyer-foreground nichols-foreground" aria-hidden="true">
+
+        <g class="nichols-paving">
+          <line x1="0" y1="560" x2="1600" y2="563"/>
+          <line x1="0" y1="572" x2="1600" y2="575"/>
+          <line x1="0" y1="586" x2="1600" y2="588"/>
+          <line x1="0" y1="596" x2="1600" y2="598"/>
+          <!-- Traffic-circle curve hints at the bottom -->
+          <path d="M 420,600 Q 800,582 1180,600" fill="none" stroke="rgba(201,168,76,0.15)" stroke-width="0.5"/>
+        </g>
+
+        <path class="nichols-path nichols-path-a"
+              d="M 100,598 Q 260,588 400,578 Q 500,570 560,568"
+              fill="none"/>
+        <path class="nichols-path nichols-path-b"
+              d="M 1500,598 Q 1350,588 1200,578 Q 1090,570 1040,568"
+              fill="none"/>
+
+        <!-- Planters flanking approach -->
+        <g class="nichols-planter" transform="translate(520, 556)">
+          <rect x="-10" y="0" width="20" height="14" class="nichols-planter-pot"/>
+          <line x1="-9" y1="4" x2="9" y2="4" class="nichols-planter-band"/>
+          <path d="M -9,-2 Q -11,-10 -5,-12 Q 0,-14 5,-12 Q 11,-10 9,-2 Z" class="nichols-planter-shrub"/>
+        </g>
+        <g class="nichols-planter" transform="translate(1080, 556)">
+          <rect x="-10" y="0" width="20" height="14" class="nichols-planter-pot"/>
+          <line x1="-9" y1="4" x2="9" y2="4" class="nichols-planter-band"/>
+          <path d="M -9,-2 Q -11,-10 -5,-12 Q 0,-14 5,-12 Q 11,-10 9,-2 Z" class="nichols-planter-shrub"/>
+        </g>
+
+        <!-- Benches -->
+        <g class="nichols-bench" transform="translate(320, 562)">
+          <line x1="-16" y1="0" x2="16" y2="0" class="nichols-bench-plank"/>
+          <line x1="-13" y1="0" x2="-13" y2="7" class="nichols-bench-leg"/>
+          <line x1="13"  y1="0" x2="13"  y2="7" class="nichols-bench-leg"/>
+        </g>
+        <g class="nichols-bench" transform="translate(1300, 562)">
+          <line x1="-16" y1="0" x2="16" y2="0" class="nichols-bench-plank"/>
+          <line x1="-13" y1="0" x2="-13" y2="7" class="nichols-bench-leg"/>
+          <line x1="13"  y1="0" x2="13"  y2="7" class="nichols-bench-leg"/>
+        </g>
+
+        <!-- Walkers — 5 total: 2 trail-followers + 3 static -->
+        <g class="meyer-walkers">
+
+          <!-- Static: observer near the fountain basin (gold) -->
+          <g class="hill-walker walker-coat-A nichols-static" transform="translate(660, 564) scale(1.8)">
+            <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+            <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+            <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+            <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+            <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+            <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+          </g>
+
+          <!-- Static: seated bench figure on left bench (cream) -->
+          <g class="hill-walker walker-coat-F nichols-static nichols-seated" transform="translate(320, 556) scale(1.4)">
+            <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+            <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+            <path    d="M -1.4,-4.9 L 1.4,-4.9 L 1.5,-1.8 L -1.5,-1.8 Z" class="walker-coat"/>
+            <line    x1="1.4"  y1="-3.8" x2="2.0"  y2="-1.9" class="walker-arm"/>
+            <line    x1="-1.4" y1="-3.8" x2="-2.0" y2="-1.9" class="walker-arm"/>
+          </g>
+
+          <!-- Static: lateral walker (rust) -->
+          <g class="hill-walker walker-coat-C nichols-static" transform="translate(1420, 562) scale(1.8)">
+            <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+            <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+            <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+            <line    x1="-1.2" y1="-4.1" x2="-1.6" y2="-2.2" class="walker-arm"/>
+            <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+            <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+          </g>
+
+          <!-- Trail-following: walker along Path A, arriving at fountain (gold-light) -->
+          <g class="hill-walker walker-coat-B nichols-walker-path-a">
+            <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+            <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+            <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+            <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+            <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+            <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+          </g>
+
+          <!-- Trail-following: walker along Path B, departing fountain (burgundy) -->
+          <g class="hill-walker walker-coat-E nichols-walker-path-b">
+            <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+            <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+            <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+            <line    x1="-1.2" y1="-4.1" x2="-1.6" y2="-2.2" class="walker-arm"/>
+            <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+            <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+          </g>
+
+        </g>
+      </g>
+
+    </svg>
+    <div class="meyer-hero-overlay">
+      <span class="eyebrow">Ward Parkway, Kansas City &bull; Installed Early 1920s</span>
+      <h1 id="meyer-hero-h1">Meyer Circle<br /><span>Sea Horse Fountain</span></h1>
+    </div>
+  </section>
+
+  <!-- v13-voice italic sense-making caption below the hero. -->
+  <p class="meyer-hero-caption">
+    The Meyer Circle fountain at quiet hour. Four bronze sea horses around a
+    Venetian pedestal, the Ward Parkway mansions beyond, and the boulevard
+    paths threading between the trees that frame this traffic circle a mile
+    south of the Plaza.
+  </p>
 
   <main>
     <div class="detail-body">
-
-            <figure class="fountain-mini-wrap" aria-hidden="true">
-        <svg class="fountain-mini-svg" viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg">
-          <!-- Pool base -->
-          <ellipse cx="200" cy="320" rx="140" ry="22" fill="rgba(80,62,40,0.15)" stroke="#C9A84C" stroke-width="1.1"/>
-          <ellipse class="fm-pool" cx="200" cy="316" rx="126" ry="14" fill="rgba(140,175,200,0.35)"/>
-          <!-- Plinth -->
-          <rect x="188" y="268" width="24" height="44" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.9"/>
-          <!-- Abstract figure group -->
-          <circle cx="200" cy="256" r="7" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.8"/>
-          <circle cx="180" cy="260" r="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
-          <circle cx="220" cy="260" r="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
-          <!-- Central primary spray -->
-          <path class="fm-spray fm-spray-primary" d="M 200,244 Q 190,180 196,120 Q 200,92 204,120 Q 210,180 200,244 Z" fill="rgba(200,220,240,0.45)"/>
-          <!-- Side sprays (arcs) -->
-          <path class="fm-spray fm-spray-left"  d="M 180,256 Q 150,220 148,190 Q 150,176 158,190 Q 166,214 180,256 Z" fill="rgba(200,220,240,0.35)"/>
-          <path class="fm-spray fm-spray-right" d="M 220,256 Q 250,220 252,190 Q 250,176 242,190 Q 234,214 220,256 Z" fill="rgba(200,220,240,0.35)"/>
-          <!-- Drifting droplets -->
-          <ellipse class="fm-droplet fm-drop-1" cx="200" cy="130" rx="2" ry="3.5" fill="rgba(215,230,245,0.8)"/>
-          <ellipse class="fm-droplet fm-drop-2" cx="160" cy="180" rx="1.6" ry="3" fill="rgba(215,230,245,0.75)"/>
-          <ellipse class="fm-droplet fm-drop-3" cx="240" cy="180" rx="1.6" ry="3" fill="rgba(215,230,245,0.75)"/>
-          <!-- Horizon hairline -->
-          <line x1="40" y1="336" x2="360" y2="336" stroke="rgba(201,168,76,0.25)" stroke-width="0.5"/>
-          <polygon points="200,333 202,336 200,339 198,336" fill="rgba(232,201,106,0.4)"/>
-        </svg>
-        <figcaption class="fountain-mini-caption">A fountain, running.</figcaption>
-      </figure>
 
       <div class="detail-facts">
         <div class="detail-fact">
@@ -255,6 +656,30 @@
           animating philosophy behind everything J.C. Nichols built and collected.
         </p>
       </div>
+
+      <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+
+      <!-- Closing ornament: the v11 mini fountain SVG, moved here from above the
+           hero (v15.2). -->
+      <figure class="fountain-mini-wrap" aria-hidden="true">
+        <svg class="fountain-mini-svg" viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="200" cy="320" rx="140" ry="22" fill="rgba(80,62,40,0.15)" stroke="#C9A84C" stroke-width="1.1"/>
+          <ellipse class="fm-pool" cx="200" cy="316" rx="126" ry="14" fill="rgba(140,175,200,0.35)"/>
+          <rect x="188" y="268" width="24" height="44" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.9"/>
+          <circle cx="200" cy="256" r="7" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.8"/>
+          <circle cx="180" cy="260" r="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
+          <circle cx="220" cy="260" r="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
+          <path class="fm-spray fm-spray-primary" d="M 200,244 Q 190,180 196,120 Q 200,92 204,120 Q 210,180 200,244 Z" fill="rgba(200,220,240,0.45)"/>
+          <path class="fm-spray fm-spray-left"  d="M 180,256 Q 150,220 148,190 Q 150,176 158,190 Q 166,214 180,256 Z" fill="rgba(200,220,240,0.35)"/>
+          <path class="fm-spray fm-spray-right" d="M 220,256 Q 250,220 252,190 Q 250,176 242,190 Q 234,214 220,256 Z" fill="rgba(200,220,240,0.35)"/>
+          <ellipse class="fm-droplet fm-drop-1" cx="200" cy="130" rx="2" ry="3.5" fill="rgba(215,230,245,0.8)"/>
+          <ellipse class="fm-droplet fm-drop-2" cx="160" cy="180" rx="1.6" ry="3" fill="rgba(215,230,245,0.75)"/>
+          <ellipse class="fm-droplet fm-drop-3" cx="240" cy="180" rx="1.6" ry="3" fill="rgba(215,230,245,0.75)"/>
+          <line x1="40" y1="336" x2="360" y2="336" stroke="rgba(201,168,76,0.25)" stroke-width="0.5"/>
+          <polygon points="200,333 202,336 200,339 198,336" fill="rgba(232,201,106,0.4)"/>
+        </svg>
+        <figcaption class="fountain-mini-caption">A fountain, running.</figcaption>
+      </figure>
 
     </div>
   </main>

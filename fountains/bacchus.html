@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Fountain of Bacchus — Look Up, Kansas City" />
   <meta name="twitter:description" content="The Fountain of Bacchus — one of Kansas City's ornamental bronze fountains, part of the Country Club Plaza's Spanish Colonial landscape." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/9/92/Fountain_of_Bacchus_Kansas_City_MO.jpg" />
-  <link rel="stylesheet" href="../style.css?v=14k" />
+  <link rel="stylesheet" href="../style.css?v=15d" />
 </head>
 <body>
 
@@ -111,44 +111,280 @@
     Fountain of Bacchus
   </div>
 
-  <div class="detail-hero">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/Fountain_of_Bacchus_Kansas_City_MO.jpg"
-         alt="Fountain of Bacchus, Country Club Plaza, Kansas City" />
-    <div class="detail-hero-overlay">
-      <span class="eyebrow">Country Club Plaza, Kansas City &bull; Installed 1920s</span>
-      <h1>Fountain<br /><span>of Bacchus</span></h1>
+  <!-- v15.3 Bacchus fountain hero — peopled-scene hero for an intimate Plaza
+       sculpture. Single bronze Bacchus figure (grape crown, raised arm with
+       grape cluster, wine cup) on a low pedestal in a small basin. Reuses the
+       Nichols Plaza backdrop (Giralda + two cream-stucco facades) verbatim
+       and the .nichols-pool/-pedestal/-bronze/-jet/-landscape-lights
+       vocabulary directly. Fewer walkers + lower overall density than the
+       Nichols scene — matches the site-text framing of Bacchus as "a
+       discovered figure around a corner." -->
+  <section class="bacchus-hero-scene" aria-labelledby="bacchus-hero-h1">
+    <div class="bacchus-hero-backdrop" aria-hidden="true">
+      <div class="tod-layer tod-dawn"></div>
+      <div class="tod-layer tod-day"></div>
+      <div class="tod-layer tod-dusk"></div>
+      <div class="tod-layer tod-night"></div>
     </div>
-  </div>
+    <svg class="bacchus-hero-svg" viewBox="0 0 1600 600"
+         preserveAspectRatio="xMidYMid slice"
+         xmlns="http://www.w3.org/2000/svg" role="img"
+         aria-labelledby="bacchus-hero-title bacchus-hero-desc">
+      <title id="bacchus-hero-title">Fountain of Bacchus — a Plaza sculptural niche</title>
+      <desc id="bacchus-hero-desc">A small fountain on the Country Club Plaza with a central bronze figure of Bacchus, the Roman god of wine. Grape cluster raised overhead, wine cup in his other hand, ivy-crowned. Water rises from the cluster and falls back to the basin. The Giralda Tower replica and two cream-stucco Plaza facades rise behind the fountain. A few walkers pass; a bench sits to one side. The sky cycles from dawn to night on a 40-second loop.</desc>
+
+      <!-- ── Layer 2: Plaza backdrop (reused verbatim from Nichols) ── -->
+      <g class="nichols-bg-arch" aria-hidden="true">
+        <g class="nichols-bg-facade">
+          <rect x="260" y="220" width="280" height="140" class="nichols-bg-stucco"/>
+          <polygon points="254,220 546,220 530,196 270,196" class="nichols-bg-tile"/>
+          <line x1="254" y1="220" x2="546" y2="220" class="nichols-bg-ridge"/>
+          <rect x="260" y="234" width="280" height="2.5" class="nichols-bg-cornice"/>
+          <path d="M 300,320 h 22 v -36 a 11 11 0 0 0 -22 0 Z" class="nichols-bg-window"/>
+          <path d="M 340,320 h 22 v -36 a 11 11 0 0 0 -22 0 Z" class="nichols-bg-window"/>
+          <path d="M 380,320 h 22 v -36 a 11 11 0 0 0 -22 0 Z" class="nichols-bg-window"/>
+          <path d="M 420,320 h 22 v -36 a 11 11 0 0 0 -22 0 Z" class="nichols-bg-window"/>
+          <path d="M 460,320 h 22 v -36 a 11 11 0 0 0 -22 0 Z" class="nichols-bg-window"/>
+          <g class="building-night-lights">
+            <rect x="300" y="290" width="22" height="30" class="nichols-bg-window-glow"/>
+            <rect x="340" y="290" width="22" height="30" class="nichols-bg-window-glow"/>
+            <rect x="380" y="290" width="22" height="30" class="nichols-bg-window-glow"/>
+            <rect x="420" y="290" width="22" height="30" class="nichols-bg-window-glow"/>
+            <rect x="460" y="290" width="22" height="30" class="nichols-bg-window-glow"/>
+          </g>
+        </g>
+        <g class="nichols-bg-giralda">
+          <g transform="translate(780, -190)">
+            <g transform="translate(320, 550) scale(0.55) translate(-320, -550)">
+              <rect x="284" y="180" width="72" height="370" class="nichols-bg-stucco"/>
+              <path d="M 298,320 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+              <path d="M 326,320 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+              <path d="M 298,380 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+              <path d="M 326,380 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+              <path d="M 298,440 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+              <path d="M 326,440 h 16 v -28 a 8 8 0 0 0 -16 0 Z" class="nichols-bg-window"/>
+              <rect x="278" y="140" width="84" height="44" class="nichols-bg-stucco"/>
+              <path d="M 300,180 h 40 v -30 a 20 20 0 0 0 -40 0 Z" class="nichols-bg-window"/>
+              <rect x="272" y="132" width="96" height="10" class="nichols-bg-tile"/>
+              <rect x="288" y="120" width="64" height="14" class="nichols-bg-stucco"/>
+              <polygon points="320,120 312,108 328,108" class="nichols-bg-tile"/>
+              <line x1="320" y1="108" x2="320" y2="94" class="nichols-bg-spire"/>
+              <circle cx="320" cy="92" r="2.5" class="nichols-bg-finial"/>
+              <g class="building-night-lights">
+                <rect x="298" y="294" width="16" height="26" class="nichols-bg-window-glow"/>
+                <rect x="326" y="294" width="16" height="26" class="nichols-bg-window-glow"/>
+                <rect x="298" y="354" width="16" height="26" class="nichols-bg-window-glow"/>
+                <rect x="326" y="354" width="16" height="26" class="nichols-bg-window-glow"/>
+                <rect x="298" y="414" width="16" height="26" class="nichols-bg-window-glow"/>
+                <rect x="326" y="414" width="16" height="26" class="nichols-bg-window-glow"/>
+                <rect x="302" y="152" width="36" height="28" class="nichols-bg-window-glow"/>
+              </g>
+            </g>
+          </g>
+        </g>
+        <g class="nichols-bg-facade">
+          <rect x="1200" y="240" width="290" height="120" class="nichols-bg-stucco"/>
+          <polygon points="1192,240 1498,240 1484,216 1208,216" class="nichols-bg-tile"/>
+          <line x1="1192" y1="240" x2="1498" y2="240" class="nichols-bg-ridge"/>
+          <rect x="1200" y="253" width="290" height="2.5" class="nichols-bg-cornice"/>
+          <path d="M 1230,330 h 22 v -36 a 11 11 0 0 0 -22 0 Z" class="nichols-bg-window"/>
+          <path d="M 1270,330 h 22 v -36 a 11 11 0 0 0 -22 0 Z" class="nichols-bg-window"/>
+          <path d="M 1310,330 h 22 v -36 a 11 11 0 0 0 -22 0 Z" class="nichols-bg-window"/>
+          <path d="M 1350,330 h 22 v -36 a 11 11 0 0 0 -22 0 Z" class="nichols-bg-window"/>
+          <path d="M 1390,330 h 22 v -36 a 11 11 0 0 0 -22 0 Z" class="nichols-bg-window"/>
+          <path d="M 1430,330 h 22 v -36 a 11 11 0 0 0 -22 0 Z" class="nichols-bg-window"/>
+          <g class="building-night-lights">
+            <rect x="1230" y="300" width="22" height="30" class="nichols-bg-window-glow"/>
+            <rect x="1270" y="300" width="22" height="30" class="nichols-bg-window-glow"/>
+            <rect x="1310" y="300" width="22" height="30" class="nichols-bg-window-glow"/>
+            <rect x="1350" y="300" width="22" height="30" class="nichols-bg-window-glow"/>
+            <rect x="1390" y="300" width="22" height="30" class="nichols-bg-window-glow"/>
+            <rect x="1430" y="300" width="22" height="30" class="nichols-bg-window-glow"/>
+          </g>
+        </g>
+      </g>
+
+      <!-- ── Layer 3: Bacchus fountain ──
+           Smaller more intimate basin than Nichols; single centered bronze
+           figure of Bacchus on a low stepped pedestal. Grape-cluster raised,
+           wine cup held low; water rises from the cluster and falls from it
+           back to the pool. Landscape lights gate on during night. -->
+      <g class="bacchus-fountain">
+        <title>Fountain of Bacchus — bronze figure of the Roman god of wine, grape cluster raised.</title>
+
+        <!-- Pool (smaller than Nichols: 200 rx vs 262) -->
+        <ellipse cx="800" cy="558" rx="200" ry="22" class="nichols-pool-rim-outer"/>
+        <ellipse cx="800" cy="554" rx="184" ry="16" class="nichols-pool-rim-inner"/>
+        <ellipse class="nichols-pool-water" cx="800" cy="553" rx="170" ry="13"/>
+        <ellipse class="nichols-pool-ripple" cx="720" cy="555" rx="11" ry="1.2"/>
+        <ellipse class="nichols-pool-ripple" cx="880" cy="555" rx="11" ry="1.2"/>
+
+        <!-- Shift pedestal + figure + jets down 16u so the pedestal base sits
+             at the 3D center of the pool (y=558) instead of the back rim. -->
+        <g class="bacchus-fountain-group" transform="translate(0, 16)">
+
+        <!-- Stepped pedestal — low + wider than Nichols (more of a plinth). -->
+        <polygon points="778,542 822,542 824,538 776,538" class="nichols-pedestal-step"/>
+        <rect x="782" y="510" width="36" height="28" class="nichols-pedestal-shaft"/>
+        <line x1="782" y1="524" x2="818" y2="524" class="nichols-pedestal-band"/>
+        <polygon points="779,510 821,510 820,504 780,504" class="nichols-pedestal-cap"/>
+
+        <!-- The Bacchus figure — centered standing male, ivy crown, grape
+             cluster raised in right hand, wine cup in left. ~84u tall. -->
+        <g class="nichols-bronze bacchus-figure" transform="translate(800, 502)">
+          <!-- Feet + plinth -->
+          <rect x="-10" y="0" width="20" height="3" class="nichols-bronze-plinth"/>
+
+          <!-- Draped lower body / legs (classical contrapposto) -->
+          <path class="nichols-bronze-body" d="
+            M -9,0 L -7,-14 L -4,-28 L -2,-34 L 2,-34 L 4,-28 L 7,-14 L 9,0 Z"/>
+          <!-- Leg separation hint -->
+          <line x1="0" y1="-34" x2="0" y2="-4" class="nichols-bronze-stroke" stroke-width="0.5"/>
+
+          <!-- Torso + draped toga -->
+          <path class="nichols-bronze-body" d="
+            M -8,-34 L -10,-44 L -8,-54 L -5,-58 L 5,-58 L 8,-54 L 10,-44 L 8,-34 L 6,-32 L -6,-32 Z"/>
+          <!-- Toga fold line -->
+          <line x1="-6" y1="-44" x2="5" y2="-48" class="nichols-bronze-stroke" stroke-width="0.45"/>
+
+          <!-- Right arm raised (with grape cluster) -->
+          <path class="nichols-bronze-body" d="
+            M 6,-54 L 11,-58 L 16,-66 L 18,-72 L 15,-74 L 12,-70 L 8,-64 L 5,-58 Z"/>
+          <!-- Grape cluster (cluster of small circles) -->
+          <circle cx="20" cy="-76" r="2.2" class="nichols-bronze-body"/>
+          <circle cx="17" cy="-78" r="1.6" class="nichols-bronze-body"/>
+          <circle cx="22" cy="-78" r="1.4" class="nichols-bronze-body"/>
+          <circle cx="19" cy="-80" r="1.3" class="nichols-bronze-body"/>
+          <circle cx="21" cy="-74" r="1.4" class="nichols-bronze-body"/>
+          <circle cx="18" cy="-74" r="1.3" class="nichols-bronze-body"/>
+          <!-- Grape stem -->
+          <line x1="19" y1="-73" x2="18" y2="-71" class="nichols-bronze-stroke" stroke-width="0.5"/>
+
+          <!-- Left arm lowered (holding wine cup) -->
+          <path class="nichols-bronze-body" d="
+            M -6,-54 L -11,-50 L -14,-44 L -12,-42 L -10,-46 L -7,-50 Z"/>
+          <!-- Wine cup (kantharos-like chalice) -->
+          <path class="nichols-bronze-body" d="
+            M -18,-42 L -10,-42 L -10,-36 L -12,-34 L -16,-34 L -18,-36 Z"/>
+          <line x1="-14" y1="-34" x2="-14" y2="-30" class="nichols-bronze-stroke" stroke-width="0.5"/>
+
+          <!-- Head (rounded with beard hint) -->
+          <circle cx="0" cy="-62" r="4.2" class="nichols-bronze-body"/>
+          <!-- Beard (V-shape below chin) -->
+          <path d="M -2,-59 L 0,-56 L 2,-59" class="nichols-bronze-stroke" stroke-width="0.5" fill="none"/>
+
+          <!-- Ivy crown (3 leaves arranged around head top) -->
+          <polygon points="-4,-66 -5,-71 -1,-69" class="nichols-bronze-body"/>
+          <polygon points="-1,-69 0,-74 3,-70" class="nichols-bronze-body"/>
+          <polygon points="3,-70 5,-73 5,-67" class="nichols-bronze-body"/>
+          <polygon points="-5,-65 -8,-63 -6,-60" class="nichols-bronze-body"/>
+          <polygon points="6,-60 8,-63 5,-65" class="nichols-bronze-body"/>
+
+          <!-- Water jet rising from grape cluster -->
+          <path class="nichols-jet nichols-jet-horse" d="M 20,-78 Q 18,-92 22,-104 Q 26,-114 30,-104 Q 28,-92 22,-78 Z"/>
+
+          <!-- Side water arcs (falling from grape cluster outward to pool) -->
+          <path class="nichols-jet-arc nichols-jet-arc-left"
+                d="M 18,-74 Q -8,-48 -24,-8 Q -34,22 -44,56"/>
+          <path class="nichols-jet-arc nichols-jet-arc-right"
+                d="M 22,-74 Q 44,-48 52,-8 Q 58,22 64,56"/>
+        </g>
+        </g>
+        <!-- end bacchus-fountain-group (shifted) -->
+
+        <!-- Landscape lights around rim -->
+        <g class="building-night-lights nichols-landscape-lights" aria-hidden="true">
+          <circle cx="620" cy="568" r="1.8"/>
+          <circle cx="680" cy="576" r="1.8"/>
+          <circle cx="740" cy="579" r="1.8"/>
+          <circle cx="800" cy="580" r="1.8"/>
+          <circle cx="860" cy="579" r="1.8"/>
+          <circle cx="920" cy="576" r="1.8"/>
+          <circle cx="980" cy="568" r="1.8"/>
+        </g>
+      </g>
+
+      <!-- ── Layer 4: Plaza foreground ──
+           Fewer elements than Nichols: one dashed path, one bench, two
+           planters, three walkers. Matches the "intimate Plaza niche" feel. -->
+      <g class="bacchus-foreground nichols-foreground" aria-hidden="true">
+        <g class="nichols-paving">
+          <line x1="0" y1="560" x2="1600" y2="563"/>
+          <line x1="0" y1="572" x2="1600" y2="575"/>
+          <line x1="0" y1="586" x2="1600" y2="588"/>
+          <line x1="0" y1="596" x2="1600" y2="598"/>
+          <line x1="380" y1="600" x2="560" y2="576"/>
+          <line x1="1040" y1="576" x2="1220" y2="600"/>
+        </g>
+
+        <path class="nichols-path nichols-path-a"
+              d="M 200,598 Q 380,588 520,578 Q 580,572 620,568"
+              fill="none"/>
+
+        <g class="nichols-planter" transform="translate(580, 556)">
+          <rect x="-9" y="0" width="18" height="12" class="nichols-planter-pot"/>
+          <line x1="-8" y1="3" x2="8" y2="3" class="nichols-planter-band"/>
+          <path d="M -8,-2 Q -10,-8 -4,-10 Q 0,-12 4,-10 Q 10,-8 8,-2 Z" class="nichols-planter-shrub"/>
+        </g>
+        <g class="nichols-planter" transform="translate(1020, 556)">
+          <rect x="-9" y="0" width="18" height="12" class="nichols-planter-pot"/>
+          <line x1="-8" y1="3" x2="8" y2="3" class="nichols-planter-band"/>
+          <path d="M -8,-2 Q -10,-8 -4,-10 Q 0,-12 4,-10 Q 10,-8 8,-2 Z" class="nichols-planter-shrub"/>
+        </g>
+
+        <g class="nichols-bench" transform="translate(1200, 562)">
+          <line x1="-16" y1="0" x2="16" y2="0" class="nichols-bench-plank"/>
+          <line x1="-13" y1="0" x2="-13" y2="7" class="nichols-bench-leg"/>
+          <line x1="13"  y1="0" x2="13"  y2="7" class="nichols-bench-leg"/>
+        </g>
+
+        <g class="bacchus-walkers">
+          <!-- Static: observer standing on the plaza (burgundy) -->
+          <g class="hill-walker walker-coat-E nichols-static" transform="translate(700, 568) scale(1.85)">
+            <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+            <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+            <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+            <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+            <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+            <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+          </g>
+
+          <!-- Static: seated bench figure (cream) -->
+          <g class="hill-walker walker-coat-F nichols-static nichols-seated" transform="translate(1200, 556) scale(1.45)">
+            <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+            <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+            <path    d="M -1.4,-4.9 L 1.4,-4.9 L 1.5,-1.8 L -1.5,-1.8 Z" class="walker-coat"/>
+            <line    x1="1.4"  y1="-3.8" x2="2.0"  y2="-1.9" class="walker-arm"/>
+            <line    x1="-1.4" y1="-3.8" x2="-2.0" y2="-1.9" class="walker-arm"/>
+          </g>
+
+          <!-- Trail-follower arriving on Path A (gold-light) -->
+          <g class="hill-walker walker-coat-B nichols-walker-path-a">
+            <ellipse cx="0" cy="-7.15" rx="1.55" ry="0.55" class="walker-hat"/>
+            <circle  cx="0" cy="-6.3"  r="1.35" class="walker-head"/>
+            <path    d="M -1.2,-4.9 L 1.2,-4.9 L 1,-1.2 L -1,-1.2 Z" class="walker-coat"/>
+            <line    x1="1.2"  y1="-4.1" x2="1.6"  y2="-2.2" class="walker-arm"/>
+            <line    x1="-0.4" y1="-1.2" x2="-0.7" y2="0.5"  class="walker-leg"/>
+            <line    x1="0.4"  y1="-1.2" x2="0.7"  y2="0.5"  class="walker-leg"/>
+          </g>
+        </g>
+      </g>
+
+    </svg>
+    <div class="bacchus-hero-overlay">
+      <span class="eyebrow">Country Club Plaza, Kansas City &bull; Installed 1920s</span>
+      <h1 id="bacchus-hero-h1">Fountain<br /><span>of Bacchus</span></h1>
+    </div>
+  </section>
+
+  <p class="bacchus-hero-caption">
+    Bacchus with his grape cluster raised, set into a corner of the Plaza
+    streetscape. One walker passes, one sits on the bench — Nichols believed
+    public sculpture should be discovered rather than announced.
+  </p>
 
   <main>
     <div class="detail-body">
-
-            <figure class="fountain-mini-wrap" aria-hidden="true">
-        <svg class="fountain-mini-svg" viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg">
-          <!-- Pool base -->
-          <ellipse cx="200" cy="320" rx="140" ry="22" fill="rgba(80,62,40,0.15)" stroke="#C9A84C" stroke-width="1.1"/>
-          <ellipse class="fm-pool" cx="200" cy="316" rx="126" ry="14" fill="rgba(140,175,200,0.35)"/>
-          <!-- Plinth -->
-          <rect x="188" y="268" width="24" height="44" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.9"/>
-          <!-- Abstract figure group -->
-          <circle cx="200" cy="256" r="7" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.8"/>
-          <circle cx="180" cy="260" r="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
-          <circle cx="220" cy="260" r="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
-          <!-- Central primary spray -->
-          <path class="fm-spray fm-spray-primary" d="M 200,244 Q 190,180 196,120 Q 200,92 204,120 Q 210,180 200,244 Z" fill="rgba(200,220,240,0.45)"/>
-          <!-- Side sprays (arcs) -->
-          <path class="fm-spray fm-spray-left"  d="M 180,256 Q 150,220 148,190 Q 150,176 158,190 Q 166,214 180,256 Z" fill="rgba(200,220,240,0.35)"/>
-          <path class="fm-spray fm-spray-right" d="M 220,256 Q 250,220 252,190 Q 250,176 242,190 Q 234,214 220,256 Z" fill="rgba(200,220,240,0.35)"/>
-          <!-- Drifting droplets -->
-          <ellipse class="fm-droplet fm-drop-1" cx="200" cy="130" rx="2" ry="3.5" fill="rgba(215,230,245,0.8)"/>
-          <ellipse class="fm-droplet fm-drop-2" cx="160" cy="180" rx="1.6" ry="3" fill="rgba(215,230,245,0.75)"/>
-          <ellipse class="fm-droplet fm-drop-3" cx="240" cy="180" rx="1.6" ry="3" fill="rgba(215,230,245,0.75)"/>
-          <!-- Horizon hairline -->
-          <line x1="40" y1="336" x2="360" y2="336" stroke="rgba(201,168,76,0.25)" stroke-width="0.5"/>
-          <polygon points="200,333 202,336 200,339 198,336" fill="rgba(232,201,106,0.4)"/>
-        </svg>
-        <figcaption class="fountain-mini-caption">A fountain, running.</figcaption>
-      </figure>
 
       <div class="detail-facts">
         <div class="detail-fact">
@@ -247,6 +483,29 @@
           <a href="../fountains/jc-nichols.html" style="color:var(--gold);">J.C. Nichols Memorial Fountain →</a>
         </p>
       </div>
+
+      <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+
+      <!-- Closing ornament: mini fountain SVG moved from above the facts panel. -->
+      <figure class="fountain-mini-wrap" aria-hidden="true">
+        <svg class="fountain-mini-svg" viewBox="0 0 400 360" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="200" cy="320" rx="140" ry="22" fill="rgba(80,62,40,0.15)" stroke="#C9A84C" stroke-width="1.1"/>
+          <ellipse class="fm-pool" cx="200" cy="316" rx="126" ry="14" fill="rgba(140,175,200,0.35)"/>
+          <rect x="188" y="268" width="24" height="44" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.9"/>
+          <circle cx="200" cy="256" r="7" fill="rgba(201,168,76,0.12)" stroke="#C9A84C" stroke-width="0.8"/>
+          <circle cx="180" cy="260" r="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
+          <circle cx="220" cy="260" r="5" fill="rgba(201,168,76,0.1)" stroke="#C9A84C" stroke-width="0.7"/>
+          <path class="fm-spray fm-spray-primary" d="M 200,244 Q 190,180 196,120 Q 200,92 204,120 Q 210,180 200,244 Z" fill="rgba(200,220,240,0.45)"/>
+          <path class="fm-spray fm-spray-left"  d="M 180,256 Q 150,220 148,190 Q 150,176 158,190 Q 166,214 180,256 Z" fill="rgba(200,220,240,0.35)"/>
+          <path class="fm-spray fm-spray-right" d="M 220,256 Q 250,220 252,190 Q 250,176 242,190 Q 234,214 220,256 Z" fill="rgba(200,220,240,0.35)"/>
+          <ellipse class="fm-droplet fm-drop-1" cx="200" cy="130" rx="2" ry="3.5" fill="rgba(215,230,245,0.8)"/>
+          <ellipse class="fm-droplet fm-drop-2" cx="160" cy="180" rx="1.6" ry="3" fill="rgba(215,230,245,0.75)"/>
+          <ellipse class="fm-droplet fm-drop-3" cx="240" cy="180" rx="1.6" ry="3" fill="rgba(215,230,245,0.75)"/>
+          <line x1="40" y1="336" x2="360" y2="336" stroke="rgba(201,168,76,0.25)" stroke-width="0.5"/>
+          <polygon points="200,333 202,336 200,339 198,336" fill="rgba(232,201,106,0.4)"/>
+        </svg>
+        <figcaption class="fountain-mini-caption">A fountain, running.</figcaption>
+      </figure>
 
     </div>
   </main>

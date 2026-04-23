@@ -6305,3 +6305,554 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   95%  { opacity: 0;   transform: translate(513px, 597px) scale(1.5); }
   100% { opacity: 0;   transform: translate(513px, 597px) scale(1.5); }
 }
+
+/* ── v15 Nichols Memorial Fountain hero scene ─────────────────────────────
+   A peopled-scene hero on fountains/jc-nichols.html. Uses the same vocabulary
+   as the homepage skyline (TOD layers, walker grammar, dashed paths, night
+   lights) but restaged around the four bronze horsemen of the Nichols fountain
+   with Plaza architecture (Giralda replica + cream-stucco facades) behind.
+   Only three wrapper classes are new — everything inside the SVG composes
+   existing grammar. */
+.nichols-hero-scene,
+.meyer-hero-scene,
+.bacchus-hero-scene,
+.pomona-hero-scene,
+.volker-hero-scene,
+.firefighters-hero-scene {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  height: 560px;
+  background: #0A0805;
+}
+.nichols-hero-backdrop,
+.meyer-hero-backdrop,
+.bacchus-hero-backdrop,
+.pomona-hero-backdrop,
+.volker-hero-backdrop,
+.firefighters-hero-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.nichols-hero-svg,
+.meyer-hero-svg,
+.bacchus-hero-svg,
+.pomona-hero-svg,
+.volker-hero-svg,
+.firefighters-hero-svg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.nichols-hero-overlay,
+.meyer-hero-overlay,
+.bacchus-hero-overlay,
+.pomona-hero-overlay,
+.volker-hero-overlay,
+.firefighters-hero-overlay {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  padding: 2.4rem 3rem 2rem 3rem;
+  background: linear-gradient(135deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.28) 55%, rgba(0,0,0,0) 100%);
+  pointer-events: none;
+  max-width: 58%;
+}
+.nichols-hero-overlay .eyebrow,
+.meyer-hero-overlay .eyebrow,
+.bacchus-hero-overlay .eyebrow,
+.pomona-hero-overlay .eyebrow,
+.volker-hero-overlay .eyebrow,
+.firefighters-hero-overlay .eyebrow {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.nichols-hero-overlay h1,
+.meyer-hero-overlay h1,
+.bacchus-hero-overlay h1,
+.pomona-hero-overlay h1,
+.volker-hero-overlay h1,
+.firefighters-hero-overlay h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 400;
+  color: var(--cream);
+  line-height: 1.15;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+.nichols-hero-overlay h1 span,
+.meyer-hero-overlay h1 span,
+.bacchus-hero-overlay h1 span,
+.pomona-hero-overlay h1 span,
+.volker-hero-overlay h1 span,
+.firefighters-hero-overlay h1 span { color: var(--gold); }
+
+/* Below-hero sense-making caption (v13 elevation-caption voice). */
+.nichols-hero-caption,
+.meyer-hero-caption,
+.bacchus-hero-caption,
+.pomona-hero-caption,
+.volker-hero-caption,
+.firefighters-hero-caption {
+  max-width: 720px;
+  margin: 1.5rem auto 0;
+  padding: 0 2rem;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--warm-grey);
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .nichols-hero-scene,
+  .meyer-hero-scene,
+  .bacchus-hero-scene,
+  .pomona-hero-scene,
+  .volker-hero-scene,
+  .firefighters-hero-scene { height: 440px; }
+  .nichols-hero-overlay,
+  .meyer-hero-overlay,
+  .bacchus-hero-overlay,
+  .pomona-hero-overlay,
+  .volker-hero-overlay,
+  .firefighters-hero-overlay { max-width: 70%; }
+}
+@media (max-width: 640px) {
+  .nichols-hero-scene,
+  .meyer-hero-scene,
+  .bacchus-hero-scene,
+  .pomona-hero-scene,
+  .volker-hero-scene,
+  .firefighters-hero-scene { height: 360px; }
+  .nichols-hero-overlay,
+  .meyer-hero-overlay,
+  .bacchus-hero-overlay,
+  .pomona-hero-overlay,
+  .volker-hero-overlay,
+  .firefighters-hero-overlay {
+    padding: 1.25rem 1.2rem 1rem 1.2rem;
+    max-width: 88%;
+  }
+  .nichols-hero-caption,
+  .meyer-hero-caption,
+  .bacchus-hero-caption,
+  .pomona-hero-caption,
+  .volker-hero-caption,
+  .firefighters-hero-caption {
+    font-size: 0.85rem;
+    padding: 0 1.2rem;
+    margin-top: 1.1rem;
+  }
+}
+
+/* Plaza backdrop architecture — cream/terra-cotta Spanish Colonial palette
+   (Plaza exception). One filter keyframe drives TOD color shift: dawn pink,
+   day full, dusk amber, night desaturated. Night-only window glows use the
+   existing .building-night-lights opacity gate. */
+.nichols-bg-arch {
+  animation: nichols-plaza-bg-cycle 40s linear infinite;
+}
+.nichols-bg-stucco {
+  fill: rgba(219, 207, 188, 0.72);
+  stroke: rgba(142, 105, 60, 0.55);
+  stroke-width: 0.8;
+}
+.nichols-bg-tile {
+  fill: rgba(166, 96, 70, 0.78);
+  stroke: rgba(110, 56, 40, 0.55);
+  stroke-width: 0.6;
+}
+.nichols-bg-ridge {
+  stroke: rgba(110, 56, 40, 0.55);
+  stroke-width: 0.45;
+  fill: none;
+}
+.nichols-bg-cornice {
+  fill: rgba(166, 96, 70, 0.5);
+}
+.nichols-bg-window {
+  fill: rgba(42, 26, 12, 0.6);
+}
+.nichols-bg-spire {
+  stroke: rgba(110, 56, 40, 0.75);
+  stroke-width: 0.8;
+}
+.nichols-bg-finial {
+  fill: rgba(201, 168, 76, 0.75);
+}
+.nichols-bg-window-glow {
+  fill: rgba(255, 198, 120, 0.78);
+}
+@keyframes nichols-plaza-bg-cycle {
+  0%,18%  { filter: hue-rotate(-6deg) saturate(0.9)  brightness(0.82); } /* dawn */
+  25%,43% { filter: hue-rotate(0deg)  saturate(1.0)  brightness(1.0); }  /* day */
+  50%,68% { filter: hue-rotate(8deg)  saturate(1.1)  brightness(0.92); } /* dusk */
+  75%,93% { filter: hue-rotate(-6deg) saturate(0.5)  brightness(0.45); } /* night */
+  100%    { filter: hue-rotate(-6deg) saturate(0.9)  brightness(0.82); }
+}
+
+/* Fountain — gold line-art basin/pedestal; bronze-filled equestrian figures;
+   blue-grey pool cycles through TOD via river-color-cycle filter; water jets
+   use fm-spray-pulse vocabulary. Landscape lights gate on during night via the
+   shared .building-night-lights opacity gate. */
+.nichols-pool-rim-outer {
+  fill: rgba(201, 168, 76, 0.08);
+  stroke: #C9A84C;
+  stroke-width: 1.2;
+}
+.nichols-pool-rim-inner {
+  fill: none;
+  stroke: rgba(201, 168, 76, 0.45);
+  stroke-width: 0.55;
+}
+.nichols-pool-water {
+  fill: rgba(92, 130, 160, 0.72);
+  animation: river-color-cycle 40s linear infinite;
+}
+.nichols-pool-ripple {
+  fill: none;
+  stroke: rgba(200, 222, 240, 0.55);
+  stroke-width: 0.4;
+  transform-origin: center center;
+  transform-box: fill-box;
+  animation: fm-pool-ripple 3.2s ease-in-out infinite;
+}
+.nichols-pedestal-step,
+.nichols-pedestal-shaft,
+.nichols-pedestal-cap,
+.nichols-pedestal-urn {
+  fill: rgba(201, 168, 76, 0.12);
+  stroke: #C9A84C;
+  stroke-width: 0.9;
+}
+.nichols-pedestal-band {
+  stroke: rgba(201, 168, 76, 0.55);
+  stroke-width: 0.5;
+}
+.nichols-pedestal-urn-lip {
+  stroke: rgba(201, 168, 76, 0.65);
+  stroke-width: 0.6;
+}
+.nichols-bronze-body {
+  fill: rgba(178, 108, 52, 0.88);
+  stroke: #6B3E22;
+  stroke-width: 0.45;
+  stroke-linejoin: round;
+}
+.nichols-bronze-stroke {
+  stroke: #6B3E22;
+  stroke-width: 1.1;
+  fill: none;
+  stroke-linecap: round;
+}
+.nichols-bronze-plinth {
+  fill: rgba(80, 52, 30, 0.82);
+  stroke: #3A2410;
+  stroke-width: 0.35;
+}
+/* Water jets — filled silhouette style, growing-from-bottom pulse. */
+.nichols-jet {
+  fill: rgba(200, 222, 240, 0.58);
+  stroke: rgba(230, 242, 252, 0.25);
+  stroke-width: 0.35;
+  transform-origin: center bottom;
+  transform-box: fill-box;
+  animation: fm-spray-pulse 3.4s ease-in-out infinite;
+}
+.nichols-jet-center {
+  fill: rgba(200, 222, 240, 0.65);
+  animation-duration: 3.2s;
+}
+.nichols-jet-horse {
+  fill: rgba(200, 222, 240, 0.45);
+  animation-duration: 3.8s;
+  animation-delay: -0.6s;
+}
+.nichols-jet-arc {
+  fill: none;
+  stroke: rgba(200, 222, 240, 0.5);
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-dasharray: 1.5 1.3;
+  animation: nichols-arc-flow 2.8s linear infinite;
+}
+.nichols-jet-arc-left  { animation-delay: -0.3s; }
+.nichols-jet-arc-right { animation-delay: -0.9s; }
+@keyframes nichols-arc-flow {
+  0%   { stroke-dashoffset: 0;   opacity: 0.8; }
+  50%  { opacity: 1; }
+  100% { stroke-dashoffset: -14; opacity: 0.8; }
+}
+.nichols-jet-drop {
+  fill: rgba(215, 230, 245, 0.85);
+  animation: nichols-drop-drift 2.4s ease-out infinite;
+}
+.nichols-jet-drop-a { animation-delay: 0s; }
+.nichols-jet-drop-b { animation-delay: 0.5s; }
+.nichols-jet-drop-c { animation-delay: 1s; }
+.nichols-jet-drop-d { animation-delay: 1.5s; }
+@keyframes nichols-drop-drift {
+  0%   { opacity: 0;   transform: translateY(8px); }
+  25%  { opacity: 0.9; }
+  100% { opacity: 0;   transform: translateY(-18px); }
+}
+/* Landscape lights — warm glow around basin rim, gated to night via parent
+   .building-night-lights opacity animation. */
+.nichols-landscape-lights circle {
+  fill: #FFE0A8;
+  filter: drop-shadow(0 0 2.5px rgba(255, 220, 150, 0.75));
+}
+
+/* Foreground plaza — paving, paths, benches, planters, walkers. */
+.nichols-paving line {
+  stroke: rgba(201, 168, 76, 0.12);
+  stroke-width: 0.4;
+}
+.nichols-path {
+  stroke: rgba(245, 239, 224, 0.48);
+  stroke-width: 1.6;
+  stroke-dasharray: 2.8 2.4;
+  stroke-linecap: round;
+}
+.nichols-path-b { stroke-opacity: 0.4; }
+.nichols-planter-pot {
+  fill: rgba(166, 96, 70, 0.78);
+  stroke: rgba(110, 56, 40, 0.55);
+  stroke-width: 0.45;
+}
+.nichols-planter-band {
+  stroke: rgba(110, 56, 40, 0.55);
+  stroke-width: 0.4;
+}
+.nichols-planter-shrub {
+  fill: rgba(95, 120, 75, 0.72);
+  stroke: rgba(70, 90, 55, 0.55);
+  stroke-width: 0.3;
+}
+.nichols-bench-plank {
+  stroke: rgba(201, 168, 76, 0.72);
+  stroke-width: 1.3;
+  stroke-linecap: round;
+}
+.nichols-bench-leg {
+  stroke: rgba(201, 168, 76, 0.68);
+  stroke-width: 0.85;
+  stroke-linecap: round;
+}
+
+/* Static Nichols walkers — stay visible, no movement animation.
+   (Overrides .hill-walker base opacity: 0.) */
+.hill-walker.nichols-static {
+  opacity: 1;
+  animation: none;
+  will-change: auto;
+}
+
+/* Trail-following walkers along dashed plaza paths.
+   Long slow loops (48-55s) — meant to read as ambient foot traffic, not
+   choreography. The couple on Path A arrives at the fountain from the
+   bottom-left; the solo walker on Path B exits toward the bottom-right. */
+.hill-walker.nichols-walker-path-a {
+  opacity: 0;
+  animation: nichols-walker-path-a 55s ease-in-out infinite;
+}
+.hill-walker.nichols-walker-path-a-2 {
+  opacity: 0;
+  animation: nichols-walker-path-a-2 55s ease-in-out infinite;
+  animation-delay: -1.2s;
+}
+.hill-walker.nichols-walker-path-b {
+  opacity: 0;
+  animation: nichols-walker-path-b 48s ease-in-out infinite;
+  animation-delay: -8s;
+}
+/* Path A — arrive at fountain from bottom-left. Couple walker #1. */
+@keyframes nichols-walker-path-a {
+  0%   { opacity: 0;   transform: translate(120px, 598px) scale(1.55); }
+  4%   { opacity: 0.45;transform: translate(150px, 596px) scale(1.6); }
+  12%  { opacity: 1;   transform: translate(220px, 591px) scale(1.65); }
+  40%  { opacity: 1;   transform: translate(400px, 578px) scale(1.6); }
+  68%  { opacity: 1;   transform: translate(520px, 568px) scale(1.45); }
+  82%  { opacity: 0.55;transform: translate(550px, 565px) scale(1.35); }
+  90%  { opacity: 0;   transform: translate(570px, 562px) scale(1.25); }
+  100% { opacity: 0;   transform: translate(120px, 598px) scale(1.55); }
+}
+/* Path A — companion walker, slight x+y offset so they read as a pair. */
+@keyframes nichols-walker-path-a-2 {
+  0%   { opacity: 0;   transform: translate(138px, 595px) scale(1.55); }
+  4%   { opacity: 0.45;transform: translate(168px, 593px) scale(1.6); }
+  12%  { opacity: 1;   transform: translate(238px, 588px) scale(1.65); }
+  40%  { opacity: 1;   transform: translate(418px, 575px) scale(1.6); }
+  68%  { opacity: 1;   transform: translate(538px, 565px) scale(1.45); }
+  82%  { opacity: 0.55;transform: translate(568px, 562px) scale(1.35); }
+  90%  { opacity: 0;   transform: translate(588px, 559px) scale(1.25); }
+  100% { opacity: 0;   transform: translate(138px, 595px) scale(1.55); }
+}
+/* Path B — solo walker, departs from fountain area toward bottom-right. */
+@keyframes nichols-walker-path-b {
+  0%   { opacity: 0;   transform: translate(1050px, 565px) scale(1.35); }
+  8%   { opacity: 0.55;transform: translate(1080px, 568px) scale(1.45); }
+  18%  { opacity: 1;   transform: translate(1140px, 572px) scale(1.55); }
+  50%  { opacity: 1;   transform: translate(1300px, 582px) scale(1.62); }
+  78%  { opacity: 1;   transform: translate(1440px, 593px) scale(1.6); }
+  88%  { opacity: 0.4; transform: translate(1480px, 597px) scale(1.5); }
+  95%  { opacity: 0;   transform: translate(1500px, 598px) scale(1.4); }
+  100% { opacity: 0;   transform: translate(1050px, 565px) scale(1.35); }
+}
+
+/* Reduced-motion: park trail-followers mid-path and freeze. */
+@media (prefers-reduced-motion: reduce) {
+  .hill-walker.nichols-walker-path-a {
+    animation: none; opacity: 0.85;
+    transform: translate(400px, 578px) scale(1.6);
+  }
+  .hill-walker.nichols-walker-path-a-2 {
+    animation: none; opacity: 0.85;
+    transform: translate(418px, 575px) scale(1.6);
+  }
+  .hill-walker.nichols-walker-path-b {
+    animation: none; opacity: 0.85;
+    transform: translate(1300px, 582px) scale(1.62);
+  }
+  .nichols-pool-water,
+  .nichols-pool-ripple,
+  .nichols-jet,
+  .nichols-jet-arc,
+  .nichols-jet-drop {
+    animation: none !important;
+  }
+  .nichols-jet { transform: scaleY(0.92); }
+  .nichols-bg-arch { animation: none !important; filter: none !important; }
+  .nichols-landscape-lights,
+  .nichols-bg-facade .building-night-lights,
+  .nichols-bg-giralda .building-night-lights {
+    opacity: 0 !important;
+  }
+}
+
+/* ── v15.2 Meyer Circle Sea Horse Fountain hero ───────────────────────────
+   Extends the v15 Nichols peopled-scene pattern to a second fountain page.
+   Reuses the .nichols-pool/-pedestal/-bronze/-jet/-landscape-lights
+   vocabulary directly (shared "fountain grammar" — flagged for v16 rename
+   to .scene-*). Adds Meyer-specific Ward Parkway backdrop elements: tree
+   silhouettes, Tudor revival mansion palette, obelisk-pedestal finial. */
+.meyer-bg {
+  animation: nichols-plaza-bg-cycle 40s linear infinite;
+}
+/* Tudor mansion palette — darker brick + steeper tile, half-timbering. */
+.meyer-bg-brick {
+  fill: rgba(152, 92, 60, 0.78);
+  stroke: rgba(78, 44, 28, 0.6);
+  stroke-width: 0.75;
+}
+.meyer-bg-stucco-tudor {
+  fill: rgba(230, 218, 196, 0.78);
+  stroke: rgba(110, 80, 50, 0.55);
+  stroke-width: 0.7;
+}
+.meyer-bg-tile-dark {
+  fill: rgba(122, 64, 44, 0.82);
+  stroke: rgba(78, 40, 28, 0.6);
+  stroke-width: 0.65;
+}
+.meyer-bg-timber {
+  stroke: rgba(78, 44, 28, 0.7);
+  stroke-width: 0.6;
+  fill: none;
+}
+.meyer-bg-window-tudor {
+  fill: rgba(34, 22, 10, 0.62);
+  stroke: rgba(78, 44, 28, 0.45);
+  stroke-width: 0.45;
+}
+.meyer-bg-window-glow-warm {
+  fill: rgba(255, 188, 110, 0.72);
+}
+/* Boulevard tree silhouettes — muted evergreen/deciduous canopies. */
+.meyer-bg-tree-canopy {
+  fill: rgba(66, 82, 52, 0.72);
+  stroke: rgba(40, 54, 32, 0.55);
+  stroke-width: 0.5;
+}
+.meyer-bg-tree-trunk {
+  fill: rgba(68, 44, 24, 0.78);
+  stroke: rgba(40, 26, 14, 0.5);
+  stroke-width: 0.3;
+}
+.meyer-bg-tree-distant .meyer-bg-tree-canopy {
+  fill: rgba(58, 74, 48, 0.58);
+  stroke-opacity: 0.4;
+}
+/* Cypress / narrow conifer variant — slightly darker needle-y green. */
+.meyer-bg-tree-cypress .meyer-bg-tree-canopy {
+  fill: rgba(52, 72, 46, 0.74);
+  stroke: rgba(34, 48, 28, 0.55);
+}
+/* Spreading maple — visible branch structure under the canopy. */
+.meyer-bg-tree-branch {
+  stroke: rgba(68, 44, 24, 0.55);
+  stroke-width: 0.65;
+  stroke-linecap: round;
+}
+/* Meyer-specific: brighter path dashes (boulevard paths read more clearly). */
+.meyer-hero-scene .nichols-path {
+  stroke: rgba(245, 239, 224, 0.58);
+  stroke-width: 1.75;
+}
+.meyer-pedestal-finial {
+  fill: rgba(232, 201, 106, 0.85);
+  stroke: #C9A84C;
+  stroke-width: 0.7;
+}
+/* Meyer-specific reduced-motion overrides — piggybacks on Nichols block. */
+@media (prefers-reduced-motion: reduce) {
+  .meyer-bg { animation: none !important; filter: none !important; }
+  .meyer-bg .building-night-lights { opacity: 0 !important; }
+}
+
+
+/* ── v15.4 Volker + Firefighters backdrop palettes ────────────────────
+   Volker: UMKC-inspired Collegiate Gothic — warm brick + limestone +
+   slate roof. Firefighter figure gets a reflective-stripe detail on its
+   turnout coat. */
+.volker-bg-brick {
+  fill: rgba(142, 76, 52, 0.8);
+  stroke: rgba(68, 38, 26, 0.6);
+  stroke-width: 0.75;
+}
+.volker-bg-limestone {
+  fill: rgba(214, 202, 176, 0.76);
+  stroke: rgba(120, 100, 70, 0.55);
+  stroke-width: 0.75;
+}
+.volker-bg-slate {
+  fill: rgba(78, 78, 90, 0.78);
+  stroke: rgba(46, 46, 56, 0.6);
+  stroke-width: 0.65;
+}
+.volker-bg-stone-band {
+  fill: rgba(214, 202, 176, 0.6);
+}
+.firefighter-reflective-stripe {
+  stroke: rgba(255, 232, 150, 0.82);
+  stroke-width: 0.5;
+  stroke-linecap: round;
+}
+@media (prefers-reduced-motion: reduce) {
+  .volker-bg,
+  .firefighters-bg { animation: none !important; filter: none !important; }
+  .volker-bg .building-night-lights,
+  .firefighters-bg .building-night-lights { opacity: 0 !important; }
+}
