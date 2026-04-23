@@ -13,7 +13,8 @@
     '.volker-hero-svg',
     '.firefighters-hero-svg',
     '.fountain-day-svg',
-    '.midtown-hero-svg'
+    '.midtown-hero-svg',
+    '.vine-hero-svg'
   ].join(',');
 
   function applyAspectMode() {

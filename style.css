@@ -8333,3 +8333,1682 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
     transform: translate(760px, 566px) scale(1.3);
   }
 }
+
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v18 — 18th & Vine signature scene (perspective view)
+   ─────────────────────────────────────────────────────────────────────
+   Perspective street view looking WEST down 18th from The Paseo.
+   Vanishing point at approximately (1000, 360). Foreground-left holds the
+   Charlie Parker statue + 18TH/VINE signpost at full scale. Foreground-
+   right holds the 1914 Paseo YMCA castellated stone building. Mid-ground
+   receding: Mutual Musicians Foundation, Jazz Museum + Negro Leagues, Gem
+   Theater (left), Street Hotel, Vine Street Brewery (right). Arthur
+   Bryant's silhouette floats near the vanishing point. Gold line-art for
+   silhouettes; warm neon (reds/ambers/warm whites) for marquee signage
+   and night-gated window glows.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.vine-hero-scene {
+  position: relative;
+  width: 100%;
+  height: 560px;
+  overflow: hidden;
+  background: #0A0603;
+  isolation: isolate;
+  margin-bottom: 2.5rem;
+}
+@media (max-width: 900px) { .vine-hero-scene { height: 440px; } }
+@media (max-width: 640px) { .vine-hero-scene { height: 360px; } }
+
+.vine-hero-backdrop { position: absolute; inset: 0; z-index: 1; }
+.vine-hero-svg { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; }
+
+.vine-hero-overlay {
+  position: absolute;
+  top: 2.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  text-align: center;
+  pointer-events: none;
+  max-width: 58%;
+}
+.vine-hero-overlay .eyebrow {
+  display: block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.42em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.55rem;
+  opacity: 0.92;
+}
+.vine-hero-overlay h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.6rem);
+  color: var(--cream);
+  line-height: 0.95;
+  margin: 0;
+  font-weight: 400;
+}
+.vine-hero-overlay h1 span { color: var(--gold); }
+@media (max-width: 900px) {
+  .vine-hero-overlay { top: 1.4rem; max-width: 70%; }
+}
+@media (max-width: 640px) {
+  .vine-hero-overlay { top: 0.9rem; max-width: 90%; }
+  .vine-hero-overlay h1 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+  .vine-hero-overlay .eyebrow { font-size: 0.58rem; letter-spacing: 0.3em; margin-bottom: 0.3rem; }
+}
+
+.vine-hero-caption {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: clamp(0.95rem, 1.4vw, 1.15rem);
+  color: var(--cream);
+  text-align: center;
+  max-width: 840px;
+  margin: 1.25rem auto 0;
+  padding: 0 1rem;
+  line-height: 1.55;
+  opacity: 0.88;
+}
+@media (max-width: 640px) {
+  .vine-hero-caption { font-size: 0.88rem; line-height: 1.45; margin-top: 0.9rem; }
+}
+
+/* ── Sky atmospherics (same pattern as flat version) ───────────── */
+.vine-sky-stars circle {
+  fill: #F4E8C8;
+  opacity: 0;
+  animation: vine-star-twinkle 42s linear infinite;
+}
+.vine-sky-stars circle:nth-child(odd) { animation-duration: 36s; }
+.vine-sky-stars circle:nth-child(3n) { animation-duration: 48s; animation-delay: -8s; }
+.vine-sky-stars circle:nth-child(5n) { animation-delay: -18s; }
+@keyframes vine-star-twinkle {
+  0%, 55% { opacity: 0; }
+  75% { opacity: 0.85; }
+  85% { opacity: 0.5; }
+  95%, 100% { opacity: 0; }
+}
+
+.vine-sky-clouds { color: #C9B992; }
+.vine-sky-clouds ellipse { fill: currentColor; }
+.vine-cloud-a { animation: vine-cloud-drift-a 220s linear infinite; }
+.vine-cloud-b { animation: vine-cloud-drift-b 320s linear infinite; animation-delay: -120s; }
+@keyframes vine-cloud-drift-a {
+  0%   { transform: translate(-120px, 90px); }
+  100% { transform: translate(1780px, 90px); }
+}
+@keyframes vine-cloud-drift-b {
+  0%   { transform: translate(-120px, 160px); }
+  100% { transform: translate(1780px, 160px); }
+}
+
+/* ── Vanishing-point horizon + Arthur Bryant's ─────────────────── */
+.vine-horizon-building {
+  fill: rgba(201,168,76,0.05);
+  stroke: rgba(201,168,76,0.32);
+  stroke-width: 0.55;
+  stroke-linejoin: round;
+}
+.vine-bryants-body {
+  fill: rgba(120,72,38,0.28);
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 0.6;
+}
+.vine-bryants-sign {
+  fill: rgba(30,18,10,0.78);
+  stroke: rgba(232,172,86,0.85);
+  stroke-width: 0.55;
+}
+.vine-bryants-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 4.8px;
+  letter-spacing: 0.18em;
+  fill: rgba(232,172,86,0.95);
+  font-weight: 700;
+}
+
+/* ── Street pavement + sidewalks (perspective) ─────────────────── */
+.vine-street {
+  fill: rgba(14,10,6,0.95);
+  stroke: none;
+}
+.vine-street-recede {
+  fill: url(#vine-street-fade);
+  stroke: none;
+}
+.vine-sidewalk-left,
+.vine-sidewalk-right {
+  fill: rgba(32,24,16,0.72);
+  stroke: none;
+}
+.vine-curb {
+  stroke: rgba(201,168,76,0.42);
+  stroke-width: 0.9;
+  fill: none;
+}
+.vine-street-centerline {
+  stroke: rgba(201,168,76,0.42);
+  stroke-width: 1.2;
+  stroke-dasharray: 20 12;
+  fill: none;
+}
+.vine-crosswalk polygon {
+  fill: rgba(245,235,210,0.22);
+  stroke: rgba(245,235,210,0.32);
+  stroke-width: 0.35;
+}
+
+/* ── Building vocabulary (reused across mid-ground) ────────────── */
+.vine-building-body {
+  fill: rgba(120,72,38,0.22);
+  stroke: #C9A84C;
+  stroke-width: 0.85;
+  stroke-linejoin: round;
+}
+.vine-building-body.vine-deep {
+  fill: rgba(201,168,76,0.05);
+  stroke: rgba(201,168,76,0.32);
+  stroke-width: 0.55;
+}
+.vine-building-accent {
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 0.6;
+  fill: none;
+}
+.vine-building-brickline {
+  stroke: rgba(201,168,76,0.2);
+  stroke-width: 0.4;
+  fill: none;
+}
+.vine-building-window {
+  fill: rgba(255,200,140,0.06);
+  stroke: rgba(201,168,76,0.5);
+  stroke-width: 0.45;
+}
+.vine-building-door {
+  fill: rgba(20,12,6,0.78);
+  stroke: rgba(201,168,76,0.6);
+  stroke-width: 0.5;
+}
+
+/* ── Gem Theater specifics ─────────────────────────────────────── */
+.vine-gem-facade {
+  fill: rgba(210,176,128,0.18);   /* terra-cotta cream */
+  stroke: #C9A84C;
+  stroke-width: 0.85;
+  stroke-linejoin: round;
+}
+.vine-gem-canopy {
+  fill: rgba(140,72,30,0.42);
+  stroke: rgba(201,168,76,0.72);
+  stroke-width: 0.55;
+}
+.vine-gem-blade-frame {
+  fill: rgba(30,18,10,0.58);
+  stroke: #C9A84C;
+  stroke-width: 0.8;
+}
+.vine-gem-blade-text {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 10px;
+  fill: rgba(201,168,76,0.78);
+  letter-spacing: 0.04em;
+}
+
+/* ── Mutual Musicians Foundation (gable-front bungalow palette) ── */
+.vine-mmf-body {
+  fill: rgba(140,82,44,0.2);
+  stroke: #C9A84C;
+  stroke-width: 0.85;
+  stroke-linejoin: round;
+}
+.vine-mmf-porch-roof {
+  fill: rgba(100,62,34,0.42);
+  stroke: #C9A84C;
+  stroke-width: 0.55;
+}
+.vine-mmf-porch-column {
+  stroke: #C9A84C;
+  stroke-width: 1;
+}
+.vine-mmf-sign {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 5.8px;
+  letter-spacing: 0.14em;
+  fill: rgba(201,168,76,0.82);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* ── Museum specifics ──────────────────────────────────────────── */
+.vine-museum-mass {
+  fill: rgba(96,60,40,0.36);
+  stroke: #C9A84C;
+  stroke-width: 0.85;
+  stroke-linejoin: round;
+}
+.vine-museum-glass {
+  fill: rgba(120,140,180,0.1);
+  stroke: rgba(201,168,76,0.45);
+  stroke-width: 0.4;
+}
+.vine-museum-entry-frame {
+  fill: rgba(30,20,14,0.65);
+  stroke: rgba(201,168,76,0.6);
+  stroke-width: 0.55;
+}
+.vine-museum-sign-frame {
+  fill: rgba(30,20,12,0.68);
+  stroke: rgba(201,168,76,0.78);
+  stroke-width: 0.55;
+}
+.vine-museum-sign-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 5.6px;
+  letter-spacing: 0.2em;
+  fill: rgba(201,168,76,0.88);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* ── Vine Street Brewery signage ───────────────────────────────── */
+.vine-brewery-sign {
+  fill: rgba(30,20,12,0.7);
+  stroke: rgba(201,168,76,0.72);
+  stroke-width: 0.55;
+}
+.vine-brewery-sign-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 5.2px;
+  letter-spacing: 0.14em;
+  fill: rgba(201,168,76,0.85);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* ── Charlie Parker statue (foreground-left, big scale) ────────── */
+.vine-plaza-floor {
+  fill: rgba(36,28,18,0.78);
+  stroke: rgba(201,168,76,0.3);
+  stroke-width: 0.5;
+}
+.vine-plaza-floor-inner {
+  fill: rgba(44,34,22,0.6);
+  stroke: none;
+}
+.vine-plaza-wall {
+  stroke: rgba(201,168,76,0.4);
+  stroke-width: 0.7;
+  fill: none;
+}
+.vine-statue-plinth {
+  fill: rgba(80,70,60,0.82);
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 0.55;
+}
+.vine-statue-plinth-line {
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 0.5;
+}
+.vine-statue-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 7px;
+  letter-spacing: 0.28em;
+  fill: rgba(201,168,76,0.78);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.vine-statue-body {
+  fill: rgba(178,108,52,0.92);
+  stroke: #6B3E22;
+  stroke-width: 0.65;
+  stroke-linejoin: round;
+}
+.vine-statue-hat {
+  fill: rgba(120,72,32,0.95);
+  stroke: #4A2A0E;
+  stroke-width: 0.55;
+  stroke-linejoin: round;
+}
+.vine-statue-sax {
+  fill: rgba(225,168,70,0.92);
+  stroke: #5A3414;
+  stroke-width: 0.6;
+  stroke-linejoin: round;
+}
+.vine-statue-sax-key {
+  fill: rgba(30,18,8,0.9);
+  stroke: none;
+}
+
+/* ── 18TH/VINE street signpost (big-scale foreground) ──────────── */
+.vine-streetsign-pole {
+  stroke: #C9A84C;
+  stroke-width: 3;
+  fill: none;
+}
+.vine-streetsign-base {
+  fill: rgba(60,44,28,0.9);
+  stroke: #C9A84C;
+  stroke-width: 0.7;
+}
+.vine-streetsign-blade {
+  fill: rgba(40,26,14,0.88);
+  stroke: rgba(201,168,76,0.92);
+  stroke-width: 0.8;
+}
+.vine-streetsign-text-big {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.2em;
+  fill: rgba(232,172,86,0.96);
+  font-weight: 700;
+}
+.vine-streetsign-finial {
+  fill: rgba(201,168,76,0.9);
+  stroke: #6B3E22;
+  stroke-width: 0.6;
+}
+
+/* ── Paseo YMCA (foreground-right castle) ──────────────────────── */
+.vine-ymca-body {
+  fill: rgba(214,198,168,0.14);   /* limestone */
+  stroke: #C9A84C;
+  stroke-width: 1;
+  stroke-linejoin: round;
+}
+.vine-ymca-crenellations rect {
+  fill: rgba(214,198,168,0.2);
+  stroke: #C9A84C;
+  stroke-width: 0.8;
+}
+.vine-ymca-turret {
+  fill: rgba(214,198,168,0.2);
+  stroke: #C9A84C;
+  stroke-width: 0.9;
+}
+.vine-ymca-beltcourse {
+  stroke: rgba(201,168,76,0.62);
+  stroke-width: 0.8;
+  fill: none;
+}
+.vine-ymca-rustication line {
+  stroke: rgba(201,168,76,0.28);
+  stroke-width: 0.45;
+  fill: none;
+}
+.vine-ymca-window {
+  fill: rgba(255,200,140,0.06);
+  stroke: rgba(201,168,76,0.58);
+  stroke-width: 0.55;
+}
+.vine-ymca-window-rect {
+  fill: rgba(255,200,140,0.06);
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 0.5;
+}
+.vine-ymca-mullion line {
+  stroke: rgba(201,168,76,0.45);
+  stroke-width: 0.45;
+}
+.vine-ymca-entry {
+  fill: rgba(30,20,12,0.75);
+  stroke: #C9A84C;
+  stroke-width: 0.9;
+  stroke-linejoin: round;
+}
+.vine-ymca-keystone {
+  fill: rgba(214,198,168,0.35);
+  stroke: #C9A84C;
+  stroke-width: 0.55;
+}
+.vine-ymca-plaque {
+  fill: rgba(214,198,168,0.28);
+  stroke: rgba(201,168,76,0.62);
+  stroke-width: 0.45;
+}
+.vine-ymca-plaque-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 5.8px;
+  fill: rgba(201,168,76,0.88);
+  font-weight: 700;
+}
+.vine-ymca-lintel {
+  fill: rgba(30,20,12,0.72);
+  stroke: rgba(201,168,76,0.82);
+  stroke-width: 0.55;
+}
+.vine-ymca-lintel-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 6.8px;
+  letter-spacing: 0.22em;
+  fill: rgba(201,168,76,0.9);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* ── Streetlamps (3 scales: fg/mid/far) ────────────────────────── */
+.vine-streetlamp-post {
+  stroke: #C9A84C;
+  stroke-width: 2;
+  fill: none;
+}
+.vine-streetlamp-mid .vine-streetlamp-post { stroke-width: 1.4; }
+.vine-streetlamp-far .vine-streetlamp-post { stroke-width: 1; }
+.vine-streetlamp-arm {
+  stroke: #C9A84C;
+  stroke-width: 1.5;
+  fill: none;
+  stroke-linejoin: round;
+}
+.vine-streetlamp-mid .vine-streetlamp-arm { stroke-width: 1.1; }
+.vine-streetlamp-far .vine-streetlamp-arm { stroke-width: 0.8; }
+.vine-streetlamp-base {
+  fill: rgba(60,44,28,0.92);
+  stroke: #C9A84C;
+  stroke-width: 0.55;
+}
+.vine-streetlamp-lantern {
+  fill: rgba(255,220,160,0.2);
+  stroke: #C9A84C;
+  stroke-width: 0.9;
+}
+.vine-streetlamp-mid .vine-streetlamp-lantern { stroke-width: 0.7; }
+.vine-streetlamp-far .vine-streetlamp-lantern { stroke-width: 0.6; }
+
+/* ── Musician silhouettes ──────────────────────────────────────── */
+.vine-musician-body {
+  fill: rgba(40,28,18,0.95);
+  stroke: rgba(201,168,76,0.6);
+  stroke-width: 0.4;
+  stroke-linejoin: round;
+}
+.vine-musician-hat {
+  fill: rgba(20,14,8,0.96);
+  stroke: rgba(201,168,76,0.48);
+  stroke-width: 0.35;
+}
+.vine-musician-sax {
+  fill: rgba(225,168,70,0.9);
+  stroke: #5A3414;
+  stroke-width: 0.45;
+  stroke-linejoin: round;
+}
+.vine-musician-sax-key {
+  fill: rgba(20,14,8,0.88);
+  stroke: none;
+}
+.vine-musician-bass-body {
+  fill: rgba(140,72,38,0.9);
+  stroke: rgba(201,168,76,0.62);
+  stroke-width: 0.5;
+  stroke-linejoin: round;
+}
+.vine-musician-bass-neck {
+  stroke: rgba(80,48,22,0.94);
+  stroke-width: 1;
+  fill: none;
+}
+.vine-musician-bass-scroll {
+  fill: rgba(80,48,22,0.94);
+  stroke: rgba(201,168,76,0.52);
+  stroke-width: 0.35;
+}
+.vine-musician-bass-string {
+  stroke: rgba(245,225,180,0.55);
+  stroke-width: 0.3;
+  fill: none;
+}
+.vine-musician-trumpet-tube {
+  stroke: rgba(225,168,70,0.92);
+  stroke-width: 1.4;
+  fill: none;
+  stroke-linecap: round;
+}
+.vine-musician-trumpet-bell {
+  fill: rgba(225,168,70,0.92);
+  stroke: #5A3414;
+  stroke-width: 0.4;
+  stroke-linejoin: round;
+}
+.vine-musician-trumpet-valve {
+  stroke: rgba(60,34,14,0.92);
+  stroke-width: 0.5;
+  fill: none;
+}
+
+/* ── Walker keyframes (perspective — depth-scaling) ────────────── */
+/* FG walker comes from far-back and grows toward the viewer via scale. */
+.hill-walker.vine-walker-path-fg {
+  animation: vine-walker-fg 42s linear infinite;
+}
+.hill-walker.vine-walker-path-left-mid {
+  animation: vine-walker-left-mid 48s linear infinite;
+  animation-delay: -14s;
+}
+.hill-walker.vine-walker-path-right-mid {
+  animation: vine-walker-right-mid 56s linear infinite;
+  animation-delay: -6s;
+}
+.hill-walker.vine-walker-path-deep {
+  animation: vine-walker-deep 72s linear infinite;
+  animation-delay: -40s;
+}
+
+@keyframes vine-walker-fg {
+  0%   { transform: translate(560px, 440px) scale(0.5); opacity: 0; }
+  10%  { opacity: 0.9; }
+  100% { transform: translate(1380px, 600px) scale(1.6); opacity: 0.95; }
+}
+@keyframes vine-walker-left-mid {
+  0%   { transform: translate(820px, 440px) scale(0.6); opacity: 0; }
+  8%   { opacity: 0.85; }
+  92%  { opacity: 0.85; }
+  100% { transform: translate(140px, 590px) scale(1.3); opacity: 0; }
+}
+@keyframes vine-walker-right-mid {
+  0%   { transform: translate(820px, 440px) scale(0.6); opacity: 0; }
+  8%   { opacity: 0.85; }
+  92%  { opacity: 0.85; }
+  100% { transform: translate(1440px, 588px) scale(1.3); opacity: 0; }
+}
+@keyframes vine-walker-deep {
+  0%   { transform: translate(780px, 420px) scale(0.45); opacity: 0; }
+  10%  { opacity: 0.7; }
+  90%  { opacity: 0.5; }
+  100% { transform: translate(440px, 480px) scale(0.85); opacity: 0; }
+}
+
+/* ── Night effects: neon glows + window glows ──────────────────── */
+.vine-night-window-warm {
+  fill: rgba(255,190,120,0.55);
+  stroke: none;
+}
+.vine-night-glass-warm {
+  fill: rgba(255,180,110,0.28);
+  stroke: none;
+}
+.vine-night-sign-lit {
+  fill: rgba(255,180,110,0.2);
+  stroke: rgba(255,200,140,0.85);
+  stroke-width: 0.75;
+}
+.vine-neon-halo-gem,
+.vine-neon-halo-museum,
+.vine-lamp-halo-glow {
+  pointer-events: none;
+}
+.vine-lamp-core-lit {
+  fill: rgba(255,228,168,0.92);
+  stroke: rgba(255,240,190,0.8);
+  stroke-width: 0.5;
+  animation: vine-lamp-flicker 4.2s ease-in-out infinite;
+}
+@keyframes vine-lamp-flicker {
+  0%, 100% { opacity: 0.92; }
+  50% { opacity: 1; }
+}
+
+.vine-gem-blade-text-neon {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 10px;
+  fill: rgba(255,190,110,0.95);
+  letter-spacing: 0.04em;
+  filter: drop-shadow(0 0 3px rgba(255,140,60,0.85));
+}
+.vine-museum-sign-lit {
+  fill: rgba(255,160,90,0.6);
+  stroke: rgba(255,200,140,0.95);
+  stroke-width: 0.55;
+}
+.vine-museum-sign-text-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 5.6px;
+  letter-spacing: 0.2em;
+  fill: rgba(255,236,200,0.98);
+  text-transform: uppercase;
+  font-weight: 700;
+  filter: drop-shadow(0 0 2px rgba(255,170,90,0.7));
+}
+.vine-brewery-sign-lit {
+  fill: rgba(240,100,70,0.55);
+  stroke: rgba(255,180,110,0.9);
+  stroke-width: 0.55;
+}
+.vine-brewery-sign-text-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 5.2px;
+  letter-spacing: 0.14em;
+  fill: rgba(255,236,200,0.98);
+  text-transform: uppercase;
+  font-weight: 700;
+  filter: drop-shadow(0 0 2px rgba(255,130,80,0.75));
+}
+.vine-ymca-lintel-lit {
+  fill: rgba(255,180,110,0.42);
+  stroke: rgba(255,200,140,0.95);
+  stroke-width: 0.55;
+}
+.vine-ymca-lintel-text-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 6.8px;
+  letter-spacing: 0.22em;
+  fill: rgba(255,236,200,0.98);
+  text-transform: uppercase;
+  font-weight: 700;
+  filter: drop-shadow(0 0 2px rgba(255,170,90,0.7));
+}
+.vine-streetsign-text-big-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.2em;
+  fill: rgba(255,236,200,0.98);
+  font-weight: 700;
+  filter: drop-shadow(0 0 2px rgba(255,180,110,0.8));
+}
+
+/* ── Reduced motion fallbacks ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .vine-sky-stars circle { animation: none; opacity: 0.6; }
+  .vine-cloud-a, .vine-cloud-b { animation: none; transform: translate(700px, 90px); }
+  .vine-cloud-b { transform: translate(300px, 160px); }
+  .hill-walker.vine-walker-path-fg       { animation: none; transform: translate(1060px, 540px) scale(1.2); opacity: 0.85; }
+  .hill-walker.vine-walker-path-left-mid { animation: none; transform: translate(460px, 540px) scale(0.95); opacity: 0.85; }
+  .hill-walker.vine-walker-path-right-mid{ animation: none; transform: translate(1200px, 540px) scale(0.95); opacity: 0.85; }
+  .hill-walker.vine-walker-path-deep     { animation: none; transform: translate(620px, 460px) scale(0.7); opacity: 0.7; }
+  .vine-lamp-core-lit { animation: none; }
+}
+
+/* ── v18 refinements: Parker sax refined + music notes + plaza bench ── */
+.vine-statue-sax-tube {
+  fill: none;
+  stroke: rgba(225,168,70,0.95);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.vine-statue-sax-neck {
+  fill: none;
+  stroke: rgba(225,168,70,0.92);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.vine-statue-sax-bell {
+  fill: rgba(225,168,70,0.92);
+  stroke: #5A3414;
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+}
+.vine-statue-sax-keyguard {
+  fill: none;
+  stroke: rgba(90,50,20,0.85);
+  stroke-width: 0.55;
+}
+
+/* Music notes drifting up from Mutual Musicians Foundation (night-only). */
+.vine-music-note {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  fill: rgba(255,220,160,0.88);
+  pointer-events: none;
+  filter: drop-shadow(0 0 2px rgba(255,180,110,0.7));
+}
+.vine-music-note-a { animation: vine-note-drift 12s ease-out infinite; }
+.vine-music-note-b { animation: vine-note-drift 14s ease-out infinite; animation-delay: -4s; }
+.vine-music-note-c { animation: vine-note-drift 13s ease-out infinite; animation-delay: -8s; }
+
+@keyframes vine-note-drift {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  10%  { opacity: 0.9; }
+  100% { transform: translate(-6px, -42px); opacity: 0; }
+}
+
+/* Plaza bench + planter (foreground-left) */
+.vine-bench-plank {
+  fill: rgba(80,60,38,0.82);
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 0.5;
+}
+.vine-bench-leg {
+  fill: rgba(60,44,28,0.92);
+  stroke: rgba(201,168,76,0.52);
+  stroke-width: 0.35;
+}
+.vine-planter-pot {
+  fill: rgba(140,72,36,0.6);
+  stroke: rgba(201,168,76,0.68);
+  stroke-width: 0.55;
+}
+.vine-planter-shrub {
+  fill: rgba(46,62,44,0.72);
+  stroke: rgba(201,168,76,0.48);
+  stroke-width: 0.45;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-music-note { animation: none; opacity: 0.6; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v18b — 18th & Vine rework: pulled-back camera + attached district sign
+   ─────────────────────────────────────────────────────────────────────
+   Camera is now east of The Paseo, looking west across the boulevard into
+   the district. The Paseo crosses the frame horizontally as the near
+   foreground. Across Paseo rises the district: Parker bust memorial on
+   the left, the main corner building with the attached 18TH & VINE
+   DISTRICT neon sign in center-left, and the 1914 Paseo YMCA on the right.
+   Buildings line the block continuously (no gaps) and recede west down
+   18th toward the vanishing point (~810, 340) where Arthur Bryant's
+   silhouette is faintly visible.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── The Paseo foreground crossing street ──────────────────────── */
+.vine-paseo-near-sidewalk {
+  fill: rgba(28,20,12,0.78);
+}
+.vine-paseo-road {
+  fill: rgba(14,10,6,0.96);
+}
+.vine-paseo-median {
+  fill: rgba(40,52,30,0.55);
+  stroke: rgba(201,168,76,0.22);
+  stroke-width: 0.5;
+}
+.vine-paseo-lane {
+  stroke: rgba(201,168,76,0.42);
+  stroke-width: 1;
+  stroke-dasharray: 24 14;
+  fill: none;
+}
+.vine-paseo-curb {
+  stroke: rgba(201,168,76,0.48);
+  stroke-width: 0.7;
+  fill: none;
+}
+.vine-paseo-crosswalk rect {
+  fill: rgba(245,235,210,0.22);
+  stroke: rgba(245,235,210,0.32);
+  stroke-width: 0.35;
+}
+.vine-paseo-median-trees circle {
+  fill: rgba(46,62,44,0.82);
+  stroke: rgba(201,168,76,0.52);
+  stroke-width: 0.55;
+}
+
+/* ── 18th Street receding west of Paseo ────────────────────────── */
+.vine-18th-pavement {
+  stroke: none;
+}
+.vine-18th-centerline {
+  stroke: rgba(201,168,76,0.45);
+  stroke-width: 0.9;
+  fill: none;
+}
+.vine-18th-curb {
+  stroke: rgba(201,168,76,0.4);
+  stroke-width: 0.6;
+  fill: none;
+}
+
+/* ── Charlie Parker Memorial (bust on tall plinth) ─────────────── */
+.vine-parker-plinth-base {
+  fill: rgba(80,56,32,0.85);
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 0.55;
+}
+.vine-parker-plinth-shaft {
+  fill: rgba(132,72,42,0.72);
+  stroke: rgba(201,168,76,0.6);
+  stroke-width: 0.55;
+}
+.vine-parker-plinth-cap {
+  fill: rgba(100,68,40,0.85);
+  stroke: rgba(201,168,76,0.58);
+  stroke-width: 0.55;
+}
+.vine-parker-plinth-brick {
+  stroke: rgba(201,168,76,0.28);
+  stroke-width: 0.38;
+  fill: none;
+}
+.vine-parker-plaque {
+  fill: rgba(80,56,32,0.9);
+  stroke: rgba(201,168,76,0.75);
+  stroke-width: 0.45;
+}
+.vine-parker-plaque-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 4.6px;
+  letter-spacing: 0.18em;
+  fill: rgba(201,168,76,0.92);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.vine-parker-bust-base {
+  fill: rgba(178,108,52,0.94);
+  stroke: #5A3414;
+  stroke-width: 0.5;
+  stroke-linejoin: round;
+}
+.vine-parker-head {
+  fill: rgba(178,108,52,0.94);
+  stroke: #5A3414;
+  stroke-width: 0.55;
+  stroke-linejoin: round;
+}
+.vine-parker-hair {
+  fill: rgba(90,50,22,0.95);
+  stroke: rgba(50,28,12,0.92);
+  stroke-width: 0.4;
+}
+.vine-parker-feature {
+  stroke: rgba(40,24,10,0.82);
+  stroke-width: 0.55;
+  fill: none;
+  stroke-linecap: round;
+}
+
+/* ── Sign building (hosts the attached district sign) ──────────── */
+.vine-sign-building-face {
+  fill: rgba(120,68,36,0.28);
+  stroke: #C9A84C;
+  stroke-width: 0.9;
+  stroke-linejoin: round;
+}
+.vine-sign-building-cornice {
+  fill: rgba(140,82,42,0.65);
+  stroke: rgba(201,168,76,0.72);
+  stroke-width: 0.45;
+}
+
+/* ── 18TH & VINE DISTRICT attached neon sign (base, muted by day) ─ */
+.vine-district-sign-panel {
+  fill: rgba(16,10,6,0.92);
+  stroke: rgba(201,168,76,0.75);
+  stroke-width: 0.75;
+}
+.vine-district-sign-inner-border {
+  fill: none;
+  stroke: rgba(201,168,76,0.4);
+  stroke-width: 0.45;
+}
+.vine-district-sign-18th {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 18px;
+  fill: rgba(220,80,60,0.65);
+  letter-spacing: 0.02em;
+}
+.vine-district-sign-clef {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  fill: rgba(70,220,120,0.6);
+}
+.vine-district-sign-vine {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 800;
+  font-size: 38px;
+  fill: rgba(220,80,60,0.65);
+  letter-spacing: 0.04em;
+}
+.vine-district-sign-strip {
+  fill: rgba(245,235,210,0.08);
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 0.5;
+}
+.vine-district-sign-district {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  fill: rgba(245,235,210,0.55);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+/* ── Night-enhanced district sign (bright, glowing) ─────────────── */
+.vine-district-sign-halo {
+  pointer-events: none;
+}
+.vine-district-sign-18th-lit {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 18px;
+  fill: rgba(255,90,70,0.98);
+  letter-spacing: 0.02em;
+  filter: drop-shadow(0 0 3px rgba(240,80,50,0.85));
+}
+.vine-district-sign-clef-lit {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  fill: rgba(110,240,140,1);
+  filter: drop-shadow(0 0 3px rgba(70,220,120,0.88));
+}
+.vine-district-sign-vine-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 800;
+  font-size: 38px;
+  fill: rgba(255,90,70,1);
+  letter-spacing: 0.04em;
+  filter: drop-shadow(0 0 4px rgba(240,80,50,0.9));
+}
+.vine-district-sign-district-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 9px;
+  fill: rgba(255,250,230,1);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  filter: drop-shadow(0 0 1.5px rgba(255,240,200,0.85));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v18c — 18th & Vine: higher-quality people + musicians
+   ───────────────────────────────────────────────────────────────────── */
+
+/* ── Musician shared vocabulary ────────────────────────────────── */
+.vine-musician-head {
+  fill: rgba(188,142,98,0.95);    /* warm skin tone */
+  stroke: rgba(80,46,22,0.85);
+  stroke-width: 0.4;
+}
+.vine-musician-hat {
+  fill: rgba(20,14,8,0.98);        /* dark fedora */
+  stroke: rgba(201,168,76,0.5);
+  stroke-width: 0.3;
+}
+.vine-musician-hat-brim {
+  fill: rgba(14,10,6,0.98);
+  stroke: rgba(201,168,76,0.5);
+  stroke-width: 0.3;
+}
+.vine-musician-hat-band {
+  stroke: rgba(220,180,90,0.7);
+  stroke-width: 0.4;
+  fill: none;
+}
+.vine-musician-feature {
+  stroke: rgba(40,24,10,0.78);
+  stroke-width: 0.45;
+  fill: none;
+  stroke-linecap: round;
+}
+.vine-musician-collar {
+  fill: rgba(245,240,220,0.88);
+  stroke: rgba(120,90,50,0.82);
+  stroke-width: 0.3;
+}
+.vine-musician-shirt {
+  fill: rgba(245,240,220,0.92);
+  stroke: none;
+}
+.vine-musician-tie {
+  fill: rgba(132,40,40,0.95);
+  stroke: rgba(80,20,20,0.85);
+  stroke-width: 0.3;
+}
+.vine-musician-suit {
+  fill: rgba(40,28,18,0.98);
+  stroke: rgba(20,14,8,0.95);
+  stroke-width: 0.35;
+  stroke-linejoin: round;
+}
+.vine-musician-lapel {
+  stroke: rgba(60,42,26,0.92);
+  stroke-width: 0.35;
+  fill: none;
+}
+.vine-musician-arm {
+  fill: rgba(40,28,18,0.98);
+  stroke: rgba(20,14,8,0.95);
+  stroke-width: 0.35;
+  stroke-linejoin: round;
+}
+.vine-musician-hand {
+  fill: rgba(188,142,98,0.95);
+  stroke: rgba(80,46,22,0.8);
+  stroke-width: 0.3;
+}
+.vine-musician-leg {
+  fill: rgba(30,22,14,0.98);
+  stroke: rgba(14,10,6,0.9);
+  stroke-width: 0.35;
+}
+.vine-musician-shoe {
+  fill: rgba(14,10,6,0.98);
+  stroke: rgba(40,28,18,0.85);
+  stroke-width: 0.3;
+}
+
+/* Bass-specific */
+.vine-musician-bass-f {
+  stroke: rgba(40,22,10,0.85);
+  stroke-width: 0.4;
+  fill: none;
+  stroke-linecap: round;
+}
+.vine-musician-bass-bridge {
+  stroke: rgba(40,22,10,0.85);
+  stroke-width: 0.5;
+  fill: none;
+}
+.vine-musician-bass-tailpiece {
+  fill: rgba(40,22,10,0.85);
+  stroke: rgba(80,48,22,0.92);
+  stroke-width: 0.3;
+}
+.vine-musician-bass-peg {
+  fill: rgba(40,22,10,0.9);
+  stroke: none;
+}
+.vine-musician-bass-endpin {
+  stroke: rgba(80,48,22,0.94);
+  stroke-width: 0.8;
+  fill: none;
+}
+
+/* Trumpet-specific */
+.vine-musician-trumpet-mouthpiece {
+  fill: rgba(225,168,70,0.95);
+  stroke: #5A3414;
+  stroke-width: 0.3;
+}
+.vine-musician-trumpet-slide {
+  stroke: rgba(225,168,70,0.88);
+  stroke-width: 0.9;
+  fill: none;
+  stroke-linejoin: round;
+}
+
+/* ── Walker shared vocabulary ──────────────────────────────────── */
+.vine-walker {
+  animation-fill-mode: both;
+  opacity: 0;
+}
+.vine-walker-hat {
+  fill: rgba(20,14,8,0.98);
+  stroke: rgba(201,168,76,0.45);
+  stroke-width: 0.3;
+}
+.vine-walker-hat-brim {
+  fill: rgba(14,10,6,0.98);
+  stroke: rgba(201,168,76,0.45);
+  stroke-width: 0.3;
+}
+.vine-walker-hat-band {
+  stroke: rgba(220,180,90,0.6);
+  stroke-width: 0.35;
+  fill: none;
+}
+.vine-walker-head {
+  fill: rgba(188,142,98,0.95);
+  stroke: rgba(80,46,22,0.82);
+  stroke-width: 0.35;
+}
+.vine-walker-neck {
+  fill: rgba(188,142,98,0.95);
+  stroke: rgba(80,46,22,0.82);
+  stroke-width: 0.3;
+}
+.vine-walker-coat {
+  stroke: rgba(30,20,12,0.9);
+  stroke-width: 0.4;
+  stroke-linejoin: round;
+}
+.vine-walker-coat-burgundy { fill: rgba(132,40,40,0.95); }
+.vine-walker-coat-gold { fill: rgba(188,142,60,0.95); }
+.vine-walker-coat-rust { fill: rgba(168,86,36,0.95); }
+.vine-walker-coat-cream { fill: rgba(210,188,140,0.95); }
+.vine-walker-lapel {
+  stroke: rgba(40,28,18,0.72);
+  stroke-width: 0.35;
+  fill: none;
+}
+.vine-walker-shirt {
+  fill: rgba(245,240,220,0.85);
+  stroke: none;
+}
+.vine-walker-tie {
+  fill: rgba(30,22,14,0.95);
+  stroke: none;
+}
+.vine-walker-arm {
+  fill: inherit;  /* match coat color via cascade */
+  stroke: rgba(30,20,12,0.9);
+  stroke-width: 0.35;
+  stroke-linejoin: round;
+}
+.vine-walker .vine-walker-coat-burgundy ~ .vine-walker-arm,
+.vine-walker-coat-burgundy + * .vine-walker-arm { fill: rgba(132,40,40,0.95); }
+/* The above cascade is imprecise in SVG — just set arm fill directly per walker in HTML if needed.
+   For now, match the coat color via a per-walker override using nth-child. */
+.vine-walker .vine-walker-arm { fill: rgba(132,40,40,0.92); }  /* fallback burgundy */
+
+.vine-walker-hand {
+  fill: rgba(188,142,98,0.95);
+  stroke: rgba(80,46,22,0.78);
+  stroke-width: 0.3;
+}
+.vine-walker-leg {
+  fill: rgba(30,22,14,0.98);
+  stroke: rgba(14,10,6,0.9);
+  stroke-width: 0.35;
+}
+.vine-walker-shoe {
+  fill: rgba(14,10,6,0.98);
+  stroke: rgba(40,28,18,0.85);
+  stroke-width: 0.3;
+}
+
+/* Per-walker coat cascades so arms match the coat color. */
+.vine-walker-path-fg .vine-walker-arm { fill: rgba(132,40,40,0.95); }          /* burgundy */
+.vine-walker-path-left-mid .vine-walker-arm { fill: rgba(188,142,60,0.95); }   /* gold */
+.vine-walker-path-right-mid .vine-walker-arm { fill: rgba(168,86,36,0.95); }   /* rust */
+.vine-walker-path-deep .vine-walker-arm { fill: rgba(210,188,140,0.95); }      /* cream */
+
+/* ── Walker path keyframes (perspective-scaled) ────────────────── */
+.vine-walker.vine-walker-path-fg {
+  animation: vine-walker-fg-v2 46s linear infinite;
+}
+.vine-walker.vine-walker-path-left-mid {
+  animation: vine-walker-left-mid-v2 58s linear infinite;
+  animation-delay: -14s;
+}
+.vine-walker.vine-walker-path-right-mid {
+  animation: vine-walker-right-mid-v2 62s linear infinite;
+  animation-delay: -6s;
+}
+.vine-walker.vine-walker-path-deep {
+  animation: vine-walker-deep-v2 80s linear infinite;
+  animation-delay: -36s;
+}
+
+@keyframes vine-walker-fg-v2 {
+  0%   { transform: translate(700px, 460px) scale(0.5); opacity: 0; }
+  8%   { opacity: 0.95; }
+  100% { transform: translate(1280px, 570px) scale(1.25); opacity: 1; }
+}
+@keyframes vine-walker-left-mid-v2 {
+  0%   { transform: translate(900px, 490px) scale(0.55); opacity: 0; }
+  6%   { opacity: 0.9; }
+  94%  { opacity: 0.9; }
+  100% { transform: translate(280px, 494px) scale(0.85); opacity: 0; }
+}
+@keyframes vine-walker-right-mid-v2 {
+  0%   { transform: translate(900px, 492px) scale(0.55); opacity: 0; }
+  6%   { opacity: 0.9; }
+  94%  { opacity: 0.9; }
+  100% { transform: translate(1340px, 488px) scale(0.85); opacity: 0; }
+}
+@keyframes vine-walker-deep-v2 {
+  0%   { transform: translate(860px, 440px) scale(0.5); opacity: 0; }
+  10%  { opacity: 0.65; }
+  90%  { opacity: 0.5; }
+  100% { transform: translate(620px, 470px) scale(0.75); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-walker.vine-walker-path-fg { animation: none; transform: translate(1050px, 540px) scale(1); opacity: 0.9; }
+  .vine-walker.vine-walker-path-left-mid { animation: none; transform: translate(560px, 492px) scale(0.75); opacity: 0.85; }
+  .vine-walker.vine-walker-path-right-mid { animation: none; transform: translate(1200px, 490px) scale(0.75); opacity: 0.85; }
+  .vine-walker.vine-walker-path-deep { animation: none; transform: translate(730px, 458px) scale(0.62); opacity: 0.7; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v18d — 18th & Vine: district sign accuracy pass + receding detail
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Sign: TOP-LEFT "18th &" smaller cursive */
+.vine-district-sign-18th {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+  fill: rgba(220,70,50,0.78);
+  letter-spacing: 0;
+}
+.vine-district-sign-18th-lit {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+  fill: rgba(255,80,60,1);
+  letter-spacing: 0;
+  filter: drop-shadow(0 0 3px rgba(240,80,50,0.95));
+}
+
+/* Sign: TOP-RIGHT treble clef bigger, greener */
+.vine-district-sign-clef {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  fill: rgba(70,200,120,0.78);
+}
+.vine-district-sign-clef-lit {
+  font-family: 'Playfair Display', serif;
+  font-size: 30px;
+  fill: rgba(100,240,140,1);
+  filter: drop-shadow(0 0 4px rgba(70,220,120,0.95));
+}
+
+/* Sign: CENTER "VINE" massive bold block letters */
+.vine-district-sign-vine {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 900;
+  font-size: 54px;
+  fill: rgba(220,70,50,0.85);
+  letter-spacing: 0.02em;
+}
+.vine-district-sign-vine-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 900;
+  font-size: 54px;
+  fill: rgba(255,80,60,1);
+  letter-spacing: 0.02em;
+  filter: drop-shadow(0 0 6px rgba(240,80,50,0.95));
+}
+
+/* Sign: DISTRICT banner (wider than panel, extending past sides) */
+.vine-district-sign-strip {
+  fill: rgba(10,8,6,0.95);
+  stroke: rgba(201,168,76,0.6);
+  stroke-width: 0.6;
+}
+.vine-district-sign-strip-border {
+  stroke: rgba(245,235,210,0.55);
+  stroke-width: 0.5;
+  fill: none;
+}
+.vine-district-sign-strip-lit {
+  fill: rgba(10,8,6,0.95);
+  stroke: rgba(245,235,210,0.8);
+  stroke-width: 0.7;
+}
+.vine-district-sign-district {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  fill: rgba(245,235,210,0.7);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+.vine-district-sign-district-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  fill: rgba(255,250,230,1);
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  filter: drop-shadow(0 0 2px rgba(255,240,200,0.9));
+}
+
+/* ── v18d cross-street (actual 18th & Vine intersection) ─────── */
+.vine-cross-street-pavement {
+  fill: rgba(20,14,8,0.92);
+  stroke: none;
+}
+.vine-cross-street-crosswalk rect {
+  fill: rgba(245,235,210,0.22);
+  stroke: rgba(245,235,210,0.28);
+  stroke-width: 0.25;
+}
+
+/* Small street-corner signpost (18th & Vine, mid-distance scale) */
+.vine-streetsign-pole-small {
+  stroke: #C9A84C;
+  stroke-width: 1;
+  fill: none;
+}
+.vine-streetsign-base-small {
+  fill: rgba(60,44,28,0.88);
+  stroke: #C9A84C;
+  stroke-width: 0.35;
+}
+.vine-streetsign-blade-small {
+  fill: rgba(40,26,14,0.88);
+  stroke: rgba(201,168,76,0.9);
+  stroke-width: 0.45;
+}
+.vine-streetsign-text-small {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 5.5px;
+  letter-spacing: 0.12em;
+  fill: rgba(232,172,86,0.95);
+  font-weight: 700;
+}
+.vine-streetsign-finial-small {
+  fill: rgba(201,168,76,0.9);
+  stroke: #6B3E22;
+  stroke-width: 0.3;
+}
+
+/* Lincoln Building sign + secondary receding signs */
+.vine-lincoln-sign {
+  fill: rgba(30,20,12,0.75);
+  stroke: rgba(201,168,76,0.7);
+  stroke-width: 0.4;
+}
+.vine-lincoln-sign-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 3.8px;
+  letter-spacing: 0.15em;
+  fill: rgba(201,168,76,0.8);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Gem Theater marquee bulb dots */
+.vine-gem-marquee-bulb {
+  fill: rgba(255,210,140,0.35);
+  stroke: rgba(201,168,76,0.5);
+  stroke-width: 0.3;
+}
+
+/* ── v18d Blue Room (jazz club at 18th & Vine SE corner) ───────── */
+.vine-blue-room-body {
+  fill: rgba(132,74,44,0.22);        /* warm brick */
+  stroke: #C9A84C;
+  stroke-width: 0.85;
+  stroke-linejoin: round;
+}
+.vine-blue-room-sign-panel {
+  fill: rgba(14,10,6,0.92);
+  stroke: rgba(201,168,76,0.6);
+  stroke-width: 0.5;
+}
+.vine-blue-room-sign-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+  fill: rgba(220,70,70,0.7);
+  letter-spacing: 0.02em;
+}
+/* Night-lit versions */
+.vine-blue-room-sign-lit {
+  fill: rgba(14,10,6,0.95);
+  stroke: rgba(255,100,100,0.8);
+  stroke-width: 0.6;
+}
+.vine-blue-room-sign-text-lit {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 15px;
+  fill: rgba(255,85,85,1);
+  letter-spacing: 0.02em;
+  filter: drop-shadow(0 0 3px rgba(240,80,80,0.95));
+}
+.vine-blue-room-halo {
+  pointer-events: none;
+}
+
+/* ── v18d+ residential density + Bryant's + intersection details ── */
+.vine-horizon-tree {
+  fill: rgba(40,50,36,0.62);
+  stroke: rgba(201,168,76,0.32);
+  stroke-width: 0.3;
+}
+
+/* Arthur Bryant's (back-left silhouette) */
+.vine-bryants-body {
+  fill: rgba(140,72,40,0.24);
+  stroke: #C9A84C;
+  stroke-width: 0.8;
+  stroke-linejoin: round;
+}
+.vine-bryants-sign {
+  fill: rgba(30,18,10,0.82);
+  stroke: rgba(232,172,86,0.88);
+  stroke-width: 0.55;
+}
+.vine-bryants-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 4.8px;
+  letter-spacing: 0.12em;
+  fill: rgba(232,172,86,0.95);
+  font-weight: 700;
+}
+
+/* Cross-street centerline for 18th & Vine intersection */
+.vine-cross-street-centerline {
+  pointer-events: none;
+}
+
+/* ── v18e — District sign neon-tube refinement ─────────────────── */
+/* Outline the big "VINE" letters like neon tubing rather than solid fill.
+   Makes the sign read as neon tubes spelling the word, matching the photo
+   more accurately. The night-lit overlay stays solid-ish for glow effect. */
+.vine-district-sign-vine {
+  fill: none;
+  stroke: rgba(220,70,50,0.85);
+  stroke-width: 2.4;
+  paint-order: stroke;
+}
+.vine-district-sign-18th {
+  fill: none;
+  stroke: rgba(220,70,50,0.82);
+  stroke-width: 1.2;
+  paint-order: stroke;
+}
+.vine-district-sign-clef {
+  fill: none;
+  stroke: rgba(70,200,120,0.88);
+  stroke-width: 1.6;
+  paint-order: stroke;
+}
+/* Night-lit keeps bright fill for visible glow */
+.vine-district-sign-vine-lit {
+  fill: rgba(255,80,60,1);
+  stroke: rgba(255,120,100,0.92);
+  stroke-width: 1.6;
+  paint-order: stroke;
+  filter: drop-shadow(0 0 7px rgba(240,70,50,0.98));
+}
+.vine-district-sign-18th-lit {
+  fill: rgba(255,80,60,0.98);
+  filter: drop-shadow(0 0 3.5px rgba(240,80,50,0.95));
+}
+.vine-district-sign-clef-lit {
+  fill: rgba(110,240,140,1);
+  filter: drop-shadow(0 0 4.5px rgba(70,220,120,1));
+}
+
+/* Add a subtle art-deco frame around the sign panel */
+.vine-district-sign-panel {
+  fill: rgba(10,8,6,0.95);
+  stroke: rgba(201,168,76,0.82);
+  stroke-width: 1;
+}
+.vine-district-sign-inner-border {
+  fill: none;
+  stroke: rgba(201,168,76,0.55);
+  stroke-width: 0.7;
+}
+
+/* ── v18e+ Blue Room vertical neon sign (matches real-life photo) ── */
+/* Dark backer panel with inner border */
+.vine-blue-room-sign-panel {
+  fill: rgba(10,8,6,0.96);
+  stroke: rgba(201,168,76,0.6);
+  stroke-width: 0.6;
+}
+.vine-blue-room-sign-inner {
+  fill: none;
+  stroke: rgba(201,168,76,0.35);
+  stroke-width: 0.4;
+}
+
+/* Vertical "BLUE" letters — outlined blue neon tube */
+.vine-blue-room-letter {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 800;
+  font-size: 10px;
+  fill: none;
+  stroke: rgba(100,180,240,0.72);
+  stroke-width: 0.9;
+  paint-order: stroke;
+  letter-spacing: 0;
+}
+.vine-blue-room-letter-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 800;
+  font-size: 10px;
+  fill: rgba(140,210,255,1);
+  stroke: rgba(100,190,255,0.98);
+  stroke-width: 0.6;
+  paint-order: stroke;
+  filter: drop-shadow(0 0 2.2px rgba(80,160,240,0.98));
+}
+
+/* Piano keyboard strip */
+.vine-blue-room-pianokeys-bg {
+  fill: rgba(245,235,210,0.88);
+  stroke: rgba(30,20,12,0.85);
+  stroke-width: 0.35;
+}
+.vine-blue-room-pianokey-div {
+  stroke: rgba(30,20,12,0.75);
+  stroke-width: 0.3;
+  fill: none;
+}
+.vine-blue-room-pianokey-black {
+  fill: rgba(20,14,8,0.96);
+  stroke: none;
+}
+
+/* ROOM banner */
+.vine-blue-room-room-banner {
+  fill: rgba(10,8,6,0.95);
+  stroke: rgba(220,70,50,0.78);
+  stroke-width: 0.55;
+}
+.vine-blue-room-room-text {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 800;
+  font-size: 7px;
+  fill: rgba(220,70,50,0.82);
+  letter-spacing: 0.18em;
+}
+.vine-blue-room-room-text-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 800;
+  font-size: 7px;
+  fill: rgba(255,80,60,1);
+  letter-spacing: 0.18em;
+  filter: drop-shadow(0 0 2px rgba(240,80,50,0.95));
+}
+
+/* Chase bulbs — animated "running lights" along the sign edges */
+.vine-blue-room-bulb {
+  fill: rgba(255,210,140,0.3);
+  stroke: rgba(200,160,90,0.65);
+  stroke-width: 0.35;
+  animation: vine-blue-room-chase-cycle 1.6s steps(1) infinite;
+}
+/* Stagger the 8 bulb classes so they chase sequentially (250ms apart). */
+.vine-blue-room-bulb-1 { animation-delay: 0s; }
+.vine-blue-room-bulb-2 { animation-delay: -0.2s; }
+.vine-blue-room-bulb-3 { animation-delay: -0.4s; }
+.vine-blue-room-bulb-4 { animation-delay: -0.6s; }
+.vine-blue-room-bulb-5 { animation-delay: -0.8s; }
+.vine-blue-room-bulb-6 { animation-delay: -1.0s; }
+.vine-blue-room-bulb-7 { animation-delay: -1.2s; }
+.vine-blue-room-bulb-8 { animation-delay: -1.4s; }
+
+@keyframes vine-blue-room-chase-cycle {
+  0%, 12% {
+    fill: rgba(255,230,160,1);
+    stroke: rgba(255,210,120,1);
+    filter: drop-shadow(0 0 3px rgba(255,210,120,0.95));
+  }
+  12.1%, 100% {
+    fill: rgba(80,60,40,0.6);
+    stroke: rgba(120,90,50,0.78);
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-blue-room-bulb {
+    animation: none;
+    fill: rgba(255,200,120,0.55);
+  }
+}
+
+.vine-blue-room-halo { pointer-events: none; }
+
+/* ── v18e+ Gem Theater refinement (green neon + art deco blade) ─── */
+.vine-gem-arched-window {
+  fill: rgba(255,200,140,0.08);
+  stroke: rgba(201,168,76,0.82);
+  stroke-width: 0.5;
+  stroke-linejoin: round;
+}
+.vine-gem-keystone {
+  fill: rgba(210,176,128,0.4);
+  stroke: rgba(201,168,76,0.72);
+  stroke-width: 0.35;
+}
+.vine-gem-blade-cap {
+  fill: rgba(30,20,12,0.95);
+  stroke: #C9A84C;
+  stroke-width: 0.6;
+}
+.vine-gem-blade-flourish {
+  fill: none;
+  stroke: rgba(201,168,76,0.75);
+  stroke-width: 0.85;
+  stroke-linecap: round;
+}
+.vine-gem-blade-red-accent {
+  fill: rgba(220,70,50,0.68);
+  stroke: rgba(200,40,30,0.85);
+  stroke-width: 0.4;
+}
+.vine-gem-blade-red-accent-lit {
+  fill: rgba(255,90,70,1);
+  stroke: rgba(255,120,100,0.98);
+  stroke-width: 0.5;
+  filter: drop-shadow(0 0 2.5px rgba(240,80,50,0.95));
+}
+.vine-gem-blade-letter {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 800;
+  font-size: 6.5px;
+  fill: none;
+  stroke: rgba(70,200,120,0.72);
+  stroke-width: 0.6;
+  paint-order: stroke;
+  letter-spacing: 0.03em;
+}
+.vine-gem-blade-letter-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 800;
+  font-size: 6.5px;
+  fill: rgba(110,240,140,1);
+  stroke: rgba(90,230,130,0.98);
+  stroke-width: 0.5;
+  paint-order: stroke;
+  filter: drop-shadow(0 0 2.2px rgba(70,220,120,0.95));
+}
+.vine-gem-marquee-red-strip {
+  fill: rgba(200,40,30,0.5);
+  stroke: rgba(200,40,30,0.7);
+  stroke-width: 0.3;
+}
+.vine-gem-marquee-red-strip-lit {
+  fill: rgba(255,60,50,1);
+  stroke: rgba(255,90,70,0.95);
+  stroke-width: 0.35;
+  filter: drop-shadow(0 0 2px rgba(240,70,50,0.95));
+}
+.vine-neon-halo-gem-green { pointer-events: none; }
