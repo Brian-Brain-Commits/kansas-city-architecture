@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Beaux Arts & Civic Classicism — Look Up, Kansas City" />
   <meta name="twitter:description" content="Beaux Arts architecture in Kansas City — Union Station, the Federal Reserve Bank, and the grand civic buildings of the early 20th century." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/e/ea/KCUnionStation.jpg" />
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../style.css?v=12b" />
 </head>
 <body>
 
@@ -147,6 +147,50 @@
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+      <div class="style-specimen" role="img" aria-label="Beaux-Arts specimen: a Corinthian capital with abacus, paired volutes, floral boss, and acanthus leaves">
+        <svg class="style-specimen-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <title>Beaux-Arts specimen — the Corinthian capital</title>
+          <!-- Abacus (top square plate) -->
+          <path pathLength="1" style="--order: 0;" d="M 80 82 L 320 82 L 320 112 L 80 112 Z" />
+          <!-- Abacus inner line -->
+          <line pathLength="1" style="--order: 0;" x1="88" y1="106" x2="312" y2="106" />
+          <!-- Left volute (scroll) -->
+          <path pathLength="1" style="--order: 1;"
+                d="M 120 112 C 80 120, 68 200, 135 196 C 170 194, 170 156, 138 156 C 120 156, 120 180, 140 180" />
+          <!-- Right volute (mirror) -->
+          <path pathLength="1" style="--order: 2;"
+                d="M 280 112 C 320 120, 332 200, 265 196 C 230 194, 230 156, 262 156 C 280 156, 280 180, 260 180" />
+          <!-- Central floral boss outline -->
+          <circle pathLength="1" style="--order: 3;" cx="200" cy="168" r="18" />
+          <!-- Petals around the boss (four cardinal + four diagonal suggested) -->
+          <path pathLength="1" style="--order: 4;" d="M 200 150 L 195 142 L 200 140 L 205 142 Z" />
+          <path pathLength="1" style="--order: 4;" d="M 218 168 L 226 163 L 228 168 L 226 173 Z" />
+          <path pathLength="1" style="--order: 4;" d="M 200 186 L 205 194 L 200 196 L 195 194 Z" />
+          <path pathLength="1" style="--order: 4;" d="M 182 168 L 174 163 L 172 168 L 174 173 Z" />
+          <!-- Upper acanthus leaves -->
+          <path pathLength="1" style="--order: 5;" d="M 148 200 Q 168 232, 175 270 Q 180 250, 180 218" />
+          <path pathLength="1" style="--order: 5;" d="M 200 198 Q 208 240, 218 278 Q 210 242, 202 210" />
+          <path pathLength="1" style="--order: 5;" d="M 252 200 Q 232 232, 225 270 Q 220 250, 220 218" />
+          <!-- Lower acanthus leaves (broader, outer) -->
+          <path pathLength="1" style="--order: 6;" d="M 108 260 Q 125 290, 150 312 Q 135 302, 120 292 Q 112 280, 108 260 Z" />
+          <path pathLength="1" style="--order: 6;" d="M 292 260 Q 275 290, 250 312 Q 265 302, 280 292 Q 288 280, 292 260 Z" />
+          <!-- Column shaft flutes below capital -->
+          <line pathLength="1" style="--order: 7;" x1="160" y1="332" x2="160" y2="378" />
+          <line pathLength="1" style="--order: 7;" x1="180" y1="332" x2="180" y2="378" />
+          <line pathLength="1" style="--order: 7;" x1="200" y1="332" x2="200" y2="378" />
+          <line pathLength="1" style="--order: 7;" x1="220" y1="332" x2="220" y2="378" />
+          <line pathLength="1" style="--order: 7;" x1="240" y1="332" x2="240" y2="378" />
+          <!-- Echinus band above shaft -->
+          <line pathLength="1" style="--order: 7;" x1="140" y1="320" x2="260" y2="320" />
+          <!-- Floral boss glow -->
+          <circle class="specimen-fill" cx="200" cy="168" r="18" />
+        </svg>
+        <p class="style-specimen-caption">
+          <em>Order, symmetry, and ornament with civic gravitas.</em><br />
+          See it at <a href="../buildings/union-station.html">Union Station</a>.
+        </p>
+      </div>
+
 
       <div class="detail-section">
         <h2>The Grand Tradition</h2>
@@ -333,5 +377,6 @@
     </div>
   </footer>
 
+  <script defer src="/js/essay-enhance.js"></script>
 </body>
 </html>

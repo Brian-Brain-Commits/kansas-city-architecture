@@ -1962,19 +1962,19 @@ a:hover .nbhd-label { fill: #E8C96A; }
 /* ── Skyline Hero ────────────────────────────────────── */
 .skyline-hero {
   background: linear-gradient(180deg, #0A0805 0%, #1A1610 100%);
-  padding: 2.2rem 0 0;
+  padding: 1.1rem 0 0;
 }
 
 .skyline-hero-overlay {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
-  padding: 1rem 1.5rem 0.5rem;
+  padding: 0.35rem 1.5rem 0.1rem;
 }
 @media (max-width: 700px) {
-  .skyline-hero { padding: 1.25rem 0 0; }
-  .skyline-hero-overlay { padding: 0.5rem 1rem 0.25rem; }
-  .skyline-hero-hint { margin-top: 0.75rem; }
+  .skyline-hero { padding: 0.5rem 0 0; }
+  .skyline-hero-overlay { padding: 0.1rem 1rem 0.1rem; }
+  .skyline-hero-hint { margin-top: 0.35rem; }
 }
 
 .skyline-hero-overlay .eyebrow {
@@ -5588,4 +5588,190 @@ body:has(#weather-snowy:checked) label[for="weather-snowy"] {
 @media (prefers-reduced-motion: reduce) {
   .fm-spray, .fm-pool, .fm-droplet { animation: none !important; }
   .fm-spray { transform: scaleY(0.9); }
+}
+
+/* ── v12 Essay enhancements: scroll-spy TOC + reveal-on-scroll ── */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
+html:has(.page-toc) { scroll-padding-top: 108px; }
+
+/* Active link state on sticky page-toc */
+.page-toc-inner a.is-active {
+  color: var(--gold);
+}
+.page-toc-inner a.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0.9rem;
+  right: 0.9rem;
+  bottom: 0.35rem;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(201,168,76,0.85) 25%,
+    rgba(201,168,76,0.85) 75%,
+    transparent 100%);
+  opacity: 0;
+  animation: toc-underline-fade 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.page-toc-inner a { position: relative; }
+@keyframes toc-underline-fade {
+  from { opacity: 0; transform: scaleX(0.3); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+
+/* Scroll-reveal base — applied by JS to below-fold elements */
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.85s ease,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-pending.reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Extra treatment for pullquotes — subtle gold bracket emerges */
+.history-pullquote.reveal-pending {
+  transform: translateY(18px) scale(0.985);
+}
+.history-pullquote.reveal-pending.reveal-in {
+  transform: translateY(0) scale(1);
+}
+
+/* Gallery images stagger slightly for rhythm */
+.detail-gallery.reveal-pending figure {
+  opacity: 0;
+  transform: translateY(16px);
+  transition:
+    opacity 0.75s ease,
+    transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.detail-gallery.reveal-pending.reveal-in figure {
+  opacity: 1;
+  transform: translateY(0);
+}
+.detail-gallery.reveal-pending.reveal-in figure:nth-of-type(2) { transition-delay: 0.12s; }
+.detail-gallery.reveal-pending.reveal-in figure:nth-of-type(3) { transition-delay: 0.24s; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal-pending,
+  .reveal-pending.reveal-in,
+  .detail-gallery.reveal-pending figure {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  .page-toc-inner a.is-active::after { animation: none; opacity: 1; }
+}
+
+/* ── v12 Style specimens — draw-on-load line-art ornaments ── */
+
+.style-specimen {
+  max-width: 400px;
+  margin: 2.5rem auto 3rem;
+  text-align: center;
+}
+.style-specimen-svg {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+  display: block;
+  margin: 0 auto;
+  overflow: visible;
+}
+/* Default (no-JS / fallback): specimen renders fully drawn, no animation.
+   JS adds .specimen-animate when the specimen is in (or enters) the viewport,
+   which triggers the stagger-draw and glow from scratch. */
+.style-specimen-svg path:not(.specimen-fill),
+.style-specimen-svg line:not(.specimen-fill),
+.style-specimen-svg polyline:not(.specimen-fill),
+.style-specimen-svg circle:not(.specimen-fill),
+.style-specimen-svg polygon:not(.specimen-fill),
+.style-specimen-svg ellipse:not(.specimen-fill),
+.style-specimen-svg rect:not(.specimen-fill) {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.style-specimen-svg .specimen-fill {
+  fill: var(--gold-light);
+  stroke: none;
+  opacity: 0.15;
+  transform-origin: center;
+}
+
+.style-specimen.specimen-animate .style-specimen-svg path:not(.specimen-fill),
+.style-specimen.specimen-animate .style-specimen-svg line:not(.specimen-fill),
+.style-specimen.specimen-animate .style-specimen-svg polyline:not(.specimen-fill),
+.style-specimen.specimen-animate .style-specimen-svg circle:not(.specimen-fill),
+.style-specimen.specimen-animate .style-specimen-svg polygon:not(.specimen-fill),
+.style-specimen.specimen-animate .style-specimen-svg ellipse:not(.specimen-fill),
+.style-specimen.specimen-animate .style-specimen-svg rect:not(.specimen-fill) {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: specimen-draw 1.55s cubic-bezier(0.5, 0.1, 0.25, 1) forwards;
+  animation-delay: calc(var(--order, 0) * 0.2s + 0.25s);
+}
+.style-specimen.specimen-animate .style-specimen-svg .specimen-fill {
+  opacity: 0;
+  animation: specimen-glow 2.4s ease-in-out infinite;
+  animation-delay: 3.2s;
+}
+.style-specimen-caption {
+  margin: 1.25rem auto 0;
+  max-width: 360px;
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--warm-grey);
+}
+.style-specimen-caption em {
+  color: var(--cream);
+  font-style: italic;
+}
+.style-specimen-caption a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,168,76,0.35);
+  transition: color 0.2s, border-color 0.2s;
+}
+.style-specimen-caption a:hover {
+  color: var(--gold-light);
+  border-bottom-color: var(--gold-light);
+}
+
+@keyframes specimen-draw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes specimen-glow {
+  0%   { opacity: 0; }
+  30%  { opacity: 0.55; }
+  100% { opacity: 0.15; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .style-specimen-svg path:not(.specimen-fill),
+  .style-specimen-svg line:not(.specimen-fill),
+  .style-specimen-svg polyline:not(.specimen-fill),
+  .style-specimen-svg circle:not(.specimen-fill),
+  .style-specimen-svg polygon:not(.specimen-fill),
+  .style-specimen-svg ellipse:not(.specimen-fill),
+  .style-specimen-svg rect:not(.specimen-fill) {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+  .style-specimen-svg .specimen-fill {
+    animation: none;
+    opacity: 0.2;
+  }
 }

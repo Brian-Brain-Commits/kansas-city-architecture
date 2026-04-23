@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Streamline Moderne — Look Up, Kansas City" />
   <meta name="twitter:description" content="Streamline Moderne in Kansas City — the aerodynamic variant of Art Deco that shaped the city's late 1930s and 1940s commercial architecture." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/b/b6/Municipal_Auditorium_-_Kansas_City%2C_Missouri.jpg" />
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../style.css?v=12b" />
 </head>
 <body>
 
@@ -148,6 +148,28 @@
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+      <div class="style-specimen" role="img" aria-label="Streamline Moderne specimen: porthole window trailing horizontal speed-lines">
+        <svg class="style-specimen-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <title>Streamline Moderne specimen — porthole, speed-lines, ground</title>
+          <!-- Porthole rings (outer → inner) -->
+          <circle pathLength="1" style="--order: 0;" cx="160" cy="200" r="62" />
+          <circle pathLength="1" style="--order: 1;" cx="160" cy="200" r="50" />
+          <circle pathLength="1" style="--order: 2;" cx="160" cy="200" r="38" />
+          <!-- Speed lines trailing right -->
+          <line pathLength="1" style="--order: 3;" x1="232" y1="176" x2="352" y2="176" />
+          <line pathLength="1" style="--order: 4;" x1="232" y1="200" x2="380" y2="200" />
+          <line pathLength="1" style="--order: 5;" x1="232" y1="224" x2="336" y2="224" />
+          <!-- Ground line -->
+          <line pathLength="1" style="--order: 6;" x1="40" y1="300" x2="380" y2="300" />
+          <!-- Inner porthole glass highlight (glow) -->
+          <circle class="specimen-fill" cx="160" cy="200" r="38" />
+        </svg>
+        <p class="style-specimen-caption">
+          <em>Horizontal emphasis; the aerodynamic century.</em><br />
+          See it at <a href="../buildings/municipal-auditorium.html">Municipal Auditorium</a>.
+        </p>
+      </div>
+
 
       <div class="detail-section">
         <h2>Building Through the Depression</h2>
@@ -301,5 +323,6 @@
     </div>
   </footer>
 
+  <script defer src="/js/essay-enhance.js"></script>
 </body>
 </html>

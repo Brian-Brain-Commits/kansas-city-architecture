@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="Contemporary Architecture — Look Up, Kansas City" />
   <meta name="twitter:description" content="Contemporary architecture in Kansas City — the Kauffman Center, CPKC Stadium, and the buildings defining the city's 21st-century skyline." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/e/e3/Kauffman_Center_for_Performing_Arts_2.jpg" />
-  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../style.css?v=12b" />
 </head>
 <body>
 
@@ -148,6 +148,39 @@
       </div>
 
       <div class="deco-rule"><span class="deco-rule-icon">◆</span></div>
+      <div class="style-specimen" role="img" aria-label="Contemporary specimen: crossed structural beams meeting at a bolted hexagonal plate with radiating tensile cables">
+        <svg class="style-specimen-svg" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+          <title>Contemporary specimen — the structural node</title>
+          <!-- Primary beam (upper-left → hexagon edge) -->
+          <line pathLength="1" style="--order: 0;" x1="70"  y1="70"  x2="179" y2="189" />
+          <line pathLength="1" style="--order: 0;" x1="221" y1="211" x2="330" y2="330" />
+          <!-- Secondary beam (upper-right → hexagon edge) -->
+          <line pathLength="1" style="--order: 1;" x1="330" y1="70"  x2="221" y2="189" />
+          <line pathLength="1" style="--order: 1;" x1="179" y1="211" x2="70"  y2="330" />
+          <!-- Hexagonal plate -->
+          <polygon pathLength="1" style="--order: 2;" points="200 168, 228 184, 228 216, 200 232, 172 216, 172 184" />
+          <!-- Bolts on hexagon vertices -->
+          <circle pathLength="1" style="--order: 3;" cx="200" cy="168" r="4" />
+          <circle pathLength="1" style="--order: 3;" cx="228" cy="184" r="4" />
+          <circle pathLength="1" style="--order: 3;" cx="228" cy="216" r="4" />
+          <circle pathLength="1" style="--order: 3;" cx="200" cy="232" r="4" />
+          <circle pathLength="1" style="--order: 3;" cx="172" cy="216" r="4" />
+          <circle pathLength="1" style="--order: 3;" cx="172" cy="184" r="4" />
+          <!-- Tensile cables from node -->
+          <line pathLength="1" style="--order: 4;" x1="200" y1="168" x2="60"  y2="48" />
+          <line pathLength="1" style="--order: 5;" x1="200" y1="168" x2="340" y2="48" />
+          <!-- Cable anchors at top -->
+          <path pathLength="1" style="--order: 6;" d="M 48 40 L 72 40 L 60 58 Z" />
+          <path pathLength="1" style="--order: 6;" d="M 328 40 L 352 40 L 340 58 Z" />
+          <!-- Hexagon inner glow -->
+          <polygon class="specimen-fill" points="200 168, 228 184, 228 216, 200 232, 172 216, 172 184" />
+        </svg>
+        <p class="style-specimen-caption">
+          <em>Structure as ornament — what holds it up is what you're meant to see.</em><br />
+          See it at the <a href="../buildings/kauffman-center.html">Kauffman Center</a>.
+        </p>
+      </div>
+
 
       <div class="detail-section">
         <h2>After the Boom</h2>
@@ -302,5 +335,6 @@
     </div>
   </footer>
 
+  <script defer src="/js/essay-enhance.js"></script>
 </body>
 </html>
