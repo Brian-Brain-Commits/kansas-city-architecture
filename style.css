@@ -2087,7 +2087,7 @@ a:hover .nbhd-label { fill: #E8C96A; }
 }
 
 /* ── v9 Track 2C: Auto-cycling time-of-day ────────────────
-   28s cycle through Dawn → Day → Dusk → Night.
+   40s cycle through Dawn → Day → Dusk → Night.
    Backdrop layers cross-fade via opacity; SVG buildings use
    keyframe fill/stroke.
    ──────────────────────────────────────────────────────── */
@@ -2110,7 +2110,7 @@ a:hover .nbhd-label { fill: #E8C96A; }
   position: absolute;
   inset: 0;
   opacity: 0;
-  animation-duration: 28s;
+  animation-duration: 40s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
@@ -2132,6 +2132,34 @@ a:hover .nbhd-label { fill: #E8C96A; }
   background: linear-gradient(180deg, #02030A 0%, #070915 50%, #0C0E1C 100%);
   animation-name: tod-fade-night;
 }
+.tod-layer.tod-stormy {
+  background: linear-gradient(180deg, #0B1020 0%, #14172A 45%, #1C1A28 100%);
+  animation: none;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+.tod-layer.tod-snowy {
+  /* Snowy winter-night — kept close to Night so switching modes doesn't jar.
+     Cold deep plum-blue with the faintest warm lift near the horizon. */
+  background: linear-gradient(180deg, #0B0C18 0%, #151423 45%, #1E1A22 100%);
+  animation: none;
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+/* Either Stormy or Snowy pauses the Dawn/Day/Dusk/Night phase layers */
+body:has(#weather-stormy:checked) .tod-layer.tod-dawn,
+body:has(#weather-stormy:checked) .tod-layer.tod-day,
+body:has(#weather-stormy:checked) .tod-layer.tod-dusk,
+body:has(#weather-stormy:checked) .tod-layer.tod-night,
+body:has(#weather-snowy:checked) .tod-layer.tod-dawn,
+body:has(#weather-snowy:checked) .tod-layer.tod-day,
+body:has(#weather-snowy:checked) .tod-layer.tod-dusk,
+body:has(#weather-snowy:checked) .tod-layer.tod-night {
+  animation-play-state: paused !important;
+  opacity: 0 !important;
+}
+body:has(#weather-stormy:checked) .tod-layer.tod-stormy { opacity: 1; }
+body:has(#weather-snowy:checked)  .tod-layer.tod-snowy  { opacity: 1; }
 
 /* Each phase holds full opacity for ~1/4 of the cycle and cross-fades to the next. */
 @keyframes tod-fade-dawn {
@@ -2172,7 +2200,7 @@ a:hover .nbhd-label { fill: #E8C96A; }
 
 /* Building fill/stroke color cycling — SVG attributes are overridable by CSS */
 .skyline-svg g[data-building] .building-shape {
-  animation: building-color-cycle 28s linear infinite;
+  animation: building-color-cycle 40s linear infinite;
 }
 @keyframes building-color-cycle {
   /* Dawn (amber-warm) */
@@ -2194,7 +2222,7 @@ a:hover .nbhd-label { fill: #E8C96A; }
 .building-crown-light,
 .building-night-lights {
   opacity: 0;
-  animation: night-lights-visibility 28s linear infinite;
+  animation: night-lights-visibility 40s linear infinite;
 }
 @keyframes night-lights-visibility {
   0%, 62% { opacity: 0; }
@@ -2203,9 +2231,28 @@ a:hover .nbhd-label { fill: #E8C96A; }
   100%    { opacity: 0; }
 }
 
+/* Western Auto illumination — visible Dusk → Night → Dawn (off during Day only). */
+.wa-illumination {
+  opacity: 0;
+  animation: wa-illumination-visibility 40s linear infinite;
+}
+@keyframes wa-illumination-visibility {
+  /* Dawn (0–25%) on, Day (25–50%) off, Dusk (50–75%) on, Night (75–100%) on */
+  0%   { opacity: 1; }
+  22%  { opacity: 1; }
+  26%  { opacity: 0; }
+  48%  { opacity: 0; }
+  52%  { opacity: 1; }
+  100% { opacity: 1; }
+}
+body:has(#weather-stormy:checked) .wa-illumination {
+  opacity: 1 !important;
+  animation: none !important;
+}
+
 /* P&L crown pulse, Liberty Memorial flame flicker — layered on top of the visibility animation */
 .building-crown-light {
-  animation: night-lights-visibility 28s linear infinite, crown-pulse 3.5s ease-in-out infinite;
+  animation: night-lights-visibility 40s linear infinite, crown-pulse 3.5s ease-in-out infinite;
 }
 .flame-flicker {
   animation: flame-flicker 2.4s ease-in-out infinite;
@@ -2232,17 +2279,17 @@ a:hover .nbhd-label { fill: #E8C96A; }
    offset-path applied to the group wrapper so all sub-elements move together. */
 .celestial-sun,
 .celestial-moon {
-  offset-path: path("M -60,560 Q 800,-120 1660,560");
+  offset-path: path("M -60,560 Q 800,-440 1660,560");
   offset-distance: 0%;
   offset-rotate: 0deg;
   transform-box: fill-box;
   filter: drop-shadow(0 0 10px rgba(232,201,106,0.5));
 }
 .celestial-sun {
-  animation: sun-arc 28s linear infinite;
+  animation: sun-arc 40s linear infinite;
 }
 .celestial-moon {
-  animation: moon-arc 28s linear infinite;
+  animation: moon-arc 40s linear infinite;
   filter: drop-shadow(0 0 8px rgba(245,239,224,0.35));
 }
 /* Subtle slow rotation on the sun's ray group, so the Art Deco ornament feels alive */
@@ -2277,7 +2324,7 @@ a:hover .nbhd-label { fill: #E8C96A; }
 .sky-stars .star {
   opacity: 0;
   animation:
-    star-night-visibility 28s linear infinite,
+    star-night-visibility 40s linear infinite,
     star-twinkle 3.2s ease-in-out infinite;
   animation-delay: var(--tw-delay, 0s), var(--tw-delay, 0s);
 }
@@ -2294,92 +2341,399 @@ a:hover .nbhd-label { fill: #E8C96A; }
   50%      { filter: brightness(1.25); }
 }
 
-/* ── v11 Track 1A: Streetcar loop ───────────────────────────────
-   Translates the whole track (inner streetcar stays at local 0,560).
-   On-screen window ~14% of the 52s cycle — a real streetcar that passes occasionally. */
+/* ── v11 Track 1A (revised): Three streetcars with variable pacing + directions ───
+   Each track runs at its own period and direction. Staggered delays keep ≤3 on screen. */
 .fg-streetcar-track {
-  animation: streetcar-cross 52s linear infinite;
-  transform: translateX(-120px);
   will-change: transform;
 }
-@keyframes streetcar-cross {
-  0%   { transform: translateX(-120px); }
-  8%   { transform: translateX(-120px); }
-  22%  { transform: translateX(1680px); }
-  100% { transform: translateX(1680px); }
+/* Track A — L→R, stops at x≈820 */
+.fg-streetcar-a {
+  animation: streetcar-l2r-a 72s linear infinite;
+  animation-delay: -12s;
 }
-/* Streetcar window gleams follow the building-night-lights timing (handled by shared class) */
+/* Track B — R→L, slower, stops at x≈560 */
+.fg-streetcar-b {
+  animation: streetcar-r2l 105s linear infinite;
+  animation-delay: -55s;
+}
+/* Track C — L→R, stops at x≈1120 */
+.fg-streetcar-c {
+  animation: streetcar-l2r-c 62s linear infinite;
+  animation-delay: -38s;
+}
+/* Streetcar keyframes include Y offsets so the car rides the bluff silhouette —
+   flat on the ends, rising to peak height around x≈900, then descending. */
+/* Streetcars: fade in at hill left toe, make one stop on the hill, fade out before reaching right toe.
+   Hill toes at x≈220 (left) and x≈1440 (right). Each track stops at a different spot. */
 
-/* ── v11 Track 1B: Bird flock ───────────────────────────────
-   A small V-formation arcs across the sky ~18% of a 75s cycle, Dawn + Day only.
-   Four birds positioned at flock offsets from the group origin; the whole group translates + dips. */
-.sky-birds {
-  animation:
-    birds-cross 75s linear infinite,
-    bird-phase-visibility 28s linear infinite;
+/* Track A — stops at x=820 (mid-hill, near peak) */
+@keyframes streetcar-l2r-a {
+  0%    { transform: translate(-120px, 0); opacity: 0; }
+  9%    { transform: translate(-120px, 0); opacity: 0; }
+  11%   { transform: translate(180px, 0);  opacity: 0; }
+  12%   { transform: translate(230px, 0);  opacity: 0.55; }
+  13%   { transform: translate(300px, -2px); opacity: 1; }
+  15%   { transform: translate(500px, 0);  opacity: 1; }
+  17%   { transform: translate(680px, -2px); opacity: 1; }
+  18.5% { transform: translate(790px, -8px); opacity: 1; }
+  19%   { transform: translate(820px, -10px); opacity: 1; }
+  24%   { transform: translate(820px, -10px); opacity: 1; }  /* held ~3.6s */
+  25%   { transform: translate(900px, -12px); opacity: 1; }
+  26%   { transform: translate(1020px, -8px); opacity: 1; }
+  27%   { transform: translate(1200px, -2px); opacity: 1; }
+  28.5% { transform: translate(1320px, 0);  opacity: 1; }
+  29.5% { transform: translate(1380px, 0);  opacity: 0.55; }
+  30.5% { transform: translate(1430px, 0);  opacity: 0; }
+  100%  { transform: translate(1680px, 0); opacity: 0; }
+}
+
+/* Track B (R→L) — stops at x=560 on the way west */
+@keyframes streetcar-r2l {
+  0%    { transform: translate(1680px, 0); opacity: 0; }
+  9%    { transform: translate(1680px, 0); opacity: 0; }
+  11%   { transform: translate(1430px, 0); opacity: 0; }
+  12%   { transform: translate(1380px, 0); opacity: 0.55; }
+  13%   { transform: translate(1320px, 0); opacity: 1; }
+  15%   { transform: translate(1200px, -2px); opacity: 1; }
+  17%   { transform: translate(1020px, -8px); opacity: 1; }
+  18%   { transform: translate(900px, -12px); opacity: 1; }
+  19.5% { transform: translate(790px, -8px); opacity: 1; }
+  21%   { transform: translate(680px, -2px); opacity: 1; }
+  22%   { transform: translate(600px, 0); opacity: 1; }
+  22.5% { transform: translate(560px, 0); opacity: 1; }
+  26%   { transform: translate(560px, 0); opacity: 1; }    /* held ~2.5s */
+  27%   { transform: translate(500px, 0);  opacity: 1; }
+  28.5% { transform: translate(300px, -2px); opacity: 1; }
+  29%   { transform: translate(230px, 0);  opacity: 0.55; }
+  30%   { transform: translate(160px, 0);  opacity: 0; }
+  100%  { transform: translate(-120px, 0); opacity: 0; }
+}
+
+/* Track C — stops at x=1120 (east side of hill) */
+@keyframes streetcar-l2r-c {
+  0%    { transform: translate(-120px, 0); opacity: 0; }
+  9%    { transform: translate(-120px, 0); opacity: 0; }
+  11%   { transform: translate(180px, 0);  opacity: 0; }
+  12%   { transform: translate(230px, 0);  opacity: 0.55; }
+  13%   { transform: translate(300px, -2px); opacity: 1; }
+  15%   { transform: translate(500px, 0);  opacity: 1; }
+  17%   { transform: translate(680px, -2px); opacity: 1; }
+  18.5% { transform: translate(820px, -10px); opacity: 1; }
+  20%   { transform: translate(900px, -12px); opacity: 1; }
+  22%   { transform: translate(1020px, -8px); opacity: 1; }
+  23%   { transform: translate(1120px, -4px); opacity: 1; }
+  27%   { transform: translate(1120px, -4px); opacity: 1; }  /* held ~3s */
+  28%   { transform: translate(1200px, -2px); opacity: 1; }
+  29%   { transform: translate(1320px, 0);  opacity: 1; }
+  30%   { transform: translate(1380px, 0);  opacity: 0.55; }
+  31%   { transform: translate(1430px, 0);  opacity: 0; }
+  100%  { transform: translate(1680px, 0); opacity: 0; }
+}
+/* Flip the body of the R→L streetcar so it looks forward-facing */
+.fg-streetcar-flipped {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.fg-streetcar-flipped use { transform: scaleX(-1); transform-origin: 27px 0; }
+
+/* ── v11 Rooftop steam wisps + City Hall flag ──────────────── */
+.building-steam {
+  opacity: 0.9;
+}
+.steam-puff {
+  transform-origin: center bottom;
+  transform-box: fill-box;
+  animation: steam-rise 5.5s ease-out infinite;
   will-change: transform, opacity;
 }
-@keyframes birds-cross {
-  0%   { transform: translate(-200px, 180px); }
-  10%  { transform: translate(-200px, 180px); }
-  14%  { transform: translate(200px,  140px); }
-  18%  { transform: translate(700px,  100px); }
-  22%  { transform: translate(1150px, 115px); }
-  28%  { transform: translate(1700px, 160px); }
-  100% { transform: translate(1700px, 160px); }
+.steam-puff.sp-2 { animation-delay: 1.8s; animation-duration: 6s; }
+.steam-puff.sp-3 { animation-delay: 3.6s; animation-duration: 6.5s; }
+@keyframes steam-rise {
+  0%   { transform: translateY(4px) scale(0.55); opacity: 0; }
+  20%  { opacity: 0.9; }
+  100% { transform: translateY(-28px) scale(1.25); opacity: 0; }
 }
-@keyframes bird-phase-visibility {
-  /* Dawn (0–25%) + Day (25–50%) visible; Dusk + Night hidden */
+
+.city-hall-flag .flag-wave {
+  transform-origin: left center;
+  transform-box: fill-box;
+  animation: flag-wave 3.2s ease-in-out infinite;
+  will-change: transform;
+}
+@keyframes flag-wave {
+  0%, 100% { transform: scaleX(1)    skewY(-2deg); }
+  25%      { transform: scaleX(0.94) skewY(3deg); }
+  50%      { transform: scaleX(1)    skewY(1deg); }
+  75%      { transform: scaleX(0.96) skewY(-3deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .steam-puff, .city-hall-flag .flag-wave {
+    animation: none !important;
+  }
+}
+
+/* ── v11 President Hotel LED marquee — bulbs around the rooftop sign in Dusk/Night/Dawn ── */
+.pres-led {
+  animation: pres-led-twinkle 2.4s ease-in-out infinite;
+  animation-delay: var(--ld, 0s);
+  filter: drop-shadow(0 0 1.5px #FFE8A0);
+}
+@keyframes pres-led-twinkle {
+  0%, 100% { opacity: 0.85; filter: drop-shadow(0 0 1px #FFE8A0); }
+  50%      { opacity: 1;    filter: drop-shadow(0 0 3px #FFE8A0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pres-led { animation: none !important; }
+}
+
+/* ── v11 Bond Bridge warning light — slow red blink at the pylon top ── */
+.bond-warning-light {
+  animation: bond-blink 2.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes bond-blink {
+  0%, 42%, 100% { opacity: 0.2; filter: drop-shadow(0 0 1.5px #E03030); }
+  50%           { opacity: 1;   filter: drop-shadow(0 0 6px #E03030) drop-shadow(0 0 12px #E03030); }
+  58%           { opacity: 0.25; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bond-warning-light { animation: none !important; opacity: 0.75; }
+}
+
+/* ── v11 Bridge trains — long-ish trains crossing the Hannibal Bridge frequently ── */
+.bridge-train {
+  will-change: transform;
+}
+/* Train A — L→R; travels from off-left onto the bridge, then tucks fully behind Union Station */
+.bridge-train-a {
+  animation: bridge-train-l2r 30s linear infinite;
+  animation-delay: -4s;
+}
+@keyframes bridge-train-l2r {
+  0%   { transform: translateX(-160px); }
+  14%  { transform: translateX(-160px); }
+  60%  { transform: translateX(230px); }
+  100% { transform: translateX(230px); }
+}
+/* Train B — R→L, 40s cycle, offset so it doesn't overlap with Train A */
+.bridge-train-b {
+  animation: bridge-train-r2l 40s linear infinite;
+  animation-delay: -14s;
+}
+@keyframes bridge-train-r2l {
+  0%   { transform: translateX(260px); }
+  12%  { transform: translateX(260px); }
+  55%  { transform: translateX(-160px); }
+  100% { transform: translateX(-160px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bridge-train-a, .bridge-train-b {
+    animation: none !important;
+    transform: translateX(-300px);
+  }
+}
+
+/* ── v11 Planes — occasional airplane crossings ──────────────── */
+.sky-planes { will-change: transform; }
+.sky-plane  {
+  will-change: transform;
+  /* v11 bump: plane a touch larger */
+  scale: 1.25;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.sky-plane-a {
+  animation: plane-l2r 62s linear infinite;
+  animation-delay: -12s;
+}
+.sky-plane-b {
+  animation: plane-r2l 88s linear infinite;
+  animation-delay: -55s;
+}
+@keyframes plane-l2r {
+  /* Gentle downward arc across the sky at medium altitude */
+  0%   { transform: translate(-80px,  95px); }
+  6%   { transform: translate(-80px,  95px); }
+  12%  { transform: translate(240px,  70px); }
+  18%  { transform: translate(800px,  75px); }
+  24%  { transform: translate(1360px, 90px); }
+  30%  { transform: translate(1700px, 115px); }
+  100% { transform: translate(1700px, 115px); }
+}
+@keyframes plane-r2l {
+  0%   { transform: translate(1700px, 70px); }
+  6%   { transform: translate(1700px, 70px); }
+  12%  { transform: translate(1240px, 55px); }
+  18%  { transform: translate(700px,  60px); }
+  24%  { transform: translate(180px,  80px); }
+  30%  { transform: translate(-100px, 105px); }
+  100% { transform: translate(-100px, 105px); }
+}
+.sky-plane-b .sky-plane-body,
+.sky-plane-b { /* the whole group flips — use :nth child styling */ }
+/* Flip the B-plane so it faces the direction it's moving */
+.sky-plane-b > path { transform: scaleX(-1); transform-origin: 0 0; }
+/* Hide planes at night (they'd be hard to see anyway) */
+.sky-planes {
+  animation: plane-phase-visibility 40s linear infinite;
+}
+@keyframes plane-phase-visibility {
   0%   { opacity: 0; }
-  4%   { opacity: 1; }
-  46%  { opacity: 1; }
-  50%  { opacity: 0; }
+  4%   { opacity: 0.9; }
+  70%  { opacity: 0.9; }
+  74%  { opacity: 0; }
   100% { opacity: 0; }
 }
-.sky-bird {
+
+/* ── v11 Track 1B (revised): Multiple bird flocks ───────────────────────────────
+   Four independent flocks (solo, pair, trio, V-formation of 4). Each crosses
+   the sky on its own schedule and direction. All visible Dawn → Dusk; hidden at Night. */
+.sky-birds {
+  animation: bird-phase-visibility 40s linear infinite;
+  will-change: opacity;
+}
+@keyframes bird-phase-visibility {
+  /* Dawn (0–25%) + Day (25–50%) + Dusk (50–75%) visible; Night (75–100%) hidden.
+     Small fade ramps at the edges so the transition feels natural. */
+  0%   { opacity: 0; }
+  3%   { opacity: 1; }
+  72%  { opacity: 1; }
+  76%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.sky-bird-flock {
+  will-change: transform;
+  /* v11 bump: flocks slightly larger overall */
+  scale: 1.22;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Solo bird — long cycle, L→R, mid altitude */
+.flock-solo {
+  animation: bird-flock-l2r-a 62s linear infinite;
+  animation-delay: -8s;
+}
+@keyframes bird-flock-l2r-a {
+  0%   { transform: translate(-120px, 140px); }
+  20%  { transform: translate(380px,  110px); }
+  40%  { transform: translate(820px,  135px); }
+  60%  { transform: translate(1240px, 105px); }
+  80%  { transform: translate(1620px, 130px); }
+  100% { transform: translate(1720px, 150px); }
+}
+
+/* Pair — medium cycle, R→L, low altitude */
+.flock-pair {
+  animation: bird-flock-r2l-a 88s linear infinite;
+  animation-delay: -35s;
+}
+@keyframes bird-flock-r2l-a {
+  0%   { transform: translate(1700px, 170px); }
+  25%  { transform: translate(1180px, 145px); }
+  50%  { transform: translate(780px,  175px); }
+  75%  { transform: translate(380px,  150px); }
+  100% { transform: translate(-160px, 175px); }
+}
+
+/* Trio — longer cycle, L→R, higher altitude */
+.flock-trio {
+  animation: bird-flock-l2r-b 95s linear infinite;
+  animation-delay: -60s;
+}
+@keyframes bird-flock-l2r-b {
+  0%   { transform: translate(-150px, 95px); }
+  30%  { transform: translate(420px,  80px); }
+  55%  { transform: translate(880px,  105px); }
+  80%  { transform: translate(1350px, 85px); }
+  100% { transform: translate(1720px, 110px); }
+}
+
+/* V-formation (4 birds) — longest cycle, R→L, mid-high altitude */
+.flock-v {
+  animation: bird-flock-r2l-b 110s linear infinite;
+  animation-delay: -20s;
+}
+@keyframes bird-flock-r2l-b {
+  0%   { transform: translate(1720px, 115px); }
+  25%  { transform: translate(1200px, 140px); }
+  50%  { transform: translate(760px,  105px); }
+  75%  { transform: translate(320px,  135px); }
+  100% { transform: translate(-180px, 115px); }
+}
+
+/* R→L flocks flip so the Vs point the right way (leading edge down + trailing) */
+.flock-pair, .flock-v {
+  transform-origin: center;
+}
+.flock-pair .sky-bird path,
+.flock-v .sky-bird path {
+  transform: scaleX(-1);
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+/* Per-bird flock offsets (relative to flock group origin) */
+.flock-pair .sky-bird-p1 { transform: translate(0, 0); }
+.flock-pair .sky-bird-p2 { transform: translate(8px, 5px); }
+
+.flock-trio .sky-bird-t1 { transform: translate(0, 0); }
+.flock-trio .sky-bird-t2 { transform: translate(-9px, 4px); }
+.flock-trio .sky-bird-t3 { transform: translate(9px, 4px); }
+
+.flock-v .sky-bird-lead  { transform: translate(0, 0); }
+.flock-v .sky-bird-left  { transform: translate(-9px, 4px); }
+.flock-v .sky-bird-right { transform: translate(9px, 4px); }
+.flock-v .sky-bird-rear  { transform: translate(0, 8px); }
+
+/* Subtle flap — pulse the path scaleY so the V bends on the beat.
+   Applied to the <path> so it composes with per-flock scaleX flip. */
+.sky-bird path {
   animation: bird-flap 0.42s ease-in-out infinite;
   transform-box: fill-box;
   transform-origin: center;
 }
-.sky-bird-lead  { transform: translate(0, 0); }
-.sky-bird-left  { transform: translate(-9px, 4px); animation-delay: 0.07s; }
-.sky-bird-right { transform: translate(9px, 4px);  animation-delay: 0.14s; }
-.sky-bird-rear  { transform: translate(0, 8px);    animation-delay: 0.21s; }
-@keyframes bird-flap {
-  0%, 100% { transform: translate(var(--bx, 0), var(--by, 0)) scaleY(1); }
-  50%      { transform: translate(var(--bx, 0), var(--by, 0)) scaleY(0.5); }
-}
-/* Because the transform is used for both flock offset and flap, set flock via CSS custom props */
-.sky-bird-lead  { --bx: 0;    --by: 0; }
-.sky-bird-left  { --bx: -9px; --by: 4px; }
-.sky-bird-right { --bx: 9px;  --by: 4px; }
-.sky-bird-rear  { --bx: 0;    --by: 8px; }
+.flock-pair .sky-bird-p2 path { animation-delay: 0.09s; }
+.flock-trio .sky-bird-t2 path { animation-delay: 0.07s; }
+.flock-trio .sky-bird-t3 path { animation-delay: 0.14s; }
+.flock-v .sky-bird-left  path { animation-delay: 0.07s; }
+.flock-v .sky-bird-right path { animation-delay: 0.14s; }
+.flock-v .sky-bird-rear  path { animation-delay: 0.21s; }
 
-/* ── v11 Track 1C: Slow rolling clouds ───────────────────────────────
-   Three clouds at different drift speeds for parallax depth.
-   Each is sized to disappear off-right, then snap back to off-left.
+@keyframes bird-flap {
+  0%, 100% { scale: 1 1; }
+  50%      { scale: 1 0.55; }
+}
+
+/* ── v11 Track 1C (revised): Varied rolling clouds ───────────────────────────────
+   Six clouds at different drift speeds and altitudes for parallax depth.
    Group-level opacity tied to phase cycle (day-dominant). */
 .sky-clouds {
-  animation: cloud-phase-opacity 28s linear infinite;
+  animation: cloud-phase-opacity 40s linear infinite;
 }
 .sky-cloud {
   will-change: transform;
+  /* v11 bump: clouds a bit larger overall */
+  scale: 1.35;
+  transform-box: fill-box;
+  transform-origin: center;
 }
-.sky-cloud-1 { animation: cloud-drift-1 180s linear infinite;                   }
-.sky-cloud-2 { animation: cloud-drift-2 220s linear infinite; animation-delay: -70s; }
-.sky-cloud-3 { animation: cloud-drift-3 260s linear infinite; animation-delay: -160s; }
-@keyframes cloud-drift-1 {
-  0%   { transform: translate(-60px, 120px); }
-  100% { transform: translate(1680px, 120px); }
-}
-@keyframes cloud-drift-2 {
-  0%   { transform: translate(-60px, 75px); }
-  100% { transform: translate(1680px, 75px); }
-}
-@keyframes cloud-drift-3 {
-  0%   { transform: translate(-60px, 165px); }
-  100% { transform: translate(1680px, 165px); }
-}
+/* Mixed paces: two quicker movers, three mid-pace, one slow. All a bit slower than before. */
+.sky-cloud-1 { animation: cloud-drift-1 130s linear infinite;                       } /* FASTISH */
+.sky-cloud-2 { animation: cloud-drift-2 280s linear infinite; animation-delay: -90s; }
+.sky-cloud-3 { animation: cloud-drift-3 380s linear infinite; animation-delay: -240s; } /* SLOW */
+.sky-cloud-4 { animation: cloud-drift-4 150s linear infinite; animation-delay: -55s; } /* FASTISH */
+.sky-cloud-5 { animation: cloud-drift-5 310s linear infinite; animation-delay: -200s; }
+.sky-cloud-6 { animation: cloud-drift-6 230s linear infinite; animation-delay: -120s; }
+@keyframes cloud-drift-1 { 0% { transform: translate(-60px,  120px); }  100% { transform: translate(1680px, 120px); } }
+@keyframes cloud-drift-2 { 0% { transform: translate(-60px,  75px);  }  100% { transform: translate(1680px, 75px);  } }
+@keyframes cloud-drift-3 { 0% { transform: translate(-60px,  165px); }  100% { transform: translate(1680px, 165px); } }
+@keyframes cloud-drift-4 { 0% { transform: translate(-80px,  55px);  }  100% { transform: translate(1700px, 55px);  } }
+@keyframes cloud-drift-5 { 0% { transform: translate(-80px,  200px); }  100% { transform: translate(1700px, 200px); } }
+@keyframes cloud-drift-6 { 0% { transform: translate(-80px,  100px); }  100% { transform: translate(1700px, 100px); } }
 @keyframes cloud-phase-opacity {
   /* Dawn (0–25%) */
   0%  { opacity: 0.35; }
@@ -2400,7 +2754,7 @@ a:hover .nbhd-label { fill: #E8C96A; }
 
 .river-body {
   transition: opacity 0.3s ease;
-  animation: river-color-cycle 28s linear infinite;
+  animation: river-color-cycle 40s linear infinite;
 }
 @keyframes river-color-cycle {
   /* Dawn: deep teal-purple with rose tint */
@@ -2419,7 +2773,7 @@ a:hover .nbhd-label { fill: #E8C96A; }
 }
 .river-moonstreak {
   opacity: 0;
-  animation: river-moonstreak-visibility 28s linear infinite;
+  animation: river-moonstreak-visibility 40s linear infinite;
 }
 @keyframes river-moonstreak-visibility {
   0%, 62%  { opacity: 0; }
@@ -2432,18 +2786,66 @@ a:hover .nbhd-label { fill: #E8C96A; }
   transition: opacity 0.35s ease;
   pointer-events: none;
 }
-.skyline-rivers a { cursor: pointer; }
+.skyline-rivers a, .skyline-foreground-rivers a { cursor: pointer; }
 .skyline-rivers a:hover .river-label,
-.skyline-rivers a:focus-within .river-label {
+.skyline-rivers a:focus-within .river-label,
+.skyline-foreground-rivers a:hover .river-label,
+.skyline-foreground-rivers a:focus-within .river-label {
   opacity: 1;
 }
-.skyline-rivers g[data-river] { opacity: 0.78; transition: opacity 0.3s ease; }
+.skyline-rivers g[data-river],
+.skyline-foreground-rivers g[data-river] {
+  opacity: 0.88;
+  transition: opacity 0.3s ease;
+}
 .skyline-svg:has(g[data-river]:hover) g[data-building]:not(:hover),
 .skyline-svg:has(g[data-river]:hover) g[data-river]:not(:hover) {
-  opacity: 0.18;
+  opacity: 0.22;
 }
 .skyline-svg:has(g[data-river]:hover) g[data-river]:hover {
   opacity: 1;
+}
+
+/* Subtle river current motion — shift the stroke-dasharray over time so ripples flow */
+.river-current {
+  stroke-dasharray: 40 180;
+  stroke-dashoffset: 0;
+  animation: river-current-flow 14s linear infinite;
+}
+.river-body-kaw ~ .river-current,
+.skyline-foreground-rivers g[data-river="kansas"] .river-current {
+  animation-name: river-current-flow;
+}
+.skyline-foreground-rivers g[data-river="missouri"] .river-current {
+  animation-name: river-current-flow-reverse;
+  animation-duration: 16s;
+}
+@keyframes river-current-flow {
+  from { stroke-dashoffset: 0;   }
+  to   { stroke-dashoffset: -440; }
+}
+@keyframes river-current-flow-reverse {
+  from { stroke-dashoffset: 0;   }
+  to   { stroke-dashoffset: 440; }
+}
+/* Water body itself — gentle opacity pulse so the river feels alive */
+.river-body {
+  /* color-cycle is already running; layer a subtle brightness pulse */
+}
+.river-body-kaw,
+.river-body-missouri {
+  animation: river-color-cycle 40s linear infinite, river-shimmer 6s ease-in-out infinite;
+}
+@keyframes river-shimmer {
+  0%, 100% { filter: brightness(1) saturate(1) hue-rotate(0deg); }
+  50%      { filter: brightness(1.06) saturate(1.04) hue-rotate(2deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .river-current,
+  .river-body-kaw,
+  .river-body-missouri {
+    animation: none !important;
+  }
 }
 
 /* ── v10 Track 5: Ghost buildings (toggle-activated overlay) ──── */
@@ -2543,7 +2945,7 @@ body:has(#ghost-toggle:checked) .skyline-ghosts .ghost-building:hover .ghost-lab
   color: var(--warm-grey);
   opacity: 0.45;
   transition: opacity 0.3s ease, color 0.3s ease;
-  animation: 28s linear infinite;
+  animation: 40s linear infinite;
 }
 .phase-label.phase-dawn  { animation-name: phase-active-dawn; }
 .phase-label.phase-day   { animation-name: phase-active-day; }
@@ -4811,6 +5213,278 @@ g[data-fountain]:hover .fd-label { opacity: 1; }
     animation: none !important;
   }
   body:has(#fountains-on:checked) .fd-spray { transform: scaleY(0.9); opacity: 0.9; }
+}
+
+/* ── v11 KC Marriott LED grid — visible Dusk → Dawn, off during Day ── */
+.marriott-led {
+  opacity: 0;
+  animation:
+    marriott-led-phase 40s linear infinite,
+    marriott-led-blink 4s ease-in-out infinite;
+  animation-delay: 0s, var(--ld, 0s);
+  filter: drop-shadow(0 0 2px currentColor);
+}
+@keyframes marriott-led-phase {
+  0%   { opacity: 0.9; }
+  18%  { opacity: 0.6; }
+  22%  { opacity: 0; }
+  50%  { opacity: 0; }
+  54%  { opacity: 0.8; }
+  75%  { opacity: 1; }
+  95%  { opacity: 1; }
+  100% { opacity: 0.9; }
+}
+@keyframes marriott-led-blink {
+  0%, 100% { filter: drop-shadow(0 0 1px currentColor) brightness(0.65); }
+  50%      { filter: drop-shadow(0 0 4px currentColor) brightness(1.35); }
+}
+.led-cyan    { fill: #5FC8E8; color: #5FC8E8; }
+.led-magenta { fill: #E85FB8; color: #E85FB8; }
+.led-gold    { fill: #E8C96A; color: #E8C96A; }
+.led-green   { fill: #5FE890; color: #5FE890; }
+.led-violet  { fill: #A078E8; color: #A078E8; }
+.led-orange  { fill: #E89858; color: #E89858; }
+body:has(#weather-stormy:checked) .marriott-led {
+  animation: none !important;
+  opacity: 0.45;
+  filter: brightness(0.75);
+}
+
+/* ───────────────────────────────────────────────────────────────
+   v11 Weather toggle — Clear (default) vs Stormy
+   Clear runs the 40s phase cycle. Stormy overrides to storm sky + rain + lightning,
+   and forces the night-lights on so the city reads as an illuminated storm scene.
+   ─────────────────────────────────────────────────────────────── */
+
+/* Hide the radio inputs — used only for :has() state targeting */
+.weather-radio {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.weather-legend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.6rem;
+  border: none;
+  padding: 0.35rem 0 0;
+  margin: 0 auto;
+  max-width: 340px;
+}
+.weather-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--warm-grey);
+  cursor: pointer;
+  padding: 0.2rem 0.6rem;
+  transition: color 0.25s ease, text-shadow 0.25s ease;
+}
+.weather-label:hover { color: var(--gold-light, #E8C96A); }
+.weather-sep {
+  color: var(--warm-grey);
+  opacity: 0.5;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.72rem;
+}
+body:has(#weather-clear:checked)  label[for="weather-clear"]  { color: var(--gold); text-shadow: 0 0 8px rgba(201,168,76,0.35); }
+body:has(#weather-stormy:checked) label[for="weather-stormy"] { color: var(--gold); text-shadow: 0 0 8px rgba(201,168,76,0.35); }
+
+/* Storm sky layer — hidden in Clear mode */
+.storm-sky-layer {
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  pointer-events: none;
+}
+body:has(#weather-stormy:checked) .storm-sky-layer {
+  opacity: 1;
+}
+
+/* Rain + lightning — hidden in Clear mode */
+.storm-rain,
+.storm-lightning {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s ease;
+}
+body:has(#weather-stormy:checked) .storm-rain { opacity: 1; }
+
+/* Rain drops — diagonal streaks falling from top to bottom */
+.rain-drop {
+  stroke: rgba(180, 210, 235, 0.55);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+  transform: translate(var(--rx, 0), -20px);
+}
+body:has(#weather-stormy:checked) .rain-drop {
+  animation: rain-fall 0.7s linear infinite;
+  animation-delay: var(--rd, 0s);
+}
+@keyframes rain-fall {
+  0%   { transform: translate(var(--rx, 0), -20px); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translate(calc(var(--rx, 0) - 260px), 620px); opacity: 0; }
+}
+
+/* Lightning — occasional full-screen flash */
+.storm-lightning { opacity: 0; }
+body:has(#weather-stormy:checked) .storm-lightning {
+  animation: storm-lightning 11s ease-out infinite;
+}
+@keyframes storm-lightning {
+  0%, 100%   { opacity: 0; }
+  94%        { opacity: 0; }
+  94.6%      { opacity: 0.9; }
+  95%        { opacity: 0.2; }
+  95.5%      { opacity: 0.95; }
+  96%        { opacity: 0.15; }
+  97%        { opacity: 0; }
+}
+
+/* When stormy: stop the full Dawn/Day/Dusk/Night phase cycle entirely.
+   The storm scene pins in place; when Clear is selected again, the cycle resumes. */
+body:has(#weather-stormy:checked) .skyline-svg g[data-building] .building-shape,
+body:has(#weather-stormy:checked) .river-body,
+body:has(#weather-stormy:checked) .river-moonstreak,
+body:has(#weather-stormy:checked) .celestial-sun,
+body:has(#weather-stormy:checked) .celestial-sun-rays,
+body:has(#weather-stormy:checked) .celestial-moon,
+body:has(#weather-stormy:checked) .sky-stars,
+body:has(#weather-stormy:checked) .sky-stars .star,
+body:has(#weather-stormy:checked) .sky-birds,
+body:has(#weather-stormy:checked) .sky-planes,
+body:has(#weather-stormy:checked) .sky-clouds,
+body:has(#weather-stormy:checked) .sky-cloud,
+body:has(#weather-stormy:checked) .phase-label,
+body:has(#weather-stormy:checked) .fg-streetcar-track {
+  animation-play-state: paused !important;
+}
+/* Hide the cycling phase legend during storm since the cycle is frozen */
+body:has(#weather-stormy:checked) .phase-legend {
+  opacity: 0.35;
+}
+body:has(#weather-stormy:checked) .celestial-sun,
+body:has(#weather-stormy:checked) .celestial-moon,
+body:has(#weather-stormy:checked) .sky-stars,
+body:has(#weather-stormy:checked) .sky-birds,
+body:has(#weather-stormy:checked) .sky-planes,
+body:has(#weather-stormy:checked) .sky-clouds {
+  opacity: 0 !important;
+}
+/* Force the night-lights on across all buildings in storm mode */
+body:has(#weather-stormy:checked) .building-night-lights,
+body:has(#weather-stormy:checked) .building-crown-light,
+body:has(#weather-stormy:checked) .fg-lamp .building-night-lights {
+  opacity: 1 !important;
+  animation: none !important;
+}
+/* Tone the building silhouettes to night-fill (dark with a gold stroke) */
+body:has(#weather-stormy:checked) .skyline-svg g[data-building] .building-shape {
+  fill: rgba(12,12,20,0.85);
+  stroke: rgba(232,201,106,0.72);
+}
+body:has(#weather-stormy:checked) .river-body {
+  filter: hue-rotate(-12deg) saturate(0.5) brightness(0.45);
+}
+
+/* Clear mode — everything normal; these selectors are just explicit resets */
+body:has(#weather-clear:checked) .storm-rain,
+body:has(#weather-clear:checked) .storm-lightning,
+body:has(#weather-clear:checked) .storm-sky-layer {
+  opacity: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:has(#weather-stormy:checked) .rain-drop { animation: none !important; }
+  body:has(#weather-stormy:checked) .storm-lightning { animation: none !important; opacity: 0; }
+}
+
+/* ── v11 Snowy weather ─────────────────────────────────────────── */
+.snow-sky-layer {
+  opacity: 0;
+  transition: opacity 1s ease;
+  pointer-events: none;
+}
+.snow-fall {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+body:has(#weather-snowy:checked) .snow-sky-layer { opacity: 1; }
+body:has(#weather-snowy:checked) .snow-fall      { opacity: 1; }
+
+.snowflake {
+  transform: translate(var(--sx, 0), -12px);
+}
+body:has(#weather-snowy:checked) .snowflake {
+  animation: snowflake-fall var(--sdur, 8s) linear infinite;
+  animation-delay: var(--sd, 0s);
+}
+@keyframes snowflake-fall {
+  0%   { transform: translate(var(--sx, 0), -20px); opacity: 0; }
+  8%   { opacity: 1; }
+  50%  { transform: translate(calc(var(--sx, 0) + var(--ssway, 0)), 320px); opacity: 1; }
+  92%  { opacity: 1; }
+  100% { transform: translate(calc(var(--sx, 0) - var(--ssway, 0)), 620px); opacity: 0; }
+}
+
+/* Snowy city state — pause the phase cycle, force all lights on like night */
+body:has(#weather-snowy:checked) .skyline-svg g[data-building] .building-shape,
+body:has(#weather-snowy:checked) .river-body,
+body:has(#weather-snowy:checked) .river-moonstreak,
+body:has(#weather-snowy:checked) .celestial-sun,
+body:has(#weather-snowy:checked) .celestial-sun-rays,
+body:has(#weather-snowy:checked) .celestial-moon,
+body:has(#weather-snowy:checked) .sky-stars,
+body:has(#weather-snowy:checked) .sky-stars .star,
+body:has(#weather-snowy:checked) .sky-birds,
+body:has(#weather-snowy:checked) .sky-planes,
+body:has(#weather-snowy:checked) .sky-clouds,
+body:has(#weather-snowy:checked) .sky-cloud,
+body:has(#weather-snowy:checked) .phase-label,
+body:has(#weather-snowy:checked) .fg-streetcar-track {
+  animation-play-state: paused !important;
+}
+body:has(#weather-snowy:checked) .phase-legend { opacity: 0.35; }
+body:has(#weather-snowy:checked) .celestial-sun,
+body:has(#weather-snowy:checked) .celestial-moon,
+body:has(#weather-snowy:checked) .sky-stars,
+body:has(#weather-snowy:checked) .sky-birds,
+body:has(#weather-snowy:checked) .sky-planes,
+body:has(#weather-snowy:checked) .sky-clouds {
+  opacity: 0 !important;
+}
+/* Force the night-lights on so the winter city reads as illuminated (Plaza-lights feel) */
+body:has(#weather-snowy:checked) .building-night-lights,
+body:has(#weather-snowy:checked) .building-crown-light,
+body:has(#weather-snowy:checked) .fg-lamp .building-night-lights,
+body:has(#weather-snowy:checked) .wa-illumination,
+body:has(#weather-snowy:checked) .marriott-led {
+  opacity: 1 !important;
+  animation: none !important;
+}
+/* Buildings: keep the site's night-mode palette so the Art Deco feel carries through the snow. */
+body:has(#weather-snowy:checked) .skyline-svg g[data-building] .building-shape {
+  fill: rgba(12,12,20,0.75);
+  stroke: rgba(232,201,106,0.7);
+}
+body:has(#weather-snowy:checked) .river-body {
+  filter: hue-rotate(-8deg) saturate(0.45) brightness(0.55);
+}
+
+/* Make active weather label glow gold */
+body:has(#weather-snowy:checked) label[for="weather-snowy"] {
+  color: var(--gold);
+  text-shadow: 0 0 8px rgba(201,168,76,0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:has(#weather-snowy:checked) .snowflake { animation: none !important; opacity: 0.7; }
 }
 
 /* ── v11 Track 10I: Footer mini-skyline — site-wide identity cohesion ── */
