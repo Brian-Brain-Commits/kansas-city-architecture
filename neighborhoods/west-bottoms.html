@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="West Bottoms — Look Up, Kansas City" />
   <meta name="twitter:description" content="The West Bottoms — Kansas City's industrial riverfront neighborhood, once the economic engine of the city, now a weekend antiques and events district." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/c/ca/Snowing_in_the_West_Bottoms%2C_Kansas_City.jpg" />
-  <link rel="stylesheet" href="../style.css?v=21a" />
+  <link rel="stylesheet" href="../style.css?v=23a" />
 </head>
 <body>
 
@@ -214,6 +214,10 @@
           <stop offset="50%"  stop-color="#8B3A1F"/>
           <stop offset="100%" stop-color="#6B2A15"/>
         </linearGradient>
+        <!-- v23: soft shadow cast by the viaduct deck onto the basin floor -->
+        <filter id="wb-viaduct-shadow" x="-2%" y="-10%" width="104%" height="130%">
+          <feGaussianBlur stdDeviation="5"/>
+        </filter>
       </defs>
 
       <!-- ═══════ LAYER 2: Sooty sky tint (overlays shared TOD backdrop) ═══════ -->
@@ -924,6 +928,22 @@
         </g>
       </a>
 
+      <!-- ═══════ LAYER 14.5: Viaduct shadow on basin floor (v23) ═══════
+           Soft shadow cast by the viaduct deck onto the basin floor just
+           above the deck's top edge. Follows the viaduct's S-curve footprint
+           and feathers upward into the basin. Grounds the deck as a 3D
+           structure and reinforces the "basin is under, viaduct is over"
+           read. Warm-dark warm-brown tint — blurred with feGaussianBlur. -->
+      <g class="westbottoms-viaduct-shadow" aria-hidden="true">
+        <path d="M 0,548
+                 C 200,536 450,475 700,468
+                 C 960,460 1100,380 1320,368
+                 L 1320,350
+                 C 1100,362 960,442 700,450
+                 C 450,457 200,518 0,530 Z"
+              fill="#1C1208" opacity="0.42" filter="url(#wb-viaduct-shadow)"/>
+      </g>
+
       <!-- ═══════ LAYER 15: 12th Street Viaduct deck (foreground) ═══════
            Iconic S-curve receding from the mid-right down to the near-left.
            The viewer stands on this deck. Viaduct IS the foreground mass,
@@ -945,6 +965,22 @@
                    C 1100,380 960,460 700,468
                    C 450,475 200,536 0,548"
                 fill="none" stroke="#9F9488" stroke-width="1.4"/>
+          <!-- v23: Concrete-edge thickness strip just below the highlight —
+               gives the deck a readable edge cap so it doesn't look painted
+               onto the basin. Offset 3u below the top-curve, darker than
+               the gradient so the edge has depth. -->
+          <path d="M 1320,371
+                   C 1100,383 960,463 700,471
+                   C 450,478 200,539 0,551"
+                fill="none" stroke="#1C1510" stroke-width="1.7" opacity="0.7"/>
+          <!-- v23: Underside girder hint where the deck recedes into the
+               mid-to-far right — a few short vertical ticks below the edge
+               cap, implying pier tops peeking through. Minimal on purpose. -->
+          <g stroke="#1C1510" stroke-width="0.7" opacity="0.55" stroke-linecap="round">
+            <line x1="1220" y1="388" x2="1220" y2="395"/>
+            <line x1="1120" y1="400" x2="1120" y2="408"/>
+            <line x1="1000" y1="425" x2="1000" y2="433"/>
+          </g>
           <!-- Near-edge sidewalk line (closer to viewer, implied) -->
           <path d="M 1600,488
                    C 1280,492 900,520 500,544
@@ -955,37 +991,80 @@
                    C 1280,476 900,500 500,520
                    C 240,534 80,552 0,560"
                 fill="none" stroke="rgba(201,168,76,0.22)" stroke-width="0.5" stroke-dasharray="6 4"/>
+          <!-- v23: Expansion joints — short diagonal marks crossing the
+               deck at intervals. Run roughly perpendicular to the road
+               direction, angled to match the S-curve perspective. -->
+          <g stroke="rgba(60,54,47,0.5)" stroke-width="0.6" stroke-linecap="round">
+            <line x1="1280" y1="380" x2="1296" y2="410"/>
+            <line x1="1080" y1="414" x2="1106" y2="448"/>
+            <line x1="830"  y1="460" x2="858"  y2="498"/>
+            <line x1="540"  y1="498" x2="572"  y2="542"/>
+            <line x1="220"  y1="540" x2="256"  y2="580"/>
+          </g>
         </g>
       </a>
 
       <!-- ═══════ LAYER 16: Viaduct railing + lamp posts ═══════
            Railing runs along the far edge of the deck (following the
-           upper curve). Lamp posts every ~220 units. Halos are siblings
+           upper curve). v23: upgraded to industrial-pipe style — thicker
+           posts, double horizontal rail, riveted cap circles, kickplate
+           at deck edge. Lamp posts every ~220 units. Halos are siblings
            in LAYER 17 so their TOD gating is independent. -->
       <g class="westbottoms-viaduct-furniture" aria-hidden="true">
-        <!-- Railing: vertical posts + top rail, following curve -->
-        <g stroke="#3C362F" stroke-width="0.7" opacity="0.9">
-          <!-- posts — y rises slightly as the path curves up to the right -->
-          <line x1="40"   y1="552" x2="40"   y2="540"/>
-          <line x1="140"  y1="544" x2="140"  y2="532"/>
-          <line x1="240"  y1="530" x2="240"  y2="518"/>
-          <line x1="340"  y1="510" x2="340"  y2="498"/>
-          <line x1="440"  y1="494" x2="440"  y2="482"/>
-          <line x1="540"  y1="484" x2="540"  y2="472"/>
-          <line x1="640"  y1="474" x2="640"  y2="462"/>
-          <line x1="740"  y1="466" x2="740"  y2="454"/>
-          <line x1="840"  y1="450" x2="840"  y2="438"/>
-          <line x1="940"  y1="434" x2="940"  y2="422"/>
-          <line x1="1040" y1="418" x2="1040" y2="406"/>
-          <line x1="1140" y1="402" x2="1140" y2="390"/>
-          <line x1="1240" y1="386" x2="1240" y2="374"/>
+        <!-- Industrial-pipe railing: thicker pipe posts, rivet caps,
+             double horizontal rail, kickplate. Gunmetal-gray palette. -->
+        <g stroke="#2A241C" stroke-width="1.1" opacity="0.92" stroke-linecap="round">
+          <!-- Pipe posts — y rises with the deck curve -->
+          <line x1="40"   y1="552" x2="40"   y2="538"/>
+          <line x1="140"  y1="544" x2="140"  y2="530"/>
+          <line x1="240"  y1="530" x2="240"  y2="516"/>
+          <line x1="340"  y1="510" x2="340"  y2="496"/>
+          <line x1="440"  y1="494" x2="440"  y2="480"/>
+          <line x1="540"  y1="484" x2="540"  y2="470"/>
+          <line x1="640"  y1="474" x2="640"  y2="460"/>
+          <line x1="740"  y1="466" x2="740"  y2="452"/>
+          <line x1="840"  y1="450" x2="840"  y2="436"/>
+          <line x1="940"  y1="434" x2="940"  y2="420"/>
+          <line x1="1040" y1="418" x2="1040" y2="404"/>
+          <line x1="1140" y1="402" x2="1140" y2="388"/>
+          <line x1="1240" y1="386" x2="1240" y2="372"/>
         </g>
-        <!-- Top rail — follows deck curve, sits ~12 above deck top -->
-        <path d="M 40,540
-                 C 200,532 380,502 540,472
-                 C 700,456 860,436 1040,406
-                 C 1140,390 1220,380 1320,356"
-              fill="none" stroke="#3C362F" stroke-width="0.9"/>
+        <!-- Rivet caps at each post top (small filled circles) -->
+        <g fill="#3C362F" stroke="#1E1810" stroke-width="0.3" opacity="0.9">
+          <circle cx="40"   cy="538" r="0.9"/>
+          <circle cx="140"  cy="530" r="0.9"/>
+          <circle cx="240"  cy="516" r="0.85"/>
+          <circle cx="340"  cy="496" r="0.85"/>
+          <circle cx="440"  cy="480" r="0.8"/>
+          <circle cx="540"  cy="470" r="0.8"/>
+          <circle cx="640"  cy="460" r="0.75"/>
+          <circle cx="740"  cy="452" r="0.75"/>
+          <circle cx="840"  cy="436" r="0.7"/>
+          <circle cx="940"  cy="420" r="0.7"/>
+          <circle cx="1040" cy="404" r="0.65"/>
+          <circle cx="1140" cy="388" r="0.65"/>
+          <circle cx="1240" cy="372" r="0.6"/>
+        </g>
+        <!-- Top rail (upper pipe) — follows deck curve, 12u above deck -->
+        <path d="M 40,538
+                 C 200,530 380,500 540,470
+                 C 700,454 860,434 1040,404
+                 C 1140,388 1220,378 1320,354"
+              fill="none" stroke="#2A241C" stroke-width="1.15" stroke-linecap="round" opacity="0.95"/>
+        <!-- Mid rail (lower pipe) — second horizontal pipe 4-5u below top
+             rail, gives the industrial double-bar read -->
+        <path d="M 40,544
+                 C 200,536 380,506 540,476
+                 C 700,460 860,440 1040,410
+                 C 1140,394 1220,384 1320,360"
+              fill="none" stroke="#2A241C" stroke-width="0.8" stroke-linecap="round" opacity="0.72"/>
+        <!-- Kickplate at deck edge — thin horizontal strip along base of
+             posts, grounds railing to deck -->
+        <path d="M 40,551
+                 C 200,543 380,513 540,483
+                 C 700,467 860,447 1040,417
+                 C 1140,401 1220,391 1320,367"
+              fill="none" stroke="#3C362F" stroke-width="1.6" stroke-linecap="round" opacity="0.55"/>
 
         <!-- Lamp posts (tall, every ~240 units along the curve) -->
         <g class="westbottoms-lamp-posts">
@@ -1013,6 +1092,41 @@
           <line x1="1240" y1="388" x2="1240" y2="342" stroke="#2A241C" stroke-width="0.9"/>
           <path d="M 1236,342 Q 1240,338 1244,342" fill="none" stroke="#2A241C" stroke-width="0.9"/>
           <circle cx="1240" cy="342" r="2.2" fill="#C9A84C" stroke="#7A5F2C" stroke-width="0.4"/>
+        </g>
+
+        <!-- v23: Near-edge (camera-side) SIMPLE railing.
+             Low profile — single top rail + sparse posts — so it reads as
+             "you're on a bridge with a railing on this side" without
+             obscuring the basin view. Follows the near-deck curve (matches
+             the existing "near-edge sidewalk line" path). -->
+        <g class="westbottoms-viaduct-near-rail" aria-hidden="true">
+          <!-- Sparse posts along the near edge (every ~200 units, 12u tall) -->
+          <g stroke="#2A241C" stroke-width="1.2" opacity="0.9" stroke-linecap="round">
+            <line x1="60"   y1="583" x2="60"   y2="571"/>
+            <line x1="260"  y1="567" x2="260"  y2="555"/>
+            <line x1="460"  y1="551" x2="460"  y2="539"/>
+            <line x1="660"  y1="535" x2="660"  y2="523"/>
+            <line x1="860"  y1="522" x2="860"  y2="510"/>
+            <line x1="1060" y1="510" x2="1060" y2="498"/>
+            <line x1="1260" y1="499" x2="1260" y2="487"/>
+            <line x1="1460" y1="491" x2="1460" y2="479"/>
+          </g>
+          <!-- Single top rail follows the near-edge curve -->
+          <path d="M 60,571
+                   C 240,561 500,540 860,510
+                   C 1100,492 1340,480 1600,471"
+                fill="none" stroke="#2A241C" stroke-width="1.2" stroke-linecap="round" opacity="0.92"/>
+          <!-- Rivet caps at post tops -->
+          <g fill="#3C362F" stroke="#1E1810" stroke-width="0.25" opacity="0.88">
+            <circle cx="60"   cy="571" r="0.85"/>
+            <circle cx="260"  cy="555" r="0.85"/>
+            <circle cx="460"  cy="539" r="0.8"/>
+            <circle cx="660"  cy="523" r="0.8"/>
+            <circle cx="860"  cy="510" r="0.75"/>
+            <circle cx="1060" cy="498" r="0.75"/>
+            <circle cx="1260" cy="487" r="0.7"/>
+            <circle cx="1460" cy="479" r="0.7"/>
+          </g>
         </g>
       </g>
 

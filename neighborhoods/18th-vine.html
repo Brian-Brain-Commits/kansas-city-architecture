@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="18th & Vine — Look Up, Kansas City" />
   <meta name="twitter:description" content="18th & Vine — the historic heart of Kansas City's African American community, the birthplace of Kansas City jazz and blues, and a neighborhood in ongoing restoration." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/2/2b/18th_and_Vine_District_sign_and_building.jpg" />
-  <link rel="stylesheet" href="../style.css?v=21a" />
+  <link rel="stylesheet" href="../style.css?v=23a" />
 </head>
 <body>
 
@@ -293,6 +293,86 @@
         </g>
       </g>
 
+      <!-- ═══════ LAYER 2.5: Background depth fills (v23) ═══════
+           Extra depth behind the VP — a moon with building occlusion, a
+           second residential row stepping up the bluff, a distant train
+           drifting along the deep horizon, and a few taller silhouettes
+           at the east edge suggesting the city continues beyond the frame.
+           Paints BEFORE the VP residential density so closer rows cover
+           these correctly. -->
+      <!-- Moon (night-only via building-night-lights) — positioned so a
+           tall east-density silhouette occludes its right edge -->
+      <g class="vine-moon building-night-lights" aria-hidden="true">
+        <circle cx="1462" cy="145" r="20" fill="rgba(245,235,210,0.72)"/>
+        <circle cx="1462" cy="145" r="20" fill="none" stroke="rgba(245,235,210,0.4)" stroke-width="0.6"/>
+        <circle cx="1455" cy="139" r="3" fill="rgba(200,192,172,0.32)"/>
+        <circle cx="1466" cy="150" r="2" fill="rgba(200,192,172,0.28)"/>
+        <circle cx="1458" cy="152" r="1.4" fill="rgba(200,192,172,0.25)"/>
+      </g>
+
+      <!-- East-side tall silhouettes — 5 denser-city shapes at the far
+           right. One tall enough to occlude ~30% of the moon. Drawn after
+           moon so they paint over it. -->
+      <g class="vine-east-density" aria-hidden="true">
+        <path class="vine-east-density-tall" d="M 1410,340 L 1410,195 L 1418,189 L 1426,195 L 1426,340 Z"/>
+        <path class="vine-east-density-tall" d="M 1430,340 L 1430,170 L 1440,162 L 1444,156 L 1448,160 L 1448,170 L 1456,178 L 1456,340 Z"/>
+        <path class="vine-east-density-tall" d="M 1460,340 L 1460,152 L 1472,146 L 1484,152 L 1484,340 Z"/>
+        <path class="vine-east-density-tall" d="M 1488,340 L 1488,208 L 1498,202 L 1508,208 L 1508,340 Z"/>
+        <path class="vine-east-density-tall" d="M 1512,340 L 1512,186 L 1522,178 L 1532,186 L 1532,340 Z"/>
+        <!-- Small vertical "lit window" hints at night on the tallest silhouette -->
+        <g class="building-night-lights">
+          <rect x="1466" y="170" width="1.4" height="2.6" fill="rgba(255,200,140,0.6)"/>
+          <rect x="1472" y="176" width="1.4" height="2.6" fill="rgba(255,200,140,0.58)"/>
+          <rect x="1478" y="164" width="1.4" height="2.6" fill="rgba(255,200,140,0.55)"/>
+          <rect x="1438" y="184" width="1.2" height="2.2" fill="rgba(255,200,140,0.52)"/>
+          <rect x="1444" y="192" width="1.2" height="2.2" fill="rgba(255,200,140,0.5)"/>
+        </g>
+      </g>
+
+      <!-- Second residential row stepping up the bluff — smaller + more
+           desaturated than the foreground rows, with chimneys on most
+           and a couple of trees interspersed. Split across mid-back
+           area (avoiding the VP/horizon-building zone + east density). -->
+      <g class="vine-residential-stepped" aria-hidden="true">
+        <path class="vine-horizon-building-far" d="M 180,358 L 180,344 L 188,338 L 196,344 L 196,358 Z"/>
+        <line class="vine-horizon-chimney" x1="186" y1="342" x2="186" y2="336"/>
+        <path class="vine-horizon-building-far" d="M 218,358 L 218,346 L 226,340 L 234,346 L 234,358 Z"/>
+        <path class="vine-horizon-building-far" d="M 258,358 L 258,342 L 268,336 L 278,342 L 278,358 Z"/>
+        <line class="vine-horizon-chimney" x1="266" y1="340" x2="266" y2="334"/>
+        <circle class="vine-horizon-tree-far" cx="300" cy="358" r="2.4"/>
+        <path class="vine-horizon-building-far" d="M 318,358 L 318,346 L 326,340 L 334,346 L 334,358 Z"/>
+        <path class="vine-horizon-building-far" d="M 358,358 L 358,344 L 368,338 L 378,344 L 378,358 Z"/>
+        <line class="vine-horizon-chimney" x1="366" y1="342" x2="366" y2="336"/>
+        <path class="vine-horizon-building-far" d="M 420,358 L 420,348 L 428,342 L 436,348 L 436,358 Z"/>
+        <path class="vine-horizon-building-far" d="M 460,358 L 460,342 L 470,336 L 480,342 L 480,358 Z"/>
+        <line class="vine-horizon-chimney" x1="468" y1="340" x2="468" y2="334"/>
+        <circle class="vine-horizon-tree-far" cx="510" cy="358" r="2.2"/>
+        <!-- Right side of scene -->
+        <path class="vine-horizon-building-far" d="M 1080,358 L 1080,344 L 1088,338 L 1096,344 L 1096,358 Z"/>
+        <path class="vine-horizon-building-far" d="M 1118,358 L 1118,346 L 1126,340 L 1134,346 L 1134,358 Z"/>
+        <path class="vine-horizon-building-far" d="M 1158,358 L 1158,342 L 1168,336 L 1178,342 L 1178,358 Z"/>
+        <line class="vine-horizon-chimney" x1="1166" y1="340" x2="1166" y2="334"/>
+        <path class="vine-horizon-building-far" d="M 1218,358 L 1218,344 L 1228,338 L 1238,344 L 1238,358 Z"/>
+        <circle class="vine-horizon-tree-far" cx="1262" cy="358" r="2.2"/>
+        <path class="vine-horizon-building-far" d="M 1288,358 L 1288,346 L 1296,340 L 1304,346 L 1304,358 Z"/>
+        <path class="vine-horizon-building-far" d="M 1338,358 L 1338,342 L 1348,336 L 1358,342 L 1358,358 Z"/>
+        <line class="vine-horizon-chimney" x1="1346" y1="340" x2="1346" y2="334"/>
+      </g>
+
+      <!-- Distant train crawling along the deep horizon — TOD-independent
+           (a train somewhere, always). Low opacity + slow (150s) cycle so
+           the eye notices rather than tracks. Loco + 3 freight cars. -->
+      <g class="vine-distant-train" aria-hidden="true">
+        <line x1="0" y1="182" x2="1600" y2="182" stroke="rgba(201,168,76,0.12)" stroke-width="0.35"/>
+        <g class="vine-distant-train-body">
+          <rect x="60"  y="172" width="22" height="8" fill="rgba(40,28,18,0.72)" stroke="rgba(201,168,76,0.35)" stroke-width="0.3"/>
+          <rect x="78"  y="170" width="4"  height="2" fill="rgba(40,28,18,0.75)"/>
+          <rect x="34"  y="174" width="20" height="6" fill="rgba(40,28,18,0.65)" stroke="rgba(201,168,76,0.28)" stroke-width="0.3"/>
+          <rect x="8"   y="174" width="20" height="6" fill="rgba(40,28,18,0.65)" stroke="rgba(201,168,76,0.28)" stroke-width="0.3"/>
+          <rect x="-18" y="174" width="20" height="6" fill="rgba(40,28,18,0.65)" stroke="rgba(201,168,76,0.28)" stroke-width="0.3"/>
+        </g>
+      </g>
+
       <!-- ═══════ LAYER 3: Vanishing-point residential density ═══════
            VP at approximately (810, 340). Instead of downtown silhouettes,
            this area now shows RESIDENTIAL DENSITY — the small houses and
@@ -436,109 +516,39 @@
           <line x1="290" y1="358" x2="290" y2="344" stroke="rgba(201,168,76,0.88)" stroke-width="0.55"/>
           <rect x="287" y="340" width="6" height="4" fill="rgba(255,240,180,0.88)" stroke="rgba(201,168,76,0.9)" stroke-width="0.35"/>
 
-          <!-- === MAIN BASEBALL FIELD (left-center of park) === -->
+          <!-- === BASEBALL FIELD (atmospheric silhouette, v23) ===
+               Quieted from the v20 live-game composition — no active game,
+               no basketball court, no batting cage. Parade Park now reads
+               as "ballpark up the hill," a contemporary companion to the
+               Negro Leagues tie-in carried by the Municipal Stadium ghost
+               + the painted Monarchs mural elsewhere in the scene. -->
           <!-- Infield dirt (trapezoidal per perspective) -->
-          <path d="M 75,410 L 100,388 L 160,388 L 185,410 Z" fill="rgba(180,138,82,0.85)" stroke="rgba(245,235,210,0.62)" stroke-width="0.5"/>
+          <path d="M 75,410 L 100,388 L 160,388 L 185,410 Z" fill="rgba(180,138,82,0.68)" stroke="rgba(245,235,210,0.48)" stroke-width="0.5"/>
           <!-- Pitcher's mound -->
-          <ellipse cx="130" cy="398" rx="3.2" ry="1.6" fill="rgba(200,160,100,0.95)" stroke="rgba(245,235,210,0.75)" stroke-width="0.38"/>
+          <ellipse cx="130" cy="398" rx="3" ry="1.4" fill="rgba(200,160,100,0.78)" stroke="rgba(245,235,210,0.55)" stroke-width="0.32"/>
           <!-- Home plate -->
-          <path d="M 127,412 L 133,412 L 134,414 L 130,416 L 126,414 Z" fill="rgba(255,250,235,0.95)" stroke="rgba(40,28,18,0.5)" stroke-width="0.25"/>
+          <path d="M 127,412 L 133,412 L 134,414 L 130,416 L 126,414 Z" fill="rgba(255,250,235,0.8)" stroke="rgba(40,28,18,0.4)" stroke-width="0.22"/>
           <!-- Chalk foul lines (from home plate to outfield corners) -->
-          <line x1="130" y1="413" x2="58" y2="370" stroke="rgba(245,235,210,0.55)" stroke-width="0.42"/>
-          <line x1="130" y1="413" x2="202" y2="370" stroke="rgba(245,235,210,0.55)" stroke-width="0.42"/>
+          <line x1="130" y1="413" x2="58" y2="370" stroke="rgba(245,235,210,0.4)" stroke-width="0.38"/>
+          <line x1="130" y1="413" x2="202" y2="370" stroke="rgba(245,235,210,0.4)" stroke-width="0.38"/>
 
-          <!-- Players -->
-          <!-- Batter -->
-          <g transform="translate(130, 410)">
-            <circle cx="-0.6" cy="-3" r="0.85" fill="rgba(40,28,18,0.95)"/>
-            <line x1="-0.6" y1="-2.5" x2="-0.3" y2="0.2" stroke="rgba(40,28,18,0.95)" stroke-width="0.75"/>
-            <line x1="-0.3" y1="-2" x2="3.4" y2="-2.8" stroke="rgba(40,28,18,0.95)" stroke-width="0.95"/>
+          <!-- Two distant kids playing catch on the outfield — minimal,
+               atmospheric. No live game, no crowd. -->
+          <g transform="translate(90, 394)">
+            <circle cx="0" cy="-2" r="0.55" fill="rgba(40,28,18,0.78)"/>
+            <line x1="0" y1="-1.6" x2="0" y2="-0.1" stroke="rgba(40,28,18,0.78)" stroke-width="0.5"/>
           </g>
-          <!-- Catcher -->
-          <g transform="translate(130, 414)">
-            <circle cx="0" cy="-1.6" r="0.75" fill="rgba(40,28,18,0.9)"/>
-            <path d="M -1,-1.3 L 1,-1.3 L 1.3,0.5 L -1.3,0.5 Z" fill="rgba(40,28,18,0.9)"/>
+          <g transform="translate(170, 396)">
+            <circle cx="0" cy="-2" r="0.55" fill="rgba(40,28,18,0.78)"/>
+            <line x1="0" y1="-1.6" x2="0" y2="-0.1" stroke="rgba(40,28,18,0.78)" stroke-width="0.5"/>
           </g>
-          <!-- Pitcher -->
-          <g transform="translate(130, 398)">
-            <circle cx="0" cy="-2.7" r="0.8" fill="rgba(40,28,18,0.95)"/>
-            <line x1="0" y1="-2.2" x2="0.2" y2="0.2" stroke="rgba(40,28,18,0.95)" stroke-width="0.72"/>
-            <line x1="0.2" y1="-1.5" x2="1.8" y2="-2.5" stroke="rgba(40,28,18,0.95)" stroke-width="0.6"/>
-          </g>
-          <!-- Infielders -->
-          <g transform="translate(160, 400)"><circle cx="0" cy="-2.4" r="0.7" fill="rgba(40,28,18,0.9)"/><line x1="0" y1="-2" x2="0" y2="0.3" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/></g>
-          <g transform="translate(145, 388)"><circle cx="0" cy="-2.4" r="0.7" fill="rgba(40,28,18,0.9)"/><line x1="0" y1="-2" x2="0" y2="0.3" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/></g>
-          <g transform="translate(115, 388)"><circle cx="0" cy="-2.4" r="0.7" fill="rgba(40,28,18,0.9)"/><line x1="0" y1="-2" x2="0" y2="0.3" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/></g>
-          <g transform="translate(100, 400)"><circle cx="0" cy="-2.4" r="0.7" fill="rgba(40,28,18,0.9)"/><line x1="0" y1="-2" x2="0" y2="0.3" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/></g>
-          <!-- Outfielders -->
-          <g transform="translate(80, 378)"><circle cx="0" cy="-2" r="0.6" fill="rgba(40,28,18,0.85)"/><line x1="0" y1="-1.6" x2="0" y2="-0.1" stroke="rgba(40,28,18,0.85)" stroke-width="0.55"/></g>
-          <g transform="translate(130, 376)"><circle cx="0" cy="-2" r="0.6" fill="rgba(40,28,18,0.85)"/><line x1="0" y1="-1.6" x2="0" y2="-0.1" stroke="rgba(40,28,18,0.85)" stroke-width="0.55"/></g>
-          <g transform="translate(180, 378)"><circle cx="0" cy="-2" r="0.6" fill="rgba(40,28,18,0.85)"/><line x1="0" y1="-1.6" x2="0" y2="-0.1" stroke="rgba(40,28,18,0.85)" stroke-width="0.55"/></g>
-          <!-- Baseball in flight (pitched) -->
-          <circle cx="132" cy="402" r="0.55" fill="rgba(255,250,235,0.98)"/>
+          <!-- Tiny baseball arcing between them -->
+          <circle cx="130" cy="388" r="0.38" fill="rgba(255,250,235,0.85)"/>
 
-          <!-- Bleacher on first-base foul line (near side) with 3 spectators -->
-          <rect x="32" y="414" width="26" height="10" fill="rgba(100,78,56,0.65)" stroke="rgba(201,168,76,0.7)" stroke-width="0.45"/>
-          <line x1="32" y1="418" x2="58" y2="418" stroke="rgba(201,168,76,0.48)" stroke-width="0.3"/>
-          <line x1="32" y1="421" x2="58" y2="421" stroke="rgba(201,168,76,0.48)" stroke-width="0.3"/>
-          <circle cx="38" cy="413" r="0.7" fill="rgba(40,28,18,0.88)"/>
-          <circle cx="45" cy="413" r="0.7" fill="rgba(40,28,18,0.88)"/>
-          <circle cx="52" cy="413" r="0.7" fill="rgba(40,28,18,0.88)"/>
-
-          <!-- === BATTING PRACTICE CAGE (to the lower-left of main field) === -->
-          <!-- Cage frame -->
-          <path d="M 18,418 L 18,402 L 34,402 L 34,418" fill="none" stroke="rgba(201,168,76,0.72)" stroke-width="0.45"/>
-          <line x1="18" y1="402" x2="34" y2="402" stroke="rgba(201,168,76,0.72)" stroke-width="0.5"/>
-          <!-- Mesh hatching -->
-          <line x1="18" y1="406" x2="34" y2="406" stroke="rgba(201,168,76,0.25)" stroke-width="0.22"/>
-          <line x1="18" y1="410" x2="34" y2="410" stroke="rgba(201,168,76,0.25)" stroke-width="0.22"/>
-          <line x1="18" y1="414" x2="34" y2="414" stroke="rgba(201,168,76,0.25)" stroke-width="0.22"/>
-          <line x1="22" y1="402" x2="22" y2="418" stroke="rgba(201,168,76,0.22)" stroke-width="0.22"/>
-          <line x1="26" y1="402" x2="26" y2="418" stroke="rgba(201,168,76,0.22)" stroke-width="0.22"/>
-          <line x1="30" y1="402" x2="30" y2="418" stroke="rgba(201,168,76,0.22)" stroke-width="0.22"/>
-          <!-- Batter in cage -->
-          <g transform="translate(26, 416)">
-            <circle cx="0" cy="-3" r="0.75" fill="rgba(40,28,18,0.92)"/>
-            <line x1="0" y1="-2.5" x2="0" y2="0.2" stroke="rgba(40,28,18,0.92)" stroke-width="0.7"/>
-            <line x1="0" y1="-2" x2="2.5" y2="-1.8" stroke="rgba(40,28,18,0.92)" stroke-width="0.8"/>
-          </g>
-
-          <!-- === BASKETBALL HALF-COURT (right side of park) === -->
-          <g transform="translate(260, 402)">
-            <!-- Court surface -->
-            <path d="M -22,16 L -18,-10 L 22,-10 L 26,16 Z" fill="rgba(60,52,40,0.8)" stroke="rgba(201,168,76,0.6)" stroke-width="0.5"/>
-            <!-- Free-throw key + arc -->
-            <path d="M -6,-10 L 6,-10 L 5,-4 L -5,-4 Z" fill="rgba(100,88,64,0.5)" stroke="rgba(245,235,210,0.62)" stroke-width="0.38"/>
-            <path d="M -5,-4 Q 0,0 5,-4" fill="none" stroke="rgba(245,235,210,0.62)" stroke-width="0.38"/>
-            <!-- 3-point line -->
-            <path d="M -18,-10 Q 0,8 18,-10" fill="none" stroke="rgba(245,235,210,0.55)" stroke-width="0.38"/>
-            <!-- Backboard + rim -->
-            <rect x="-5" y="-14" width="10" height="2" fill="rgba(245,235,210,0.88)" stroke="rgba(40,28,18,0.7)" stroke-width="0.35"/>
-            <rect x="-1.5" y="-14.8" width="3" height="1" fill="rgba(40,28,18,0.88)"/>
-            <ellipse cx="0" cy="-10.5" rx="2.8" ry="0.8" fill="none" stroke="rgba(220,80,40,0.92)" stroke-width="0.5"/>
-            <line x1="0" y1="-14" x2="0" y2="-10" stroke="rgba(60,48,36,0.9)" stroke-width="0.55"/>
-            <!-- Shooter (arms raised, ball in flight) -->
-            <g transform="translate(0, -4)">
-              <circle cx="0" cy="-2.5" r="0.8" fill="rgba(40,28,18,0.94)"/>
-              <line x1="0" y1="-2" x2="0" y2="1" stroke="rgba(40,28,18,0.94)" stroke-width="0.65"/>
-              <line x1="0" y1="-1" x2="1.6" y2="-3.2" stroke="rgba(40,28,18,0.94)" stroke-width="0.6"/>
-              <line x1="0" y1="-1" x2="-1.2" y2="-3" stroke="rgba(40,28,18,0.94)" stroke-width="0.55"/>
-            </g>
-            <!-- Basketball in flight -->
-            <circle cx="0.8" cy="-7" r="0.65" fill="rgba(220,120,50,0.95)" stroke="rgba(40,28,18,0.7)" stroke-width="0.2"/>
-            <!-- Defender -->
-            <g transform="translate(6, 2)">
-              <circle cx="0" cy="-2.5" r="0.72" fill="rgba(40,28,18,0.9)"/>
-              <line x1="0" y1="-2" x2="0" y2="1" stroke="rgba(40,28,18,0.9)" stroke-width="0.6"/>
-              <line x1="0" y1="-1" x2="-1.8" y2="-2.2" stroke="rgba(40,28,18,0.9)" stroke-width="0.5"/>
-              <line x1="0" y1="-1" x2="1.8" y2="-2.2" stroke="rgba(40,28,18,0.9)" stroke-width="0.5"/>
-            </g>
-            <!-- Kid watching -->
-            <g transform="translate(-15, 8)">
-              <circle cx="0" cy="-2" r="0.5" fill="rgba(40,28,18,0.85)"/>
-              <line x1="0" y1="-1.6" x2="0" y2="0.3" stroke="rgba(40,28,18,0.85)" stroke-width="0.5"/>
-            </g>
-          </g>
+          <!-- Empty bleacher on first-base foul line (quiet park feel) -->
+          <rect x="32" y="414" width="26" height="10" fill="rgba(100,78,56,0.48)" stroke="rgba(201,168,76,0.55)" stroke-width="0.4"/>
+          <line x1="32" y1="418" x2="58" y2="418" stroke="rgba(201,168,76,0.38)" stroke-width="0.28"/>
+          <line x1="32" y1="421" x2="58" y2="421" stroke="rgba(201,168,76,0.38)" stroke-width="0.28"/>
 
           <!-- === TREES along perimeter === -->
           <g>
@@ -705,7 +715,15 @@
           </g>
         </g>
 
-        <g class="vine-monarchs-stadium scene-ghost-building" aria-labelledby="vine-monarchs-title" style="display:none">
+        <!-- v23: Municipal Stadium ghost — MOCK POSITION for Brian review.
+             Repositioned to the upper-left sky over Parade Park so the
+             ghost of the historical Monarchs ballpark appears "above" the
+             contemporary park, reading as a memory of what the area
+             carried before. Rendered at mock-opacity 0.55 (normally
+             .scene-ghost-building opacity is 0 until the toggle fires).
+             When Brian approves position, remove inline opacity and wire
+             the toggle UI in a follow-up pass. -->
+        <g class="vine-monarchs-stadium scene-ghost-building" aria-labelledby="vine-monarchs-title" transform="translate(64, 51) scale(0.7)" style="opacity: 0.55;">
           <title id="vine-monarchs-title">Kansas City Monarchs at Municipal Stadium — 22nd &amp; Brooklyn, demolished 1976</title>
           <a href="../history/kc-monarchs.html">
             <!-- Grandstand roof + body (arched roofline, light silhouette opacity) -->
@@ -726,7 +744,7 @@
             <line class="vine-monarchs-bleacher" x1="82" y1="286" x2="218" y2="286"/>
             <line class="vine-monarchs-bleacher" x1="84" y1="292" x2="216" y2="292"/>
             <line class="vine-monarchs-bleacher" x1="86" y1="298" x2="214" y2="298"/>
-            <!-- Ghost-state label (hidden by default; fades in when ghost toggle on) -->
+            <!-- Ghost-state label -->
             <text class="vine-monarchs-ghost-label" x="150" y="312" text-anchor="middle">Municipal Stadium · demolished 1976</text>
           </a>
         </g>
@@ -1801,6 +1819,16 @@
         <rect class="vine-building-window" x="1130" y="470" width="22" height="16"/>
         <rect class="vine-building-door" x="1158" y="468" width="10" height="18"/>
         <rect class="vine-gem-canopy" x="1114" y="484" width="14" height="3"/>
+
+        <!-- v23: Painted "KANSAS CITY MONARCHS" faded ghost-sign on the
+             upper brick wall. Period-accurate painted advertisement. Ties
+             baseball permanently into the built fabric alongside the
+             Negro Leagues Museum + the Municipal Stadium ghost. -->
+        <g class="vine-monarchs-mural" aria-hidden="true">
+          <text x="1130" y="362" text-anchor="middle" font-family="Playfair Display, serif" font-size="3.2" font-weight="600" letter-spacing="1.5" fill="rgba(240,220,180,0.36)">KANSAS CITY</text>
+          <text x="1130" y="372" text-anchor="middle" font-family="Playfair Display, serif" font-size="7" font-weight="800" letter-spacing="0.55" fill="rgba(240,220,180,0.42)">MONARCHS</text>
+          <text x="1130" y="378" text-anchor="middle" font-family="Playfair Display, serif" font-size="2.4" font-style="italic" letter-spacing="0.8" fill="rgba(240,220,180,0.28)">BASEBALL CLUB</text>
+        </g>
       </g>
 
       <!-- Vine Street Brewing — v20 redesign per Brian's reference photo.

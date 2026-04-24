@@ -10880,3 +10880,40 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
     transition: none;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v23 — 18th & Vine background depth layer
+   Second residential row stepping up the bluff, east-side tall
+   silhouettes, moon, and distant train crawling the deep horizon.
+   ═══════════════════════════════════════════════════════════════════════ */
+.vine-horizon-building-far {
+  fill: rgba(40, 28, 18, 0.38);
+  stroke: rgba(201, 168, 76, 0.22);
+  stroke-width: 0.3;
+}
+.vine-horizon-tree-far {
+  fill: rgba(40, 60, 34, 0.42);
+  stroke: rgba(40, 60, 28, 0.35);
+  stroke-width: 0.25;
+}
+.vine-horizon-chimney {
+  stroke: rgba(201, 168, 76, 0.3);
+  stroke-width: 0.4;
+  stroke-linecap: round;
+}
+.vine-east-density-tall {
+  fill: rgba(40, 28, 18, 0.44);
+  stroke: rgba(201, 168, 76, 0.28);
+  stroke-width: 0.35;
+}
+.vine-distant-train-body {
+  animation: vine-distant-train-crawl 150s linear infinite;
+  opacity: 0.5;
+}
+@keyframes vine-distant-train-crawl {
+  0%   { transform: translateX(1700px); }
+  100% { transform: translateX(-280px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .vine-distant-train-body { animation: none; }
+}
