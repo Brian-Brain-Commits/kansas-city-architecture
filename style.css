@@ -9714,7 +9714,7 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
 
 /* ── v18d Blue Room (jazz club at 18th & Vine SE corner) ───────── */
 .vine-blue-room-body {
-  fill: rgba(132,74,44,0.22);        /* warm brick */
+  fill: rgba(132,74,44,0.62);        /* warm brick — v19 bumped from 0.22 so building reads in daytime */
   stroke: #C9A84C;
   stroke-width: 0.85;
   stroke-linejoin: round;
@@ -10012,3 +10012,181 @@ html:has(.page-toc) { scroll-padding-top: 108px; }
   filter: drop-shadow(0 0 2px rgba(240,70,50,0.95));
 }
 .vine-neon-halo-gem-green { pointer-events: none; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v19 — 18th & Vine District sign redesign (per Brian's reference photo)
+   5 evenly-spaced red pinstripe rules, light-blue VINE, big green clef as
+   "&", bold-serif "18" with TH superscript, no outer frame, chamfered
+   upper corners.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Panel: dark backer only (NO outer frame) */
+.vine-district-sign-panel {
+  fill: rgba(10,8,6,0.96);
+  stroke: none;
+}
+
+/* Five horizontal pinstripe rules — red neon tubes running behind letters */
+.vine-district-sign-rule {
+  stroke: rgba(200,52,31,0.85);
+  stroke-width: 1.3;
+  stroke-linecap: butt;
+  fill: none;
+}
+.vine-district-sign-rule-lit {
+  stroke: rgba(255,85,60,1);
+  stroke-width: 1.6;
+  stroke-linecap: butt;
+  fill: none;
+  filter: drop-shadow(0 0 3px rgba(240,60,40,0.95));
+}
+
+/* "18" — same sans-serif family as VINE (Josefin Sans 900) */
+.vine-district-sign-18th {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 32px;
+  fill: none;
+  stroke: rgba(200,52,31,0.9);
+  stroke-width: 1.4;
+  paint-order: stroke;
+  letter-spacing: 0.02em;
+}
+.vine-district-sign-18th-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 32px;
+  fill: rgba(255,85,60,1);
+  stroke: rgba(255,130,110,0.75);
+  stroke-width: 0.8;
+  paint-order: stroke;
+  letter-spacing: 0.02em;
+  filter: drop-shadow(0 0 4px rgba(240,60,40,0.98));
+}
+
+/* "TH" superscript — same Josefin Sans family, smaller */
+.vine-district-sign-18th-super {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 15px;
+  fill: none;
+  stroke: rgba(200,52,31,0.9);
+  stroke-width: 1;
+  paint-order: stroke;
+  letter-spacing: 0.02em;
+}
+.vine-district-sign-18th-super-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 15px;
+  fill: rgba(255,85,60,1);
+  stroke: rgba(255,130,110,0.75);
+  stroke-width: 0.55;
+  paint-order: stroke;
+  letter-spacing: 0.02em;
+  filter: drop-shadow(0 0 3px rgba(240,60,40,0.95));
+}
+
+/* Treble clef LARGE — acts as "&" between 18th and VINE.
+   Sized so its descender tail clears the top of the VINE letters below. */
+.vine-district-sign-clef {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  fill: none;
+  stroke: rgba(70,200,120,0.95);
+  stroke-width: 1.7;
+  paint-order: stroke;
+}
+.vine-district-sign-clef-lit {
+  font-family: 'Playfair Display', serif;
+  font-size: 56px;
+  fill: rgba(110,240,140,1);
+  stroke: rgba(160,255,180,0.8);
+  stroke-width: 0.8;
+  paint-order: stroke;
+  filter: drop-shadow(0 0 6px rgba(70,220,120,1));
+}
+
+/* VINE massive hollow neon — light-blue tube per reference photo */
+.vine-district-sign-vine {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 900;
+  font-size: 54px;
+  fill: none;
+  stroke: rgba(165,212,238,0.95);
+  stroke-width: 2.4;
+  paint-order: stroke;
+  letter-spacing: 0.02em;
+}
+.vine-district-sign-vine-lit {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 900;
+  font-size: 54px;
+  fill: rgba(225,242,255,1);
+  stroke: rgba(190,225,245,0.9);
+  stroke-width: 1.7;
+  paint-order: stroke;
+  letter-spacing: 0.02em;
+  filter: drop-shadow(0 0 8px rgba(130,200,245,1));
+}
+
+/* DISTRICT banner flanking red vertical bars */
+.vine-district-sign-flank-bar {
+  fill: rgba(200,52,31,0.9);
+}
+.vine-district-sign-flank-bar-lit {
+  fill: rgba(255,85,60,1);
+  filter: drop-shadow(0 0 2.5px rgba(240,60,40,0.95));
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   v19 — Receding-band quality pass (A.3)
+   MMF gable bracket + transom; Street Hotel cornice + roofline sign;
+   Gem Theater denticulation + Palladian flanking arches.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* MMF gable peak bracket — small pedimented ornament in the gable face */
+.vine-mmf-gable-bracket {
+  fill: rgba(132,74,44,0.78);
+  stroke: rgba(201,168,76,0.72);
+  stroke-width: 0.45;
+  stroke-linejoin: round;
+}
+/* MMF half-circle transom above the main 2nd-story window */
+.vine-mmf-transom {
+  fill: rgba(30,22,14,0.85);
+  stroke: rgba(201,168,76,0.7);
+  stroke-width: 0.5;
+}
+.vine-mmf-transom-sill {
+  stroke: rgba(201,168,76,0.72);
+  stroke-width: 0.5;
+  fill: none;
+}
+
+/* Street Hotel top-cornice accent (more prominent than brickline) */
+.vine-hotel-cornice {
+  stroke: rgba(201,168,76,0.72);
+  stroke-width: 0.9;
+  fill: none;
+}
+.vine-hotel-roofline-sign {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 700;
+  font-size: 4.5px;
+  letter-spacing: 0.18em;
+  fill: rgba(201,168,76,0.78);
+  text-transform: uppercase;
+  paint-order: stroke;
+}
+
+/* Gem Theater denticulation — small terra-cotta blocks along parapet */
+.vine-gem-dentil {
+  fill: rgba(232,216,172,0.78);
+  stroke: rgba(201,168,76,0.5);
+  stroke-width: 0.22;
+}

@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="18th & Vine — Look Up, Kansas City" />
   <meta name="twitter:description" content="18th & Vine — the historic heart of Kansas City's African American community, the birthplace of Kansas City jazz and blues, and a neighborhood in ongoing restoration." />
   <meta name="twitter:image" content="https://upload.wikimedia.org/wikipedia/commons/2/2b/18th_and_Vine_District_sign_and_building.jpg" />
-  <link rel="stylesheet" href="../style.css?v=18a" />
+  <link rel="stylesheet" href="../style.css?v=19a" />
 </head>
 <body>
 
@@ -132,8 +132,79 @@
          preserveAspectRatio="xMidYMid slice"
          xmlns="http://www.w3.org/2000/svg" role="img"
          aria-labelledby="vine-hero-title vine-hero-desc">
-      <title id="vine-hero-title">18th &amp; Vine — looking west across The Paseo into the jazz district, with the Charlie Parker Memorial bust at left, the iconic 18TH &amp; VINE DISTRICT neon sign on the main corner building ahead, the Paseo YMCA (where the Negro Leagues were founded in 1920) at right, and the line of jazz-era buildings receding west down 18th</title>
-      <desc id="vine-hero-desc">A perspective street view of Kansas City's historic jazz district, seen from east of The Paseo as you approach on 18th Street. In the foreground, The Paseo boulevard runs left-to-right with a central median. Across The Paseo, the district buildings rise: on the left, the Charlie Parker Memorial — a bronze head sculpture on a tall plinth. Center, the sign building whose east wall bears the iconic red-and-green 18TH &amp; VINE DISTRICT neon sign. Right, the 1914 Paseo YMCA with its castellated stone silhouette. Behind those, the line of Jazz Museum, Gem Theater, Mutual Musicians Foundation, Street Hotel, and Vine Street Brewery recedes west toward Arthur Bryant&apos;s at the vanishing point. The sky cycles dawn through night on a 40-second loop synced with the homepage.</desc>
+      <title id="vine-hero-title">18th &amp; Vine — looking east across The Paseo into the jazz district, with the Charlie Parker Memorial bust at left, the iconic 18TH &amp; VINE DISTRICT neon sign on the main corner building ahead, the Paseo YMCA (where the Negro Leagues were founded in 1920) at right, and the line of jazz-era buildings receding east down 18th</title>
+      <desc id="vine-hero-desc">A perspective street view of Kansas City's historic jazz district, seen from west of The Paseo looking east down 18th Street. In the foreground, The Paseo boulevard runs left-to-right with a central median and a corner signpost reading THE PASEO · 18TH. Across The Paseo, the district buildings rise: on the left (north side of 18th), the Charlie Parker Memorial — a bronze head sculpture on a tall plinth — plus the Jazz Museum, Blue Room at the Vine corner, and Negro Leagues Museum and Arthur Bryant's receding toward the horizon. Center, the sign building whose wall bears the iconic red-and-green 18TH &amp; VINE DISTRICT neon sign. Right (south side of 18th), the 1914 Paseo YMCA castle, Street Hotel, Vine Street Brewing, Mutual Musicians Foundation at the Vine corner, and Gem Theater receding east toward the vanishing point. The sky cycles dawn through night on a 40-second loop synced with the homepage.</desc>
+
+      <!-- ═══════════════════════════════════════════════════════════════════════
+           GEOGRAPHIC BLOCK-OUT (v19 — canonical layout reference)
+           ─────────────────────────────────────────────────────────────────────
+           CARDINAL ORIENTATION (corrected v19):
+             Viewer stands WEST of the district, looking EAST down 18th Street.
+             Horizon (VP) is EAST. The Paseo is immediately in FG (behind viewer
+             would be further west, out of frame). Vine Street is mid-distance
+             east. Buildings past Vine continue east toward the horizon.
+
+             LEFT of view  = NORTH side of 18th (viewer's left when facing east)
+             RIGHT of view = SOUTH side of 18th
+
+           Key geometry:
+             viewBox 0 0 1600 600 · VP ~810,340 · Ground y=560 · Paseo y=492-600
+             Vine cross-street pavement: horizontal band at y=446-462, x=648-852
+
+           LEFT SIDE (NORTH of 18th), near-to-far order (FG → horizon):
+             x=138-192   Charlie Parker Memorial bust on brick plinth (FG-left)
+             x=260-420   SIGN BUILDING with 18TH & VINE DISTRICT neon
+                          (at NW corner of 18th & Paseo — "left" in the current
+                           render but real-life geography has this at a south
+                           corner; Brian's artistic composition puts it here.)
+             x=490-550   Jazz Museum (pre-Vine block, between Paseo and Vine)
+             x=608-690   BLUE ROOM at 18th & Vine NW/NE corner (with vertical
+                          BLUE neon + piano keys + chase bulbs)
+             ── cross Vine here ──
+             x=550-608   Negro Leagues Baseball Museum  *v19b target:
+                          needs to move EAST-of-Vine, deeper/smaller past the
+                          intersection, between Blue Room and Bryant's*
+             x=366-432   Arthur Bryant's silhouette  *v19b target:
+                          move to DEEPEST north-side position near VP
+                          (currently drawn as back-row silhouette, needs to
+                           line up along receding 18th past NLB)*
+
+           RIGHT SIDE (SOUTH of 18th), near-to-far order (FG → horizon):
+             x=1180-1380 Paseo YMCA — 1914 castle, at south corner of Paseo
+             x=1080-1180 Street Hotel (v19 — was at x=1000-1080, swapped to here
+                          per Brian's layout: Hotel lines the Paseo alongside YMCA)
+             x=1000-1080 Vine Street Brewing (v19 — was at x=1080-1180, swapped
+                          to here: Brewery is closer to Vine between Paseo & Vine)
+             x=804-876   Mutual Musicians Foundation — should be AT Vine corner
+                          *v19b target: shift slightly east to x=~890-960 so its
+                          west wall lines up with Vine's east edge (~x=852)*
+             x=886-950   Gem Theater — green neon blade sign  *v19b target:
+                          move DEEPER/EAST past Vine to x=~820-880, smaller.
+                          Currently in middle-distance but needs to read as
+                          "past the intersection, receding toward horizon"*
+
+           DEEP BACKGROUND near VP (~810,340):
+             13 small residential house silhouettes + 3 tiny trees
+             Distant water-tower silhouette (x=1240-1280, y=290-360)
+             Church spire silhouette (x=680-720, y=280-360)
+
+           DEPTH TIER POLICY (v19):
+             y=400-560 foreground = full articulation (YMCA, Sign Bldg, Hotel,
+                                     Brewery, Blue Room, Parker)
+             y=300-400 middle     = cornice + window grid + one distinctive feature
+                                     (v19-upgraded: MMF, Street Hotel, Gem Theater)
+             y=200-300 background = silhouette + simple cornice + window grid only
+             y<200    far back    = pure silhouettes (+ occasional tree/chimney)
+
+           *v19b work* — the marked targets above are pending repositioning to
+           complete the "buildings lining up east of Vine toward the horizon"
+           view Brian called out. Cardinals corrected v19; depth moves are
+           coordinate-heavy and best iterated with visual review.
+
+           When moving or adding buildings, UPDATE THIS BLOCK — it's the canonical
+           geography reference. Future scenes (West Bottoms v20, etc.) should
+           carry the same comment style at their SVG head.
+           ═══════════════════════════════════════════════════════════════════════ -->
 
       <!-- ═══════ LAYER 1: Defs ═══════ -->
       <defs>
@@ -439,6 +510,22 @@
         </g>
       </g>
 
+      <!-- v19: FG street-corner signpost at 18th & Paseo (south corner, FG scale).
+           Signifies "The Paseo" — the horizontal cross-street immediately in
+           front of the viewer, so the scene's geography reads clearly. -->
+      <g class="vine-paseo-streetsign" aria-hidden="true">
+        <line x1="806" y1="560" x2="806" y2="478" stroke="rgba(201,168,76,0.92)" stroke-width="1.8"/>
+        <rect x="802" y="558" width="8" height="6" fill="rgba(10,8,6,0.88)" stroke="rgba(201,168,76,0.92)" stroke-width="0.6"/>
+        <!-- THE PASEO blade (parallel to the Paseo, pointing west along its length) -->
+        <rect x="762" y="482" width="52" height="12" fill="rgba(30,18,10,0.9)" stroke="rgba(232,172,86,0.95)" stroke-width="0.7"/>
+        <text x="788" y="491" text-anchor="middle" font-family="Josefin Sans, sans-serif" font-weight="700" font-size="7.5" letter-spacing="0.14em" fill="rgba(232,172,86,0.95)">THE PASEO</text>
+        <!-- 18TH blade below, perpendicular to Paseo -->
+        <rect x="790" y="498" width="36" height="10" fill="rgba(30,18,10,0.9)" stroke="rgba(232,172,86,0.95)" stroke-width="0.6"/>
+        <text x="808" y="506" text-anchor="middle" font-family="Josefin Sans, sans-serif" font-weight="700" font-size="6.5" letter-spacing="0.12em" fill="rgba(232,172,86,0.95)">18TH</text>
+        <!-- Finial -->
+        <circle cx="806" cy="476" r="2.6" fill="rgba(232,172,86,0.95)" stroke="rgba(110,76,40,0.7)" stroke-width="0.5"/>
+      </g>
+
       <!-- Street-corner signpost at the 18th & Vine intersection (NW corner).
            Smaller than a foreground signpost since it's mid-distance. Same
            grammar as the early-v18 street sign: vertical pole + 18TH blade
@@ -706,24 +793,46 @@
       <g class="vine-district-sign" aria-labelledby="vine-district-sign-title">
         <title id="vine-district-sign-title">18th &amp; Vine District — the iconic neon sign</title>
 
-        <!-- Main backer panel (dark) -->
-        <rect class="vine-district-sign-panel" x="262" y="250" width="156" height="142"/>
-        <rect class="vine-district-sign-inner-border" x="266" y="254" width="148" height="134"/>
+        <!-- v19 redesign — panel is dark backer with chamfered upper corners and
+             NO outer frame. Five evenly-spaced red-neon pinstripe rules run
+             behind all text; letters are hollow-stroke so the rules show
+             through letter openings for authentic layered-neon effect.
+             "18" is bold serif (matches VINE's font, NOT italic) with "TH"
+             superscript; the LARGE green treble clef acts as the ampersand
+             between "18th" and VINE. VINE is massive light-blue hollow neon.
+             DISTRICT banner extends past panel sides with flanking red bars.
+             World footprint x=260-420, y=252-392; internal layout derived
+             from a normalized 200×160u system (scale 0.80x × 0.875y). -->
 
-        <!-- Top row: "18th &" cursive, TOP-LEFT, red neon -->
-        <text class="vine-district-sign-18th" x="284" y="290" text-anchor="start">18th &amp;</text>
+        <!-- Panel: chamfered upper corners, no frame -->
+        <path class="vine-district-sign-panel" d="M 268,252 L 412,252 L 420,260 L 420,392 L 260,392 L 260,260 Z"/>
 
-        <!-- Top-right: green treble clef (musical flourish) -->
-        <text class="vine-district-sign-clef" x="395" y="298" text-anchor="end">&#119070;</text>
+        <!-- Five red-neon pinstripe rules, evenly spaced 23u apart in world-y.
+             Rule #1 (y=264) at panel top, rule #5 (y=355) immediately above DISTRICT. -->
+        <line class="vine-district-sign-rule" x1="268" y1="264" x2="412" y2="264"/>
+        <line class="vine-district-sign-rule" x1="268" y1="287" x2="412" y2="287"/>
+        <line class="vine-district-sign-rule" x1="268" y1="310" x2="412" y2="310"/>
+        <line class="vine-district-sign-rule" x1="268" y1="333" x2="412" y2="333"/>
+        <line class="vine-district-sign-rule" x1="268" y1="355" x2="412" y2="355"/>
 
-        <!-- Massive "VINE" in bold block letters, center of sign -->
-        <text class="vine-district-sign-vine" x="340" y="362" text-anchor="middle">VINE</text>
+        <!-- "18" in same sans-serif family as VINE + "TH" superscript to upper-right -->
+        <text class="vine-district-sign-18th" x="276" y="298" text-anchor="start">18</text>
+        <text class="vine-district-sign-18th-super" x="309" y="283" text-anchor="start">th</text>
 
-        <!-- DISTRICT banner (extends past panel edges, wider than content above) -->
-        <rect class="vine-district-sign-strip" x="250" y="388" width="180" height="24"/>
-        <line class="vine-district-sign-strip-border" x1="250" y1="388" x2="430" y2="388"/>
-        <line class="vine-district-sign-strip-border" x1="250" y1="412" x2="430" y2="412"/>
-        <text class="vine-district-sign-district" x="340" y="405" text-anchor="middle">DISTRICT</text>
+        <!-- LARGE green treble clef upper-right — acts as "&" between 18th and VINE.
+             Positioned so its descender clears the top of the VINE letters. -->
+        <text class="vine-district-sign-clef" x="392" y="288" text-anchor="end">&#119070;</text>
+
+        <!-- Massive "VINE" centered, hollow light-blue neon tube -->
+        <text class="vine-district-sign-vine" x="340" y="350" text-anchor="middle">VINE</text>
+
+        <!-- DISTRICT banner (wider than panel) + flanking red neon bars + gold text -->
+        <rect class="vine-district-sign-strip" x="250" y="364" width="180" height="18"/>
+        <line class="vine-district-sign-strip-border" x1="250" y1="364" x2="430" y2="364"/>
+        <line class="vine-district-sign-strip-border" x1="250" y1="382" x2="430" y2="382"/>
+        <rect class="vine-district-sign-flank-bar" x="293" y="366" width="3" height="14"/>
+        <rect class="vine-district-sign-flank-bar" x="384" y="366" width="3" height="14"/>
+        <text class="vine-district-sign-district" x="340" y="377" text-anchor="middle">DISTRICT</text>
       </g>
 
       <!-- ═══════ LAYER 9: Charlie Parker Memorial (mid-ground across Paseo) ═══════
@@ -899,15 +1008,17 @@
         <text class="vine-ymca-lintel-text" x="1279" y="451" text-anchor="middle">PASEO YMCA</text>
       </g>
 
-      <!-- Vine Street Brewing (front-right, per Brian's direction).
-           Warm brick commercial facade, 3-story. Iconic VINE ST BREWING
-           sign strip on the facade. -->
-      <g class="vine-brewery" aria-hidden="true">
+      <!-- Street Hotel (v19 swap — now the front-right building next to YMCA,
+           lining The Paseo per Brian's geographic correction). 3-story brick. -->
+      <g class="vine-hotel" aria-hidden="true">
         <path class="vine-building-body" d="M 1080,488 L 1080,362 L 1180,350 L 1180,492 Z"/>
+        <line class="vine-hotel-cornice" x1="1080" y1="356" x2="1180" y2="344"/>
         <line class="vine-building-accent" x1="1080" y1="370" x2="1180" y2="358"/>
         <line class="vine-building-brickline" x1="1080" y1="402" x2="1180" y2="392"/>
         <line class="vine-building-brickline" x1="1080" y1="434" x2="1180" y2="424"/>
         <line class="vine-building-brickline" x1="1080" y1="466" x2="1180" y2="458"/>
+        <!-- v19: roofline STREET HOTEL sign at top of building -->
+        <text class="vine-hotel-roofline-sign" x="1130" y="353" text-anchor="middle">STREET HOTEL</text>
         <!-- 3-story window grid -->
         <rect class="vine-building-window" x="1088" y="378" width="14" height="18"/>
         <rect class="vine-building-window" x="1112" y="376" width="14" height="18"/>
@@ -921,46 +1032,51 @@
         <rect class="vine-building-window" x="1112" y="440" width="14" height="18"/>
         <rect class="vine-building-window" x="1136" y="438" width="14" height="18"/>
         <rect class="vine-building-window" x="1158" y="436" width="14" height="18"/>
-        <!-- Storefronts on ground (taproom) -->
+        <!-- Ground storefronts + entry -->
         <rect class="vine-building-window" x="1088" y="470" width="22" height="16"/>
         <rect class="vine-building-door" x="1116" y="468" width="10" height="18"/>
         <rect class="vine-building-window" x="1130" y="470" width="22" height="16"/>
         <rect class="vine-building-door" x="1158" y="468" width="10" height="18"/>
-        <!-- Vine Street Brewing sign (between 2nd and 3rd floor) -->
-        <rect class="vine-brewery-sign" x="1092" y="396" width="82" height="8"/>
-        <text class="vine-brewery-sign-text" x="1133" y="402" text-anchor="middle">VINE ST BREWING</text>
+        <rect class="vine-gem-canopy" x="1114" y="484" width="14" height="3"/>
       </g>
 
-      <!-- Street Hotel (mid-right, 4-story brick) -->
-      <g class="vine-hotel" aria-hidden="true">
+      <!-- Vine Street Brewing (v19 swap — now west of Street Hotel, closer to
+           the Vine cross-street per Brian's geographic correction). 4-story brick. -->
+      <g class="vine-brewery" aria-hidden="true">
         <path class="vine-building-body" d="M 1000,486 L 1000,352 L 1080,362 L 1080,488 Z"/>
         <line class="vine-building-accent" x1="1000" y1="360" x2="1080" y2="370"/>
         <line class="vine-building-accent" x1="1000" y1="480" x2="1080" y2="480"/>
         <line class="vine-building-brickline" x1="1000" y1="384" x2="1080" y2="394"/>
         <line class="vine-building-brickline" x1="1000" y1="412" x2="1080" y2="420"/>
         <line class="vine-building-brickline" x1="1000" y1="442" x2="1080" y2="450"/>
-        <!-- 4-row window grid -->
-        <rect class="vine-building-window" x="1006" y="366" width="10" height="14"/>
-        <rect class="vine-building-window" x="1022" y="368" width="10" height="14"/>
-        <rect class="vine-building-window" x="1040" y="370" width="10" height="14"/>
-        <rect class="vine-building-window" x="1058" y="372" width="10" height="14"/>
-        <rect class="vine-building-window" x="1006" y="392" width="10" height="16"/>
-        <rect class="vine-building-window" x="1022" y="394" width="10" height="16"/>
-        <rect class="vine-building-window" x="1040" y="396" width="10" height="16"/>
-        <rect class="vine-building-window" x="1058" y="398" width="10" height="16"/>
-        <rect class="vine-building-window" x="1006" y="420" width="10" height="16"/>
-        <rect class="vine-building-window" x="1022" y="422" width="10" height="16"/>
-        <rect class="vine-building-window" x="1040" y="424" width="10" height="16"/>
-        <rect class="vine-building-window" x="1058" y="426" width="10" height="16"/>
-        <rect class="vine-building-window" x="1006" y="450" width="10" height="16"/>
-        <rect class="vine-building-window" x="1022" y="452" width="10" height="16"/>
-        <rect class="vine-building-window" x="1040" y="454" width="10" height="16"/>
-        <rect class="vine-building-window" x="1058" y="456" width="10" height="16"/>
-        <!-- Entry canopy + sign -->
+        <!-- VINE ST BREWING facade sign between 2nd and 3rd floor -->
+        <rect class="vine-brewery-sign" x="1008" y="410" width="64" height="8"/>
+        <text class="vine-brewery-sign-text" x="1040" y="416" text-anchor="middle">VINE ST BREWING</text>
+        <!-- 4-row × 5-col window grid -->
+        <rect class="vine-building-window" x="1005" y="366" width="9" height="14"/>
+        <rect class="vine-building-window" x="1020" y="367" width="9" height="14"/>
+        <rect class="vine-building-window" x="1035" y="369" width="9" height="14"/>
+        <rect class="vine-building-window" x="1050" y="370" width="9" height="14"/>
+        <rect class="vine-building-window" x="1065" y="372" width="9" height="14"/>
+        <rect class="vine-building-window" x="1005" y="392" width="9" height="16"/>
+        <rect class="vine-building-window" x="1020" y="393" width="9" height="16"/>
+        <rect class="vine-building-window" x="1035" y="395" width="9" height="16"/>
+        <rect class="vine-building-window" x="1050" y="396" width="9" height="16"/>
+        <rect class="vine-building-window" x="1065" y="398" width="9" height="16"/>
+        <rect class="vine-building-window" x="1005" y="420" width="9" height="16"/>
+        <rect class="vine-building-window" x="1020" y="421" width="9" height="16"/>
+        <rect class="vine-building-window" x="1035" y="423" width="9" height="16"/>
+        <rect class="vine-building-window" x="1050" y="424" width="9" height="16"/>
+        <rect class="vine-building-window" x="1065" y="426" width="9" height="16"/>
+        <rect class="vine-building-window" x="1005" y="450" width="9" height="16"/>
+        <rect class="vine-building-window" x="1020" y="451" width="9" height="16"/>
+        <rect class="vine-building-window" x="1035" y="453" width="9" height="16"/>
+        <rect class="vine-building-window" x="1050" y="454" width="9" height="16"/>
+        <rect class="vine-building-window" x="1065" y="456" width="9" height="16"/>
+        <!-- Entry canopy + doors -->
         <rect class="vine-gem-canopy" x="1024" y="482" width="26" height="4"/>
         <rect class="vine-building-door" x="1030" y="470" width="7" height="16"/>
         <rect class="vine-building-door" x="1040" y="470" width="7" height="16"/>
-        <text class="vine-mmf-sign" x="1037" y="476" text-anchor="middle">STREET HOTEL</text>
       </g>
 
       <!-- Mutual Musicians Foundation (north side, between Hotel and Gem —
@@ -972,12 +1088,19 @@
         <!-- Gable roof ridge -->
         <line class="vine-building-accent" x1="804" y1="438" x2="840" y2="422"/>
         <line class="vine-building-accent" x1="840" y1="422" x2="876" y2="434"/>
+        <!-- v19: gable peak bracket (small pedimented ornament under the ridge) -->
+        <path class="vine-mmf-gable-bracket" d="M 834,428 L 846,428 L 843,434 L 837,434 Z"/>
+        <line class="vine-building-accent" x1="834" y1="431" x2="846" y2="431"/>
+        <line class="vine-building-accent" x1="840" y1="424" x2="840" y2="434"/>
         <!-- Brick courses -->
         <line class="vine-building-brickline" x1="804" y1="454" x2="876" y2="452"/>
         <line class="vine-building-brickline" x1="804" y1="470" x2="876" y2="468"/>
-        <!-- Gable round-arched upper window -->
-        <path class="vine-building-window" d="M 830,436 L 830,446 L 850,446 L 850,436 Q 840,428 830,436 Z"/>
-        <line class="vine-building-accent" x1="840" y1="430" x2="840" y2="446"/>
+        <!-- v19: distinctive second-floor window — rectangular lower pane +
+             proper half-circle transom above, with center mullion -->
+        <rect class="vine-building-window" x="830" y="438" width="20" height="10"/>
+        <path class="vine-mmf-transom" d="M 830,438 Q 840,428 850,438 Z"/>
+        <line class="vine-mmf-transom-sill" x1="830" y1="438" x2="850" y2="438"/>
+        <line class="vine-building-accent" x1="840" y1="428" x2="840" y2="448"/>
         <!-- Front porch roof -->
         <rect class="vine-mmf-porch-roof" x="814" y="472" width="50" height="2"/>
         <line class="vine-mmf-porch-column" x1="818" y1="474" x2="818" y2="485"/>
@@ -1008,12 +1131,30 @@
         <line class="vine-building-accent" x1="886" y1="436" x2="950" y2="436"/>
         <line class="vine-building-accent" x1="890" y1="429" x2="946" y2="429"/>
         <line class="vine-building-accent" x1="892" y1="426" x2="944" y2="426"/>
+        <!-- v19: terra-cotta denticulation along the upper parapet cornice -->
+        <g class="vine-gem-dentils">
+          <rect class="vine-gem-dentil" x="890" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="894" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="898" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="902" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="906" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="910" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="914" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="918" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="922" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="926" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="930" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="934" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="938" y="433" width="1.6" height="2.4"/>
+          <rect class="vine-gem-dentil" x="942" y="433" width="1.6" height="2.4"/>
+        </g>
         <!-- Central arched upper window (classical Palladian) with keystone -->
         <path class="vine-gem-arched-window" d="M 910,454 L 910,446 Q 918,438 926,446 L 926,454 Z"/>
         <path class="vine-gem-keystone" d="M 917,439 L 921,439 L 922,442 L 916,442 Z"/>
-        <!-- Flanking rectangular windows -->
-        <rect class="vine-building-window" x="890" y="446" width="10" height="10"/>
-        <rect class="vine-building-window" x="934" y="446" width="10" height="10"/>
+        <!-- v19: flanking windows upgraded from rectangular to half-round arched
+             (matches the central arch pattern for a proper 3-Palladian row) -->
+        <path class="vine-gem-arched-window" d="M 890,456 L 890,450 Q 895,444 900,450 L 900,456 Z"/>
+        <path class="vine-gem-arched-window" d="M 934,456 L 934,450 Q 939,444 944,450 L 944,456 Z"/>
         <!-- Ornament band above/below windows -->
         <line class="vine-building-accent" x1="890" y1="444" x2="946" y2="444"/>
         <line class="vine-building-accent" x1="890" y1="458" x2="946" y2="458"/>
@@ -1281,14 +1422,23 @@
         <rect class="vine-night-window-warm" x="268" y="446" width="28" height="28"/>
         <rect class="vine-night-window-warm" x="318" y="446" width="28" height="28"/>
 
-        <!-- 18TH & VINE DISTRICT neon at night — halo + bright overlays -->
-        <rect class="vine-district-sign-halo" x="230" y="234" width="220" height="196" fill="url(#vine-district-halo)"/>
-        <text class="vine-district-sign-18th-lit" x="284" y="290" text-anchor="start">18th &amp;</text>
-        <text class="vine-district-sign-clef-lit" x="395" y="298" text-anchor="end">&#119070;</text>
-        <circle cx="395" cy="294" r="20" fill="url(#vine-clef-halo)"/>
-        <text class="vine-district-sign-vine-lit" x="340" y="362" text-anchor="middle">VINE</text>
-        <rect class="vine-district-sign-strip-lit" x="250" y="388" width="180" height="24"/>
-        <text class="vine-district-sign-district-lit" x="340" y="405" text-anchor="middle">DISTRICT</text>
+        <!-- 18TH & VINE DISTRICT neon at night — halo + bright overlays
+             (matches v19 base-layer geometry — 5 rules, big clef, blue VINE) -->
+        <rect class="vine-district-sign-halo" x="230" y="240" width="220" height="160" fill="url(#vine-district-halo)"/>
+        <line class="vine-district-sign-rule-lit" x1="268" y1="264" x2="412" y2="264"/>
+        <line class="vine-district-sign-rule-lit" x1="268" y1="287" x2="412" y2="287"/>
+        <line class="vine-district-sign-rule-lit" x1="268" y1="310" x2="412" y2="310"/>
+        <line class="vine-district-sign-rule-lit" x1="268" y1="333" x2="412" y2="333"/>
+        <line class="vine-district-sign-rule-lit" x1="268" y1="355" x2="412" y2="355"/>
+        <text class="vine-district-sign-18th-lit" x="276" y="298" text-anchor="start">18</text>
+        <text class="vine-district-sign-18th-super-lit" x="309" y="283" text-anchor="start">th</text>
+        <circle cx="378" cy="270" r="30" fill="url(#vine-clef-halo)"/>
+        <text class="vine-district-sign-clef-lit" x="392" y="288" text-anchor="end">&#119070;</text>
+        <text class="vine-district-sign-vine-lit" x="340" y="350" text-anchor="middle">VINE</text>
+        <rect class="vine-district-sign-strip-lit" x="250" y="364" width="180" height="18"/>
+        <rect class="vine-district-sign-flank-bar-lit" x="293" y="366" width="3" height="14"/>
+        <rect class="vine-district-sign-flank-bar-lit" x="384" y="366" width="3" height="14"/>
+        <text class="vine-district-sign-district-lit" x="340" y="377" text-anchor="middle">DISTRICT</text>
 
         <!-- Commercial infill-south-a upper windows -->
         <rect class="vine-night-window-warm" x="264" y="428" width="10" height="10"/>
@@ -1388,7 +1538,7 @@
 
     </svg>
   </section>
-  <p class="vine-hero-caption">Looking west across The Paseo into Kansas City's jazz district. The 18TH &amp; VINE DISTRICT neon burning red and green on the corner building, the Charlie Parker Memorial head bronzed on its plinth at left, the Paseo YMCA castle at right where the Negro Leagues were founded in 1920 — and the line of jazz-era buildings receding down 18th beyond.</p>
+  <p class="vine-hero-caption">Looking east across The Paseo into Kansas City's jazz district. The 18TH &amp; VINE DISTRICT neon burning red and green on the corner building, the Charlie Parker Memorial head bronzed on its plinth at left, the Paseo YMCA castle at right where the Negro Leagues were founded in 1920 — and the line of jazz-era buildings receding down 18th toward the horizon beyond.</p>
 
   <main>
     <div class="detail-body">
